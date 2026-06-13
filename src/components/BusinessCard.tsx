@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Business } from "@/data/businesses";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 
 interface BusinessCardProps {
   business: Business;
@@ -13,14 +13,18 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
   return (
     <Link 
       href={`/ondernemers/${business.id}`}
-      className="group flex flex-col h-full"
+      className="group flex flex-col h-full perspective-1000"
     >
-      <div className="relative aspect-[4/5] sm:aspect-square bg-stone/20 rounded-[2rem] overflow-hidden shadow-sm group-hover:shadow-2xl transition-all duration-500 border border-stone/10">
+      <motion.div 
+        whileHover={{ rotateY: 5, rotateX: -5, scale: 1.02 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="relative aspect-[4/5] bg-stone/20 rounded-[2.5rem] overflow-hidden shadow-sm group-hover:shadow-[0_40px_80px_-20px_rgba(24,61,43,0.3)] transition-all duration-500 border border-white/40"
+      >
         {business.imageUrl ? (
           <img 
             src={business.imageUrl} 
             alt={business.name}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 ease-out"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-stone/40 font-serif italic p-6 text-center">
@@ -28,40 +32,44 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
           </div>
         )}
         
-        {/* Overlay on hover */}
-        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        {/* Mirror/Glass Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/10 opacity-60 group-hover:opacity-20 transition-opacity duration-700" />
         
         {/* Floating elements */}
-        <div className="absolute top-6 left-6 right-6 flex justify-between items-start">
-          <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md text-deep-green text-[10px] font-bold rounded-full uppercase tracking-widest shadow-lg border border-white/20">
-            {business.category}
-          </span>
-          <div className="w-10 h-10 rounded-full bg-white opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-500 flex items-center justify-center text-deep-green shadow-xl">
-            <ArrowUpRight className="w-5 h-5" />
+        <div className="absolute inset-x-6 top-6 flex justify-between items-start">
+          <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white">
+              {business.category}
+            </span>
           </div>
-        </div>
-      </div>
-      
-      <div className="mt-6 px-2">
-        <div className="flex justify-between items-start gap-2 mb-2">
-          <h3 className="text-2xl font-serif font-bold text-deep-green leading-tight group-hover:text-amber transition-colors duration-300">
-            {business.name}
-          </h3>
           {business.featured && (
-            <span className="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-amber shadow-[0_0_8px_rgba(201,130,43,0.6)]" />
+            <div className="w-10 h-10 rounded-full bg-amber/90 backdrop-blur-md flex items-center justify-center text-white shadow-xl">
+              <Star className="w-4 h-4 fill-current" />
+            </div>
           )}
         </div>
-        <p className="text-sm text-warm-brown/60 font-bold mb-4 tracking-wide uppercase">
-          {business.address.replace(', Amersfoort', '')}
-        </p>
-        <p className="text-base text-foreground/75 line-clamp-2 mb-6 font-medium leading-relaxed">
-          {business.shortDescription}
-        </p>
-        
-        <div className="flex items-center gap-3 text-sm font-bold text-deep-green/40 group-hover:text-amber transition-colors mt-auto">
-          <span className="w-8 h-px bg-current opacity-20 group-hover:w-12 transition-all duration-500" />
-          ONTDEK HET VERHAAL
+
+        {/* Bottom Glass Card - Reveals on Hover */}
+        <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/80 to-transparent translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+          <div className="flex justify-between items-end">
+            <div className="max-w-[80%]">
+              <p className="text-[10px] font-black uppercase tracking-widest text-amber mb-2">{business.address.replace(', Amersfoort', '')}</p>
+              <h3 className="text-2xl font-serif font-black text-white leading-tight">
+                {business.name}
+              </h3>
+            </div>
+            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-deep-green opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
+              <ArrowUpRight className="w-6 h-6" />
+            </div>
+          </div>
         </div>
+      </motion.div>
+      
+      {/* Short Story below (optional, removed for "Visionary" grid feel) */}
+      <div className="mt-6 px-4 group-hover:opacity-60 transition-opacity">
+        <p className="text-sm text-foreground/70 font-medium line-clamp-1 italic font-serif">
+          &quot;{business.shortDescription}&quot;
+        </p>
       </div>
     </Link>
   );

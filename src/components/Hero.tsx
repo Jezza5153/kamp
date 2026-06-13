@@ -1,98 +1,111 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, MapPin } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, MapPin, Sparkles } from "lucide-react";
+import { useRef } from "react";
 
 const Hero = () => {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
+
   return (
-    <div className="relative bg-background overflow-hidden py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center">
+    <section ref={targetRef} className="relative h-[90vh] min-h-[700px] flex items-center justify-center overflow-hidden bg-charcoal">
+      {/* Immersive Background Image */}
+      <motion.div 
+        style={{ scale }}
+        className="absolute inset-0 z-0"
+      >
+        <img 
+          src="/images/de-tafelaar.png" 
+          alt="De Kamp Amersfoort" 
+          className="w-full h-full object-cover opacity-60 grayscale-[0.3] brightness-[0.7]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/80" />
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <motion.div 
+          style={{ opacity, y }}
+          className="max-w-4xl"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex justify-center mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-amber text-xs font-bold uppercase tracking-[0.3em] border border-white/20 mb-8"
           >
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-deep-green/5 text-deep-green text-xs font-bold uppercase tracking-[0.2em] border border-deep-green/10">
-              <MapPin className="w-3.5 h-3.5" />
-              Historisch Amersfoort
-            </span>
+            <Sparkles className="w-4 h-4" />
+            Amersfoorts mooiste straat
           </motion.div>
           
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-6xl md:text-8xl font-serif font-bold text-deep-green tracking-tight leading-[0.9]"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-[12vw] md:text-[10vw] font-serif font-black text-white tracking-tighter leading-[0.8] mix-blend-difference"
           >
-            De Kamp <br />
-            <span className="italic text-amber relative">
-              leeft.
-              <motion.span 
-                className="absolute -bottom-2 left-0 w-full h-1 bg-amber/30 rounded-full"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1, delay: 0.8 }}
-              />
-            </span>
+            DE KAMP <br />
+            <span className="text-amber italic">LEEFT.</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 max-w-2xl mx-auto text-xl text-warm-brown/80 font-medium leading-relaxed"
+            transition={{ duration: 1, delay: 0.4 }}
+            className="mt-12 text-2xl md:text-3xl text-stone/80 font-medium leading-tight max-w-2xl"
           >
-            Een straat vol eten, makers, winkels en verhalen. <br className="hidden md:block" />
-            Ontdek de mensen die De Kamp karakter geven.
+            Een straatportret van makers, smaken en ondernemersgeest in hartje Amersfoort.
           </motion.p>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+            transition={{ duration: 1, delay: 0.6 }}
+            className="mt-12 flex flex-wrap gap-6"
           >
             <Link
               href="#ondernemers"
-              className="group inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-full text-white bg-deep-green hover:bg-deep-green/90 transition-all shadow-xl hover:scale-105 active:scale-95"
+              className="group relative inline-flex items-center gap-4 px-10 py-5 bg-white text-deep-green font-black uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all shadow-2xl hover:scale-105 active:scale-95"
             >
-              Ontdek de ondernemers
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span className="relative z-10">Ontdek de ondernemers</span>
+              <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              <div className="absolute inset-0 bg-amber translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </Link>
             <Link
               href="/loop-de-kamp"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-deep-green text-base font-bold rounded-full text-deep-green hover:bg-deep-green hover:text-white transition-all shadow-sm active:scale-95"
+              className="inline-flex items-center gap-4 px-10 py-5 border-2 border-white/30 text-white font-black uppercase tracking-widest text-xs rounded-full backdrop-blur-sm hover:bg-white hover:text-deep-green transition-all shadow-xl"
             >
-              Loop de Kamp
+              Loop de route
+              <MapPin className="w-5 h-5" />
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
+      </div>
+
+      {/* Side Label */}
+      <div className="absolute right-8 bottom-24 hidden lg:block vertical-text">
+        <span className="text-[10px] font-black uppercase tracking-[1em] text-white/30 rotate-180">
+          Scroll to explore
+        </span>
       </div>
       
-      {/* Dynamic Background Elements */}
-      <div className="absolute inset-0 overflow-hidden -z-10 bg-[radial-gradient(#C9822B_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-[0.03]"></div>
-      
+      {/* Bottom indicator */}
       <motion.div 
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.05, 0.08, 0.05] 
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber rounded-full blur-[120px] -z-10"
-      />
-      
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.03, 0.06, 0.03] 
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-deep-green rounded-full blur-[120px] -z-10"
-      />
-    </div>
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 w-6 h-10 rounded-full border-2 border-white/20 flex justify-center p-2"
+      >
+        <div className="w-1 h-2 bg-amber rounded-full" />
+      </motion.div>
+    </section>
   );
 };
 

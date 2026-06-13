@@ -69,6 +69,7 @@ export const businesses: Business[] = [
     verificationStatus: "verified_public_source",
     permissionStatus: "placeholder_only",
     imageStatus: "owner_photo_needed",
+    imageUrl: "https://images.unsplash.com/photo-1594932224010-75f2a77bd5fa?q=80&w=2000&auto=format&fit=crop",
     featured: false,
     sortOrder: 1
   },

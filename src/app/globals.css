@@ -44,3 +44,21 @@ h1, h2, h3, h4, h5, h6 {
 .bg-deep-green { background-color: #183D2B; }
 .text-amber { color: #C9822B; }
 .bg-amber { background-color: #C9822B; }
+
+/* Visionary Utilities */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ornament {
+  text-shadow: 0 0 40px rgba(0,0,0,0.05);
+}
