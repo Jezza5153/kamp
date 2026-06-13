@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F7F1E6; /* Cream */
+  --foreground: #1F1B18; /* Charcoal */
+  --deep-green: #183D2B;
+  --amber: #C9822B;
+  --warm-brown: #4A3326;
+  --sage: #D8E0D2;
+  --stone: #E8DFD2;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-deep-green: var(--deep-green);
+  --color-amber: var(--amber);
+  --color-warm-brown: var(--warm-brown);
+  --color-sage: var(--sage);
+  --color-stone: var(--stone);
+  
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+  font-weight: 700;
+}
+
+.text-editorial {
+  font-family: var(--font-playfair), serif;
+}
+
+/* Custom Utilities */
+.bg-cream { background-color: #F7F1E6; }
+.text-deep-green { color: #183D2B; }
+.bg-deep-green { background-color: #183D2B; }
+.text-amber { color: #C9822B; }
+.bg-amber { background-color: #C9822B; }
