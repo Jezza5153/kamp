@@ -12,10 +12,17 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
       className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone/30 flex flex-col h-full"
     >
       <div className="relative h-48 sm:h-56 bg-stone/20 overflow-hidden">
-        {/* Placeholder for images */}
-        <div className="absolute inset-0 flex items-center justify-center text-stone/40 font-serif italic p-6 text-center">
-          {business.imageStatus === "placeholder" ? "Foto volgt binnenkort" : "Beeld in aanvraag"}
-        </div>
+        {business.imageUrl ? (
+          <img 
+            src={business.imageUrl} 
+            alt={business.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-stone/40 font-serif italic p-6 text-center">
+            {business.imageStatus === "placeholder" ? "Foto volgt binnenkort" : "Beeld in aanvraag"}
+          </div>
+        )}
         
         {/* Category Badge */}
         <div className="absolute top-4 left-4">

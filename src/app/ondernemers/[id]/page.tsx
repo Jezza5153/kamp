@@ -67,6 +67,16 @@ export default async function BusinessDetail({ params }: Props) {
               </a>
             )}
           </div>
+          
+          {business.imageUrl && (
+            <div className="mt-12 rounded-3xl overflow-hidden shadow-2xl aspect-[21/9] border-4 border-white/10">
+              <img 
+                src={business.imageUrl} 
+                alt={business.name} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
         </div>
       </div>
 

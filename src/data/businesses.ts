@@ -43,6 +43,7 @@ export interface Business {
   verificationStatus: VerificationStatus;
   permissionStatus: PermissionStatus;
   imageStatus: "placeholder" | "shopfront_needed" | "owner_photo_needed" | "approved";
+  imageUrl?: string;
   featured?: boolean;
   sortOrder: number;
   notes?: string;
@@ -91,6 +92,7 @@ export const businesses: Business[] = [
     verificationStatus: "verified_public_source",
     permissionStatus: "placeholder_only",
     imageStatus: "shopfront_needed",
+    imageUrl: "/images/toko-tjin.png",
     featured: true,
     sortOrder: 2
   },
@@ -207,6 +209,7 @@ export const businesses: Business[] = [
     verificationStatus: "verified_public_source",
     permissionStatus: "owner_approved",
     imageStatus: "shopfront_needed",
+    imageUrl: "/images/de-tafelaar.png",
     featured: true,
     sortOrder: 8
   },
@@ -578,6 +581,7 @@ export const businesses: Business[] = [
     verificationStatus: "verified_public_source",
     permissionStatus: "placeholder_only",
     imageStatus: "owner_photo_needed",
+    imageUrl: "/images/awaze.png",
     featured: true,
     sortOrder: 48
   },
@@ -670,6 +674,7 @@ export const businesses: Business[] = [
     verificationStatus: "verified_public_source",
     permissionStatus: "placeholder_only",
     imageStatus: "owner_photo_needed",
+    imageUrl: "/images/dhome-de-winkel.png",
     featured: true,
     sortOrder: 60
   },
@@ -873,6 +878,7 @@ export const businesses: Business[] = [
     verificationStatus: "verified_public_source",
     permissionStatus: "placeholder_only",
     imageStatus: "owner_photo_needed",
+    imageUrl: "/images/annas-smaakatelier.png",
     featured: true,
     sortOrder: 204
   },
