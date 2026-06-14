@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin, ArrowUpRight, Camera, Navigation } from "lucide-react";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import BusinessImage from "@/components/BusinessImage";
 import OpenBadge from "@/components/OpenBadge";
 import JsonLd from "@/components/JsonLd";
@@ -16,11 +16,8 @@ export const metadata = {
   openGraph: { title: "Wandel de Kamp, Amersfoort", description: "Een straatbeeld-wandeling langs alle ondernemers van De Kamp.", url: "/loop-de-kamp" },
 };
 
-const stops = businesses
-  .filter((b) => b.status !== "closed")
-  .sort((a, b) => a.sortOrder - b.sortOrder);
-
-export default function RoutePage() {
+export default async function RoutePage() {
+  const stops = (await getActiveBusinesses()).sort((a, b) => a.sortOrder - b.sortOrder);
   return (
     <div className="min-h-screen bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import { graph, districtPlaceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 export const metadata = {
@@ -9,8 +9,6 @@ export const metadata = {
     "De geschiedenis van De Kamp in Amersfoort: van middeleeuwse veedrift en de 13e-eeuwse Kamperbinnenpoort tot het onafhankelijke winkel- en horecagebied van vandaag.",
   alternates: { canonical: "/over-de-kamp" },
 };
-
-const active = businesses.filter((b) => b.status !== "closed");
 
 const faqs = [
   {
@@ -30,7 +28,8 @@ const faqs = [
   },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const active = await getActiveBusinesses();
   return (
     <div className="min-h-screen bg-background py-16 sm:py-24">
       <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

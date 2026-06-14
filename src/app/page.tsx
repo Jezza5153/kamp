@@ -7,11 +7,11 @@ import FeaturedHorizontal from "@/components/FeaturedHorizontal";
 import BusinessExplorer from "@/components/BusinessExplorer";
 import OwnerSubmitCta from "@/components/OwnerSubmitCta";
 import JsonLd from "@/components/JsonLd";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import { graph, organizationSchema, websiteSchema, districtPlaceSchema, itemListSchema } from "@/lib/schema";
 
-export default function Home() {
-  const active = businesses.filter((b) => b.status !== "closed");
+export default async function Home() {
+  const active = await getActiveBusinesses();
 
   return (
     <div className="flex flex-col">

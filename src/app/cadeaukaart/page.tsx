@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Gift, Heart, Store, ArrowRight, Mail, Sparkles } from "lucide-react";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import { CATEGORIES } from "@/lib/categories";
 import JsonLd from "@/components/JsonLd";
 import { graph, breadcrumbSchema, faqSchema } from "@/lib/schema";
@@ -15,11 +15,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Kamp Cadeaukaart", description: "Eén cadeaubon voor alle zelfstandige ondernemers van De Kamp in Amersfoort.", url: "/cadeaukaart" },
 };
 
-// Independent participating merchants (chains/anchors excluded), in walking order.
-const participants = businesses
-  .filter((b) => b.status !== "closed" && b.category !== "Keten / anker")
-  .sort((a, b) => a.sortOrder - b.sortOrder);
-
 const mailto = (subject: string) => `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`;
 
 const steps = [
@@ -28,24 +23,29 @@ const steps = [
   { icon: Store, title: "Besteden op De Kamp", text: "De ontvanger kiest zelf: een diner, een sieraad, een boeket of een goede fles wijn — bij de zelfstandige zaken van de straat." },
 ];
 
-const faqs = [
-  {
-    question: "Wat is de Kamp Cadeaukaart?",
-    answer:
-      "Een lokale cadeaubon die je uitsluitend besteedt bij de zelfstandige ondernemers van De Kamp in Amersfoort. Eén kaart, vrij te besteden bij tientallen winkels, restaurants en makers — zo blijft je cadeau, en je geld, in de buurt.",
-  },
-  {
-    question: "Waar kan ik de cadeaukaart besteden?",
-    answer: `Bij de deelnemende zelfstandige zaken op De Kamp en de aangrenzende straten. Op dit moment staan er ${participants.length} onafhankelijke ondernemers in de gids; landelijke ketens doen bewust niet mee, zodat het lokaal blijft.`,
-  },
-  {
-    question: "Kan ik de kaart als zakelijk relatiegeschenk gebruiken?",
-    answer:
-      "Ja, dat is juist een mooie toepassing: een lokaal relatie- of personeelsgeschenk dat de Amersfoortse binnenstad steunt. Neem contact op voor zakelijke bestellingen op maat.",
-  },
-];
+export default async function CadeaukaartPage() {
+  // Independent participating merchants (chains/anchors excluded), in walking order.
+  const participants = (await getActiveBusinesses())
+    .filter((b) => b.category !== "Keten / anker")
+    .sort((a, b) => a.sortOrder - b.sortOrder);
 
-export default function CadeaukaartPage() {
+  const faqs = [
+    {
+      question: "Wat is de Kamp Cadeaukaart?",
+      answer:
+        "Een lokale cadeaubon die je uitsluitend besteedt bij de zelfstandige ondernemers van De Kamp in Amersfoort. Eén kaart, vrij te besteden bij tientallen winkels, restaurants en makers — zo blijft je cadeau, en je geld, in de buurt.",
+    },
+    {
+      question: "Waar kan ik de cadeaukaart besteden?",
+      answer: `Bij de deelnemende zelfstandige zaken op De Kamp en de aangrenzende straten. Op dit moment staan er ${participants.length} onafhankelijke ondernemers in de gids; landelijke ketens doen bewust niet mee, zodat het lokaal blijft.`,
+    },
+    {
+      question: "Kan ik de kaart als zakelijk relatiegeschenk gebruiken?",
+      answer:
+        "Ja, dat is juist een mooie toepassing: een lokaal relatie- of personeelsgeschenk dat de Amersfoortse binnenstad steunt. Neem contact op voor zakelijke bestellingen op maat.",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}

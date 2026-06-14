@@ -1,11 +1,11 @@
 import { MetadataRoute } from "next";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import { ALL_CATEGORY_SLUGS } from "@/lib/categories";
 import { SITE } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = SITE.url;
-  const active = businesses.filter((b) => b.status !== "closed");
+  const active = await getActiveBusinesses();
 
   const businessUrls = active.map((b) => ({
     url: `${base}/ondernemers/${b.id}`,

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses, getBusiness } from "@/lib/businessData";
 import BusinessDetailClient from "@/components/BusinessDetailClient";
 import JsonLd from "@/components/JsonLd";
 import { graph, localBusinessSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
@@ -12,15 +12,13 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
-const active = businesses.filter((b) => b.status !== "closed");
-
 export async function generateStaticParams() {
-  return active.map((b) => ({ id: b.id }));
+  return (await getActiveBusinesses()).map((b) => ({ id: b.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const b = businesses.find((x) => x.id === id);
+  const b = await getBusiness(id);
   if (!b) return {};
 
   const title = `${b.name} — ${b.subcategory} op De Kamp, Amersfoort`;
@@ -48,9 +46,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BusinessDetailPage({ params }: Props) {
   const { id } = await params;
-  const business = businesses.find((b) => b.id === id);
+  const business = await getBusiness(id);
   if (!business || business.status === "closed") notFound();
 
+  const active = await getActiveBusinesses();
   const related = relatedBusinesses(business, active);
   const faqs = buildFaqs(business);
   const cat = categoryByName(business.category);

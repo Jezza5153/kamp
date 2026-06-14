@@ -1,10 +1,8 @@
 import { Metadata } from "next";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import BusinessExplorer from "@/components/BusinessExplorer";
 import JsonLd from "@/components/JsonLd";
 import { graph, districtPlaceSchema, itemListSchema, breadcrumbSchema } from "@/lib/schema";
-
-const active = businesses.filter((b) => b.status !== "closed");
 
 export const metadata: Metadata = {
   title: "Kaart van De Kamp — alle ondernemers in beeld",
@@ -14,7 +12,8 @@ export const metadata: Metadata = {
   openGraph: { title: "Kaart van De Kamp, Amersfoort", description: "Alle ondernemers op De Kamp op één interactieve kaart.", url: "/kaart" },
 };
 
-export default function KaartPage() {
+export default async function KaartPage() {
+  const active = await getActiveBusinesses();
   return (
     <div className="min-h-screen bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

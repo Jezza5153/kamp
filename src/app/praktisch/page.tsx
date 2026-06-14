@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Train, Car, Bike, Footprints, Landmark, MapPin, Navigation, Clock } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import { graph, districtPlaceSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { KAMPERBINNENPOORT } from "@/lib/geo";
 
@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Bezoek De Kamp — praktische info", description: "Locatie, parkeren, OV en bezienswaardigheden rond De Kamp in Amersfoort.", url: "/praktisch" },
 };
 
-const activeCount = businesses.filter((b) => b.status !== "closed").length;
 const gmaps = `https://www.google.com/maps/search/?api=1&query=${KAMPERBINNENPOORT.lat},${KAMPERBINNENPOORT.lng}`;
 
 const arrive = [
@@ -41,7 +40,8 @@ const faqs = [
   { question: "Zijn de winkels op De Kamp op zondag open?", answer: "In Amersfoort is het in principe iedere zondag koopzondag; veel winkels in de binnenstad zijn dan open, meestal van 12.00 tot 17.00 uur. Controleer per zaak de openingstijden op deze gids." },
 ];
 
-export default function PraktischPage() {
+export default async function PraktischPage() {
+  const activeCount = (await getActiveBusinesses()).length;
   return (
     <div className="min-h-screen bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">

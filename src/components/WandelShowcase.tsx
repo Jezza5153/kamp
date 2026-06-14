@@ -1,19 +1,21 @@
 import Link from "next/link";
 import { Footprints, ArrowRight, Camera } from "lucide-react";
-import { businesses } from "@/data/businesses";
+import type { Business } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import BusinessImage from "./BusinessImage";
 
 /** Pick a handful of stops with real photos, spread along the walking route. */
-function previewStops(n = 5) {
-  const withPhoto = businesses
-    .filter((b) => b.status !== "closed" && b.imageUrl && b.imageFit !== "contain")
+function previewStops(list: Business[], n = 5) {
+  const withPhoto = list
+    .filter((b) => b.imageUrl && b.imageFit !== "contain")
     .sort((a, b) => a.sortOrder - b.sortOrder);
   if (withPhoto.length <= n) return withPhoto;
   return Array.from({ length: n }, (_, i) => withPhoto[Math.floor((i * (withPhoto.length - 1)) / (n - 1))]);
 }
 
-export default function WandelShowcase() {
-  const stops = previewStops(5);
+export default async function WandelShowcase() {
+  const active = await getActiveBusinesses();
+  const stops = previewStops(active, 5);
 
   return (
     <section className="bg-background py-20 sm:py-28">
@@ -43,7 +45,7 @@ export default function WandelShowcase() {
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <span className="inline-flex items-center gap-2 text-sm font-bold text-stone/70">
-                  <Camera className="h-4 w-4 text-gold" /> {businesses.filter((b) => b.status !== "closed").length} stops · Street View
+                  <Camera className="h-4 w-4 text-gold" /> {active.length} stops · Street View
                 </span>
               </div>
             </div>

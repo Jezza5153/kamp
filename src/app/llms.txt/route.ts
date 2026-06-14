@@ -1,4 +1,4 @@
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import { CATEGORIES } from "@/lib/categories";
 import { SITE } from "@/lib/site";
 import { formatWeek } from "@/lib/hours";
@@ -9,8 +9,8 @@ export const dynamic = "force-static";
  * llms.txt — a curated, machine-readable index for AI answer engines (GEO).
  * Generated from the live data so it never drifts from the site.
  */
-export function GET() {
-  const active = businesses.filter((b) => b.status !== "closed").sort((a, b) => a.sortOrder - b.sortOrder);
+export async function GET() {
+  const active = (await getActiveBusinesses()).sort((a, b) => a.sortOrder - b.sortOrder);
 
   const hoursSummary = (b: (typeof active)[number]) => {
     if (!b.hours?.length) return "openingstijden op aanvraag";

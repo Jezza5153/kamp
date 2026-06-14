@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { businesses } from "@/data/businesses";
+import { getActiveBusinesses } from "@/lib/businessData";
 import BusinessCard from "@/components/BusinessCard";
 import JsonLd from "@/components/JsonLd";
 import { CATEGORIES, categoryBySlug, ALL_CATEGORY_SLUGS } from "@/lib/categories";
@@ -10,8 +10,6 @@ import { graph, itemListSchema, breadcrumbSchema, faqSchema } from "@/lib/schema
 interface Props {
   params: Promise<{ slug: string }>;
 }
-
-const active = businesses.filter((b) => b.status !== "closed");
 
 export async function generateStaticParams() {
   return ALL_CATEGORY_SLUGS.map((slug) => ({ slug }));
@@ -35,6 +33,7 @@ export default async function CategoryLanding({ params }: Props) {
   const cat = categoryBySlug(slug);
   if (!cat) notFound();
 
+  const active = await getActiveBusinesses();
   const filtered = active
     .filter((b) => b.category === cat.name)
     .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || a.sortOrder - b.sortOrder);
