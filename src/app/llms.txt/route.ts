@@ -30,6 +30,8 @@ export function GET() {
   lines.push("## Belangrijke pagina's");
   lines.push(`- ${SITE.url}/ : overzicht van alle ondernemers + interactieve kaart`);
   lines.push(`- ${SITE.url}/kaart : kaart met alle ondernemers en "nu open"-status`);
+  lines.push(`- ${SITE.url}/agenda : markten, koopzondagen en evenementen in de binnenstad`);
+  lines.push(`- ${SITE.url}/cadeaukaart : de Kamp Cadeaukaart (lokaal cadeau-initiatief)`);
   lines.push(`- ${SITE.url}/loop-de-kamp : wandelroute langs de straat`);
   lines.push(`- ${SITE.url}/over-de-kamp : geschiedenis en achtergrond van De Kamp`);
   lines.push(`- ${SITE.url}/aanmelden : ondernemers kunnen hun zaak aanmelden of bijwerken`);
