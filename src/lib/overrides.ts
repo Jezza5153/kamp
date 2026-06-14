@@ -104,6 +104,34 @@ export async function listPending(): Promise<OverrideRow[]> {
   return results;
 }
 
+/**
+ * System-only writer used when an admin approves an uploaded HERO photo.
+ * Bypasses EDITABLE_FIELDS deliberately: imageUrl is never owner-editable as
+ * free text, but the system sets it (plus imageFit:cover so a photo isn't
+ * rendered with the logo `contain` treatment) via the same approved-override
+ * merge that getOverrides() already applies. Newest approved row wins per field.
+ */
+export async function setApprovedImage(businessId: string, servingUrl: string): Promise<void> {
+  const db = await getDB();
+  if (!db) return;
+  await db
+    .prepare(
+      `INSERT INTO business_overrides (id, business_id, fields, status, submitted_by, submitted_at, reviewed_by, reviewed_at)
+       VALUES (?, ?, ?, 'approved', 'system', ?, 'system', ?)`
+    )
+    .bind(
+      crypto.randomUUID(),
+      businessId,
+      JSON.stringify({ imageUrl: servingUrl, imageStatus: "approved", imageFit: "cover" }),
+      Date.now(),
+      Date.now()
+    )
+    .run();
+  revalidatePath("/");
+  revalidatePath("/kaart");
+  revalidatePath(`/ondernemers/${businessId}`);
+}
+
 export async function moderateOverride(
   id: string,
   decision: "approved" | "rejected",

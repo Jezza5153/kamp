@@ -39,6 +39,32 @@ npm run deploy:cf                # builds + deploys the Worker
 Then point the domain `ondernemersvandekamp.nl` at the Worker in the Cloudflare
 dashboard (Workers → custom domain) and set the env region to EU for GDPR.
 
+## Cache freshness (approved edits/photos)
+Public pages are statically cached in R2. No tag cache is configured (OpenNext
+defaults to a "dummy" tag cache), so `revalidatePath()` is a **no-op in
+production** — approved owner edits surface via **ISR**: the public pages
+(`/`, `/kaart`, `/ondernemers/[id]`, `/categorie/[slug]`) set
+`export const revalidate = 300`, so changes appear within ~5 minutes.
+
+For **instant** invalidation instead, wire the D1 tag cache:
+1. In `open-next.config.ts` add `tagCache: d1NextTagCache` (import from
+   `@opennextjs/cloudflare/overrides/tag-cache/d1-next-tag-cache`).
+2. Add a `NEXT_TAG_CACHE_D1` D1 binding in `wrangler.jsonc` (can reuse `kamp-db`).
+3. `opennextjs-cloudflare` populates the tag table during `deploy:cf`.
+Then the `revalidatePath` calls already in `src/lib/overrides.ts` take effect and
+you can lengthen/remove the `revalidate` windows.
+
+## Photos (R2)
+- One private bucket `kamp-photos` (binding `PHOTOS`). Owner uploads land
+  pending; bytes are served only via the access-gated `/media/[...key]` route.
+- Local dev auto-creates the bucket under `.wrangler/state`; for prod run the
+  one-time `wrangler r2 bucket create kamp-photos` (already in setup above).
+- **GDPR / retention (Phase 3, do before production):** there is no automated
+  purge yet when a business is delisted or an owner is revoked. Rejected and
+  superseded photos ARE deleted from R2 immediately, but a delisted business's
+  approved media + its system `imageUrl` override must be purged by hand until a
+  `purgeBusinessMedia(businessId)` admin action is added.
+
 ## Notes
 - `npm run build` / `npm run dev` still work for normal Next.js development; the
   Cloudflare scripts (`*:cf`) are only needed to run/deploy on Workers.

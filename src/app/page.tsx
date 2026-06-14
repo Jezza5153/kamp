@@ -10,6 +10,11 @@ import JsonLd from "@/components/JsonLd";
 import { getActiveBusinesses } from "@/lib/businessData";
 import { graph, organizationSchema, websiteSchema, districtPlaceSchema, itemListSchema } from "@/lib/schema";
 
+// ISR: pick up approved owner edits/photos from D1 on a time window. On Workers
+// the OpenNext dummy tag cache makes revalidatePath a no-op, so we can't rely on
+// on-demand invalidation alone (see DEPLOY_CLOUDFLARE.md → cache freshness).
+export const revalidate = 300;
+
 export default async function Home() {
   const active = await getActiveBusinesses();
 

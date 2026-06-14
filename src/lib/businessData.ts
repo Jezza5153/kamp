@@ -21,6 +21,10 @@ import { businesses as seed, type Business } from "@/data/businesses";
  * fallback and the build never depends on the database being present.
  */
 export async function getOverrides(): Promise<Record<string, Partial<Business>>> {
+  // Keep the production build hermetic: prerender from the seed only. Overrides
+  // are applied at runtime / ISR regeneration. (Also avoids parallel SSG workers
+  // contending on the local D1 file during `next build`.)
+  if (process.env.NEXT_PHASE === "phase-production-build") return {};
   try {
     const { getDB } = await import("@/lib/cf");
     const db = await getDB();

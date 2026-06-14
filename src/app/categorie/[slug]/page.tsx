@@ -11,6 +11,9 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// ISR — see DEPLOY_CLOUDFLARE.md (cache freshness): refresh approved D1 edits.
+export const revalidate = 300;
+
 export async function generateStaticParams() {
   return ALL_CATEGORY_SLUGS.map((slug) => ({ slug }));
 }

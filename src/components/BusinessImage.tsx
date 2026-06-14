@@ -25,7 +25,23 @@ export default function BusinessImage({ business, sizes, priority, className = "
   const placeholder = () =>
     placeholderSvg({ id: business.id, name: business.name, category: business.category, tag: tag ?? business.streetSegment });
 
-  // 1. Local owner photo → optimised next/image
+  // 1a. Owner-uploaded photo served from the dynamic /media route. It must NOT
+  // go through next/image: on Workers the optimiser resolves "/..." via the
+  // ASSETS binding (static files only), so a dynamic route 404s. Plain <img>.
+  if (url && url.startsWith("/media/")) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={url}
+        alt={alt}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        className={`absolute inset-0 h-full w-full object-cover ${className}`}
+      />
+    );
+  }
+
+  // 1b. Other local static image → optimised next/image
   if (url && url.startsWith("/")) {
     return (
       <Image src={url} alt={alt} fill sizes={sizes ?? "(max-width: 768px) 100vw, 33vw"} priority={priority} className={`object-cover ${className}`} />

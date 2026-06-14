@@ -16,10 +16,37 @@ export interface D1Database {
   prepare(query: string): D1Stmt;
   batch(stmts: D1Stmt[]): Promise<unknown>;
 }
+export interface R2HTTPMetadata {
+  contentType?: string;
+  cacheControl?: string;
+  contentDisposition?: string;
+  contentEncoding?: string;
+  contentLanguage?: string;
+}
+export interface R2PutOptions {
+  httpMetadata?: R2HTTPMetadata;
+  customMetadata?: Record<string, string>;
+}
+export interface R2Object {
+  key: string;
+  size: number;
+  httpEtag: string;
+  httpMetadata?: R2HTTPMetadata;
+  writeHttpMetadata(headers: Headers): void;
+}
+export interface R2ObjectBody extends R2Object {
+  body: ReadableStream;
+  arrayBuffer(): Promise<ArrayBuffer>;
+}
 export interface R2Bucket {
-  put(key: string, value: ArrayBuffer | ReadableStream | string, opts?: unknown): Promise<unknown>;
-  get(key: string): Promise<{ body: ReadableStream; httpMetadata?: unknown } | null>;
-  delete(key: string): Promise<void>;
+  put(
+    key: string,
+    value: ArrayBuffer | ReadableStream | string,
+    opts?: R2PutOptions
+  ): Promise<R2Object>;
+  get(key: string): Promise<R2ObjectBody | null>;
+  head(key: string): Promise<R2Object | null>;
+  delete(keys: string | string[]): Promise<void>;
 }
 
 export interface KampEnv {

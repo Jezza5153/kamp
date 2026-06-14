@@ -4,6 +4,9 @@ import BusinessExplorer from "@/components/BusinessExplorer";
 import JsonLd from "@/components/JsonLd";
 import { graph, districtPlaceSchema, itemListSchema, breadcrumbSchema } from "@/lib/schema";
 
+// ISR — see DEPLOY_CLOUDFLARE.md (cache freshness): refresh approved D1 edits.
+export const revalidate = 300;
+
 export const metadata: Metadata = {
   title: "Kaart van De Kamp — alle ondernemers in beeld",
   description:

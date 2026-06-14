@@ -6,7 +6,8 @@ import {
   listPending,
   type EditableField,
 } from "@/lib/overrides";
-import { approve, reject } from "./actions";
+import { listPendingMedia } from "@/lib/media";
+import { approve, reject, approvePhoto, rejectPhoto } from "./actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Moderatie", robots: { index: false } };
@@ -14,6 +15,7 @@ export const metadata = { title: "Moderatie", robots: { index: false } };
 export default async function AdminPage() {
   await requireAdmin();
   const pending = await listPending();
+  const pendingMedia = await listPendingMedia();
   const byId = new Map(allBusinessesSeed.map((b) => [b.id, b]));
 
   return (
@@ -94,6 +96,47 @@ export default async function AdminPage() {
                     className="rounded-lg border border-stone bg-background px-3 py-2 text-sm outline-none focus:border-deep-green"
                   />
                   <button className="rounded-xl border border-clay px-4 py-2 text-sm font-medium text-clay hover:bg-clay/10">
+                    Afwijzen
+                  </button>
+                </form>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+
+      <h2 className="mt-12 text-xl font-semibold text-deep-green">Foto&apos;s</h2>
+      <p className="mt-1 text-sm text-warm-brown">
+        {pendingMedia.length === 0
+          ? "Geen foto&apos;s in de wachtrij."
+          : `${pendingMedia.length} foto${pendingMedia.length === 1 ? "" : "'s"} wachten op controle.`}
+      </p>
+      <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {pendingMedia.map((m) => {
+          const biz = byId.get(m.business_id);
+          const approveThis = approvePhoto.bind(null, m.id);
+          const rejectThis = rejectPhoto.bind(null, m.id);
+          return (
+            <li key={m.id} className="rounded-2xl bg-paper p-4 shadow-[var(--shadow-card)]">
+              <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-xl bg-stone">
+                {/* admin passes the access check, so the pending bytes load */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/media/${m.r2_key}`}
+                  alt={biz?.name ?? m.business_id}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-medium text-deep-green">{biz?.name ?? m.business_id}</p>
+              <p className="text-xs text-warm-brown">{m.kind}</p>
+              <div className="mt-3 flex gap-2">
+                <form action={approveThis}>
+                  <button className="rounded-lg bg-deep-green px-3 py-1.5 text-sm font-medium text-background hover:opacity-90">
+                    Goedkeuren
+                  </button>
+                </form>
+                <form action={rejectThis}>
+                  <button className="rounded-lg border border-clay px-3 py-1.5 text-sm font-medium text-clay hover:bg-clay/10">
                     Afwijzen
                   </button>
                 </form>

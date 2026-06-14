@@ -3,7 +3,19 @@ import { notFound, redirect } from "next/navigation";
 import { canEdit, requireUser } from "@/lib/auth";
 import { allBusinessesSeed } from "@/lib/businessData";
 import { EDITABLE_FIELDS, FIELD_LABELS, pendingFieldsFor } from "@/lib/overrides";
-import { submitEdit } from "../actions";
+import { currentMediaFor } from "@/lib/media";
+import { submitEdit, uploadPhoto } from "../actions";
+import PhotoUpload from "./PhotoUpload";
+
+const PHOTO_MSG: Record<string, string> = {
+  pending: "Foto geüpload — staat in de wachtrij voor goedkeuring.",
+  missing: "Geen bestand gekozen.",
+  too_large: "Bestand te groot (max 5 MB).",
+  bad_type: "Ongeldig bestand — gebruik JPG, PNG, WebP of AVIF.",
+  empty: "Het bestand was leeg.",
+  unavailable: "Uploaden kan nu niet — probeer het later opnieuw.",
+  db: "Er ging iets mis bij het opslaan — probeer opnieuw.",
+};
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Vermelding bewerken", robots: { index: false } };
@@ -15,10 +27,10 @@ export default async function EditBusinessPage({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ saved?: string }>;
+  searchParams: Promise<{ saved?: string; photo?: string }>;
 }) {
   const { id } = await params;
-  const { saved } = await searchParams;
+  const { saved, photo } = await searchParams;
   const user = await requireUser();
   if (!(await canEdit(user, id))) redirect("/beheer");
 
@@ -30,7 +42,11 @@ export default async function EditBusinessPage({
   const value = (f: string): string =>
     pending[f] ?? (biz as unknown as Record<string, unknown>)[f]?.toString() ?? "";
 
+  const media = await currentMediaFor(id);
+  const currentPhotoUrl = media ? `/media/${media.r2_key}` : biz.imageUrl ?? null;
+
   const action = submitEdit.bind(null, id);
+  const photoAction = uploadPhoto.bind(null, id);
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
@@ -54,7 +70,23 @@ export default async function EditBusinessPage({
         </div>
       ) : null}
 
-      <form action={action} className="mt-6 space-y-5">
+      <section className="mt-8">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-warm-brown">Foto</h2>
+        {photo ? (
+          <div
+            className={`mt-2 rounded-xl p-3 text-sm ${
+              photo === "pending" ? "bg-sage/60 text-deep-green" : "bg-clay/15 text-clay"
+            }`}
+          >
+            {PHOTO_MSG[photo] ?? "Onbekende status."}
+          </div>
+        ) : null}
+        <div className="mt-3">
+          <PhotoUpload action={photoAction} currentUrl={currentPhotoUrl} status={media?.status} />
+        </div>
+      </section>
+
+      <form action={action} className="mt-8 space-y-5">
         {EDITABLE_FIELDS.map((f) => (
           <div key={f}>
             <label htmlFor={f} className="block text-sm font-medium text-foreground">
@@ -80,16 +112,13 @@ export default async function EditBusinessPage({
           </div>
         ))}
 
-        <div className="flex items-center gap-4 pt-2">
+        <div className="pt-2">
           <button
             type="submit"
             className="rounded-xl bg-deep-green px-5 py-3 font-medium text-background transition hover:opacity-90"
           >
             Wijziging indienen
           </button>
-          <span className="text-xs text-warm-brown">
-            Foto&apos;s wijzigen kan binnenkort — mail ons voorlopig je beeld.
-          </span>
         </div>
       </form>
     </main>

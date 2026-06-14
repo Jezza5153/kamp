@@ -12,6 +12,9 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
+// ISR — see DEPLOY_CLOUDFLARE.md (cache freshness): refresh approved D1 edits.
+export const revalidate = 300;
+
 export async function generateStaticParams() {
   return (await getActiveBusinesses()).map((b) => ({ id: b.id }));
 }
