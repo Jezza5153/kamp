@@ -29,7 +29,7 @@ interface Props {
 export default function BusinessDetailClient({ business, related, districtBusinesses, faqs }: Props) {
   const b = business;
   const walk = walkMinutesFromGate(coordsFor({ streetSegment: b.streetSegment, address: b.address, lat: b.lat, lng: b.lng }));
-  const goodFor = b.goodFor ?? [];
+  const perfectFor = b.perfectFor ?? [];
 
   return (
     <div className="bg-background pb-24">
@@ -73,7 +73,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
               </div>
             </section>
 
-            {(b.specialties?.length || goodFor.length) && (
+            {(b.specialties?.length || perfectFor.length) && (
               <section className="grid gap-8 sm:grid-cols-2">
                 {b.specialties && b.specialties.length > 0 && (
                   <div>
@@ -85,12 +85,12 @@ export default function BusinessDetailClient({ business, related, districtBusine
                     </ul>
                   </div>
                 )}
-                {goodFor.length > 0 && (
+                {perfectFor.length > 0 && (
                   <div>
-                    <SectionLabel>Goed voor</SectionLabel>
-                    <ul className="space-y-2">
-                      {goodFor.map((g) => (
-                        <li key={g} className="flex items-center gap-2 text-sm font-medium text-warm-brown/80">
+                    <SectionLabel>Perfect voor</SectionLabel>
+                    <ul className="flex flex-wrap gap-2">
+                      {perfectFor.map((g) => (
+                        <li key={g} className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-600/20">
                           <CheckCircle2 className="h-4 w-4 text-emerald-600" /> {g}
                         </li>
                       ))}

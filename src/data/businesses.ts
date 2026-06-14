@@ -328,7 +328,13 @@ export const businesses: Business[] = [
     "imageCandidateSource": "tijdvooramersfoort.nl / assets.plaece.nl",
     "schemaType": "ClothingStore",
     "updatedAt": "2026-06-14",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken",
+      "Trouwen & gala"
+    ],
+    "priceLevel": "budget"
   },
   {
     "id": "k-wereldwinkel-amersfoort",
@@ -362,7 +368,12 @@ export const businesses: Business[] = [
     "imageUrl": "https://www.wereldwinkelamersfoort.nl/wp-content/uploads/2022/04/cropped-logo.png",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "toko-tjin",
@@ -513,7 +524,14 @@ export const businesses: Business[] = [
     "imageCandidateSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Snelle hap",
+      "Afhalen"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "k-van-der-woerd-optiek",
@@ -547,7 +565,10 @@ export const businesses: Business[] = [
     "imageUrl": "https://vanderwoerdoptiek.nl/wp-content/uploads/sites/23/2020/05/MG_9737-e1589487294737.jpg",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "k-fashion-livy",
@@ -579,7 +600,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_edge",
     "inclusionReason": "On Kamperbinnenpoort 3 - the gate that the brief explicitly includes as the De Kamp threshold. Active boutique, multiple directories and VVV confirm. Edge only because it sits on the gate boundary.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "k-theefeestje",
@@ -613,7 +638,12 @@ export const businesses: Business[] = [
     "imageUrl": "https://theefeestje.nl/content/uploads/2025/07/rozefotnieuw16-scaled.jpg",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Zoete trek"
+    ]
   },
   {
     "id": "flups",
@@ -752,7 +782,11 @@ export const businesses: Business[] = [
     "schemaType": "ClothingStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09619-2-1_2268921719.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "keizerin",
@@ -891,7 +925,11 @@ export const businesses: Business[] = [
     "schemaType": "ClothingStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09116_4202787316.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "k-livingstone-bij-de-poort",
@@ -925,7 +963,13 @@ export const businesses: Business[] = [
     "imageUrl": "https://assets.plaece.nl/thumb/Kdy7dwzvpbi0ct-7v-7h0_TyIxWkuKnOsvZHVXlfGjs/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwNzMxMl8xMTExMDQ1NDIyLmpwZw.jpg",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Vegan",
+      "Werkplek / koffie"
+    ]
   },
   {
     "id": "wit-lof",
@@ -1069,7 +1113,14 @@ export const businesses: Business[] = [
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09127_79290629.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Snelle hap",
+      "Afhalen"
+    ],
+    "priceLevel": "budget"
   },
   {
     "id": "de-ruiter-makelaarshuis",
@@ -1221,7 +1272,10 @@ export const businesses: Business[] = [
     "schemaType": "RealEstateAgent",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://www.deruitermakelaarshuis.nl/wp-content/uploads/2024/11/Abe-Van-Ancum-fotografie-02-e1732185759484-960x720.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "k-jewels-forever",
@@ -1253,7 +1307,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_edge",
     "inclusionReason": "On Kamperbinnenpoort 7, on the gate beside the already-listed Heart & Arrow Trouwringen (no. 8). Active jeweller specialising in handmade wedding rings, own workshop (KvK 73618993). Distinct De Kamp address despite a second Krommestraat outlet. Edge due to gate-boundary location.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "k-speelpakhuis",
@@ -1285,7 +1343,12 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Kamp 7, core De Kamp street. Recently-opened toy shop confirmed at Kamp 7 by VVV, tijdvooramersfoort and the letting agent's move-in announcement; current opening hours listed.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk",
+      "Met kinderen"
+    ]
   },
   {
     "id": "de-tafelaar",
@@ -1432,7 +1495,13 @@ export const businesses: Business[] = [
     "imageCandidateSource": "tafelaaramersfoort.nl",
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Date night"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "new-heart-en-arrow-trouwringen",
@@ -1580,7 +1649,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "heartandarrow.nl (eigen geüploade winkel-/productfoto, /wp-content/uploads/2023/11/IMG_2606.jpg)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://www.heartandarrow.nl/wp-content/uploads/2023/11/IMG_2606.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken",
+      "Trouwen & gala"
+    ]
   },
   {
     "id": "new-schoenmakerij-hartog",
@@ -1713,7 +1787,10 @@ export const businesses: Business[] = [
     "schemaType": "Store",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/onkBBXd4wUFTWzR7CHV2BLf0FcLMjqCCcvi3tASdEas/resizing_type:fit/width:1280/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTEzMV8xMTg3MjI3MDQwLmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "k-kaldi-koffie-thee-amersfoort",
@@ -1745,7 +1822,13 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Kamp 10, the core street of De Kamp; past the Kamperbinnenpoort. Active coffee/tea shop in the historic 'D'Gekroonde Bye-Korf' building. Note: the 'recently reopened under new owner (Fred Homan)' event traces to 2017, not a recent reopening, but the business is currently listed and operating at Kamp 10.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Snelle hap",
+      "Afhalen"
+    ]
   },
   {
     "id": "bloembinderij-all-seasons",
@@ -1892,7 +1975,12 @@ export const businesses: Business[] = [
     "schemaType": "Florist",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09133_1402685231.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "new-de-gouden-naald",
@@ -2031,7 +2119,11 @@ export const businesses: Business[] = [
     "imageCandidateSource": "assets.plaece.nl (via tijdvooramersfoort.nl og:image)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/yfPzMj624uidYHUGe6OTpxVlJrwUF6Gxgndlfs3_irw/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTEzMl8zNjY1Mjc1Mzk2LmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "k-b-g-l-gold-silver",
@@ -2063,7 +2155,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Kamp 13, core De Kamp street. Active goldsmith/jeweller selling watches, jewellery and wedding rings plus custom work and repairs (033 4753472). Own website and tijdvooramersfoort confirm.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "new-j-l-lijstenmakerij",
@@ -2206,7 +2302,13 @@ export const businesses: Business[] = [
     "imageCandidateSource": "jl-lijstenmakerij.nl",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/LHlgomXfUvbECYbFnfbfnD1uWMMqKyEzq7QMZK5JbA8/resizing_type:fit/width:960/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTEzNC0yXzMyNjMyNDg5MC5qcGc.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen",
+      "Zoete trek"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "spar-city-amersfoort",
@@ -2363,7 +2465,13 @@ export const businesses: Business[] = [
     "schemaType": "Store",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://cdn.prod.website-files.com/65f95db71b19f54e688292d6/65f986df50a9949ffc82c4ae_winkel.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Boodschappen",
+      "Vertrouwde namen",
+      "Snelle hap",
+      "Afhalen"
+    ]
   },
   {
     "id": "freddo",
@@ -2514,7 +2622,14 @@ export const businesses: Business[] = [
     "schemaType": "CafeOrCoffeeShop",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc6548-kopie-groot_808204671.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Zoete trek",
+      "Werkplek / koffie"
+    ],
+    "priceLevel": "budget"
   },
   {
     "id": "k-big-bazar-amersfoort",
@@ -2546,7 +2661,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Kamp (Kamp 15-17 complex; occupies no. 17), core De Kamp street. Distinct from SPAR City on the existing list. Confirmed open with current hours. Candidates 18 and 32 are the same business, deduplicated.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Boodschappen",
+      "Vertrouwde namen"
+    ]
   },
   {
     "id": "k-the-fat-tiger",
@@ -2578,7 +2697,13 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Kamp 18, core De Kamp street. Active Vietnamese/Asian takeaway & delivery (banh mi, bowls, bubble tea); own site shows current 7-day hours. Shares Kamp 18 with other tenants.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Snelle hap",
+      "Afhalen"
+    ]
   },
   {
     "id": "k-zitgeluk",
@@ -2610,7 +2735,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Kamp 18, core De Kamp street (some directories also tag a connected Coninckstraat unit behind the same block). Active furniture store specialising in seating, plus lighting, cabinets, tables (033 741 0150). Own website confirms. Distinct from The Fat Tiger at the same number.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen"
+    ]
   },
   {
     "id": "k-arthur-willemijn-stores",
@@ -2644,7 +2773,11 @@ export const businesses: Business[] = [
     "imageUrl": "https://www.arthurenwillemijn.nl/files/logo/factif-logo.jpg",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "k-reyoutiefull-store",
@@ -2676,7 +2809,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Kamp 19, core De Kamp street. Sustainable retail concept by Arthur & Willemijn in their original Kamp building; VVV lists it as a current location. Distinct from the Saya Boutique Hotel that also occupies the Kamp 19 complex. Candidates 15, 20 are the same store; the 'Be-youtie-full boutique HOTEL' part of candidate 15 is superseded by Saya (see reject).",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "saya-boutique-hotel",
@@ -2761,7 +2898,11 @@ export const businesses: Business[] = [
     "schemaType": "Hotel",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/saya-boutique-hotel-1_1078014669.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Overnachten",
+      "Weekendje weg"
+    ]
   },
   {
     "id": "new-robert-harms-tweewielers",
@@ -2908,7 +3049,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "assets.plaece.nl",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09144_2743354581.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "k-wibra-amersfoort",
@@ -2942,7 +3088,11 @@ export const businesses: Business[] = [
     "imageUrl": "https://www.wibra.nl/wp-content/uploads/sites/3/2022/02/logo-wibra.png",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Boodschappen",
+      "Vertrouwde namen"
+    ]
   },
   {
     "id": "new-runnersworld-aart-stigter",
@@ -3093,7 +3243,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "runners4life.nl",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://runners4life.nl/wp-content/uploads/2021/02/runners4life-winkel.png",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "k-kapsalon-sepideh",
@@ -3127,7 +3282,11 @@ export const businesses: Business[] = [
     "imageUrl": "https://8723153915a94d8b033f-50c48ed79b54074d1364733415261e68.ssl.cf3.rackcdn.com/images/haar-expert-background.jpg",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ]
   },
   {
     "id": "new-werners-optiek",
@@ -3269,7 +3428,10 @@ export const businesses: Business[] = [
     "imageCandidateSource": "wernersoptiek.nl",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://www.wernersoptiek.nl/wp-content/uploads/2025/07/IMG_20250702_152341-scaled.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "new-smart-repair-house",
@@ -3412,7 +3574,10 @@ export const businesses: Business[] = [
     "imageCandidateSource": "none",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://smartrepairhouse.nl/media/c244a84ee5b1ae503f70482eb26ad3ad.png",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "star-juwelier",
@@ -3568,7 +3733,12 @@ export const businesses: Business[] = [
     "schemaType": "JewelryStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09153_3159453264.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken",
+      "Trouwen & gala"
+    ]
   },
   {
     "id": "k-sjenkels-amersfoort",
@@ -3602,7 +3772,11 @@ export const businesses: Business[] = [
     "imageUrl": "https://sjenkels.nl/wp-content/uploads/2024/03/Amersfoort-etalage.jpg",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ]
   },
   {
     "id": "hairbeautiful",
@@ -3744,7 +3918,11 @@ export const businesses: Business[] = [
     "schemaType": "BeautySalon",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/qE03y0FhtNzUNhLUUdT2eS660Q1Ys-3wF5v5whAoPpQ/resizing_type:fit/width:960/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTE1Ml8zODk3Nzg5MzAyLmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ]
   },
   {
     "id": "poke2go",
@@ -3893,7 +4071,14 @@ export const businesses: Business[] = [
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc01372_2007811633.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Vegan",
+      "Snelle hap"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "jacks-casino-sports",
@@ -4046,7 +4231,12 @@ export const businesses: Business[] = [
     "schemaType": "EntertainmentBusiness",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09157_1111233745.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Boodschappen",
+      "Vertrouwde namen"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "indian-flavour",
@@ -4198,7 +4388,14 @@ export const businesses: Business[] = [
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09155_917558258.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Snelle hap",
+      "Afhalen"
+    ],
+    "priceLevel": "budget"
   },
   {
     "id": "new-scapino",
@@ -4348,7 +4545,13 @@ export const businesses: Business[] = [
     "imageCandidateSource": "scapino.nl",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/locaties-stad-28_2921529205.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Boodschappen",
+      "Vertrouwde namen",
+      "Met kinderen"
+    ],
+    "priceLevel": "budget"
   },
   {
     "id": "holland-parket",
@@ -4495,7 +4698,11 @@ export const businesses: Business[] = [
     "schemaType": "FurnitureStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc05833_387444287.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen"
+    ]
   },
   {
     "id": "avondwinkel-sn",
@@ -4641,7 +4848,13 @@ export const businesses: Business[] = [
     "schemaType": "Store",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/b6r_4gp4Tuk6_Cru1GAv4BvrIM0GEZwRoU6UeEE30xQ/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTE2NV8yNDIxMDQ5NTgwLmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld",
+      "Snelle hap",
+      "Afhalen"
+    ],
+    "priceLevel": "budget"
   },
   {
     "id": "skitzo",
@@ -4785,7 +4998,12 @@ export const businesses: Business[] = [
     "schemaType": "JewelryStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/p1080575-600x450_4240214929.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ],
+    "priceLevel": "premium"
   },
   {
     "id": "new-repair-n-go",
@@ -4931,7 +5149,10 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Official website og:image (repairngo.nl)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/lU0mOndn_SlyNPR7dzRXgLv-0Fbs_G4M08PKfAdqT8A/resizing_type:fit/width:1580/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTE3MV8yNDQ5MzM5MjIxLmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "k-le-perron-amersfoort",
@@ -4963,7 +5184,12 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Kamp 42, core De Kamp street. Active organic bakery/lunchroom; appears on the Le Perron chain site and current directories. The Kamp 42 conflict with 'Louis Blancardi Wijnen' on the existing list resolves in favour of Le Perron as the current tenant.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Werkplek / koffie"
+    ]
   },
   {
     "id": "louis-blancardi-wijnen",
@@ -5110,7 +5336,12 @@ export const businesses: Business[] = [
     "schemaType": "WineStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09162_2434463912.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk"
+    ],
+    "priceLevel": "premium"
   },
   {
     "id": "new-corner-corner",
@@ -5256,7 +5487,14 @@ export const businesses: Business[] = [
     "schemaType": "CafeOrCoffeeShop",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/IfzotZSgjXL_UDKBuNEsFDWh2R7z77EsrvGJIyINUuM/resizing_type:fit/width:640/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTE2N18zNDA3MjMzNTEyLmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Zoete trek",
+      "Met kinderen"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "new-studio-release",
@@ -5402,7 +5640,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Eigen og:image van studiorelease.nl (officiele website, Amersfoort-pagina)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://studiorelease.nl/wp-content/uploads/2026/06/amersfoort-massagesalon-1.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "awaze",
@@ -5551,7 +5794,14 @@ export const businesses: Business[] = [
     "imageCandidateSource": "awazerestaurant.nl",
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Vegan",
+      "Date night"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "babai",
@@ -5693,7 +5943,11 @@ export const businesses: Business[] = [
     "schemaType": "FurnitureStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://www.babai.nl/wp-content/uploads/2021/07/629-1.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen"
+    ]
   },
   {
     "id": "new-leith-jewels",
@@ -5841,7 +6095,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Official website leithjuwelier.nl og:image / twitter:image (business's own product photo, WhatsApp 2024-11-01)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://static-vvvamersfoort.mypoiworld.com/img/f4ab2591-d0de-4ca6-836a-b268ee9a6fa0.jpg/xl.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken",
+      "Trouwen & gala"
+    ]
   },
   {
     "id": "de-heren-van-amersfoort",
@@ -5982,7 +6241,13 @@ export const businesses: Business[] = [
     "schemaType": "FurnitureStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09187_364871223.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen",
+      "Met kinderen",
+      "Trouwen & gala"
+    ]
   },
   {
     "id": "new-acell-telecommunicatie",
@@ -6062,7 +6327,10 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Facebook page (ACELL Telecommunicatie) og:image",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/aX43VolIl4gsGpo9M3W_fkaEzV6-leVtsUPu8HOKtdM/resizing_type:fit/width:960/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTE3OF8xNjU3NTg2Nzc0LmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "bever-amersfoort",
@@ -6211,7 +6479,12 @@ export const businesses: Business[] = [
     "schemaType": "Store",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://www.bever.nl/content/dam/bever/stores/517.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Boodschappen",
+      "Vertrouwde namen"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "new-fietsdiscounter",
@@ -6358,7 +6631,13 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Business's own website (og:image / Yoast schema primaryImageOfPage on fietsdiscounter.nl)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://fietsdiscounter.nl/wp-content/uploads/2021/06/IMG-20210616-WA0001-1.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk",
+      "Met kinderen"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "new-flink",
@@ -6436,7 +6715,13 @@ export const businesses: Business[] = [
     "schemaType": "Store",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Flink%2C_Hillegersberg%2C_Rotterdam_%282021%29_01.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld",
+      "Snelle hap",
+      "Afhalen",
+      "Zoete trek"
+    ]
   },
   {
     "id": "dhome-de-winkel",
@@ -6571,7 +6856,11 @@ export const businesses: Business[] = [
     "imageCandidateSource": "dhome.nl",
     "schemaType": "FurnitureStore",
     "updatedAt": "2026-06-14",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen"
+    ]
   },
   {
     "id": "toko-dong-a",
@@ -6715,7 +7004,12 @@ export const businesses: Business[] = [
     "schemaType": "Store",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09197_1093641845.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "studio-mr-bunny",
@@ -6847,7 +7141,11 @@ export const businesses: Business[] = [
     "schemaType": "ArtGallery",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://fyhxnuuloxsxkdpppqie.supabase.co/storage/v1/object/public/site-images/home/hero-slideshow/etalage-voorgevel.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk"
+    ]
   },
   {
     "id": "new-belhadi-modestoffen",
@@ -6992,7 +7290,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "none",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://storage.pubble.nl/96897487/content/2020/11/edbd4c45-4d26-48bf-a5fa-db7cd7eade09_thumb1920.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk",
+      "Met kinderen"
+    ]
   },
   {
     "id": "new-thai-massage-hoanghuong",
@@ -7143,7 +7446,11 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Eigen websitefoto van de salon (thaimassagehoanghuong.nl, wp-content upload 2024/04). De og:image meta is alleen het 250x250 logo/favicon; deze 2000x1500 salonfoto is de eigen brand-afbeelding die op de site wordt gebruikt.",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://thaimassagehoanghuong.nl/wp-content/uploads/2024/04/Thai-Massage-HoangHuong-Amersfoort10-2000x1500.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ]
   },
   {
     "id": "new-tulip-clinic",
@@ -7283,7 +7590,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Official website (tulipclinic.nl) og:image / primaryImageOfPage",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://tulipclinic.nl/wp-content/uploads/2025/07/tulip-clinic-amersfoort.webp",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time",
+      "Trouwen & gala"
+    ]
   },
   {
     "id": "new-perfect-dress",
@@ -7427,7 +7739,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "perfect-dress.nl og:image (eigen campagnebeeld 2026)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://perfect-dress.nl/wp-content/uploads/2026/06/2026_R206i_FLEUR_2_BD.webp",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken",
+      "Trouwen & gala"
+    ]
   },
   {
     "id": "the-far-east",
@@ -7578,7 +7895,14 @@ export const businesses: Business[] = [
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09205_3127035507.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Snelle hap",
+      "Afhalen"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "new-happyfood",
@@ -7663,7 +7987,14 @@ export const businesses: Business[] = [
     "imageCandidateSource": "none",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://happyfood.nl/wp-content/uploads/2024/05/HappyFood-bestellen.png",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Snelle hap",
+      "Afhalen"
+    ],
+    "priceLevel": "budget"
   },
   {
     "id": "new-optiek-verkerk",
@@ -7806,7 +8137,10 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Official website og:image (optiekverkerk.nl/amersfoort)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://optiekverkerk.nl/_images-v3/bba31636-b3ab-4500-a935-4c30e07ed3a4",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "terre-des-hommes-amersfoort",
@@ -7953,7 +8287,12 @@ export const businesses: Business[] = [
     "schemaType": "Store",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc01613-3_3548632241.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk",
+      "Trouwen & gala"
+    ]
   },
   {
     "id": "binnenspecialist-van-den-berg",
@@ -8172,7 +8511,10 @@ export const businesses: Business[] = [
     "schemaType": "Store",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://www.struijk-acousticon.nl/wp-content/uploads/IMG_3479-e1616589525713.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Praktisch geregeld"
+    ]
   },
   {
     "id": "de-aubergerie",
@@ -8314,7 +8656,14 @@ export const businesses: Business[] = [
     "imageCandidateUrl": "https://assets.plaece.nl/odp-ubase/image/knofappel-aubergerie-01k-002_1329120067.jpeg",
     "imageCandidateSource": "assets.plaece.nl",
     "schemaType": "Restaurant",
-    "updatedAt": "2026-06-14"
+    "updatedAt": "2026-06-14",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Date night",
+      "Zoete trek"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "k-step-events",
@@ -8346,7 +8695,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_edge",
     "inclusionReason": "On Oliesteeg 10, an in-scope side street off the Kamp (part of official De Kamp e.o.). Active (by appointment), Yelp updated 2026. Candidates 11, 25 and 49 are the same business, deduplicated. Edge because Oliesteeg is a quiet NE side street.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk"
+    ]
   },
   {
     "id": "k-hotel-de-tabaksplant",
@@ -8378,7 +8731,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Coninckstraat 15, explicitly in-scope side street within the Kampkwartier. 25-room hotel in an early-1600s monument; active with current bookings.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Overnachten",
+      "Weekendje weg"
+    ]
   },
   {
     "id": "kapsalon-sura",
@@ -8519,7 +8876,12 @@ export const businesses: Business[] = [
     "schemaType": "HairSalon",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09231_3004433160.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time",
+      "Met kinderen"
+    ]
   },
   {
     "id": "glitter-en-glas",
@@ -8657,7 +9019,11 @@ export const businesses: Business[] = [
     "schemaType": "ArtGallery",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/atpTZEj-XA1F1Yan0A3bAHiljFTEsGqN4Sy9fC-eEqY/resizing_type:fit/width:960/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTIyOV8zNjU2Mzc2NjEuanBn.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen"
+    ]
   },
   {
     "id": "new-kapsalon-rene-benoit",
@@ -8735,7 +9101,11 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Geen geschikte afbeelding gepubliceerd. De enige gevonden foto (assets.plaece.nl, via tijdvooramersfoort.nl) is afkomstig van een dataplatform, niet van de onderneming zelf, en is zonder toestemming/licentie niet bruikbaar. De salon heeft geen eigen website/og:image.",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/JEa6LdAm2QwqLnbLwbAHc8CwmtbnoGLtw2b7qhv_yWk/resizing_type:fit/width:1900/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTI2MF8zMzU0NjkxMTM5LmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ]
   },
   {
     "city": "Amersfoort",
@@ -8775,6 +9145,10 @@ export const businesses: Business[] = [
       "Herenkapsel",
       "Knippen",
       "Kleuren"
+    ],
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
     ]
   },
   {
@@ -8922,7 +9296,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Eigen og:image / website van Il diVino Wijnwinkel (ildivino-wijnwinkel.nl, myonlinestore CDN)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://static-vvvamersfoort.mypoiworld.com/img/505a0a49-bc7c-4668-a6de-ff13122cecba.jpg/xl.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "annas-smaakatelier",
@@ -9061,7 +9440,13 @@ export const businesses: Business[] = [
     "imageCandidateSource": "assets.plaece.nl (via tijdvooramersfoort.nl JSON-LD)",
     "schemaType": "CafeOrCoffeeShop",
     "updatedAt": "2026-06-14",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Zoete trek",
+      "Werkplek / koffie"
+    ]
   },
   {
     "id": "jans-pakhuys",
@@ -9208,7 +9593,13 @@ export const businesses: Business[] = [
     "schemaType": "ArtGallery",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/b6b187fe46798c7c6bfc0b147828fa56b35d7c84.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk",
+      "Cadeau zoeken"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "new-orium-goudsmeden",
@@ -9350,7 +9741,13 @@ export const businesses: Business[] = [
     "schemaType": "JewelryStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/reeF96YeZb_W8hycTFsS7Cui7q7ZCn-IriBAJtvJJ6Y/resizing_type:fit/width:1280/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTI1MF8zNDY1MTI0ODIxLmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken",
+      "Trouwen & gala"
+    ],
+    "priceLevel": "premium"
   },
   {
     "id": "koko-de-verzamelwinkel",
@@ -9479,7 +9876,12 @@ export const businesses: Business[] = [
     "schemaType": "ClothingStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/schermafbeelding-20230221-114002_3192778530.png",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ],
+    "priceLevel": "premium"
   },
   {
     "id": "k-wolwinkel-elitt",
@@ -9511,7 +9913,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Grote Sint Jansstraat 8, a core De Kamp side street, in the 'Oude Stadsherberg'. Active yarn shop (Els & Laura), VVV and tijdvooramersfoort confirm under De Kamp. NOTE: website field is a placeholder; correct site is wolwinkelelitt.nl (info@wolwinkelelitt.nl) - update before publishing.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk"
+    ]
   },
   {
     "id": "theehuis-something-else",
@@ -9655,7 +10061,13 @@ export const businesses: Business[] = [
     "schemaType": "CafeOrCoffeeShop",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09244_3722269228.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Zoete trek"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "k-the-wax-bar-amersfoort",
@@ -9687,7 +10099,11 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_core",
     "inclusionReason": "On Grote Sint Jansstraat 13, core De Kamp side street. Current location of The Wax Bar chain; own site, VVV and tijdvooramersfoort confirm the address and active hours.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ]
   },
   {
     "id": "picture-at-home",
@@ -9797,7 +10213,12 @@ export const businesses: Business[] = [
     "inclusionStatus": "confirmed_edge",
     "inclusionReason": "On Zuidsingel 57, the Kamp-end singel that is part of De Kamp e.o.; contiguous with the listed Zuidsingel cluster (63-68) and La Base (66). Amersfoort's first Italian restaurant (since 1974), active. Edge because it is at the southern edge of the Kamp-end of the singel.",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Date night"
+    ]
   },
   {
     "id": "k-broers-fietsreparateurs",
@@ -9831,7 +10252,11 @@ export const businesses: Business[] = [
     "imageUrl": "https://cdn.prod.website-files.com/67efae014387ed2945f5845c/67efb50bd74832b03882c1b7_64380f4b4a905443ca0030a4_pietervdkoppel_250521_13.jpg.jpeg",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Lokaal & ambachtelijk"
+    ]
   },
   {
     "id": "eigenaar8-mini-store",
@@ -9965,7 +10390,11 @@ export const businesses: Business[] = [
     "schemaType": "HomeGoodsStore",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/M7bAJT1av7hsuEin66LP8V1b-qyTOwRZDYNFjnKUh48/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9laWdlbmFhcjgtbWluaXN0b3JlXzE0NDI1MjE3LmpwZw.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Interieur & wonen",
+      "Inspiratie opdoen"
+    ]
   },
   {
     "city": "Amersfoort",
@@ -10064,6 +10493,12 @@ export const businesses: Business[] = [
         "closed": true,
         "periods": []
       }
+    ],
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Zoete trek",
+      "Werkplek / koffie"
     ]
   },
   {
@@ -10221,7 +10656,13 @@ export const businesses: Business[] = [
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://labasepizza.nl/wp-content/uploads/2025/06/restaurantamersfoort1.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Date night"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "new-singelhuis",
@@ -10308,7 +10749,13 @@ export const businesses: Business[] = [
     "imageCandidateSource": "singelhuis.nl (eigen website-afbeelding; sfeerfoto interieur)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://singelhuis.nl/wp-content/uploads/2022/10/279887701_165937259136217_626844878020761856_n.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Uit eten",
+      "Samen tafelen",
+      "Date night",
+      "Zoete trek"
+    ]
   },
   {
     "id": "new-hairstyling-geke",
@@ -10445,7 +10892,12 @@ export const businesses: Business[] = [
     "imageCandidateSource": "Treatwell-profielfoto van Geke kappers (og:image van gekekappers.mytreatwell.nl)",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://cdn1.treatwell.net/images/view/v2.i9393605.w1080.h720.xC0656B00/",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ],
+    "priceLevel": "mid"
   },
   {
     "id": "k-boetiek033",
@@ -10479,7 +10931,11 @@ export const businesses: Business[] = [
     "imageUrl": "http://www.keizerin.nl/cdn/shop/files/Keizerin_beeldmerk_dicht_goud_1200x1200.jpg?v=1764861697",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Shoppen",
+      "Cadeau zoeken"
+    ]
   },
   {
     "id": "bij-sophie",
@@ -10517,7 +10973,12 @@ export const businesses: Business[] = [
     "schemaType": "CafeOrCoffeeShop",
     "updatedAt": "2026-06-14",
     "imageUrl": "https://bijsophieamersfoort.nl/wp-content/uploads/2022/06/285887430_149459334321696_6988469667600221132_n.jpg",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "perfectFor": [
+      "Koffie & lunch",
+      "Even bijkomen",
+      "Werkplek / koffie"
+    ]
   },
   {
     "id": "k-atelier-mimosa",
@@ -10551,7 +11012,11 @@ export const businesses: Business[] = [
     "imageUrl": "https://www.ateliermimosa.nl/assets/images/ateliermimosa-v2.png",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ]
   },
   {
     "id": "k-van-dijk-clinic",
@@ -10585,6 +11050,10 @@ export const businesses: Business[] = [
     "imageUrl": "https://www.vandijkclinic.nl/wp-content/uploads/elementor/thumbs/ClinicAwards-2023-q8valpv5eepmnu31bazia09822d2hqn7wgp61e12zg.png",
     "imageFit": "cover",
     "updatedAt": "2026-06-14",
-    "lastChecked": "2026-06-14"
+    "lastChecked": "2026-06-14",
+    "perfectFor": [
+      "Verwennen",
+      "Me-time"
+    ]
   }
 ];

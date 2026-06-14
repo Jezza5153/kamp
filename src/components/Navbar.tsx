@@ -128,6 +128,13 @@ const Navbar = () => {
             Wandel de Kamp
           </Link>
           <Link
+            href="/praktisch"
+            onClick={() => setIsOpen(false)}
+            className="block text-2xl font-serif font-bold text-deep-green py-2"
+          >
+            Praktische info
+          </Link>
+          <Link
             href="/over-de-kamp"
             onClick={() => setIsOpen(false)}
             className="block text-2xl font-serif font-bold text-deep-green py-2"

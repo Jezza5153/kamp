@@ -35,7 +35,7 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
           if (!(s.status === "open" || s.status === "closing_soon")) return false;
         }
         if (q) {
-          const hay = `${b.name} ${b.tags.join(" ")} ${(b.specialties ?? []).join(" ")} ${b.address} ${b.publicPersonName ?? ""} ${b.subcategory}`.toLowerCase();
+          const hay = `${b.name} ${b.tags.join(" ")} ${(b.specialties ?? []).join(" ")} ${(b.perfectFor ?? []).join(" ")} ${b.address} ${b.publicPersonName ?? ""} ${b.subcategory}`.toLowerCase();
           if (!hay.includes(q)) return false;
         }
         return true;

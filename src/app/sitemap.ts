@@ -27,7 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/kaart`, priority: 0.9 },
     { url: `${base}/agenda`, priority: 0.8 },
     { url: `${base}/cadeaukaart`, priority: 0.8 },
-    { url: `${base}/loop-de-kamp`, priority: 0.7 },
+    { url: `${base}/loop-de-kamp`, priority: 0.8 },
+    { url: `${base}/praktisch`, priority: 0.7 },
     { url: `${base}/over-de-kamp`, priority: 0.6 },
     { url: `${base}/aanmelden`, priority: 0.5 },
   ].map((p) => ({ url: p.url, lastModified: new Date(), changeFrequency: "weekly" as const, priority: p.priority }));

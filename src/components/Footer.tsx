@@ -33,7 +33,8 @@ const Footer = () => {
                 { href: "/kaart", label: "Kaart" },
                 { href: "/agenda", label: "Agenda" },
                 { href: "/cadeaukaart", label: "Cadeaukaart" },
-                { href: "/loop-de-kamp", label: "Route" },
+                { href: "/loop-de-kamp", label: "Wandel de Kamp" },
+                { href: "/praktisch", label: "Praktische info" },
                 { href: "/over-de-kamp", label: "Over De Kamp" },
                 { href: "/aanmelden", label: "Aanmelden" },
               ].map((l) => (
