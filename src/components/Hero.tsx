@@ -17,7 +17,8 @@ const Hero = () => {
       {/* Image */}
       <motion.div style={{ scale: imgScale }} className="absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/de-tafelaar.png" alt="Sfeerbeeld van De Kamp, Amersfoort" className="h-full w-full object-cover" />
+        <img src="/images/kamperbinnenpoort.jpg" alt="De Kamperbinnenpoort, de middeleeuwse stadspoort aan het begin van De Kamp in Amersfoort" className="h-full w-full object-cover" />
+        {/* Photo: Kamperbinnenpoort gezien vanaf de Zuidsingel — Wikimedia Commons, CC BY-SA 4.0 */}
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/55 to-charcoal/25" />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/70 to-transparent" />
       </motion.div>

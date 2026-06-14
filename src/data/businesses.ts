@@ -74,6 +74,16 @@ export type SchemaType =
   | "ArtGallery"
   | "EntertainmentBusiness";
 
+/** 7-group taxonomy used by the De Kamp guide directory. */
+export type CategoryGroup =
+  | "eten-drinken"
+  | "winkels"
+  | "speciaalzaken"
+  | "diensten"
+  | "beauty-wellness"
+  | "cultuur-vrije-tijd"
+  | "overig";
+
 export interface Business {
   id: string;
   name: string;
@@ -142,6 +152,34 @@ export interface Business {
   imageFit?: "cover" | "contain";
   /** ISO date of the last data review, for freshness signals. */
   updatedAt?: string;
+
+  // ---- De Kamp guide schema (richer model; optional, populated by research) ----
+  /** 7-group taxonomy for the directory (eten-drinken, winkels, …). */
+  categoryGroup?: CategoryGroup;
+  /** URL slug (defaults to id). */
+  slug?: string;
+  /** Display name if it differs from the legal/listing name. */
+  displayName?: string;
+  socials?: { instagram?: string; facebook?: string; tiktok?: string; linkedin?: string };
+  bookingUrl?: string;
+  orderUrl?: string;
+  /** "Perfect voor …" use-case tags (e.g. "Lunch met vrienden", "Cadeau zoeken"). */
+  perfectFor?: string[];
+  priceLevel?: "budget" | "mid" | "premium" | "unknown";
+  /** Dieet-tags (vegan, vegetarisch, glutenvrij, halal …). */
+  dietaryTags?: string[];
+  accessibilityNotes?: string;
+  paymentNotes?: string;
+  ownerOrStoryNotes?: string;
+  /** Short scannable highlight bullets for the detail page. */
+  highlights?: string[];
+  /** Inclusion classification against the De Kamp boundary. */
+  inclusionStatus?: "confirmed_core" | "confirmed_edge" | "needs_confirmation";
+  inclusionReason?: string;
+  /** Fields still missing/unverified, surfaced for maintenance. */
+  missingFields?: string[];
+  /** ISO date this record was last researched/checked. */
+  lastChecked?: string;
 }
 
 export const businesses: Business[] = [
@@ -328,7 +366,7 @@ export const businesses: Business[] = [
     "verificationStatus": "verified_public_source",
     "permissionStatus": "placeholder_only",
     "imageStatus": "shopfront_needed",
-    "imageUrl": "/images/toko-tjin.png",
+    "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc00553_326045762.jpg",
     "featured": true,
     "sortOrder": 2,
     "status": "open",
@@ -1051,7 +1089,7 @@ export const businesses: Business[] = [
     "verificationStatus": "verified_public_source",
     "permissionStatus": "owner_approved",
     "imageStatus": "shopfront_needed",
-    "imageUrl": "/images/de-tafelaar.png",
+    "imageUrl": "https://www.tafelaaramersfoort.nl/pics/homepage.png",
     "featured": true,
     "sortOrder": 8,
     "status": "open",
@@ -4810,7 +4848,7 @@ export const businesses: Business[] = [
     "verificationStatus": "verified_public_source",
     "permissionStatus": "placeholder_only",
     "imageStatus": "owner_photo_needed",
-    "imageUrl": "/images/awaze.png",
+    "imageUrl": "https://www.awazerestaurant.nl/wp-content/uploads/2020/01/DSC_0876-v2-1030x685.jpg",
     "featured": true,
     "sortOrder": 48,
     "status": "open",
@@ -5843,7 +5881,7 @@ export const businesses: Business[] = [
     "verificationStatus": "verified_public_source",
     "permissionStatus": "placeholder_only",
     "imageStatus": "owner_photo_needed",
-    "imageUrl": "/images/dhome-de-winkel.png",
+    "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dhome-de-winkel-klein_3498163889.jpg",
     "featured": true,
     "sortOrder": 60,
     "status": "open",
@@ -8266,7 +8304,7 @@ export const businesses: Business[] = [
     "verificationStatus": "verified_public_source",
     "permissionStatus": "placeholder_only",
     "imageStatus": "owner_photo_needed",
-    "imageUrl": "/images/annas-smaakatelier.png",
+    "imageUrl": "https://assets.plaece.nl/odp-ubase/image/foto-anna-en-team_3821906750.jpg",
     "featured": true,
     "sortOrder": 204,
     "status": "open",
