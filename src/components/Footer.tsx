@@ -75,16 +75,12 @@ const Footer = () => {
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber">Blijf op de hoogte</h3>
             <div className="space-y-4">
               <p className="text-stone/60 text-sm">Ontvang updates over nieuwe ondernemers en events op De Kamp.</p>
-              <div className="relative">
-                <input 
-                  type="email" 
-                  placeholder="E-mailadres"
-                  className="w-full bg-stone/5 border border-stone/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-amber transition-colors"
-                />
-                <button className="absolute right-2 top-2 bottom-2 px-4 bg-amber text-charcoal font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-stone hover:text-deep-green transition-all">
-                  Join
-                </button>
-              </div>
+              <a
+                href="mailto:info@ondernemersvandekamp.nl?subject=Aanmelden%20nieuwsbrief%20De%20Kamp"
+                className="inline-flex items-center gap-2 rounded-full bg-amber px-6 py-3.5 text-xs font-black uppercase tracking-widest text-charcoal transition hover:bg-gold"
+              >
+                <Send className="w-4 h-4" /> Schrijf je in
+              </a>
             </div>
           </div>
         </div>
