@@ -1,0 +1,810 @@
+{
+  "audit": [
+    {
+      "area": "Backend stack for owner self-service editing on the static Next.js 16 De Kamp directory (ondernemersvandekamp.nl)",
+      "recommendation": "Adopt Payload CMS v3, installed inside the existing Next.js 16 app, with Postgres (Neon EU, free/$5 tier) and S3-compatible EU object storage (or Vercel Blob) for images. Why: it is the only option that satisfies ALL hard requirements natively in one codebase. (1) Per-owner \"edit only your own business\" is a first-class Payload feature: access-control functions return a query constraint (e.g. `{ owner: { equals: user.id } }`) so an owner literally cannot read/update any row but their own — enforced server-side, not just UI. (2) Moderation/approval is built in via Payload's Drafts & Versions: owner saves create a draft version; nothing goes live until the admin clicks Publish. Photo uploads land in an Uploads collection you can also gate on approval. (3) It runs INSIDE the Next app (Payload v3 is a Next plugin — same deploy, no separate service, no CORS), and its content is read in your Server Components via the Local API. Combined with Next 16 on-demand `revalidateTag`/`revalidatePath` fired from a Payload afterChange hook, an approved edit re-renders just that one /ondernemers/[id] page — so the site stays SSG/ISR-fast with intact JSON-LD and Core Web Vitals. (4) The Business type is code-first TypeScript, so your existing ~40-field model maps almost 1:1 onto a Payload collection config and keeps generated types flowing into the frontend. (5) MIT-licensed, self-hosted, no per-seat fees — critical because ~96 owner logins on a per-seat SaaS (Sanity/Contentful) would be the dominant cost. (6) EU/GDPR: you choose the region (Neon EU + EU storage + EU app region), full data sovereignty, no Enterprise upsell needed. Migration is a one-time script that reads businesses.ts and seeds the collection; after that businesses.ts is retired as the source of truth.",
+      "options": [
+        {
+          "name": "(a) Payload CMS v3 (runs inside Next) + Neon Postgres EU + S3/Blob",
+          "fit": "best",
+          "pros": "Single codebase/deploy (Next plugin) so no extra service, CORS, or ops; native per-row access control = true 'edit only your own business'; built-in Drafts/Versions = exact admin approve-before-live workflow; full admin UI AND owner-facing edit UI generated for free; code-first TS collection maps onto existing 40-field Business type; pairs with Next 16 revalidateTag hook to keep SSG/ISR + JSON-LD + CWV; MIT, no per-seat fees (96 owners free); you pick EU region for full GDPR sovereignty; image upload + access-gated uploads collection out of the box.",
+          "cons": "Now a stateful app (needs always-on DB + a non-static deploy target for the admin/API; pure static export no longer covers the whole app); you own upgrades/migrations; slightly more initial setup than a hosted SaaS; admin UI is general-purpose (some polish needed to make the owner experience friendly)."
+        },
+        {
+          "name": "(b) Supabase (Postgres + Auth + Storage), EU region",
+          "fit": "good",
+          "pros": "RLS gives genuine per-row 'edit only your own business' at the DB layer; Auth (magic-link/invite) and Storage (image upload) included; EU regions on all tiers; predictable $25/mo Pro; mature, well-documented; reads cleanly into Server Components and pairs with revalidateTag to keep ISR.",
+          "cons": "No editing UI for owners and no moderation UI for admin — you must BUILD the entire owner dashboard, image-upload widget, the draft/approval workflow, and the admin moderation screens yourself in Next; that's the bulk of the work and the bulk of ongoing maintenance for a solo operator; free tier pauses after a week idle (must be on Pro)."
+        },
+        {
+          "name": "(c) Next + Prisma + Neon Postgres + Auth.js + Vercel Blob",
+          "fit": "good",
+          "pros": "Maximum control and lowest hard cost (Neon free/$5, Auth.js free, Blob cheap); all EU-selectable; stays in one Next app; type-safe with Prisma.",
+          "cons": "The most DIY of all: you hand-build auth wiring, role/row authorization, the moderation/approval state machine, owner edit forms, upload handling, and admin UI from scratch — highest build effort and highest long-term solo-maintenance burden; you reinvent exactly what Payload gives for free; easy to get authorization subtly wrong (security risk)."
+        },
+        {
+          "name": "(d) Git-based CMS (TinaCMS / Decap) committing to businesses.ts",
+          "fit": "poor",
+          "pros": "Keeps businesses.ts as source of truth so almost zero change to current SSG pipeline; content versioned in git; cheapest; no DB to run; edits naturally flow through a build.",
+          "cons": "Per-owner 'edit only my row' is awkward/unsafe — Git CMS grants access at repo/branch/PR granularity, not row level; no clean way to stop one owner editing another's listing or the rest of the file; moderation works only as PR review (heavy for non-technical owners); every owner edit triggers a FULL site rebuild (no single-page ISR); image upload commits binaries into the repo; Decap is only lightly maintained (quiet repo, OAuth/GitHub coupling); poor fit for 96 non-technical owners."
+        },
+        {
+          "name": "Sanity / Contentful / Strapi / Directus (other headless CMS)",
+          "fit": "poor",
+          "pros": "Sanity/Contentful: polished hosted editing; Strapi/Directus: self-hostable, Directus has true field/row-level permissions and EU self-host.",
+          "cons": "Sanity gates EU data residency behind Enterprise (GDPR strike) and is per-seat (~$15/seat) — 96 owner logins is cost-prohibitive; Contentful Team is ~$300/mo — out of scope for a district directory; Strapi/Directus are separate services to run/secure (extra ops + CORS + a second deploy) and Strapi's row-level/owner-scoped permissions are weaker; Directus is the closest of these but still a separate app to maintain vs Payload living inside the existing Next codebase."
+        }
+      ],
+      "decisions": [
+        {
+          "question": "Which single stack should the client adopt?",
+          "answer": "Payload CMS v3 inside the existing Next.js app, backed by Neon Postgres (EU) and EU/S3-compatible image storage. It is the only option that delivers per-owner row scoping, admin approve-before-live moderation, image upload, and an owner+admin UI natively without building it all by hand."
+        },
+        {
+          "question": "What is the runner-up?",
+          "answer": "Supabase (Postgres + Auth + Storage, EU region). It gives airtight per-row security (RLS) and the building blocks cheaply, but you must build the owner dashboard, upload flow, and the entire moderation/approval workflow yourself — significantly more solo-maintenance than Payload. Choose it only if you specifically want DB-layer RLS and are happy to build the app UI."
+        },
+        {
+          "question": "Can the site stay SSG/ISR and SEO-strong with a DB/CMS backend?",
+          "answer": "Yes. Next.js 16 supports on-demand revalidation (revalidateTag / revalidatePath, Cache Components model). Pages render statically and are cached; a Payload afterChange/publish hook fires revalidateTag for that one listing, so only the affected /ondernemers/[id] (and any list/category pages) re-render. JSON-LD, sitemap, and Core Web Vitals are unaffected."
+        },
+        {
+          "question": "What happens to src/data/businesses.ts?",
+          "answer": "It becomes a one-time seed source. Write a migration script that imports the existing array and inserts each record into the Payload Business collection (the collection config mirrors the current ~40-field type). After migration the DB is the source of truth and the file can be retired (or kept as a versioned backup/export target)."
+        },
+        {
+          "question": "How are the ~96 owners onboarded without per-seat cost?",
+          "answer": "Payload is MIT/self-hosted with no per-seat fees, so all 96 owner accounts are free. Admin invites an owner (creates a user linked to their Business row); owner logs in (email/password or magic link) and sees only their listing. This is the decisive cost reason Sanity/Contentful are ruled out — they bill per editor seat."
+        }
+      ],
+      "steps": [
+        "Spike: install Payload v3 into the existing Next.js 16 app (Payload ships as a Next plugin — admin lives at /admin in the same deploy). Confirm it boots against a local Postgres.",
+        "Define the Business collection in Payload TypeScript config, mirroring the current Business interface (~40 fields incl. structured DayHours, perfectFor, imageStatus/verificationStatus etc.). Add an `owner` relationship field and a `status`/draft flag. Enable Drafts & Versions on the collection for the approve-before-live workflow.",
+        "Configure access control: read = published only for the public; update/read of a row = admin OR the matching owner (return `{ owner: { equals: user.id } }`). Verify an owner cannot touch another owner's row.",
+        "Set up an Uploads collection (or S3 adapter) for images pointing at EU object storage (S3-compatible EU bucket, or Vercel Blob); gate publish of new photos behind admin approval; keep imageFit/imageStatus semantics.",
+        "Write and run a one-time migration script: import { businesses } from src/data/businesses.ts and create one Payload doc per business (published state, owner unset until invited).",
+        "Replace the direct `import { businesses }` in the ~16 consumers with a data layer that reads from Payload's Local API inside Server Components, wrapped in `use cache` + cacheTag per business; keep generateStaticParams driven by the published set.",
+        "Add an afterChange/afterPublish hook that calls revalidateTag(`business:<id>`) (and the relevant list/category/sitemap tags) so an approved edit re-renders only the affected pages — preserving SSG/ISR, JSON-LD, and CWV.",
+        "Build the admin moderation view (Payload's Versions UI gives diff + publish; add a simple 'pending changes' filter) and a lightweight, friendly owner edit screen (Payload admin works, optionally skin it).",
+        "Deploy: Next app + Payload to an EU region (e.g. Vercel EU / a Hetzner/Fly EU box), Neon Postgres EU, EU image bucket. Confirm GDPR posture (DPA in place with each provider, EU data residency end-to-end).",
+        "QA the full loop: admin invites owner -> owner edits text/hours/photo -> change sits as draft -> admin approves -> only that listing re-renders live. Re-verify Lighthouse/CWV and structured data are unchanged."
+      ],
+      "risks": [
+        "Architecture shift: the app stops being a purely static export and becomes a stateful Next+DB deploy (admin/API need a server runtime). Public pages remain SSG/ISR, but the deploy target and ops change — plan for an always-on EU DB.",
+        "Solo-maintenance of a self-hosted stack: you own Payload version upgrades and Postgres migrations. Mitigate by pinning versions and keeping the migration/seed script in repo.",
+        "Authorization correctness is security-critical: a mistake in access-control rules could let an owner edit another's listing. Mitigate with explicit tests of the owner-scoped query constraint before go-live.",
+        "Image storage cost/egress can creep with owner uploads; cap upload size/count and serve via Next/Image. EU bucket egress is the main variable cost beyond the ~$0–25/mo baseline.",
+        "GDPR paperwork, not just region: ensure a Data Processing Agreement with each provider (DB host, storage, app host) and that ALL three are EU-resident; region selection alone is not sufficient compliance.",
+        "Owner UX: Payload's general-purpose admin may feel technical to non-technical shop owners; budget a little time to simplify/relabel their edit screen, or the moderation queue will fill with confused submissions.",
+        "Free-tier limits: Neon free (0.5GB/project, 100 CU-hours) is fine at this scale but watch for compute pauses; the $5 Launch tier removes that risk cheaply if needed."
+      ],
+      "packages": [
+        "payload",
+        "@payloadcms/db-postgres",
+        "@payloadcms/next",
+        "@payloadcms/storage-s3 (or @payloadcms/storage-vercel-blob)",
+        "@payloadcms/richtext-lexical",
+        "next@16",
+        "react@19",
+        "postgres driver (pg)",
+        "sharp (image processing for uploads)"
+      ],
+      "notes": "Estimated steady-state cost for the recommended stack: roughly EUR 0-30/month (Neon free or $5 Launch + EU object storage egress + EU app hosting), with ZERO per-owner seat cost for all 96 logins — versus per-seat SaaS (Sanity ~$15/seat, Contentful Team ~$300/mo) which scale badly here. Decision drivers in order: (1) native per-owner row scoping + (2) built-in approve-before-live moderation + (3) lives inside the existing Next app keeping SSG/ISR+SEO intact + (4) no per-seat cost for ~96 owners + (5) full EU/GDPR data sovereignty. Payload wins on all five; Supabase wins on 1, 4, 5 but forces you to build 2 and the entire UI; the Prisma/Auth.js DIY route forces you to build everything; Git-based CMS fails 1 and 2 and regresses ISR; Sanity/Contentful fail 4 (per-seat) and Sanity fails 5 (EU is Enterprise-only). Codebase facts grounding this: 96 businesses, ~40-field typed Business model in /Users/jezza/kamp/src/data/businesses.ts (11,059 lines), imported directly in ~16 files (e.g. /Users/jezza/kamp/src/app/ondernemers/[id]/page.tsx, /Users/jezza/kamp/src/lib/schema.ts, sitemap.ts), all consumed at build time via generateStaticParams. Next 16 on-demand revalidation confirmed available in node_modules/next/dist/docs/01-app/01-getting-started/09-revalidating.md. Sources: Sanity pricing/EU-Enterprise (nayankyada.com, robotostudio.com); Supabase pricing/RLS/EU (uibakery.io, schematichq.com); Payload MIT/self-host/Next-plugin (luckymedia.dev, nayankyada.com); Neon pricing/EU (vela.simplyblock.io, checkthat.ai); Directus/Strapi/Contentful (capterra, danubedata.ro); Decap/Tina maintenance (luckymedia.dev, github decaporg/tinacms)."
+    },
+    {
+      "area": "Auth and owner-portal model for Ondernemers van de Kamp (Next.js 16 static directory)",
+      "recommendation": "Use a managed auth provider with magic-link (passwordless email) as the primary sign-in, NOT a hand-rolled JWT/cookie scheme. Concretely: adopt Supabase Auth (magic link + an admin-issued invite flow), backed by Supabase Postgres + Supabase Storage for photos. Keep the public site exactly as it is today (fully static SSG via generateStaticParams over src/data/businesses.ts); the owner portal is a separate, dynamic, non-indexed area (/dashboard, /login, /admin) that never touches the static render path. Publishing is a moderation step: owner edits land in a Postgres \"pending changes\" table, the admin approves them, and approval writes the canonical record + triggers revalidatePath() so the static page regenerates (ISR) without a full redeploy. This satisfies every brief constraint: secure, low-maintenance, low-cost, EU/GDPR-appropriate, and zero SEO/CWV regression because the public pages stay static.\n\nWhy magic-link over passwords: the real flow is \"owner emails admin -> admin issues a login.\" With passwords the admin must generate, transmit, and have the owner rotate a secret — friction and a leak vector for a non-technical shopkeeper audience. With magic links the admin just adds the owner's email to the allowlist (an invite row); the owner clicks \"log in,\" receives a one-time link, and is in. No password to forget, store, or phish. For a ~96-business directory run by a solo operator this is the lowest-support-burden option that is also the most secure default.\n\nWhy a provider over DIY: the Next.js 16 auth guide itself recommends a library; rolling your own JWT/jose + cookie + magic-link-token + rate-limiting + email-delivery is exactly the \"quickly becomes complex\" path it warns against. Supabase gives you magic links, session/refresh handling, an EU (Frankfurt) region for GDPR, Postgres (replacing the read-mostly TS file as the write store), Storage for uploads, and Row Level Security — all on a free/low tier suitable for this scale.",
+      "options": [
+        {
+          "name": "Supabase Auth (magic link) + Supabase Postgres + Storage — RECOMMENDED",
+          "fit": "best",
+          "pros": "One vendor covers auth + DB + image storage; native magic-link + invite-by-email; EU/Frankfurt region for GDPR data residency; Row Level Security enforces 'owner edits only their business' at the database layer (defense in depth beyond app code); generous free tier (~50k MAU, 1GB storage) easily covers 96 owners + 1 admin; SSR helpers documented for Next.js App Router; Storage gives you the local-path photo URLs that BusinessImage/next/image already expect. Replaces the write-side of the TS data file with a real table while the public site can still build from a generated snapshot.",
+          "cons": "Introduces a hosted Postgres dependency (a backend to keep alive) where today there is none; a small data-sync story is needed (DB -> static build); free tier projects pause after ~1 week of inactivity (mitigate with a cron ping or the $25/mo Pro tier)."
+        },
+        {
+          "name": "Auth.js / NextAuth v5 (magic-link Email provider) + your own DB",
+          "fit": "good",
+          "pros": "Free, no auth vendor lock-in, runs in-process; Email provider gives passwordless magic links; flexible roles in the session callback. Good if you specifically want to avoid Supabase.",
+          "cons": "You still must supply and run a database adapter (Postgres/Neon/Turso) AND a separate file/image store AND an SMTP/email sender — you assemble 3 services instead of 1. More wiring, more for a solo operator to maintain. No built-in row-level authorization; all 'owner owns business' checks live in your app code only."
+        },
+        {
+          "name": "Clerk (managed, hosted UI, invitations API)",
+          "fit": "good",
+          "pros": "Best-in-class DX; built-in Organizations/roles, a first-class 'invitation' API that maps cleanly onto 'admin issues a login,' email magic links, prebuilt sign-in UI; offloads all session/security. Fast to ship.",
+          "cons": "US-headquartered SaaS — GDPR-workable via DPA/SCCs but less clean than an EU-region store for a Dutch civic project; still need a separate DB + image store for the business data and pending-changes/moderation; pricing grows beyond the free MAU tier; another vendor's outage = no logins. Overkill for 97 total users."
+        },
+        {
+          "name": "Hand-rolled magic link (jose JWT + cookies()) per the Next.js guide",
+          "fit": "poor",
+          "pros": "Zero third-party auth dependency; full control; the Next.js 16 guide shows the exact stateless-session primitives (jose HS256, httpOnly/secure/sameSite cookie, Proxy optimistic check, DAL verifySession).",
+          "cons": "You must build and secure: one-time token generation + expiry + single-use invalidation, email delivery, rate limiting/brute-force protection, session rotation, CSRF posture, and a users/sessions store — all yourself. Highest long-term security and maintenance risk; explicitly the path the official docs caution against. Not appropriate for a solo non-specialist operator."
+        },
+        {
+          "name": "Static password / shared link / HTTP Basic auth",
+          "fit": "poor",
+          "pros": "Trivial to set up.",
+          "cons": "Cannot scope an owner to a single business, no per-owner identity, no moderation trail, no GDPR-defensible access control. Disqualified for the stated multi-owner edit-your-own-listing requirement."
+        }
+      ],
+      "decisions": [
+        {
+          "question": "Auth method: magic-link/email vs password vs managed provider?",
+          "answer": "Passwordless magic link (one-time email link) as the primary method, delivered by a managed provider (Supabase Auth). No passwords. This matches the real flow (admin allowlists the owner's email; owner clicks to log in) and minimizes support burden for non-technical shopkeepers. Optionally allow a returning owner to also receive a 6-digit email OTP as a fallback if a link is mangled by an email client."
+        },
+        {
+          "question": "How is an owner account linked to one (or more) business records?",
+          "answer": "Via a join table, not a column, so multi-business owners are supported from day one. Schema: business_owners(user_id uuid REFERENCES auth.users, business_id text REFERENCES businesses.id, role text default 'owner', created_at). One owner can hold rows for several businesses (e.g. a couple running two shops); one business can have multiple owner contacts. Authorization for any edit = 'does a business_owners row exist for (session.userId, targetBusinessId)?'. With Supabase, encode this as a Row Level Security policy so the database itself rejects cross-business writes even if app code has a bug."
+        },
+        {
+          "question": "Roles: owner vs admin — where do they live?",
+          "answer": "Two roles. Store role on the user/profile: a profiles(user_id, role) table where role is 'admin' or 'owner' (default 'owner'). The admin (the client) is a single hardcoded-by-allowlist admin account. Put the role in the session/JWT claims so Proxy can do an optimistic role check, but ALWAYS re-verify the role server-side in the DAL (verifySession) before any mutation — never trust the cookie alone. Admin role grants: invite owners, view/approve pending changes, edit any business, manage the list. Owner role grants: edit only businesses linked via business_owners, and only into the pending-changes queue (their edits are not live until approved)."
+        },
+        {
+          "question": "How does the admin invite/issue a login?",
+          "answer": "Admin opens /admin/owners, enters the owner's email + selects the business(es) to link, and clicks Invite. This (1) creates/looks-up the auth user by email, (2) inserts the business_owners link row(s), and (3) sends an invite email containing a magic link (Supabase admin.inviteUserByEmail or generateLink, called from a server-side Route Handler / Server Action using the service-role key — never client-side). The owner clicks the link, a session is established, and they land on /dashboard scoped to their linked business(es). No password is ever set or transmitted. Revoking access = delete the business_owners row (and optionally disable the user)."
+        },
+        {
+          "question": "Session handling?",
+          "answer": "Provider-managed sessions stored in httpOnly, Secure, SameSite=Lax cookies (Supabase's @supabase/ssr handles set/refresh in Server Actions, Route Handlers, and Proxy). If hand-built instead, follow the Next.js 16 guide: jose HS256 JWT in an httpOnly/Secure/SameSite=Lax cookie via the async cookies() API, 7-day expiry with sliding refresh, deleteSession() on logout. Either way the session payload carries only {userId, role} — no PII, no business data. Sessions verified through a single Data Access Layer function verifySession() wrapped in React cache()."
+        },
+        {
+          "question": "Route protection for the owner dashboard (Next.js 16 specifics)?",
+          "answer": "Three layers. (1) Optimistic gate in proxy.ts — NOTE: in Next.js 16 'middleware' is renamed to Proxy; create a single proxy.ts at the src/ root with a matcher of ['/dashboard/:path*','/admin/:path*'] that reads ONLY the session cookie (no DB calls — Proxy must stay fast and must not do data fetching) and redirects unauthenticated users to /login. (2) Authoritative check in a DAL verifySession() called inside every protected page/layout's Server Component and at the top of EVERY Server Action and Route Handler (treat Server Actions as public endpoints — the guide is explicit). (3) Resource-level check: before any mutation, confirm a business_owners row links the session user to the target business (or role==='admin'); with Supabase, RLS enforces this at the DB even if a code path forgets. Do auth checks close to the data, not in layouts (layouts don't re-render on client navigation)."
+        },
+        {
+          "question": "How do approved edits reach the static public site without losing SSG/SEO?",
+          "answer": "Owner edits write to a business_edits(business_id, payload jsonb, status 'pending', submitted_by, submitted_at) table — nothing public changes yet. Admin reviews diffs + uploaded photos in /admin and clicks Approve, which merges the payload into the canonical businesses table and calls revalidatePath(`/ondernemers/${id}`) (plus the relevant /categorie/[slug] and home) from the Server Action. The public route /ondernemers/[id] keeps generateStaticParams + a moderate `export const revalidate` (or pure on-demand ISR), so it stays static/CDN-cached and re-renders only on approval. JSON-LD, sitemap, and llms.txt continue to read the same canonical data, so structured data and Core Web Vitals are unaffected. (Migration note: the canonical store moves from the src/data/businesses.ts file to the businesses table; keep a build-time export of the table to a snapshot if you want to retain a file-based fallback, but the live read path for SSG should be the DB.)"
+        },
+        {
+          "question": "Photo upload / moderation?",
+          "answer": "Owners upload to a private Supabase Storage bucket (or an 'incoming' prefix) via a server-validated upload (MIME allowlist: jpeg/png/webp; size cap ~5MB; strip EXIF/GPS). Uploaded photos attach to the pending business_edit and are shown to the admin for approval — mirroring today's 'photos only after owner akkoord' policy but reversed to admin-gate. On approval the image is moved/copied to the public path the site already consumes (a /-prefixed URL) so next/image optimizes it exactly as the current BusinessImage component expects; imageStatus flips to 'approved'. Public imageCandidateUrls remain stored-but-never-rendered, unchanged."
+        }
+      ],
+      "steps": [
+        "Provision Supabase (EU/Frankfurt region). Create tables: profiles(user_id, role), business_owners(user_id, business_id, role), business_edits(id, business_id, payload jsonb, status, submitted_by, submitted_at, reviewed_by, reviewed_at), and a businesses table seeded by importing the current src/data/businesses.ts. Enable Row Level Security on all of them.",
+        "Migrate the data read path: generate the public SSG data from the businesses table (build-time fetch or a committed snapshot), keeping src/data/businesses.ts's Business type as the shared TypeScript contract. Verify the static build, JSON-LD, sitemap, and llms.txt are byte-for-byte equivalent before going further.",
+        "Add @supabase/supabase-js + @supabase/ssr. Create src/lib/supabase/{server,client}.ts wrappers and src/lib/dal.ts exporting cache()-wrapped verifySession() and a requireBusinessAccess(businessId) helper. Add env vars: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, and SUPABASE_SERVICE_ROLE_KEY (server-only, used only in Route Handlers/Server Actions for admin invites).",
+        "Create src/proxy.ts (Next.js 16 renamed middleware -> Proxy) with matcher ['/dashboard/:path*','/admin/:path*'], doing an optimistic cookie-only session check that redirects to /login. Do NOT put DB calls or the authoritative role check here.",
+        "Build /login (magic-link request form -> Server Action that calls signInWithOtp) and the magic-link callback Route Handler that exchanges the code for a session cookie and redirects to /dashboard.",
+        "Build /dashboard: a Server Component that calls verifySession(), lists the businesses linked to the user via business_owners, and an edit form per business (descriptions, hours via the existing DayHours structure, phone/website/socials/price/tags, photo upload). The submit Server Action re-runs verifySession() + requireBusinessAccess() then inserts a business_edits row (status 'pending'); it never writes the live record.",
+        "Build /admin (role==='admin' only, verified in the DAL): an Owners screen (invite by email + link to business, calling admin.inviteUserByEmail server-side) and a Moderation queue showing pending business_edits diffs + uploaded photos with Approve/Reject. Approve merges payload into businesses, promotes the photo to the public path, and calls revalidatePath for the affected /ondernemers/[id], /categorie/[slug], and / routes.",
+        "Add a robots/noindex header and 'X-Robots-Tag: noindex' (or a route-segment robots) for /dashboard, /admin, /login so the portal never gets indexed. Add a small cron (Vercel cron or Supabase pg_cron) ping to keep a free-tier Supabase project from pausing.",
+        "Replace the /aanmelden mailto form: keep public self-signup as a 'request access' that creates a pending invite for the admin to approve (so the admin still gates who gets a login), preserving the current 'we nemen contact op' tone. Existing AanmeldenForm/OwnerSubmitCta become the entry point into this flow.",
+        "Security pass: confirm RLS rejects cross-business writes (test as a non-owner), confirm every Server Action/Route Handler calls verifySession() (the guide treats them as public endpoints), validate upload MIME/size + strip EXIF, set the session cookie httpOnly/Secure/SameSite=Lax, and add a short GDPR/privacy note covering owner email + uploaded photos with a deletion path (delete user + business_owners + their edits)."
+      ],
+      "risks": [
+        "Architectural shift: today there is NO backend. Adopting auth introduces a hosted DB + storage that must be kept alive, backed up, and (on Supabase free tier) pinged to avoid pausing. This is the single biggest change to the project's 'static, low-maintenance' character — budget for it explicitly.",
+        "Next.js 16 gotcha: 'middleware' is renamed to Proxy (proxy.ts). Proxy runs before render and must NOT do data fetching or DB calls — it is for optimistic cookie checks only. Putting auth DB lookups there will hurt performance and can block static assets if the matcher is too broad (exclude api/_next/static/_next/image/public assets).",
+        "Auth-in-layout trap: the docs warn layouts don't re-render on client-side navigation, so a single layout-level auth check is insufficient. Checks must live in the DAL and run inside each page, Server Action, and Route Handler.",
+        "Server Actions are public endpoints: every mutation must independently call verifySession() + the resource-ownership check. A client-side hidden button is not access control. Forgetting this on one action is a full authz bypass — RLS on Supabase is the recommended backstop.",
+        "SEO/CWV regression risk if the public pages are accidentally made dynamic. Keep /ondernemers/[id] static with generateStaticParams and use on-demand revalidatePath on approval; never gate public routes behind Proxy/session.",
+        "Data-store migration risk: moving the canonical source from src/data/businesses.ts to a table can desync the build. Mitigate by keeping the Business type as the contract and snapshotting the table to a build-time file until confidence is high.",
+        "Image-upload abuse / privacy: uploaded photos can carry EXIF GPS or be oversized/malicious. Enforce server-side MIME+size validation and EXIF stripping; keep the admin-approval gate (matches the existing 'photos only after akkoord' policy).",
+        "GDPR: storing owner emails + photos creates a controller obligation. Use an EU region, a DPA with the provider, a privacy statement, and a concrete deletion path (delete user, business_owners links, and their pending edits)."
+      ],
+      "packages": [
+        "@supabase/supabase-js",
+        "@supabase/ssr",
+        "zod (server-side validation of edit payloads, per the Next.js auth guide)"
+      ],
+      "notes": "Current-system audit (verified by reading the repo): the site is 100% static — all data is the typed array in /Users/jezza/kamp/src/data/businesses.ts (the Business interface, ~50 optional fields incl. structured hours: DayHours[]), consumed at build by generateStaticParams in /Users/jezza/kamp/src/app/ondernemers/[id]/page.tsx and /Users/jezza/kamp/src/app/categorie/[slug]/page.tsx, plus /Users/jezza/kamp/src/app/sitemap.ts and /Users/jezza/kamp/src/app/llms.txt/route.ts (force-static). There are NO API routes, NO middleware/proxy, NO auth, NO DB today. Owner onboarding is purely a client-side mailto form: /Users/jezza/kamp/src/components/AanmeldenForm.tsx (and OwnerSubmitCta.tsx). next.config.ts is empty (no images.remotePatterns), and /Users/jezza/kamp/src/components/BusinessImage.tsx uses next/image only for local '/'-prefixed owner photos and a raw <img> for external URLs — so approved owner uploads should be written to a local/public '/' path to get optimization, which the recommended Storage->public-path-on-approval step does.\n\nNext.js 16 facts confirmed from /Users/jezza/kamp/node_modules/next/dist/docs/: (1) Middleware is renamed to Proxy — file is proxy.ts at the src/ root, single file per project, runs on Node.js runtime, optimistic cookie checks only, must exclude static assets via matcher. (2) The official authentication guide explicitly recommends an auth library over DIY and lists Supabase, Clerk, Auth.js/NextAuth among supported options. (3) cookies() is async (await cookies()). (4) revalidatePath works in Server Actions and Route Handlers (NOT in Client Components or Proxy) — this is the mechanism to push approved edits into the static pages without a redeploy. (5) Recommended cookie options: httpOnly, Secure, SameSite, Max-Age/Expires, Path. (6) DAL pattern with cache()-wrapped verifySession() is the prescribed authorization centralization.\n\nRelevant files for implementation: /Users/jezza/kamp/src/data/businesses.ts (type contract + seed), /Users/jezza/kamp/src/app/ondernemers/[id]/page.tsx (revalidate target), /Users/jezza/kamp/src/components/BusinessImage.tsx (photo path contract), /Users/jezza/kamp/src/components/AanmeldenForm.tsx + /Users/jezza/kamp/src/components/OwnerSubmitCta.tsx (entry point to convert into request-access), /Users/jezza/kamp/next.config.ts (add images config if Storage URLs are ever served remotely). New files to create: src/proxy.ts, src/lib/dal.ts, src/lib/supabase/{server,client}.ts, src/app/login, src/app/dashboard, src/app/admin."
+    },
+    {
+      "area": "Image upload & storage for owner-managed business photos (hero + gallery), with moderation, for the Ondernemers van de Kamp Next.js 16 SSG directory",
+      "recommendation": "Use Supabase for the whole feature: Supabase Storage for files, Supabase Postgres for the draft/moderation state + the published URL, and Supabase Auth for owner/admin logins. Pair it with Next.js 16 remote image optimization (next/image + images.remotePatterns) and convert /ondernemers/[id] and /kaart to ISR with on-demand revalidation so approved photos go live without a redeploy.\n\nWHY ONE PROVIDER, NOT A POINT TOOL: The current site is pure SSG with ALL data in a typed TS file (src/data/businesses.ts, 98 records) and NO database, NO auth, NO API routes, NO build-time fetch (confirmed: generateStaticParams reads the array directly; no env files exist). Image upload is therefore not just a \"where do the bytes go\" question — it requires (1) somewhere to store the bytes, (2) somewhere to store who-uploaded-what + pending/approved moderation state + the resulting URL keyed to the business, and (3) a way to push the approved URL onto a static page without a manual redeploy. Vercel Blob, Cloudinary, and UploadThing only solve (1) (and Cloudinary also does transforms); they do NOT give you the auth + moderation-state DB, so you'd have to bolt on a second system anyway. Supabase delivers storage + Postgres + Auth + Row Level Security in one EU-region project, which is the smallest RELIABLE setup for a solo/committee operator. Cloudinary is the runner-up ONLY if you want zero image-pipeline code (URL-based transforms) and are willing to run auth + the moderation DB separately.\n\nDATA MODEL (do NOT mutate businesses.ts at runtime — keep it as the SSG seed/fallback): Add a Postgres table, e.g. `business_media` { id, business_id (matches Business.id), kind: 'hero' | 'gallery', storage_path, public_url, width, height, blurhash, sort_order, status: 'pending' | 'approved' | 'rejected' | 'replaced', uploaded_by, created_at, reviewed_by, reviewed_at }, plus `business_overrides` for the editable text/hours/socials fields with the same pending/approved status, and `owner_business` { user_id, business_id } to scope edits. At render time the page reads APPROVED rows for that business_id and falls back to the existing businesses.ts imageUrl/gallery when none exist — so the site degrades gracefully and the 98 existing records keep working untouched.\n\nHOW THE EXISTING imageStatus/permissionStatus MODEL MAPS (reuse it, don't reinvent): The type already has imageStatus ('placeholder' | 'shopfront_needed' | 'owner_photo_needed' | 'approved'), permissionStatus ('placeholder_only' | 'public_business_info' | 'owner_photo_needed' | 'owner_approved'), verificationStatus ('owner_approved'), and an imageCandidateUrl that the project rule says is 'stored but NEVER rendered'. Mirror this exactly in the DB status enum: a new owner upload lands as imageStatus='owner_photo_needed' / permissionStatus='owner_photo_needed' (pending) and is rendered ONLY after an admin sets status='approved' / permissionStatus='owner_approved' — which is the same NEVER-render-until-approved invariant that imageCandidateUrl already enforces. This means the moderation gate is a continuation of an existing rule, not a new policy.\n\nUPLOAD UI: A protected /beheer (owner dashboard) route behind Supabase Auth. Drag-drop + file picker (a small client component; you already use 'use client' components like AanmeldenForm and have lucide-react Camera/Upload icons). Show current approved photo, a 'pending review' banner for anything awaiting moderation, hero vs gallery slots, drag-to-reorder gallery, and remove. Mobile-first (owners will use phones). Keep the existing /aanmelden mailto flow as the public 'request a login' entry point — the admin issues the login from the dashboard.\n\nVALIDATION: Enforce client-side AND server-side (in a Server Action / route handler). Accept image/jpeg, image/png, image/webp, image/avif only; reject HEIC by asking to re-export or transcode server-side; max ~10 MB per file; sniff real magic bytes (not just the extension/declared MIME); cap gallery count (e.g. 8). Strip EXIF/GPS on ingest (privacy + GDPR). Use a Supabase Storage RLS policy so an owner can only write to their own business_id prefix.\n\nRESIZING/OPTIMIZATION + CWV: Owners upload large phone photos; do NOT serve those raw. On upload, generate a normalized master (e.g. resize to max 2000px, re-encode to WebP, strip EXIF) using sharp in the Server Action, store that in Supabase Storage, and record width/height + a tiny blurhash/blurDataURL. Then let next/image do per-device responsive sizing/format at request time: add the Supabase Storage hostname to images.remotePatterns in next.config.ts (currently empty — this is required for next/image to optimize remote URLs in Next 16). Always render via <Image fill> with the stored width/height/blurDataURL and a correct sizes prop to keep CLS=0 and good LCP. BusinessImage.tsx already implements local-photo → external → placeholder precedence with object-cover/contain and imageFit — extend branch 1 to also treat approved Supabase URLs as optimizable next/image sources (today branch 2 uses a raw <img> for external URLs, which is NOT optimized — that is exactly the regression to avoid for owner photos).\n\nMODERATION BEFORE GOING LIVE: Admin view in /beheer lists pending business_media + business_overrides rows with before/after preview and Approve/Reject buttons (writing reviewed_by/reviewed_at). Nothing pending is ever rendered publicly (RLS + the render-only-approved query enforce this). On Approve, the Server Action flips status to 'approved' and triggers on-demand revalidation.\n\nPUBLISH WITHOUT REDEPLOY (Next 16 specifics, verified against node_modules/next/dist/docs): Convert /ondernemers/[id] and /kaart from build-time-only SSG to ISR by reading approved media from Supabase in the page (keep generateStaticParams for prebuild + SEO). On Approve, call revalidatePath('/ondernemers/[id]','page') and revalidatePath('/kaart') from the Server Action. NOTE the Next 16 breaking changes that bite here: revalidateTag now REQUIRES a second cacheLife argument (e.g. revalidateTag('biz-123','max')) — the single-arg form is a TS error; for immediate (non-stale-while-revalidate) expiry use updateTag in a Server Action; params/searchParams are async (await them). JSON-LD/schema and sitemap keep working because they read the same merged data source. This keeps SSG/SEO/structured data intact while letting an approved photo appear within seconds.\n\nSECURITY/GDPR (EU/NL): Create the Supabase project in an EU region (eu-central-1 Frankfurt or eu-west-1 Ireland) so primary data AND backups stay in the EU; sign Supabase's DPA. Note Supabase is a US (Delaware) entity, so EU region gives data RESIDENCY but not full sovereignty — fine for a public business directory with owner-consented photos, and better than Vercel Blob/Cloudinary/UploadThing whose default residency is less explicit. Strip EXIF/GPS, store an explicit consent timestamp (the /aanmelden form already collects a permission checkbox — persist that), and keep the 'owner photos only with permission' rule the memory already mandates.\n\nSMALLEST RELIABLE SETUP (cost): Supabase Free tier (1 GB file storage, 500 MB DB, auth included) comfortably covers ~96 businesses × a few photos each; upgrade to Pro ($25/mo) only if storage/bandwidth grows. next/image optimization runs on your existing Vercel deploy at no added service. Total new monthly cost: $0 to start, ~$25 at scale. One provider to operate, which matches the solo/small-committee constraint.",
+      "options": [
+        {
+          "name": "Supabase (Storage + Postgres + Auth) — RECOMMENDED",
+          "fit": "best",
+          "pros": "One EU-region provider solves ALL three gaps the static site has: file storage, the moderation-state/URL database, AND owner+admin auth with Row Level Security to scope edits per business. Free tier (1 GB storage, 500 MB Postgres, auth) covers ~96 businesses; Pro is $25/mo. Explicit EU region (Frankfurt/Ireland) keeps primary data + backups in the EU; DPA available. Postgres is the natural home for pending/approved moderation rows mapped onto the existing imageStatus/permissionStatus enums. Lowest operational surface for a solo operator.",
+          "cons": "No built-in image transformation (Storage is plain S3-like object storage) — you do resize/WebP/EXIF-strip yourself with sharp in a Server Action (one small function). Supabase is a US (Delaware) corp, so EU region = residency, not full sovereignty. You write the auth/dashboard UI (but it's standard Supabase Auth)."
+        },
+        {
+          "name": "Cloudinary (managed media pipeline)",
+          "fit": "good",
+          "pros": "Best-in-class image handling: URL-based on-the-fly resize/crop/format(auto WebP/AVIF)/quality + global CDN, so you write almost zero image-processing code and can even bypass next/image optimization. Free tier ~25 credits/mo (~25 GB storage or 25k transforms). Mature, reliable.",
+          "cons": "Solves ONLY storage+transforms — you still need a SEPARATE auth system and a SEPARATE database for owner/admin login and the pending/approved moderation state, so it does NOT reduce the number of systems for THIS feature; it adds one. Free-tier overage behavior can suspend the account (assets go inaccessible) rather than bill. EU data residency not a highlighted default — needs DPA + region confirmation. Most expensive paid tiers ($89+/mo)."
+        },
+        {
+          "name": "Vercel Blob (storage on the existing platform)",
+          "fit": "good",
+          "pros": "Already on Vercel, so zero new vendor for storage; simple put()/del() SDK, durable, generous Hobby allotment. EU region selectable for the blob store. Pairs cleanly with next/image via remotePatterns.",
+          "cons": "Storage ONLY — no auth, no database, no image transformation, no moderation primitives. You'd still add a separate DB (for moderation state + URLs) and a separate auth system, so it leaves two of the three gaps unsolved. Vercel is US-incorporated / CLOUD Act exposure; data-residency controls still maturing. You implement all resizing/optimization yourself."
+        },
+        {
+          "name": "UploadThing (DX-focused upload service)",
+          "fit": "poor",
+          "pros": "Very fast to wire up upload UI + signed uploads in a Next.js app; reasonable free storage (~2–10 GB depending on source) and cheap $10/mo for 100 GB.",
+          "cons": "Storage/upload ONLY — no image transformation, no database for moderation state, no auth/RLS to scope edits per owner. EU data residency / GDPR posture not clearly documented (no explicit EU region guarantee found) — weakest fit for an NL/GDPR project. Smallest, youngest vendor of the four; leaves the same two gaps as Vercel Blob plus weaker compliance story."
+        }
+      ],
+      "decisions": [
+        {
+          "question": "Where is the photo URL stored on the business record?",
+          "answer": "NOT in businesses.ts (that stays the immutable SSG seed/fallback). Approved URLs live in a new Postgres `business_media` table keyed by business_id (kind: hero|gallery, status, public_url, width/height/blurhash). Pages merge approved rows over the businesses.ts imageUrl/gallery fallback at render time."
+        },
+        {
+          "question": "How does the existing imageStatus / permissionStatus / imageCandidateUrl model fit?",
+          "answer": "Reuse it directly. New uploads = imageStatus 'owner_photo_needed' + permissionStatus 'owner_photo_needed' (pending). Admin approval flips to imageStatus 'approved' + permissionStatus 'owner_approved' + verificationStatus 'owner_approved'. This is the SAME never-render-until-approved invariant the project already enforces for imageCandidateUrl ('stored but never rendered'), so the moderation gate continues an existing rule rather than adding a new policy."
+        },
+        {
+          "question": "How do approved photos stay fast / not regress Core Web Vitals?",
+          "answer": "Two layers: (1) on upload, normalize with sharp to max ~2000px WebP, strip EXIF, record width/height + blurDataURL; (2) render via next/image (add the Supabase host to images.remotePatterns — currently empty) with fill + sizes + blur placeholder for CLS=0 and optimized LCP. Today BusinessImage.tsx serves EXTERNAL urls via a raw unoptimized <img> (branch 2) — owner photos must go through the next/image path (branch 1) to avoid that regression."
+        },
+        {
+          "question": "How does an approved photo go live on a STATIC page without a redeploy?",
+          "answer": "Convert /ondernemers/[id] and /kaart to ISR (keep generateStaticParams for prebuild+SEO) reading approved media from Supabase. On Approve, the Server Action calls revalidatePath('/ondernemers/[id]','page') + revalidatePath('/kaart'). Next 16 caveats: revalidateTag now needs a cacheLife second arg, use updateTag for immediate expiry, await params/searchParams. JSON-LD + sitemap read the same merged source so structured data stays intact."
+        },
+        {
+          "question": "What is moderated and by whom?",
+          "answer": "Both photos AND text/hours/socials edits land as pending rows (business_media / business_overrides). Owners (Supabase Auth, RLS-scoped to their own business_id) can only create pending changes. Admin reviews before/after in /beheer and Approves/Rejects; only approved rows are ever queried for public render. Admin also issues/invites owner logins and manages the full list."
+        },
+        {
+          "question": "Is it GDPR/EU appropriate?",
+          "answer": "Yes with care: create the Supabase project in an EU region (Frankfurt eu-central-1 or Ireland eu-west-1) so primary data + backups stay in the EU, sign the DPA, strip EXIF/GPS on ingest, and persist the consent timestamp the /aanmelden permission checkbox already collects. Supabase being a US corp means residency not full sovereignty — acceptable for a public, consent-based business directory and stronger than the other three options' default posture."
+        }
+      ],
+      "packages": [
+        "@supabase/supabase-js (storage + DB + auth client)",
+        "@supabase/ssr (auth in Next.js App Router server components / route handlers / middleware)",
+        "sharp (server-side resize, WebP/AVIF re-encode, EXIF strip on upload)",
+        "blurhash or built-in plaiceholder (generate blurDataURL for next/image placeholder)",
+        "file-type (server-side magic-byte MIME sniffing for validation)"
+      ],
+      "steps": [
+        "Provision a Supabase project in an EU region (Frankfurt/Ireland); sign the DPA. Add SUPABASE_URL + anon + service-role keys to a new .env.local (none exist today).",
+        "Create tables: business_media, business_overrides, owner_business; enable Row Level Security so an owner can only read/write rows for their own business_id, and only admins can flip status to 'approved'. Add a Storage bucket with a per-business path prefix policy.",
+        "Add the Supabase Storage hostname to images.remotePatterns in next.config.ts (currently empty {}) so next/image optimizes approved remote photos.",
+        "Build a data-access layer that, for a given business_id, returns merged data = approved business_media/overrides over the businesses.ts fallback. Use this in /ondernemers/[id], /kaart, sitemap, and schema so SEO/JSON-LD read the same source.",
+        "Convert /ondernemers/[id] and /kaart to ISR (keep generateStaticParams). Extend BusinessImage.tsx so approved Supabase URLs render through the next/image (branch 1) path with width/height/blurDataURL, not the raw <img> external branch.",
+        "Implement Supabase Auth + a protected /beheer route via @supabase/ssr + middleware. Owners land on their own listing; an admin role sees all + an invite/issue-login action.",
+        "Build the owner upload UI (mobile-first drag-drop, hero + gallery slots, reorder, remove, 'pending review' banner). Reuse lucide-react Camera/Upload icons and the existing 'use client' form patterns.",
+        "Implement a Server Action / route handler for upload: validate MIME by magic bytes + size cap + count cap, strip EXIF, resize to WebP master with sharp, compute width/height + blurDataURL, store in Supabase Storage, insert a 'pending' business_media row mapped to imageStatus='owner_photo_needed'.",
+        "Build the admin moderation view in /beheer: before/after preview + Approve/Reject. On Approve, flip status to 'approved' (imageStatus='approved', permissionStatus='owner_approved') and call revalidatePath for the business page + /kaart (mind Next 16 revalidateTag cacheLife arg / updateTag).",
+        "Persist consent timestamp (from the /aanmelden permission checkbox) and verify end-to-end: upload → pending (not public) → approve → appears on the live page within seconds via ISR, with CLS=0 and optimized LCP confirmed.",
+        "Keep /aanmelden mailto as the public 'request a login' funnel; the admin issues the login from /beheer."
+      ],
+      "risks": [
+        "Runtime data reads break the current pure-SSG model: /ondernemers/[id] and /kaart must move to ISR. If misconfigured, you regress to all-dynamic (slower, worse CWV/SEO). Mitigate by keeping generateStaticParams + reading approved media with proper cache tags and on-demand revalidation only.",
+        "Next.js 16 breaking changes will bite if copied from older examples: async params/searchParams, revalidateTag REQUIRES a cacheLife second arg (single-arg = TS error), updateTag for immediate expiry. Follow node_modules/next/dist/docs, not training-data patterns (per AGENTS.md).",
+        "Unoptimized image regression: today external imageUrls render via a raw <img> (BusinessImage branch 2). If owner photos take that path they skip next/image optimization → LCP/bandwidth regression. Route approved photos through the next/image path and set remotePatterns.",
+        "Moderation bypass: if a page ever queries non-approved rows, pending/un-consented photos leak publicly — violating the project's 'photos only after owner approval' rule. Enforce at BOTH the query layer and Storage RLS.",
+        "GDPR: raw phone photos carry EXIF GPS; failing to strip on ingest is a privacy leak. Always strip EXIF and store explicit consent. Supabase US-corp = residency not sovereignty; acceptable here but document it.",
+        "Self-uploaded image quality varies (orientation, aspect, huge files): handle EXIF orientation in sharp, enforce size/count caps, and keep the generative placeholder as the last-resort fallback so layouts never break.",
+        "Cost/lock-in creep: starting free is fine, but bandwidth from many large galleries can push past free tier. Cap gallery counts and serve only optimized derivatives; monitor Supabase usage before it forces an unplanned upgrade."
+      ],
+      "notes": "Audit confirms the constraints driving this recommendation. Key files: src/data/businesses.ts (Business type lines 87–183; imageUrl/imageStatus/permissionStatus/imageCandidateUrl/gallery already defined; 98 records; gallery field exists but is NOT rendered anywhere yet), src/components/BusinessImage.tsx (3-tier precedence; branch 1 = optimized next/image for local '/' paths, branch 2 = UNOPTIMIZED raw <img> for external https urls — the regression to avoid), src/app/ondernemers/[id]/page.tsx (build-time SSG via generateStaticParams; metadata only uses local '/' images as OG), src/components/AanmeldenForm.tsx (today just builds a mailto with a permission checkbox; no upload), next.config.ts (empty — images.remotePatterns must be added). Confirmed absent: any next-auth/supabase/prisma/drizzle/blob/cloudinary/uploadthing dependency, any route handler (POST/GET), any cookies()/auth, any .env file. Next 16 docs consulted: 01-getting-started/12-images.md (remotePatterns required for remote next/image), upgrading/version-16.md (async params; revalidateTag needs cacheLife arg; updateTag for immediate expiry), revalidatePath.md, ISR guide. Provider posture (web-researched June 2026): Cloudinary free ~25 credits/mo with suspend-on-overage; Supabase free 1 GB storage/500 MB DB + EU region selectable (Delaware corp); UploadThing storage-only, weak documented EU/GDPR story; Vercel Blob storage-only on existing platform, US CLOUD Act exposure. Bottom line: the static-data architecture (no DB/auth) is what makes Supabase the smallest reliable choice — the other three solve only the storage slice and force a second system for auth + moderation state."
+    },
+    {
+      "area": "Data model & migration from static src/data/businesses.ts to a backend store, plus the SEO-safe read path (schema, draft/published + change-requests, one-time import, ISR/generateStaticParams/revalidate)",
+      "recommendation": "Use Supabase (managed Postgres in the EU region) as the single backend for data, auth, and image storage. Model each listing as one `businesses` row that mirrors the existing Business type almost field-for-field, keeping the editorial/structured pieces (hours, perfectFor, keyFacts, specialties, tags, sourceUrls, socials) as JSONB / text[] so the TS types and JSON-LD builders stay unchanged. Implement draft-vs-published as TWO column sets on the same row (published_* is what the public site reads; draft_* is the owner's working copy) plus a separate `change_requests` audit/moderation table; photos go through a `media` table with a `pending|approved` status so nothing reaches the public bundle un-moderated. Do the migration as a ONE-TIME, idempotent Node import script that imports the real `businesses` array from the TS file and upserts by `id` into both published_* and draft_* (keep businesses.ts in git as the seed/backup, then stop importing it in app code). For the read path, keep full SSG: a cached data layer (`unstable_cache` tagged `businesses` / `business:{id}`) feeds `generateStaticParams` (returns the full active set, exactly as today) and the page bodies; set a long `revalidate` (e.g. 3600s) as a safety net and trigger instant on-publish freshness by calling `revalidatePath('/ondernemers/{id}')` + `revalidateTag('businesses')` from the admin \"approve\" Server Action (or a secured webhook). Structured data and generateStaticParams do NOT change shape — they read the same Business object, now sourced from Postgres instead of the literal array.",
+      "options": [
+        {
+          "name": "Supabase (managed Postgres + Auth + Storage), EU region",
+          "fit": "best",
+          "pros": "One vendor covers all three new needs: relational data, owner/admin auth (magic-link / invite, RLS), and image storage with CDN + transforms. Postgres JSONB stores hours/perfectFor/keyFacts verbatim so the Business TS type and every JSON-LD builder stay identical. Row-Level Security lets an owner edit only their own draft row. Free/low tier fits a 96-row solo-operated directory; EU project = GDPR-appropriate data residency. Pairs naturally with Vercel ISR + revalidateTag.",
+          "cons": "Another managed service to operate; RLS has a learning curve; Storage image transforms are a paid add-on (or use next/image instead)."
+        },
+        {
+          "name": "Postgres (Neon/Vercel Postgres) + Drizzle/Prisma, auth via Auth.js, images via Vercel Blob/UploadThing",
+          "fit": "good",
+          "pros": "Maximum control and a clean typed ORM that can generate types matching the Business interface; Neon EU region for residency; decouples DB from auth/storage so each piece is swappable.",
+          "cons": "You assemble 3+ services (DB + Auth.js + blob storage) and write the moderation/RLS logic yourself — more glue code and more to maintain for a one-person committee. Higher implementation cost than Supabase for the same outcome."
+        },
+        {
+          "name": "Headless CMS with editorial workflow (Sanity / Payload / Strapi)",
+          "fit": "good",
+          "pros": "Draft-vs-publish, roles, and media moderation are built-in product features — least custom code for the workflow itself. Sanity/Payload give a polished editing UI for the admin out of the box.",
+          "cons": "Per-business owner logins scoped to a single document is awkward in most CMSes (their roles are coarse); mapping ~50 fields incl. structured hours into the CMS schema is fiddly; vendor lock-in / pricing creep; for owners editing only their own listing, a custom Supabase-backed form is simpler and cheaper than bending a CMS's role model."
+        },
+        {
+          "name": "Keep businesses.ts as the store; admin edits via Git/PR (Git-as-CMS)",
+          "fit": "poor",
+          "pros": "Zero new infrastructure; build stays a pure static export; full version history for free.",
+          "cons": "Does not meet the goal: business owners cannot self-serve edits or upload photos without a Git workflow, there is no per-owner auth, and image upload/moderation is impossible. Rebuild-on-every-edit doesn't scale to owner-driven changes."
+        }
+      ],
+      "packages": [
+        "@supabase/supabase-js (server + admin clients for read/write and the import script)",
+        "@supabase/ssr (cookie-based auth for the owner/admin App Router pages)",
+        "zod (validate owner-submitted fields server-side before writing draft_* — descriptions, hours shape, urls, price)",
+        "tsx (run the one-time import + any data scripts that import the .ts businesses file directly)",
+        "Optional: drizzle-orm + drizzle-kit (typed schema + migrations if you prefer SQL-first over Supabase Studio); skip if using Supabase migrations/SQL directly"
+      ],
+      "steps": [
+        "Provision a Supabase project in an EU region (e.g. eu-central). Add env vars to Vercel: SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY (server-only), plus a REVALIDATE_SECRET for the webhook/Server Action.",
+        "Create the schema (SQL migration). Table `businesses`: id text PK (= current id, also the route param and de-facto slug), plus a flat set of scalar columns (name, category, subcategory, address, postal_code, city, street_segment, lat, lng, geo_confidence, status, price_range, price_level, schema_type, image_url, image_fit, image_status, permission_status, verification_status, inclusion_status, featured, sort_order, updated_at, last_checked) and JSONB/array columns for the structured pieces (hours jsonb = DayHours[], perfect_for text[], key_facts jsonb, specialties text[], tags text[], good_for text[], dietary_tags text[], highlights text[], source_urls text[], socials jsonb, short_description, long_description, owner_or_story_notes, accessibility_notes, payment_notes, hours_note). Mirror EVERY field so the TS Business type is unchanged.",
+        "Implement draft-vs-published WITHOUT duplicating 50 columns: store the public copy in a `published jsonb` (a full serialized Business) and the owner working copy in a `draft jsonb`, keyed by id, with `status enum('draft_pending_review','published')`, `owner_user_id uuid null`, `published_at`, `draft_updated_at`. Public reads deserialize `published`; owner edits write `draft`; admin approval copies draft -> published. (Keep the scalar columns above only for the ones you need to query/sort/filter — id, category, status, featured, sort_order, street_segment, lat/lng — to avoid full-JSON scans; everything else lives in the JSONB blobs.)",
+        "Create `change_requests` (id, business_id FK, owner_user_id, submitted_at, reviewed_at, reviewer, decision enum('pending','approved','rejected'), diff jsonb of changed fields, note) for the moderation queue and audit trail; and `media` (id, business_id FK, storage_path, kind enum('cover','gallery'), status enum('pending','approved','rejected'), uploaded_by, created_at, alt). A Supabase Storage bucket holds uploads; only `approved` media URLs are ever surfaced to the public read layer.",
+        "Set Row-Level Security: owners (auth.uid() = owner_user_id) can SELECT/UPDATE only their own `draft` and INSERT their own `media`/`change_requests`; they can never write `published`. Admin uses the service-role key (server-only) to read everything and to approve. Public read uses anon key restricted to `status='published'` rows / approved media, or — simpler and faster — the Next server reads via service role inside a cached function and never exposes the DB to the browser.",
+        "Write the one-time import script `scripts/import-businesses.ts` (run with tsx): `import { businesses } from '../src/data/businesses'`, then for each record upsert one row by id where `published = record` AND `draft = record` AND status='published', owner_user_id=null. Make it idempotent (ON CONFLICT (id) DO UPDATE) so it can be re-run safely; log inserted/updated/skipped counts; assert count === 98 at the end. Keep businesses.ts committed as the seed/backup, but after import stop importing it from app/page code.",
+        "Build a typed data-access layer `src/lib/db.ts`: `getPublishedBusinesses()` and `getPublishedBusiness(id)` that query Supabase, deserialize `published` jsonb into the existing `Business` type (a thin runtime cast / zod parse), and wrap in `unstable_cache(fn, ['businesses'], { tags: ['businesses', `business:${id}`] })`. This is the ONLY change to the read path — every consumer keeps importing the Business type and calling these helpers instead of the literal array.",
+        "Update the read path with minimal diffs: in `/ondernemers/[id]/page.tsx`, `generateStaticParams` calls `getPublishedBusinesses()` and returns the same `{ id }[]` (still SSG, full set); the page body and `generateMetadata` call `getPublishedBusiness(id)`. Do the same swap in `sitemap.ts`, `llms.txt/route.ts`, `categorie/[slug]/page.tsx`, `page.tsx`, and the components that import the array (FeaturedHorizontal, WandelShowcase, SeoIntro, OwnerSubmitCta, kaart, over-de-kamp, cadeaukaart, praktisch). The JSON-LD builders in src/lib/schema.ts and hours.ts are UNTOUCHED — they receive the same Business object, so OpeningHoursSpecification, LocalBusiness subtype, founder, breadcrumbs and FAQ output are byte-identical.",
+        "Add `export const revalidate = 3600` to the dynamic/list routes as a stale-time safety net (NOT Cache Components — cacheComponents is off, so the classic model applies and generateStaticParams may still return the full array). Pages stay fully prerendered at build; ISR only refreshes them in the background.",
+        "Wire instant on-publish freshness: the admin 'Approve' Server Action (or a Supabase DB webhook -> `/api/revalidate?secret=...` route handler) calls `revalidatePath('/ondernemers/${id}')`, `revalidatePath('/categorie/${slug}')`, `revalidatePath('/')`, `revalidatePath('/kaart')`, and `revalidateTag('businesses')` so an approved change goes live within seconds without a full redeploy. Reject/edit actions only touch draft, never revalidate.",
+        "Verify no SEO regression: run `next build` and diff the emitted JSON-LD and the prerendered HTML for a sample of /ondernemers/[id] pages before vs after the swap (they should match); confirm the sitemap still lists all active businesses and generateStaticParams still prerenders 96 pages at build."
+      ],
+      "risks": [
+        "Read-path regression: if a page accidentally becomes dynamic (e.g. reading cookies/headers, or a fetch with no-store/revalidate:0 in the request path), it drops out of SSG and hurts CWV/SEO. Keep all public reads inside the cached, request-agnostic db layer; never read auth/cookies in public routes.",
+        "JSON-LD drift: serializing/deserializing `published` jsonb must round-trip the Business type exactly (esp. hours DayHours[] and optional booleans like acceptsReservations) or OpeningHoursSpecification / schema fields silently disappear. Add a zod schema that mirrors Business and parse on read; snapshot-test the JSON-LD output against current build.",
+        "Storage egress / image policy: external imageUrl (most listings today) bypass next/image; owner-uploaded photos in Supabase Storage need next.config images.remotePatterns for the Supabase host AND must be moderated (status='approved') before the public read returns them — otherwise un-approved photos leak into the bundle.",
+        "Two-instance ISR / on-demand revalidation only invalidates the instance that receives the call when self-hosting; on Vercel this is handled, but if ever self-hosted you need a shared cache handler. Document the assumption (Vercel).",
+        "Service-role key exposure: the admin/import path uses the service-role key which bypasses RLS — it must stay server-only (never NEXT_PUBLIC_, never shipped to client components). A leak = full write access.",
+        "Idempotency of the import: re-running the script must not create duplicates or wipe owner drafts that already diverged from published. Guard with ON CONFLICT and only overwrite draft when owner_user_id IS NULL (i.e. not yet claimed by an owner).",
+        "Stale businesses.ts: after migration, businesses.ts is a frozen seed. If anyone keeps editing it expecting changes to show, they won't. Add a comment/README note that the DB is now source of truth.",
+        "slug vs id: routes use [id] and there is no populated slug; if owners are ever allowed to change a name-derived slug, that breaks canonical URLs and generateStaticParams. Keep id immutable as the route key."
+      ],
+      "decisions": [
+        {
+          "question": "Relational table-per-field vs JSONB for the ~50-field Business (esp. structured hours)?",
+          "answer": "JSONB + a few promoted scalar columns. Store the full Business as `published`/`draft` jsonb so the existing TS type and JSON-LD builders need zero changes; promote only the columns you query/sort/filter on (id, category, status, featured, sort_order, street_segment, lat, lng). Avoids a 7-row-per-business hours table and keeps the import a near-direct serialization."
+        },
+        {
+          "question": "How to model draft-vs-published?",
+          "answer": "Single row per business with `published` and `draft` JSONB columns + a status enum, NOT separate tables or duplicated scalar columns. Public reads `published`; owners write `draft`; admin approval copies draft->published and timestamps it. A separate `change_requests` table is the moderation queue / audit log, and `media` handles photo moderation independently."
+        },
+        {
+          "question": "Where do change-requests and photo moderation live?",
+          "answer": "`change_requests` (diff jsonb + decision enum) records what an owner submitted and the admin verdict; `media` (status pending|approved) gates every uploaded photo. The public read layer only ever returns published rows and approved media, so nothing un-moderated can reach the SSG bundle or JSON-LD."
+        },
+        {
+          "question": "Direct DB array import in app code, or keep generateStaticParams static?",
+          "answer": "Keep generateStaticParams returning the full active set (unchanged shape: {id}[]), but source it from a cached getPublishedBusinesses() instead of the literal array. cacheComponents is OFF, so the classic model lets generateStaticParams return the array and pages stay fully prerendered — no Cache Components placeholder-param workaround needed."
+        },
+        {
+          "question": "Time-based ISR vs on-publish revalidation?",
+          "answer": "Both: a long `revalidate` (3600s) as a safety net, plus on-demand revalidatePath + revalidateTag('businesses') fired from the admin approve action / secured webhook so approved edits go live in seconds without a redeploy."
+        },
+        {
+          "question": "Is the one-time import a migration or an ongoing sync?",
+          "answer": "One-time and idempotent. The script imports the businesses array from the .ts file and upserts by id into published+draft, then app code stops importing the array. businesses.ts stays in git as seed/backup only; the DB becomes the source of truth."
+        },
+        {
+          "question": "How is GDPR/EU residency handled?",
+          "answer": "Provision the Supabase project in an EU region so business-owner PII (login email, edited contact details) and uploaded photos are stored in the EU. Service-role key stays server-only; RLS scopes owners to their own data."
+        }
+      ],
+      "notes": "Audit facts that shaped this plan: (1) 98 records in /Users/jezza/kamp/src/data/businesses.ts (~11,059 lines), 96 active + 2 status:\"closed\"; the array is imported synchronously by 26 files (pages, libs, components). (2) Business type lives at the top of the same file (lines 87-183); hours is DayHours[] with HoursPeriod open/close (structured), driving both the \"open nu\" engine in /Users/jezza/kamp/src/lib/hours.ts and the OpeningHoursSpecification JSON-LD via toOpeningHoursSpec(). perfectFor populated on 96 records, keyFacts on 68, hours on 61, imageUrl on 78; slug/gallery/dietaryTags are declared but unpopulated (id is the de-facto slug; route is /ondernemers/[id]). (3) Read path: /Users/jezza/kamp/src/app/ondernemers/[id]/page.tsx has generateStaticParams over active businesses and emits graph(localBusinessSchema, breadcrumbSchema, faqSchema); JSON-LD builders are in /Users/jezza/kamp/src/lib/schema.ts and must stay untouched. Sitemap (/Users/jezza/kamp/src/app/sitemap.ts) and llms.txt (/Users/jezza/kamp/src/app/llms.txt/route.ts) also iterate the array. (4) next.config.ts is EMPTY — cacheComponents/PPR is NOT enabled, so the classic ISR model (export const revalidate, revalidatePath, revalidateTag, unstable_cache, generateStaticParams may return any array incl. empty) applies directly, with none of the Cache Components \"must return >=1 param\" constraints. Confirmed against the bundled Next 16 docs in node_modules/next/dist/docs/. (5) Image handling today: /Users/jezza/kamp/src/components/BusinessImage.tsx prefers a local \"/\"-prefixed owner photo via next/image, else an external http(s) photo via plain <img referrerPolicy=no-referrer>, else a generative SVG placeholder — so owner uploads landing in Supabase Storage will need a remotePatterns entry and the approved-only gate. (6) Memory note: heavy multi-agent enrichment runs have twice hit the monthly spend limit — favor the deterministic, single-pass import script over agentic data work. The recommended minimal-diff swap (introduce src/lib/db.ts with cached getPublishedBusiness(es), repoint the 26 importers, leave schema.ts/hours.ts alone) is what guarantees no structured-data or generateStaticParams regression."
+    },
+    {
+      "area": "Admin & Moderation experience for Ondernemers van de Kamp (solo/committee-operated, GDPR/NL, low-cost) — owner login issuance, moderated owner edits & photo uploads, audit log, business-list management, notifications.",
+      "recommendation": "Add a small authenticated back-office to the existing Next.js 16 app rather than a separate tool. Keep the public site exactly as it is — pure SSG/ISR reading from a data source — and make every owner edit land in a \"pending\" queue that the admin approves before it touches what the public pages render. The single highest-leverage architectural decision: move from the hand-edited `src/data/businesses.ts` file to a lightweight hosted Postgres (Neon or Supabase free tier, both EU-region) as the source of truth, but keep the public pages SSG by using a cached read (`use cache` + `cacheTag('businesses')`) and on-demand revalidation (`revalidateTag('businesses')` / `revalidatePath('/ondernemers/[id]')`) fired by the admin's Approve action. This preserves Core Web Vitals and JSON-LD (pages stay prerendered, served from cache) while letting an approval go live in seconds without a Vercel rebuild.\n\nConcrete stack: Auth.js (NextAuth v5) with the Email/\"magic link\" provider only — no passwords. Postgres on Neon (EU). Photo storage on Vercel Blob (or Supabase Storage). All mutations via Server Actions guarded by a session check. Admin UI is 3–4 server-rendered pages under `/beheer` (NL for \"manage\"). This is the lightest design that satisfies every requirement and stays inside free/near-free tiers.\n\nKEY FLOWS:\n\n1) Issuing owner logins (email→invite). Admin opens `/beheer/ondernemers`, finds the business (all ~96 already seeded), clicks \"Eigenaar uitnodigen\", types the owner's email. This writes an `owner_invite` row binding that email to exactly one `businessId` and emails a magic link via Auth.js. Because the invite pre-binds email→business, the owner can only ever edit their own listing — authorization is data-driven, not role-driven. Re-clicking resends. No self-signup: a login only exists if the admin created an invite (or the public /aanmelden form, which stays a lead-gen mailto and is the front door to \"request an invite\").\n\n2) Owner edits (the moderation core). Logged-in owner sees `/beheer/mijn-zaak` — a form pre-filled with their current published listing covering the editable subset: shortDescription, longDescription, hours (reuse the existing DayHours editor shape), phone, websiteUrl, socials, priceRange/priceLevel, tags, specialties, perfectFor, and photo upload/replace/remove. Saving does NOT mutate the live record. It writes a `pending_edit` row holding a JSON diff (changed fields only) + status `pending`. The public page keeps showing the approved version. Owner sees a banner \"Je wijzigingen wachten op goedkeuring.\"\n\n3) Photo uploads. Uploads go straight to Blob/Storage into a quarantined prefix (e.g. `pending/{businessId}/...`); the URL is attached to the pending_edit, never to the live `imageUrl`. Validate server-side: max ~6MB, JPEG/PNG/WebP only, strip EXIF, re-encode to WebP, cap dimensions (~2000px). On approval the file is promoted to a `live/` prefix and the record's `imageUrl` is set to the local/optimised path so next/image keeps optimising it (the existing BusinessImage precedence already handles `/`-prefixed local photos first). This keeps the permission model the memory file insists on — owner photos only with explicit consent — because the owner uploading IS the consent, and admin still gates publication.\n\n4) Admin moderation dashboard. `/beheer` landing = a queue of pending_edits and pending photos with a count badge. Each item shows a side-by-side diff (current value vs. proposed) and a thumbnail for photos. Admin actions: Approve (applies the diff to the business record, promotes photos, stamps updatedAt, fires revalidation, marks the edit approved), Approve-with-edits (admin tweaks before publishing), or Reject (with an optional reason emailed to the owner). Approval is the ONLY path data reaches the public site — there is no auto-publish.\n\n5) Audit log. Every mutation (invite sent, edit submitted, approved, rejected, business added/closed/featured, photo promoted/removed) appends an immutable `audit_log` row: timestamp, actor (admin email or owner email), businessId, action, and the before/after JSON. Surface it at `/beheer/logboek` as a reverse-chronological feed, filterable by business. This doubles as the GDPR processing record and lets the committee see \"who changed what.\" Never hard-delete; closing a business sets status, and rejected edits stay in the log.\n\n6) Business-list management. `/beheer/ondernemers` is the full ~96-row table with inline controls: Add (create a new business record → starts in a draft/unpublished state until completed), Close (set `status:'closed'` — already excluded from generateStaticParams and detail pages 404, so closures propagate correctly), and Feature (toggle `featured` + adjust `sortOrder`). Each of these is an admin action that also writes audit_log and revalidates.\n\n7) Notifications — keep them email-only and minimal. (a) Owner→admin: on edit submission, email the admin \"Nieuwe wijziging van {business} wacht op review\" with a deep link to the queue item. (b) Admin→owner: on approve/reject, email the owner the outcome (+ reason on reject). (c) The magic-link login email. Use one transactional provider (Resend free tier, 100/day — ample for 96 owners) wired through Auth.js's email sender too, so there's a single email integration. No SMS, no push, no Slack — overkill for this scale.\n\nWHY NOT just keep editing businesses.ts via PRs/commits from the admin UI: tempting (zero new infra), but it requires a Vercel rebuild per approval (slow, noisy git history), can't safely handle concurrent owner submissions, and gives no clean place for invites/audit/photo-quarantine. The DB approach is barely more infra (one connection string) and is dramatically more robust. If the client truly wants zero DB, the fallback is a single JSON blob in Vercel Blob/KV as the store with the same Server-Action + revalidate flow — but Postgres is recommended.",
+      "options": [
+        {
+          "name": "Auth.js (NextAuth v5) magic-link + Neon Postgres + Vercel Blob, admin UI in-app under /beheer, Server Actions + on-demand revalidation",
+          "fit": "best",
+          "pros": "Lightest stack that meets every requirement; passwordless (no password storage = less GDPR/security surface); same repo/deploy as the site; pending-queue moderation is natural; on-demand revalidateTag keeps pages SSG and CWV intact; all components have generous EU free tiers; one email provider serves both login and notifications.",
+          "cons": "Introduces a DB and migrates source-of-truth away from businesses.ts (one-time seed script needed); Auth.js v5 + Next 16 needs care; you maintain the back-office UI yourself."
+        },
+        {
+          "name": "Keep businesses.ts as source of truth; admin UI commits edits via GitHub API → Vercel rebuild",
+          "fit": "poor",
+          "pros": "No database, no new persistent infra; data stays in git with full history; zero hosting cost beyond Vercel.",
+          "cons": "Rebuild per approval (slow, ~minutes, noisy commits); concurrent owner edits race on one file; awkward place for invites/audit/photo quarantine; secrets (GitHub token) in the app; doesn't scale to live owner self-service."
+        },
+        {
+          "name": "Headless CMS (Sanity / Payload / Strapi) as backend + editor",
+          "fit": "good",
+          "pros": "Off-the-shelf roles, draft/publish workflow, media handling, and audit history; less custom UI to build; webhooks can trigger revalidation.",
+          "cons": "Heavier to operate and learn for a solo/committee; per-owner row-level 'edit only your own' is awkward in most CMSes; another vendor/account; cost creeps past free tier; data model (~40 fields, DayHours) must be re-modelled in the CMS."
+        },
+        {
+          "name": "Google Forms + Sheets + manual admin paste",
+          "fit": "poor",
+          "pros": "Near-zero build effort; client already understands spreadsheets; trivially cheap.",
+          "cons": "No real auth (anyone with the link), no per-owner scoping, manual photo handling, no integrated audit, error-prone copy-paste back into businesses.ts; fails the 'owner logs in and edits only their listing' goal."
+        },
+        {
+          "name": "Supabase (Postgres + Auth + Storage + RLS) all-in-one",
+          "fit": "good",
+          "pros": "Single EU vendor for DB, auth, storage; Row-Level Security can enforce owner-only edits at the DB layer; generous free tier; built-in magic links.",
+          "cons": "Slightly more lock-in; RLS + Server Actions adds a learning curve; auth UX is easier to keep cohesive with Auth.js if you also want admin SSO; still need to build the moderation queue UI."
+        }
+      ],
+      "packages": [
+        "next@16 (existing — Server Actions + use cache/cacheTag + revalidateTag/revalidatePath enable moderated edits without losing SSG)",
+        "next-auth@5 (Auth.js — Email/magic-link provider only; passwordless owner + admin login)",
+        "@auth/drizzle-adapter or @auth/pg-adapter (session/user persistence)",
+        "drizzle-orm + drizzle-kit (typed schema/migrations over Postgres; mirror the existing Business type)",
+        "@neondatabase/serverless or postgres (Neon EU Postgres driver) — DB as source of truth",
+        "@vercel/blob (quarantined pending/ and live/ photo storage with EXIF strip + WebP re-encode) — or @supabase/storage-js if going Supabase",
+        "sharp (server-side image validation, resize, WebP re-encode, EXIF strip)",
+        "resend (single transactional email provider for magic links + moderation notifications) + @auth/* email integration",
+        "zod (validate owner-submitted form fields and the pending-edit diff payload server-side)"
+      ],
+      "steps": [
+        "Decide source-of-truth: adopt Neon (EU) Postgres. Write a one-off seed script that imports the current src/data/businesses.ts array into a `businesses` table (keep the TS Business type as the canonical shape / Drizzle schema). Add tables: owner_invites, pending_edits (businessId, ownerEmail, diff jsonb, photoUrls, status, createdAt), audit_log (ts, actor, businessId, action, before jsonb, after jsonb), plus Auth.js user/session tables.",
+        "Wrap public data reads in a cached loader: `getBusinesses()` / `getBusiness(id)` with `'use cache'` + `cacheTag('businesses')` (and per-id tag). Repoint all 11 import sites from the static array to this loader. Keep generateStaticParams + JSON-LD unchanged so SSG/SEO is preserved.",
+        "Add Auth.js v5 with the Email (magic-link) provider and the Postgres adapter; configure Resend as the email sender. Add an `isAdmin(email)` allowlist (env var of committee emails) and a session helper. Protect /beheer/** with middleware + an in-action session check (Server Actions are publicly POST-able, so verify auth inside every action).",
+        "Build /beheer (admin): a moderation queue page listing pending_edits + pending photos with current-vs-proposed diffs and photo thumbnails; Approve / Approve-with-edits / Reject Server Actions that apply the diff to the business row, promote photos from pending/ to live/, stamp updatedAt, write audit_log, and call revalidateTag('businesses') + revalidatePath(`/ondernemers/${id}`).",
+        "Build /beheer/ondernemers (admin): full business table with Invite-owner (creates owner_invite + sends magic link), Add, Close (status:'closed'), Feature/sortOrder controls — each writing audit_log and revalidating. Build /beheer/logboek rendering the audit_log feed, filterable by business.",
+        "Build /beheer/mijn-zaak (owner): pre-filled edit form for the allowed field subset (descriptions, DayHours editor, phone/website/socials/price/tags/specialties/perfectFor) + photo upload component. Saving writes a pending_edit (diff only) and uploads photos to the quarantined pending/ prefix via a validated Server Action (sharp: type/size check, resize, WebP, EXIF strip). Show 'awaiting approval' banner.",
+        "Wire notifications via Resend: owner-submitted → email admin with deep link; approve/reject → email owner (reason on reject); reuse the same provider for magic links. No SMS/push.",
+        "Update /aanmelden copy to position it as 'request an invite' (it stays a mailto lead form). Add a short GDPR/privacy note covering owner data + photo consent, and confirm Neon/Blob/Resend regions are EU. Verify a full SSG build still prerenders all pages and JSON-LD, and that an approval revalidates the live page within seconds without a redeploy."
+      ],
+      "risks": [
+        "Migrating source-of-truth from businesses.ts to a DB is the biggest change; mitigate with a deterministic seed script and by keeping the TS Business type as the canonical schema so all downstream components and JSON-LD are unaffected. Keep businesses.ts checked in as a documented backup/fallback.",
+        "SSG/SEO regression risk if reads become dynamic. Must use `use cache` + cacheTag and ONLY invalidate on approval (revalidateTag/revalidatePath) — never make /ondernemers/[id] dynamic, or Core Web Vitals and prerendered JSON-LD degrade.",
+        "Server Actions are reachable via direct POST independent of the UI (per Next 16 docs) — every mutating action MUST re-check session + that the owner owns the targeted businessId, or an authenticated owner could edit another listing.",
+        "Auth.js v5 + Next.js 16 compatibility and the 'breaking changes' warning in AGENTS.md — pin versions, read node_modules/next/dist/docs before wiring auth, and test the magic-link flow end-to-end.",
+        "Magic-link email deliverability (links landing in spam) can block owner login; use a verified sending domain (DKIM/SPF) on Resend and the real ondernemersvandekamp.nl domain.",
+        "Uploaded-photo abuse / malicious files / oversized images hurting CWV; enforce server-side type+size limits, re-encode with sharp, strip EXIF, cap dimensions, store in quarantine until approved.",
+        "GDPR: owner emails + uploaded photos are personal data. Keep all vendors EU-region, add a privacy note + explicit photo-consent on upload, use the audit_log as the processing record, and support deletion (close → de-publish, purge on request).",
+        "Free-tier limits / cold starts (Neon scale-to-zero adds latency to admin/login, not to cached public pages). Acceptable at this scale; revisit only if owner traffic grows.",
+        "Bus-factor for a solo/committee operator: keep the admin allowlist as an env var of 2–3 emails so login isn't tied to one person, and document the approve/revalidate flow."
+      ],
+      "decisions": [
+        {
+          "question": "How should owners log in?",
+          "answer": "Passwordless magic-link (Auth.js Email provider) only. No passwords to store/reset — lighter to operate and a smaller GDPR/security surface. Same mechanism for admin, gated by an email allowlist."
+        },
+        {
+          "question": "Self-signup or admin-issued logins?",
+          "answer": "Admin-issued only. An owner_invite row pre-binds email→businessId, so a login can only ever edit that one listing. The public /aanmelden form becomes 'request an invite' (stays a mailto lead form)."
+        },
+        {
+          "question": "Do owner edits publish automatically?",
+          "answer": "No. Every edit/photo lands in a pending queue; the admin's Approve is the only path data reaches the public site. Reject and approve-with-edits are also supported, all logged."
+        },
+        {
+          "question": "Where does the data live now vs. proposed?",
+          "answer": "Now: hand-edited src/data/businesses.ts (static array, no DB/auth). Proposed: Neon EU Postgres as source of truth, with public pages reading a cached loader (use cache + cacheTag) so they stay SSG."
+        },
+        {
+          "question": "How do approved changes go live without losing SSG/SEO?",
+          "answer": "On approval the action calls revalidateTag('businesses') + revalidatePath('/ondernemers/[id]'). Pages remain prerendered and cached (CWV + JSON-LD intact); only the changed page refreshes, in seconds, with no Vercel rebuild."
+        },
+        {
+          "question": "Where do uploaded photos go and how is consent handled?",
+          "answer": "To a quarantined pending/ prefix on Vercel Blob (or Supabase Storage), validated + WebP-re-encoded + EXIF-stripped via sharp, never attached to live imageUrl until approval. The owner uploading is the consent; admin still gates publication — matching the project's 'owner photos only with permission' rule."
+        },
+        {
+          "question": "What notifications, and via what channel?",
+          "answer": "Email only, one provider (Resend): magic-link login, owner→admin 'new edit pending', admin→owner approve/reject outcome. No SMS/push/Slack at this scale (~96 owners)."
+        },
+        {
+          "question": "How is the audit log implemented?",
+          "answer": "An append-only audit_log table (ts, actor, businessId, action, before/after JSON) written by every mutation, surfaced at /beheer/logboek filterable by business. Doubles as the GDPR processing record; nothing is hard-deleted."
+        },
+        {
+          "question": "Where does the admin UI live?",
+          "answer": "In the same Next.js app under /beheer (NL), server-rendered, protected by middleware + per-action session checks. ~4 pages: moderation queue, business list, owner self-edit, audit log."
+        }
+      ],
+      "notes": "Audit findings (current system): no auth, no DB, no image upload today — onboarding is purely the mailto form in /Users/jezza/kamp/src/components/AanmeldenForm.tsx (page /Users/jezza/kamp/src/app/aanmelden/page.tsx). All data is a single typed array `businesses: Business[]` in /Users/jezza/kamp/src/data/businesses.ts (~96 records, ~40 fields, JSON-style quoted keys = programmatically rewritable; the Business type already has owner-workflow-oriented fields: permissionStatus, verificationStatus, imageStatus, updatedAt, lastChecked, imageCandidateUrl). It's imported in 11 places (page.tsx, sitemap.ts, llms.txt route, categorie/[slug], ondernemers/[id], kaart, loop-de-kamp, over-de-kamp, praktisch, cadeaukaart, plus components) — all would repoint to a cached loader. Pages are pure SSG via generateStaticParams; closed businesses are already excluded (page filters status!=='closed' and 404s), so the Close action propagates correctly. package.json has zero auth/DB/storage deps. Image rendering in /Users/jezza/kamp/src/components/BusinessImage.tsx already prefers a local '/'-prefixed owner photo (next/image-optimised) over external URLs over a generative placeholder — so promoting an approved upload to a local path slots straight into the existing precedence. Next.js 16 docs confirmed at /Users/jezza/kamp/node_modules/next/dist/docs/01-app/01-getting-started/07-mutating-data.md (Server Actions; explicit warning that actions are POST-reachable and must re-check auth) and /09-revalidating.md (use cache + cacheTag, revalidateTag/updateTag/revalidatePath, on-demand invalidation) — these are exactly the primitives that let moderated edits go live while keeping the site SSG. No vercel.json; deploy assumed Vercel. AGENTS.md warns Next 16 has breaking changes — consult node_modules/next/dist/docs before writing auth/cache code. Project memory notes heavy multi-agent workflows hit the spend limit twice, so prefer the simplest infra (single Postgres + one email provider) over a CMS."
+    },
+    {
+      "area": "Security, Privacy & GDPR audit for the planned owner-login / photo-upload backend (ondernemersvandekamp.nl, Next.js 16 SSG on Vercel)",
+      "recommendation": "Build the backend on Supabase (already in use for image hosting at fyhxnuuloxsxkdpppqie.supabase.co) with Supabase Auth (admin-issued magic-link / invite-only, no public signup), Postgres with Row-Level Security so an owner can only read/write their own business row, a \"pending changes\" moderation table that never touches the live SSG dataset until the admin approves, and Supabase Storage buckets with server-side validation + image re-encoding. Keep the public site 100% SSG/ISR: owner edits land in a draft table, admin approval triggers an ISR revalidate (revalidateTag/revalidatePath) — the public bundle never imports user-writable data, so XSS/SEO/CWV are structurally protected. Treat the GDPR gaps as the most urgent item: real owner names (22 records), 58 phone numbers and 3 emails are ALREADY published from scraped public sources with no lawful basis, consent record, privacy policy or cookie statement — fix this before, or in parallel with, building auth, because it is a live exposure today, not a future risk.",
+      "packages": [
+        "@supabase/supabase-js (browser + server clients)",
+        "@supabase/ssr (cookie-based auth in App Router / Route Handlers + middleware)",
+        "zod (validate ALL owner input server-side before it hits the DB)",
+        "sharp (re-encode/strip-EXIF/resize uploaded images server-side; already a Next dependency)",
+        "isomorphic-dompurify or sanitize-html (ONLY if you ever store HTML; not needed if descriptions stay plain text)",
+        "@upstash/ratelimit + @upstash/redis (rate-limit login + upload + write endpoints on Vercel serverless)",
+        "Optional: resend or postmark (transactional invite/approval emails with a signed DPA)"
+      ],
+      "decisions": [
+        {
+          "question": "Does any backend, auth, DB, server action or upload exist today?",
+          "answer": "No. The site is 100% static SSG. The only route handler is /llms.txt. There is no middleware.ts, no 'use server', no cookies(), no process.env usage in app code, no DB client, no upload handler. All ~96 businesses live in the typed file src/data/businesses.ts and are baked into the build. So this audit is about what the new backend MUST enforce, plus pre-existing privacy debt already shipped to the public site."
+        },
+        {
+          "question": "What platform should the backend use?",
+          "answer": "Supabase. It is already the image host (fyhxnuuloxsxkdpppqie.supabase.co/storage/v1/object/public/site-images/...). Reusing it gives EU-region hosting (choose/confirm an EU region — Frankfurt eu-central-1), Auth + Postgres + Storage + Row-Level Security in one low-cost, low-maintenance, GDPR-appropriate stack that fits a solo/small-committee operator. Supabase offers a signed DPA. Avoid standing up a second platform."
+        },
+        {
+          "question": "Is there an XSS risk in owner-submitted text today, and where are the sinks?",
+          "answer": "Today text is safe: descriptions render via React JSX ({b.longDescription} in BusinessDetailClient.tsx) which auto-escapes. The real sinks to guard once owners can write: (1) dangerouslySetInnerHTML in JsonLd.tsx — owner text flows into JSON.stringify'd JSON-LD; a name/description containing </script> can break out, so escape '<' as < before injecting (Next does not do this for you). (2) BusinessImage.tsx renders external imageUrl via raw <img src={url}> bypassing next/image — once an owner can set imageUrl, a javascript:/data: URL or off-domain host becomes an abuse/exfiltration vector. Validate URL scheme = https only and host against an allowlist (your Supabase Storage domain). (3) websiteUrl/instagramUrl/facebookUrl rendered as links — enforce https scheme and add rel=noopener noreferrer."
+        },
+        {
+          "question": "Is personal data of owners being processed, and is there a lawful basis / consent?",
+          "answer": "Yes, and there is NO documented lawful basis or consent. businesses.ts already contains 22 real personal names (publicPersonName, e.g. 'Jimmy Karaaslan', with publicPersonRole like 'eigenaar, publiek genoemd in blog'), 58 phone numbers, 3 emails — scraped from public sources (sourceUrls). publicPersonName is emitted into JSON-LD as founder:{Person}. 'Publicly available' is NOT a GDPR lawful basis. The /aanmelden form has a consent checkbox but only fires a mailto (no record is stored), and the footer Privacy + Cookiestatements links are dead (href='#'). This is a present, live GDPR exposure independent of the backend."
+        },
+        {
+          "question": "Will the new backend regress SEO / Core Web Vitals / structured data?",
+          "answer": "Not if owner-writable data is kept out of the public build path. Pattern: owners write to a Postgres 'business' row + a 'pending_changes'/draft table; the public SSG pages read ONLY admin-approved data via a build/ISR data source; admin approval calls revalidateTag/revalidatePath to regenerate just the affected static pages. The public HTML stays pre-rendered, JSON-LD stays builder-generated from sanitized fields, and no client-side auth/JS is added to public pages."
+        }
+      ],
+      "steps": [
+        "GDPR FIRST (live exposure, do now): Publish a real Privacy/Cookie policy (NL, AVG-compliant) and wire the dead footer links in src/components/Footer.tsx (currently href='#'). Cover: controller identity, data categories, purposes, lawful basis, retention, recipients/processors (Vercel, Supabase, any email/analytics), data-subject rights, complaint route to Autoriteit Persoonsgegevens.",
+        "GDPR personal data remediation: Treat publicPersonName/publicPersonRole/owner portraits/scraped phone+email as personal data. Either (a) obtain & record explicit consent per owner before publishing names/portraits, or (b) remove names/portraits until consent exists and only show the business NAP. Add a per-record consent flag (e.g. consentNameAt, consentPhotoAt, consentBasis) so nothing personal publishes without a stored basis. Keep imageCandidateUrl/scraped portraits unpublished (the data model already separates these — enforce it).",
+        "Auth: Supabase Auth, invite-only. Admin issues logins (admin invites / magic links); DISABLE public sign-up. One owner account is linked to exactly one business via a join (owner_id on business, or owner_business membership table). No password-based self-registration. Enforce email verification and short-lived magic links.",
+        "Authorization (own-record-only): Enable Row-Level Security on every table. Policy: owners can SELECT/UPDATE only rows where business.owner_id = auth.uid(); INSERT into pending_changes only for their own business; admins (role claim / admins table) can read+moderate everything. Never trust the business id from the request body — derive ownership from the session. Storage RLS: an owner can only write to a path prefix keyed to their business id; public read only on the approved/published bucket.",
+        "Moderation workflow: Owner edits and uploads go to a DRAFT/pending state (pending_changes table + a 'pending' storage bucket or status column), never to live data. Admin UI lists pending text + photos, approve/reject. Only approval copies into published fields + published bucket and triggers ISR revalidate. This satisfies the brief's 'moderate/approve before it goes live' and protects SEO.",
+        "Input sanitisation / XSS: Validate every field server-side with zod (length caps, enum checks for category/priceLevel/streetSegment, HH:MM regex for hours, https-only + allowlisted host for imageUrl/websiteUrl/socials). Keep descriptions PLAIN TEXT (no HTML) so JSX auto-escaping is sufficient. In JsonLd.tsx, escape '<','>','&' (e.g. replace < with <) before dangerouslySetInnerHTML to prevent JSON-LD script breakout. Add rel='noopener noreferrer' + scheme check on all owner-supplied outbound links.",
+        "Image upload abuse/limits: Accept only via authenticated server endpoint/server action — never a public unsigned upload. Enforce: max file size (e.g. 5MB), max count per business, MIME + magic-byte sniff (jpeg/png/webp only), reject SVG (SVG = XSS). Re-encode with sharp to strip EXIF (incl. GPS), normalize format, cap dimensions; store re-encoded output only. Serve from Supabase Storage public bucket; if you later use next/image, add that single host to remotePatterns (today raw <img> is used precisely because remotePatterns is empty).",
+        "Rate limiting & spam: Add @upstash/ratelimit on login (per-IP + per-email, lockout/backoff), on upload, and on write endpoints. Since signup is invite-only there is no public registration to abuse, but still throttle magic-link requests. Add bot protection (Vercel/Cloudflare) on auth routes. For the existing /aanmelden mailto form, consider moving to a stored submission with a honeypot/Turnstile to log consent and stop mailbox spam.",
+        "Secrets/env: SUPABASE_SERVICE_ROLE_KEY must be SERVER-ONLY (never NEXT_PUBLIC_, never sent to client) — used only in Route Handlers/Server Actions for admin/moderation. Use NEXT_PUBLIC_SUPABASE_URL + anon key on the client (RLS does the protecting). Store all secrets in Vercel project env vars (Production/Preview separated), never in repo. .env* is already gitignored — keep it. Add security headers via next.config.ts headers(): CSP, Strict-Transport-Security, X-Frame-Options/frame-ancestors, X-Content-Type-Options, Referrer-Policy (none exist today).",
+        "Backups & retention: Enable Supabase automated daily backups / PITR (paid tier) and document a restore test. Define retention: deactivated owner accounts and their drafts purged after a set period; provide an account-deletion path (GDPR right to erasure) that removes owner PII + their portraits from Storage. Log moderation actions (audit trail) but keep that minimal.",
+        "GDPR processor agreements (verwerkersovereenkomsten / DPAs): Sign/record DPAs with every processor: Supabase (EU region), Vercel, and any email provider (Resend/Postmark) and analytics. Maintain a short register of processing (verwerkingsregister). Ensure EU data residency; if any processor is US-based, document the transfer mechanism (SCCs / DPF).",
+        "Consent for photos/portraits & image rights: For every published owner/staff portrait, store explicit, specific consent (who, what image, when, scope = website, revocable) — a checkbox at upload time tied to the record. Confirm the owner holds the rights to any photo they upload (warranty checkbox) and that any depicted persons consented (portretrecht). Stop hot-linking/scraping third-party images for publication — current data hot-links facebook.com, google.com, instagram.com, plaece.nl etc. via raw <img>; migrate to owner-supplied, consent-backed images in your own Storage."
+      ],
+      "risks": [
+        "LIVE TODAY: Real owner names (22), phones (58) and emails (3) are scraped from public sources and published (publicPersonName -> JSON-LD founder) with no lawful basis, no stored consent, and dead Privacy/Cookie links (Footer.tsx href='#'). This is an existing AVG/GDPR breach exposure, not a future one — an owner can demand removal and complain to the AP now.",
+        "Hot-linking third-party images: imageUrl/imageCandidateUrl point at facebook.com, google.com, instagram.com, plaece.nl, tijdvooramersfoort.nl etc., rendered via raw <img> (next/image remotePatterns is empty). This is both a copyright/image-rights risk and a privacy risk (referer leakage is partly mitigated by referrerPolicy='no-referrer', but the host still sees the request).",
+        "Once owners can write imageUrl, a missing https-only + host-allowlist check turns the raw <img> in BusinessImage.tsx into an XSS/exfiltration vector (javascript:/data: URLs, off-domain tracking). SVG uploads, if allowed, execute script.",
+        "JsonLd.tsx uses dangerouslySetInnerHTML over JSON.stringify(owner data) with no '<' escaping — owner text containing </script> can break out of the JSON-LD block (stored XSS) unless escaped.",
+        "Service-role key leakage: if SUPABASE_SERVICE_ROLE_KEY is ever exposed to the client (e.g. NEXT_PUBLIC_ prefix), it bypasses all RLS — total compromise. Must stay server-only.",
+        "Authorization-by-body: trusting a business id sent from the client instead of deriving ownership from the session lets an owner edit another owner's listing (IDOR). RLS keyed to auth.uid() is the mitigation and must be enforced at the DB, not just the UI.",
+        "No moderation gate would let owner text/photos publish directly into the SSG dataset, regressing SEO/CWV/structured-data integrity and removing the admin approval the brief requires.",
+        "No security headers/CSP today; without a CSP the admin/owner authenticated pages have weaker defense-in-depth against injected scripts and clickjacking.",
+        "Spam/abuse on auth + upload endpoints without rate limiting (credential stuffing on magic-link requests, storage flooding) — low signup risk because invite-only, but request-level throttling still needed.",
+        "No documented backups/retention/erasure path yet — risk of data loss and inability to honor GDPR erasure/portability requests."
+      ],
+      "notes": "Evidence base (all absolute paths): current state confirmed static — only route handler is /Users/jezza/kamp/src/app/llms.txt/route.ts; no middleware/auth/DB/server-actions; .env* correctly gitignored (/Users/jezza/kamp/.gitignore); next.config.ts is empty (no headers, no images.remotePatterns). XSS sinks: dangerouslySetInnerHTML in /Users/jezza/kamp/src/components/JsonLd.tsx (line 9, JSON-LD) and /Users/jezza/kamp/src/components/BusinessImage.tsx (lines 41,68 placeholder SVG) plus raw <img src={url}> at lines 43,56 (external image, bypasses next/image). Text currently safe via JSX auto-escape in /Users/jezza/kamp/src/components/BusinessDetailClient.tsx (line 72 longDescription). Personal data + schema: /Users/jezza/kamp/src/lib/schema.ts line 168-169 emits publicPersonName as founder Person; counts from /Users/jezza/kamp/src/data/businesses.ts = 22 publicPersonName, 58 phone, 3 email. Existing Supabase host in data: businesses.ts line ~7143 (fyhxnuuloxsxkdpppqie.supabase.co). Dead policy links: /Users/jezza/kamp/src/components/Footer.tsx lines 94-95 (href='#'). Existing consent checkbox but mailto-only (no storage): /Users/jezza/kamp/src/components/AanmeldenForm.tsx lines 32,83-87. Site/NAP config: /Users/jezza/kamp/src/lib/site.ts. The Business type already separates published vs candidate images (imageUrl vs imageCandidateUrl) and carries permissionStatus/verificationStatus/inclusionStatus flags — extend this with explicit consent timestamps rather than inventing a new model. Note: README claims '67 verified active businesses' while the brief says ~96 — minor data-doc drift, not security-relevant.",
+      "options": [
+        {
+          "name": "Supabase (Auth + Postgres RLS + Storage) + Next.js Route Handlers/Server Actions on Vercel",
+          "fit": "best",
+          "pros": "Already the image host, so no new vendor; EU region + signed DPA available; RLS gives DB-enforced own-record-only authz; invite-only auth, storage, and moderation tables in one place; low cost (free/low tier) and low maintenance for a solo operator; keeps public site fully SSG with ISR revalidate on approval.",
+          "cons": "RLS policies must be written carefully and tested (easy to get subtly wrong); service-role key must be kept strictly server-side; some learning curve for @supabase/ssr cookie auth in App Router."
+        },
+        {
+          "name": "NextAuth/Auth.js + a separate Postgres (Neon/Vercel Postgres) + Vercel Blob for images",
+          "fit": "good",
+          "pros": "Flexible, well-documented auth; Vercel Blob integrates natively; can keep everything in the Vercel ecosystem.",
+          "cons": "More moving parts and DPAs (separate auth, DB, blob); no built-in RLS — you must enforce own-record-only in app code on every query (more IDOR surface); abandons the existing Supabase storage already holding the images; higher maintenance for a small committee."
+        },
+        {
+          "name": "Headless CMS with built-in roles/moderation (Sanity / Payload / Strapi) as the owner+admin backend",
+          "fit": "good",
+          "pros": "Editorial moderation, roles, media handling and image transforms out of the box; admin gets a polished moderation UI for free; content can feed SSG via webhook->revalidate.",
+          "cons": "Per-business 'owner can edit only own document' is awkward in most CMS role models (document-level ownership often needs custom plugins); another vendor + DPA; can be heavier/cost more; risk of SEO/data drift if the CMS becomes a second source of truth alongside businesses.ts."
+        },
+        {
+          "name": "Keep mailto/manual only — owners email changes, admin edits businesses.ts by hand",
+          "fit": "poor",
+          "pros": "Zero new attack surface, zero auth/upload risk, no new processors; cheapest possible; matches today's flow.",
+          "cons": "Does not meet the stated goal (owners must self-serve edit + upload, admin must issue logins); does not fix the existing GDPR gaps (consent record, privacy policy) on its own; manual editing of a 96-record TS file does not scale and is error-prone."
+        }
+      ]
+    },
+    {
+      "area": "Hosting, Deploy & Cost plan for ondernemersvandekamp.nl — adding owner-editable listings + admin moderation while keeping the public site SSG/SEO-strong",
+      "recommendation": "Stay on Vercel (Hobby free now, upgrade to Pro €20/mo only if/when commercial use requires it) and add Supabase EU (Frankfurt, free tier) as the single backend for DB + Auth + Storage. The public site stays SSG/ISR exactly as today; owner/admin areas are dynamic routes. Flow: admin invites owner (Supabase Auth magic link / admin-issued password) → owner edits ONLY their row + uploads photos to a Storage bucket → edits land in a `pending` state (draft column or a `business_edits` table) → admin reviews in /admin and approves → an approved change writes to the live row AND calls revalidatePath/revalidateTag (via a Supabase webhook or a server action) so the static page regenerates on-demand. This keeps Core Web Vitals and JSON-LD intact (public pages are still prerendered HTML), keeps everything in the EU for GDPR, and costs effectively €0/mo at this scale (96 businesses, low traffic) — realistically €0–25/mo. Supabase is the lowest-friction pick because it bundles Postgres + Auth (RLS row-level security maps perfectly to \"owner edits only their own row\") + S3-compatible image storage + image transforms in one EU-hosted free service, avoiding gluing together 3 separate vendors.",
+      "decisions": [
+        {
+          "question": "Where does the database live (free/low tier, EU)?",
+          "answer": "Supabase Postgres, EU region (Frankfurt eu-central-1). Free tier covers this easily: 500MB DB, up to 50k+ MAU auth. 96 rows + an edits/audit table is kilobytes. Row-Level Security policies enforce 'an owner can only UPDATE their own business row' at the DB layer — the cleanest possible authorization model for this exact use case. Alternatives: Neon (great serverless Postgres free tier, but auth+storage are separate products you'd add) or Vercel Postgres/Neon-on-Vercel (now powered by Neon) — fine but you'd still bolt on auth + blob separately."
+        },
+        {
+          "question": "Where do uploaded photos live?",
+          "answer": "Supabase Storage (S3-compatible, EU, free tier 1GB + on-the-fly image transforms/resizing). Owner uploads go to a 'pending' bucket/prefix; on admin approval the public URL is written to the business row's imageUrl. This replaces today's external/owner-emailed image pattern. Keep the public site's existing raw <img> + generative SVG placeholder for un-approved listings so nothing regresses. Alternative: Vercel Blob (1GB free on Hobby) — simple but US-default; for EU residency Supabase Storage is the safer GDPR story and keeps everything in one vendor."
+        },
+        {
+          "question": "Where does auth live?",
+          "answer": "Supabase Auth (EU). Use admin-issued invites: the admin creates the owner account / sends a magic-link or invite from the /admin panel — no public self-signup, matching the requirement that the admin 'issues' logins. Roles: 'owner' (sees only their business) and 'admin' (full list + moderation), enforced via RLS + a role claim. Next.js side uses @supabase/ssr cookie-based sessions in server components / server actions / proxy (middleware). Next.js 16's own auth guide lists Supabase as a recommended library, and recommends a Data Access Layer for authz checks — adopt that pattern."
+        },
+        {
+          "question": "How does an approved edit reach the static public page without a full redeploy?",
+          "answer": "On-demand ISR. Public dynamic pages (home, /categorie/[slug], /ondernemers/[id]) switch from compile-time `import { businesses }` to reading from Supabase with `export const revalidate = <long, e.g. 3600>` (or tags). When the admin approves a change, the approving server action (or a Supabase DB webhook hitting a secured route handler) calls revalidatePath('/ondernemers/'+id) and revalidateTag('businesses'). Visitors keep getting fast prerendered HTML; the changed page regenerates in the background. JSON-LD/sitemap/metadata all keep working because they're computed in the same server render. Avoid `next build`-on-every-edit (slow, and Hobby has build limits)."
+        },
+        {
+          "question": "Env vars / secrets?",
+          "answer": "Vercel Environment Variables, scoped per environment (Development / Preview / Production). NEXT_PUBLIC_SUPABASE_URL + NEXT_PUBLIC_SUPABASE_ANON_KEY are public-safe (RLS protects data). Keep SUPABASE_SERVICE_ROLE_KEY (admin/moderation writes, used ONLY in server code) and a REVALIDATE_SECRET (for the webhook route) as encrypted, non-public, Production-only vars. Never expose service-role key to the client. .env* is already gitignored. Use Vercel's Supabase native integration to auto-sync the keys."
+        },
+        {
+          "question": "Preview vs Production?",
+          "answer": "Vercel gives every push/PR a Preview deployment automatically. Point Preview at a SEPARATE Supabase project (or at least a separate schema) so test edits never touch live data, and add noindex on preview (Vercel sets x-robots-tag on preview URLs by default; keep it). Production deploys from main → ondernemersvandekamp.nl. This is free and already how the repo is set up to work."
+        },
+        {
+          "question": "CI?",
+          "answer": "Vercel's Git integration IS the CI/CD: push → install → `next build` → deploy, with checks on PRs. Add a lightweight GitHub Action (free for this repo) running `next lint` + `tsc --noEmit` on PRs as a quality gate before merge. No separate CI service needed. Optionally enable Vercel build cache (already default) to keep builds fast."
+        },
+        {
+          "question": "EU data residency / GDPR?",
+          "answer": "Supabase project created in eu-central-1 (Frankfurt) → DB, Auth (owner emails/PII), and Storage (photos) all stay in the EU. Vercel: the app's static assets/edge are global, but with no PII in the static layer that's fine; for the dynamic owner/admin functions, set Vercel Functions region to fra1 (Frankfurt) so server-side processing of PII stays in the EU. Add a short privacy/processing note since you now store owner accounts + uploaded photos. Both Supabase and Vercel offer DPAs."
+        },
+        {
+          "question": "Realistic monthly cost at this scale?",
+          "answer": "€0/month is achievable: Vercel Hobby (free) + Supabase Free both comfortably cover 96 businesses, low traffic, occasional edits, ~1GB images, and a handful of owner logins. The only forcing function to pay is Vercel's Hobby license being non-commercial — for a real client/business site you should budget Vercel Pro at €20/mo to be license-compliant and get team access, analytics, and higher limits. Supabase stays free unless DB exceeds 500MB or you want the paid tier's daily backups/no-pause (~€25/mo). Net realistic: €0 to start, ~€20–25/mo if you want commercial-compliant + Supabase paid backups. Plus domain renewal (~€10–15/yr)."
+        }
+      ],
+      "options": [
+        {
+          "name": "Supabase (EU) for DB + Auth + Storage + Vercel hosting [RECOMMENDED]",
+          "fit": "best",
+          "pros": "One EU-hosted vendor covers all three needs (Postgres, Auth, S3 image storage + transforms) on a generous free tier; RLS maps exactly to 'owner edits only their own row'; admin-issued invites supported; Next.js 16 auth guide officially lists Supabase; least integration glue; ~€0/mo at this scale.",
+          "cons": "Free-tier project pauses after ~1 week of zero activity (a low-traffic admin tool may hit this — mitigate with a cron ping or the paid tier); service-role key must be handled carefully server-side; another dashboard to learn."
+        },
+        {
+          "name": "Neon (Postgres, EU) + Auth.js/Better Auth + Vercel Blob",
+          "fit": "good",
+          "pros": "Neon's serverless Postgres free tier is excellent (true scale-to-zero, branching for previews); Vercel Blob integrates natively; Auth.js is the most popular Next-native auth. Good if you want best-in-class Postgres specifically.",
+          "cons": "Three separate concerns to wire and secure (DB + auth library + storage); you build the owner/admin authorization yourself instead of getting RLS for free; Vercel Blob defaults to US (EU residency needs care); more moving parts = more maintenance for a solo operator."
+        },
+        {
+          "name": "Vercel Postgres/Blob (Vercel-native, now Neon-backed) + Auth.js",
+          "fit": "good",
+          "pros": "Everything in the Vercel dashboard/billing; zero cross-vendor setup; native integration with envs and previews.",
+          "cons": "Auth still DIY via Auth.js; historically US-default regions complicate EU residency; you lose Supabase's bundled Auth+RLS+Storage convenience; can get pricier than Supabase/Neon free tiers if usage grows."
+        },
+        {
+          "name": "Headless CMS (Sanity / Payload / Strapi) instead of custom auth+DB",
+          "fit": "poor",
+          "pros": "Out-of-the-box content editing UI + media library + roles, less custom UI to build for the admin.",
+          "cons": "Overkill for one editable entity per owner with strict 'edit only your own listing' scoping — CMS role models don't naturally express per-owner row ownership; Sanity has dataset/US considerations; self-hosting Strapi/Payload adds a server to run and patch; higher ongoing maintenance than the recommended stack."
+        },
+        {
+          "name": "Stay fully static + keep mailto onboarding (no backend)",
+          "fit": "poor",
+          "pros": "€0, zero new maintenance, no GDPR PII to manage, cannot regress at all.",
+          "cons": "Does not meet the stated goal — owners cannot log in or self-edit, admin cannot moderate changes online; all edits remain manual code commits by the developer. Only viable as a 'do nothing' baseline."
+        }
+      ],
+      "packages": [
+        "@supabase/supabase-js (DB/Auth/Storage client)",
+        "@supabase/ssr (cookie-based sessions in App Router server components, server actions, proxy/middleware)",
+        "zod (validate owner-submitted fields server-side before they hit the DB)"
+      ],
+      "steps": [
+        "Create a Supabase project in eu-central-1 (Frankfurt). Add a separate project (or schema) for Preview.",
+        "Model the schema: `businesses` table mirroring the existing Business type (40-ish fields, with hours as jsonb), plus `business_edits` (or draft columns) holding pending changes with a status enum (pending/approved/rejected), `profiles` linking auth users to a business id + role (owner/admin), and an `audit_log`. Seed it once by importing the current src/data/businesses.ts (write a one-off migration script).",
+        "Set up Vercel <-> Supabase native integration so SUPABASE_URL / ANON_KEY sync into Vercel envs; add SERVICE_ROLE_KEY and REVALIDATE_SECRET as Production-only encrypted, non-public vars; pin Vercel Functions region to fra1.",
+        "Write RLS policies: owners can SELECT/UPDATE only the row where business_id = their profile's business_id (and only via the edits table, kept in pending until approved); admins (role=admin) can do everything. Public read of the *live* data can stay anon-readable or be served entirely through the SSG layer.",
+        "MVP backend: build /login (Supabase Auth, admin-issued invite/magic-link — no public signup), and a single /dashboard owner edit form (server actions + zod validation) covering text, hours, contact/socials/price/tags, plus photo upload to a Supabase Storage 'pending' prefix. Edits write to business_edits as pending.",
+        "MVP admin: build /admin (gated to role=admin) listing pending edits + uploaded photos with approve/reject. On approve, a server action (using service-role key) merges the edit into the live row, moves the photo to the public prefix, sets imageUrl, then calls revalidatePath('/ondernemers/'+id) + revalidateTag('businesses').",
+        "Migrate public pages off the compile-time import: have home, /categorie/[slug], and /ondernemers/[id] read live data from Supabase with generateStaticParams + a long `revalidate` (e.g. 3600) and tag the fetches with 'businesses'. Keep JSON-LD, sitemap, llms.txt, and metadata generation reading the same source so SEO output is unchanged. Verify Lighthouse/CWV is unchanged (still prerendered HTML).",
+        "Configure next.config images.remotePatterns to whitelist the Supabase Storage hostname so approved owner photos can use next/image optimization (today external <img> are unoptimized — opt approved photos into next/image for better LCP).",
+        "Set up the GitHub Action PR gate (next lint + tsc --noEmit) and confirm Preview deploys hit the Preview Supabase project with noindex. Document the env vars and the approve→revalidate flow in the README.",
+        "Add GDPR housekeeping: short privacy note (owner accounts + photos stored in EU), confirm DPAs accepted on both vendors, add a cron/uptime ping to keep the free Supabase project from pausing if traffic is sparse."
+      ],
+      "risks": [
+        "Vercel Hobby is non-commercial — for a client/business site you must move to Pro (€20/mo) to be license-compliant; budget for this rather than treating €0 as permanent.",
+        "Supabase free-tier projects PAUSE after ~7 days of inactivity; a low-traffic admin tool can trip this, causing a cold first request or apparent outage. Mitigate with a scheduled ping (Vercel Cron) or the paid tier.",
+        "SEO regression risk if public pages are accidentally made dynamic (per-request) instead of SSG+ISR. Must keep generateStaticParams + long revalidate; verify prerendered HTML and JSON-LD remain in the static output after the data-source swap.",
+        "Migrating the source of truth from src/data/businesses.ts (11k-line typed file, currently the single source) to a DB is the riskiest step — needs a careful one-time seed migration and a way to keep the typed Business shape in sync (generate types from the DB or share a zod schema).",
+        "Service-role key leakage would bypass all RLS — it must live only in server-side code/Production env, never NEXT_PUBLIC_ and never in client components.",
+        "On-demand revalidation must be secured (REVALIDATE_SECRET) if exposed as a webhook route, otherwise anyone could trigger regenerations.",
+        "User-uploaded images are an abuse/cost/safety surface (size limits, content type validation, EXIF stripping, and the moderation step before going live are all required).",
+        "EU residency only holds if BOTH the Supabase project region AND Vercel function region are EU; the default Vercel function region may be US — must be explicitly set to fra1."
+      ],
+      "notes": "Audit confirms the current app is 100% static: data is a compile-time TypeScript import (`import { businesses } from \\\"@/data/businesses\\\"` in /Users/jezza/kamp/src/app/ondernemers/[id]/page.tsx and /Users/jezza/kamp/src/app/categorie/[slug]/page.tsx), pages use generateStaticParams (no `export const dynamic/revalidate` anywhere), there is NO runtime fetch, NO process.env usage, and NO next.config images.remotePatterns. External business photos are rendered with raw <img> in /Users/jezza/kamp/src/components/BusinessImage.tsx (referrerPolicy no-referrer), so they currently incur ZERO Vercel Image Optimization cost — only approved owner photos would opt into next/image. Stack: Next.js 16.2.9, React 19.2.4, Tailwind v4, no DB/auth/env today. Source of truth to migrate: /Users/jezza/kamp/src/data/businesses.ts (~11,059 lines, 96 businesses, ~40-field Business type with structured DayHours[]). Next.js 16's bundled auth guide (node_modules/next/dist/docs/01-app/02-guides/authentication.md) officially lists Supabase, Better Auth, Clerk, NextAuth/Auth.js, Auth0, Stack Auth and recommends a Data Access Layer + proxy-based session checks. ISR/on-demand revalidation guidance (node_modules/.../incremental-static-regeneration.md) recommends a high revalidate time + revalidatePath/revalidateTag for precise on-demand updates — exactly the post-approval pattern proposed. \\n\\nBUILD EFFORT ESTIMATE — MVP (login + owner edits text/hours/contact + photo upload + admin approve/reject + on-demand revalidate, single Supabase project): roughly 4–7 working days for one developer familiar with Next.js App Router + Supabase. FULL SYSTEM (separate preview project, full RLS hardening, audit log, EXIF strip + image transforms, invite emails, GDPR copy/DPA, GitHub Action gate, anti-pause cron, type generation from DB, polished admin dashboard): roughly 2–3 weeks total. Lowest-friction reliable setup = Vercel + Supabase EU on free tiers, upgrading to Vercel Pro (€20/mo) for license compliance once it is a live client site."
+    }
+  ],
+  "plan": {
+    "summary": "Build the owner self-service backend on Supabase (EU/Frankfurt), kept strictly OUT of the public render path. The public site stays exactly as it is today — SSG over the typed src/data/businesses.ts, which we KEEP as the seed + permanent fallback — and gains an \"overrides\" layer: approved owner edits live in Postgres and are merged on top of the static record at build/revalidate time. A separate, noindexed portal (/login, /beheer for owners, /admin for the committee) handles auth and moderation. DECISION: Supabase over Payload CMS v3. Two of three stack-level specialists independently chose Supabase, and it fits THIS repo better: (1) the Business type ALREADY encodes the approval gate we need (imageStatus / permissionStatus / verificationStatus enums, plus the \"imageCandidateUrl is stored but NEVER rendered until owner-approved\" invariant) — so a pending/approved override row is a direct continuation of an existing rule, not a new CMS abstraction; (2) Payload v3 would force the whole app into a stateful server runtime and retire businesses.ts as source-of-truth, rewriting the data path for all ~27 consumers through its Local API — a far bigger, riskier change for a solo/committee operator; (3) magic-link (passwordless) auth is the lowest-support flow for the real scenario \"owner emails admin, admin issues a login\" to ~96 non-technical shopkeepers, and Supabase ships it with EU region, Storage, and Row Level Security on a free/low tier. EVERY mutation is a Server Action that re-checks session + ownership in a DAL (never the proxy, never a layout); RLS is the database backstop. Approved edits fire on-demand revalidation so only the touched pages regenerate — zero redeploy, intact JSON-LD, no Core Web Vitals regression. Confirmed against the in-repo Next.js 16 docs: middleware is now proxy.ts (optimistic cookie checks only, no DB), and revalidateTag MUST use the two-arg form revalidateTag(tag, 'max') (single-arg is deprecated); updateTag is available for immediate invalidation.",
+    "recommendedStack": [
+      {
+        "layer": "Framework hosting",
+        "choice": "Keep Next.js 16 (16.2.9) on Vercel, EU region (fra1) for the serverless functions",
+        "why": "Public pages stay SSG/ISR exactly as now; only the new portal/API routes need the server runtime. Pin the function region to Frankfurt so auth/edit/upload handlers run in the EU. No new framework, no second service to operate."
+      },
+      {
+        "layer": "Database",
+        "choice": "Supabase Postgres, EU (Frankfurt) project",
+        "why": "Adds the write store the project currently lacks (today ALL data is a static TS file). businesses.ts stays the SSG seed + fallback; Postgres holds owner accounts, ownership mapping, and pending/approved overrides. Free/low tier covers ~96 businesses. EU residency + a DPA satisfies GDPR."
+      },
+      {
+        "layer": "Auth",
+        "choice": "Supabase Auth — magic link (passwordless) primary, admin-issued invites",
+        "why": "Matches the real flow: admin adds the owner's email (invite row) and the owner clicks a one-time link — no password to generate, transmit, forget, or phish for non-technical shopkeepers. The in-repo Next 16 auth guide explicitly recommends a library over hand-rolled JWT/cookies. @supabase/ssr handles session cookies in Server Components / Actions / Route Handlers."
+      },
+      {
+        "layer": "Image storage",
+        "choice": "Supabase Storage (private 'owner-uploads' bucket + public 'business-photos' bucket), served via next/image with images.remotePatterns",
+        "why": "Same provider as DB+Auth = one EU project, one DPA, RLS on objects. Uploads land PRIVATE+pending; on approval the admin promotes the object to the public bucket and writes the public_url. Strip EXIF/GPS on ingest; sniff magic bytes; cap size/count. Reuses the existing imageStatus/permissionStatus semantics one-to-one."
+      },
+      {
+        "layer": "CMS / admin",
+        "choice": "Custom thin admin built in the app at /admin (no third-party CMS)",
+        "why": "The moderation surface is small and bespoke (approve/reject a diff of override fields + a photo). A hand-built /admin reuses the existing Business TypeScript type and Tailwind/lucide UI, avoids per-seat CMS fees for ~96 logins, and keeps everything in one repo. Payload/Sanity/Strapi would each be heavier than the job requires here."
+      }
+    ],
+    "ownerFlow": [
+      "1. Request access: owner uses the existing public /aanmelden page (today a mailto). This stays as the front door — it just emails the admin a request to be set up.",
+      "2. Admin issues login: in /admin the admin enters the owner's email and links it to their business_id; this calls supabase.auth.admin.inviteUserByEmail server-side (service-role key, server-only) and inserts an owner_business row. The owner receives an invite email.",
+      "3. Owner logs in: owner goes to /login, enters their email, gets a one-time magic link (signInWithOtp); the /auth/callback Route Handler exchanges the code for a session cookie and redirects to /beheer.",
+      "4. Owner edits: /beheer is a Server Component that runs verifySession() + lists only the businesses linked via owner_business. The owner edits descriptions, opening hours (using the existing structured DayHours UI), phone/website/socials/price/tags, and uploads/replaces/removes photos (hero + gallery). Mobile-first — owners use phones.",
+      "5. Submit for review: the submit Server Action re-runs verifySession() + requireBusinessAccess(businessId), validates with Zod, and UPSERTS a business_overrides row with status='pending' (it NEVER writes the live/published value). Photo uploads go to the PRIVATE bucket and create a business_media row with status='pending'. Owner sees a 'in afwachting van goedkeuring' (pending review) banner. Live site is unchanged at this point.",
+      "6. Admin approves (see adminFlow). On approval the override/photo flips to status='approved'.",
+      "7. Edit goes live: the approval action calls revalidateTag(`business:<id>`, 'max') (plus category/sitemap tags) — the affected /ondernemers/[id], its /categorie/[slug], home, and the map regenerate via ISR on next visit, no redeploy. The owner's change is now public with intact JSON-LD."
+    ],
+    "adminFlow": [
+      "Sign in to /admin via the same magic link; the DAL gates the whole segment on profiles.role==='admin' (checked in each page/action, not just a layout).",
+      "Owners screen: invite an owner by email and bind them to a business_id (inviteUserByEmail + owner_business insert); revoke/disable an owner; reassign a business to a different owner.",
+      "Moderation queue: list all business_overrides and business_media with status='pending'. Each item shows a field-by-field DIFF (current published value vs proposed) and, for photos, the pending image with a 'never-rendered-until-approved' preview from the private bucket via a signed URL.",
+      "Approve: flips the override/photo to status='approved', stamps reviewed_by/reviewed_at, promotes the photo object from the private to the public bucket and writes public_url, sets the matching imageStatus='approved' / permissionStatus='owner_approved' / verificationStatus='owner_approved', then fires on-demand revalidation for the affected pages.",
+      "Reject: flips to status='rejected' with an optional reason (shown to the owner on /beheer); nothing publishes.",
+      "Full-list management: browse/search all ~96 businesses, edit any field directly as admin (same override mechanism, auto-approved), toggle featured/sortOrder, and mark closed/seasonal — i.e. the admin can do everything an owner can, for any business.",
+      "Audit: every override and media row carries submitted_by/submitted_at/reviewed_by/reviewed_at for a simple change history."
+    ],
+    "dataModel": "\"KEEP src/data/businesses.ts as the canonical seed and permanent fallback; its exported Business interface remains the single shared TypeScript contract for the whole app. Postgres holds ONLY accounts + ownership + the editable overlay, never a full duplicate of the catalogue. Tables (all in EU project, all with Row Level Security ON): (1) profiles { user_id pk -> auth.users, role: 'admin'|'owner', display_name, created_at }. (2) owner_business { user_id, business_id (= Business.id string), role, created_at } — the scoping table; an owner may map to one or more businesses. (3) business_overrides { id, business_id, field-set mirroring the EDITABLE subset of Business (longDescription, shortDescription, hours jsonb as DayHours[], hoursNote, phone, websiteUrl, instagramUrl, facebookUrl, socials jsonb, priceRange, priceLevel, tags text[], specialties text[], perfectFor text[], dietaryTags text[], highlights text[]), status: 'pending'|'approved'|'rejected', submitted_by, submitted_at, reviewed_by, reviewed_at, reject_reason } — one current row per business; pending edits do NOT overwrite the approved values. (4) business_media { id, business_id, kind: 'hero'|'gallery', storage_path, public_url, width, height, blurhash, sort_order, status: 'pending'|'approved'|'rejected'|'replaced', uploaded_by, created_at, reviewed_by, reviewed_at }. MERGE RULE at read time: effective business = seed record from businesses.ts, deep-merged with its APPROVED business_overrides row, with APPROVED business_media replacing imageUrl (hero) and gallery[]; when no approved override/media exists, the page renders the existing businesses.ts values untouched — so all 98 records keep working and the site degrades gracefully. APPROVAL GATE reuses the type's own enums: a new owner photo lands as imageStatus='owner_photo_needed'/permissionStatus='owner_photo_needed' (pending) and is rendered ONLY after approval sets imageStatus='approved'/permissionStatus='owner_approved'/verificationStatus='owner_approved' — the same never-render-until-approved invariant that imageCandidateUrl already enforces. RLS: owners can SELECT/UPSERT only rows where business_id is in their owner_business set and only into status='pending'; admins do everything; the public/anon role reads NOTHING from these tables (the public site reads the merged data server-side through the service path at build/revalidate, not via the anon client).\"",
+    "publishStrategy": "\"Keep /ondernemers/[id] and /categorie/[slug] static via generateStaticParams (unchanged) and KEEP businesses.ts driving the param set, so the public render path and SEO surface (JSON-LD, sitemap, llms.txt, OG images, canonical) are byte-for-byte today's output until an edit is approved. Introduce a single data-access module (src/lib/businessData.ts) that all ~27 consumers import instead of importing the businesses array directly; for the public path it returns seed-merged-with-approved-overrides. Wrap the per-business read in a 'use cache' function tagged cacheTag(`business:<id>`) and the list/category reads with their own tags (requires cacheComponents:true in next.config.ts). On approval, the admin Server Action calls revalidateTag(`business:<id>`, 'max') plus the affected category/list/sitemap tags — CONFIRMED against the in-repo Next 16 docs that the two-arg form is required (single-arg revalidateTag is deprecated); use updateTag for immediate invalidation if the admin wants the change visible instantly. Affected pages regenerate via stale-while-revalidate on next visit — no full redeploy, no dynamic rendering of public routes, no CWV regression. The portal (/login, /auth/callback, /beheer, /admin, /api/*) is dynamic and excluded: noindex via a robots route-segment + 'X-Robots-Tag: noindex' header, and excluded from sitemap.ts. proxy.ts does ONLY an optimistic cookie check to redirect unauthenticated users away from /beheer and /admin — never a DB call (per the in-repo proxy doc); the authoritative session+role+ownership checks live in the DAL and run inside every page, Server Action, and Route Handler. Owner-uploaded photos are served through next/image with images.remotePatterns whitelisting the Supabase public bucket host. A small Vercel Cron pings Supabase to stop the free-tier project pausing.\"",
+    "phases": [
+      {
+        "phase": "Phase 0 — Data-layer refactor (no behaviour change)",
+        "scope": "Introduce src/lib/businessData.ts and migrate all ~27 consumers (pages, components, lib) from `import { businesses }` to functions from this module. It initially just re-exports the static array. Verify the static build, JSON-LD, sitemap, and llms.txt are unchanged before touching any backend. This isolates every later change to one seam.",
+        "effort": "S (1-2 days)"
+      },
+      {
+        "phase": "Phase 1 — MVP: auth + owner edit of TEXT/fields + admin moderation",
+        "scope": "Provision Supabase EU; create profiles, owner_business, business_overrides with RLS; seed nothing (businesses.ts is the seed). Add @supabase/ssr wrappers, DAL (verifySession/requireBusinessAccess/requireAdmin), proxy.ts (optimistic cookie check), /login + /auth/callback, /beheer (edit descriptions, hours, phone/web/socials/price/tags) submitting pending overrides, /admin (invite owners + moderate text overrides with diff + approve/reject). Wire approval -> revalidateTag('business:<id>','max'). Enable cacheComponents + per-business cacheTag. Noindex the portal; add Vercel Cron keep-alive. NO photo upload yet — owners still request photo changes by email. This already delivers the core ask: an owner edits their own listing's text/hours and the admin approves it live.",
+        "effort": "M (1-1.5 weeks)"
+      },
+      {
+        "phase": "Phase 2 — Full: owner photo upload + moderation + gallery",
+        "scope": "Add business_media table + private/public Storage buckets with RLS; drag-drop mobile-first upload UI in /beheer (hero + reorderable gallery, replace/remove); server-side validation (magic-byte sniff, type allowlist jpeg/png/webp/avif, ~10MB cap, gallery cap, EXIF/GPS strip); pending photos render NEVER until approved (reuse imageStatus gate). Admin moderation gains photo approve/reject with signed-URL preview and promote-to-public-bucket on approve. Add images.remotePatterns for the public bucket; serve via next/image. Optional: blurhash, owner-facing reject reasons, simple change history.",
+        "effort": "M (1-1.5 weeks)"
+      },
+      {
+        "phase": "Phase 3 — Hardening & GDPR",
+        "scope": "Authorization test suite proving an owner cannot read/write another owner's overrides or media (RLS + Server Action checks); DPAs signed with Supabase and Vercel; privacy/processing note; backups verified; rate-limit the magic-link and upload endpoints; admin audit view. Optional later: migrate businesses.ts fully into Postgres if the committee wants to manage the catalogue entirely in-app.",
+        "effort": "S-M (3-5 days)"
+      }
+    ],
+    "filesToAdd": [
+      "src/lib/businessData.ts — single data-access seam; merges seed (businesses.ts) with approved overrides + media; 'use cache' + cacheTag per business; used by all consumers",
+      "src/lib/supabase/server.ts — server Supabase client (cookies via @supabase/ssr) for Server Components/Actions",
+      "src/lib/supabase/client.ts — browser Supabase client for the portal client components",
+      "src/lib/supabase/admin.ts — service-role client, SERVER-ONLY (invites, bucket promotion); never imported by client code",
+      "src/lib/dal.ts — cache()-wrapped verifySession(), requireBusinessAccess(businessId), requireAdmin()",
+      "src/lib/validation.ts — Zod schemas for the editable override fields + upload constraints",
+      "proxy.ts — root-level; optimistic cookie-only redirect for /beheer and /admin (NO DB calls)",
+      "src/app/login/page.tsx — magic-link request form (Server Action -> signInWithOtp)",
+      "src/app/auth/callback/route.ts — exchange magic-link code for session cookie, redirect to /beheer",
+      "src/app/beheer/page.tsx — owner dashboard (Server Component, lists owned businesses)",
+      "src/app/beheer/[id]/page.tsx — owner edit screen for one business",
+      "src/app/beheer/actions.ts — 'use server' submit actions (upsert pending override; upload pending photo)",
+      "src/app/beheer/PhotoUploader.tsx — 'use client' mobile-first drag-drop uploader (Phase 2)",
+      "src/app/admin/page.tsx — admin home (owners + moderation queue)",
+      "src/app/admin/owners/actions.ts — 'use server' invite/revoke/assign owner actions",
+      "src/app/admin/moderation/actions.ts — 'use server' approve/reject -> flips status, promotes photo, revalidateTag",
+      "src/app/beheer/robots.ts (+ /admin, /login) — noindex route-segment robots",
+      "supabase/migrations/0001_init.sql — profiles, owner_business, business_overrides, business_media + RLS policies",
+      "supabase/migrations/0002_storage.sql — buckets + storage RLS (Phase 2)",
+      "scripts/test-authz.ts — proves cross-owner access is denied (Phase 3)"
+    ],
+    "filesToChange": [
+      "src/data/businesses.ts — UNCHANGED as data, but exports stay the shared Business type/seed; consumers stop importing the array directly (route through businessData.ts)",
+      "src/app/page.tsx — import from businessData.ts instead of @/data/businesses",
+      "src/app/ondernemers/[id]/page.tsx — read via businessData.ts; keep generateStaticParams driven by the published/seed set; add per-business cacheTag",
+      "src/app/categorie/[slug]/page.tsx — read via businessData.ts; category-tagged cache",
+      "src/app/kaart/page.tsx — read via businessData.ts (map reflects approved photos/fields)",
+      "src/app/loop-de-kamp/page.tsx — read via businessData.ts",
+      "src/app/praktisch/page.tsx — read via businessData.ts",
+      "src/app/over-de-kamp/page.tsx — read via businessData.ts",
+      "src/app/cadeaukaart/page.tsx — read via businessData.ts",
+      "src/app/sitemap.ts — read via businessData.ts; exclude /login,/beheer,/admin",
+      "src/app/llms.txt/route.ts — read via businessData.ts",
+      "src/components/* (BusinessCard, BusinessExplorer, BusinessDetailClient, FeaturedHorizontal, WandelShowcase, DistrictMap, HoursTable, OpenBadge, SeoIntro, BusinessImage, OwnerSubmitCta) — receive merged Business objects from the new data layer; BusinessImage gains next/image rendering for Supabase-hosted owner photos",
+      "src/lib/schema.ts, src/lib/related.ts, src/lib/categories.ts, src/lib/hours.ts, src/lib/placeholder.ts, src/lib/geo.ts — consume merged data via businessData.ts where they currently import the array",
+      "next.config.ts — add cacheComponents:true and images.remotePatterns for the Supabase public bucket host",
+      "src/app/robots.ts — disallow /beheer, /admin, /login",
+      "src/app/aanmelden/page.tsx — keep as public 'request a login' entry; add a note/link that login is admin-issued",
+      "package.json / .env (gitignored) — add Supabase deps + env vars"
+    ],
+    "packages": [
+      "@supabase/supabase-js",
+      "@supabase/ssr",
+      "zod",
+      "@vercel/blob (NOT needed — using Supabase Storage; listed only as the alternative if Storage is rejected)",
+      "sharp (EXIF strip + dimension/blurhash on server upload, Phase 2)",
+      "blurhash (optional, Phase 2 placeholders)"
+    ],
+    "costNotes": "\"Target: EUR 0-25/month at this scale. Supabase free tier (1 project, 500MB DB, 1GB storage, 50k MAU) comfortably covers ~96 businesses and a handful of admins — but the free tier PAUSES after inactivity, so add a Vercel Cron keep-alive ping; if pausing is unacceptable for the committee, Supabase Pro is ~USD 25/mo and removes it. Vercel: the existing Hobby plan may suffice, but commercial use + always-on server functions typically means Vercel Pro ~USD 20/mo; pin the function region to fra1 (EU). Image cost is the main variable: owner uploads + next/image optimization — cap per-file size (~10MB) and gallery count (~8) to bound storage/egress; Supabase Storage egress is cheap at this volume. No per-seat fees anywhere (the reason a per-seat SaaS CMS was rejected for ~96 logins). One-time: developer build time per the phases above. Recurring ops are low: pinned versions, occasional Supabase/Next upgrades.\"",
+    "risks": [
+      "Architectural shift from purely-static to static-public + stateful-portal: there is NO backend today. The DB/storage must be kept alive (free-tier keep-alive ping), backed up, and patched. This is the single biggest change to the project's low-maintenance character — adopt it deliberately.",
+      "Authorization is security-critical: every Server Action MUST independently call verifySession() + requireBusinessAccess()/requireAdmin(); a hidden button is NOT access control. One forgotten check is a full authz bypass. RLS in Postgres is the mandatory backstop; ship the cross-owner denial test (scripts/test-authz.ts) before go-live.",
+      "Next 16 gotchas confirmed in-repo: (a) middleware is now proxy.ts and must do optimistic cookie checks ONLY — no DB/data fetching, and the matcher must exclude _next/static, _next/image, api, and public assets or it can block them; (b) revalidateTag single-arg form is deprecated — use revalidateTag(tag,'max') or updateTag; (c) the auth-in-layout trap — layouts don't re-render on client nav, so auth checks must live in the DAL per page/action, not in a single layout.",
+      "SEO/CWV regression if a public route is accidentally made dynamic or gated behind proxy/session. Keep /ondernemers/[id] and /categorie/[slug] static with generateStaticParams; use on-demand revalidation only. Verify JSON-LD/sitemap/llms.txt are unchanged after the Phase 0 refactor before proceeding.",
+      "Image moderation correctness: a pending photo must NEVER render. Reuse the existing imageStatus/permissionStatus gate and serve pending uploads only from the PRIVATE bucket via signed URLs in /admin. Validate server-side (magic-byte sniff, type allowlist, size/count caps) and strip EXIF/GPS on ingest for privacy/GDPR.",
+      "GDPR is paperwork + region, not region alone: sign a DPA with BOTH Supabase and Vercel, keep all data EU-resident, document the lawful basis and a deletion path for owner accounts/photos.",
+      "Refactor blast radius: ~27 files import the businesses array directly. Phase 0 funnels them through one module first; doing auth/photos before that seam exists would multiply the change surface and the regression risk."
+    ],
+    "openQuestions": [
+      "Hosting commitment: stay on Vercel (simplest given current setup) or self-host? This affects whether 'use cache' runtime persistence and ISR behave as described, and the cost line.",
+      "Acceptable to run Supabase free tier with a keep-alive cron, or does the committee want Pro (~USD25/mo) to guarantee no pausing and backups?",
+      "Can one business have MULTIPLE owner logins (e.g. owner + manager), or strictly one login per business? (owner_business already supports many-to-many; confirm the policy.)",
+      "Which fields should owners edit themselves vs. admin-only? Proposed owner-editable: descriptions, hours, phone, website, socials, price, tags, specialties, perfectFor, dietary tags, photos. Admin-only: name, category, address, lat/lng, featured, sortOrder, status. Confirm.",
+      "Photo policy: max gallery count, max file size, allowed types (proposed jpeg/png/webp/avif; HEIC rejected with re-export prompt) — and do we auto-strip EXIF/GPS (recommended yes).",
+      "Should an approved edit go live instantly (updateTag) or is stale-while-revalidate on next visit (revalidateTag '...','max') acceptable? Instant is slightly heavier; SWR is the default recommendation.",
+      "Language of the portal/emails — Dutch only (recommended for shopkeeper audience) or NL/EN?",
+      "Long-term: keep businesses.ts as the seed/fallback indefinitely, or migrate the full catalogue into Postgres later so the committee manages everything in-app? MVP keeps the file; Phase 3+ optional migration.",
+      "Who are the admin(s) and what email(s) seed the first admin profile? Needed to bootstrap /admin access.",
+      "Email deliverability: use Supabase's built-in magic-link email, or wire a custom SMTP/sender on the ondernemersvandekamp.nl domain for better inbox placement and branding?"
+    ]
+  }
+}
