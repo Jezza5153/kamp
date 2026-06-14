@@ -13,8 +13,19 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
   const [category, setCategory] = useState<string>("Alles");
   const [query, setQuery] = useState("");
   const [openNow, setOpenNow] = useState(false);
+  const [useCase, setUseCase] = useState<string | null>(null);
   const [showMap, setShowMap] = useState(true);
   const [now, setNow] = useState<NowAmsterdam | null>(null);
+
+  // Most common "perfect voor" tags present in the data (for the quick filter).
+  const useCases = useMemo(() => {
+    const count: Record<string, number> = {};
+    for (const b of businesses) for (const p of b.perfectFor ?? []) count[p] = (count[p] || 0) + 1;
+    return Object.entries(count)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8)
+      .map(([k]) => k);
+  }, [businesses]);
 
   useEffect(() => {
     setNow(nowInAmsterdam());
@@ -29,6 +40,7 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
     return active
       .filter((b) => {
         if (category !== "Alles" && b.category !== category) return false;
+        if (useCase && !(b.perfectFor ?? []).includes(useCase)) return false;
         if (openNow) {
           if (!now) return false;
           const s = getOpenState(b.hours, now);
@@ -41,14 +53,15 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
         return true;
       })
       .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || a.sortOrder - b.sortOrder);
-  }, [active, category, query, openNow, now]);
+  }, [active, category, query, openNow, useCase, now]);
 
   const highlightIds = useMemo(() => new Set(filtered.map((b) => b.id)), [filtered]);
-  const isFiltering = category !== "Alles" || query.trim() !== "" || openNow;
+  const isFiltering = category !== "Alles" || query.trim() !== "" || openNow || !!useCase;
   const reset = () => {
     setCategory("Alles");
     setQuery("");
     setOpenNow(false);
+    setUseCase(null);
   };
 
   return (
@@ -85,6 +98,23 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
               </Chip>
             ))}
           </div>
+        </div>
+
+        {/* perfect-voor quick filter */}
+        <div className="mt-3 -mx-1 flex items-center gap-2 overflow-x-auto px-1 pb-1 no-scrollbar">
+          <span className="self-center whitespace-nowrap text-[11px] font-black uppercase tracking-widest text-warm-brown/40">Perfect voor</span>
+          {useCases.map((u) => (
+            <button
+              key={u}
+              onClick={() => setUseCase(useCase === u ? null : u)}
+              aria-pressed={useCase === u}
+              className={`whitespace-nowrap rounded-full border px-3 py-1 text-xs font-bold transition ${
+                useCase === u ? "border-amber bg-amber/15 text-amber-ink" : "border-stone/40 bg-paper text-warm-brown/70 hover:border-amber/50"
+              }`}
+            >
+              {u}
+            </button>
+          ))}
         </div>
 
         {/* second row: toggles + count */}
