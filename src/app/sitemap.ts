@@ -1,45 +1,34 @@
 import { MetadataRoute } from "next";
 import { businesses } from "@/data/businesses";
+import { ALL_CATEGORY_SLUGS } from "@/lib/categories";
+import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ondernemersvandekamp.nl";
+  const base = SITE.url;
+  const active = businesses.filter((b) => b.status !== "closed");
 
-  const businessUrls = businesses.map((b) => ({
-    url: `${baseUrl}/ondernemers/${b.id}`,
-    lastModified: new Date(),
+  const businessUrls = active.map((b) => ({
+    url: `${base}/ondernemers/${b.id}`,
+    lastModified: b.updatedAt ? new Date(b.updatedAt) : new Date(),
     changeFrequency: "weekly" as const,
-    priority: 0.8,
+    priority: b.featured ? 0.9 : 0.8,
+    images: b.imageUrl && b.imageUrl.startsWith("/") ? [`${base}${b.imageUrl}`] : undefined,
   }));
 
-  const categorySlugs = [
-    "eten-drinken",
-    "koffie-lunch-zoet",
-    "winkels-makers",
-    "mode-sieraden",
-    "interieur-kunst",
-    "beauty-verzorging",
-    "services-praktisch",
-    "slapen",
-  ];
-
-  const categoryUrls = categorySlugs.map((slug) => ({
-    url: `${baseUrl}/categorie/${slug}`,
+  const categoryUrls = ALL_CATEGORY_SLUGS.map((slug) => ({
+    url: `${base}/categorie/${slug}`,
     lastModified: new Date(),
-    changeFrequency: "monthly" as const,
+    changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
   const staticPages = [
-    { url: baseUrl, priority: 1 },
-    { url: `${baseUrl}/loop-de-kamp`, priority: 0.9 },
-    { url: `${baseUrl}/over-de-kamp`, priority: 0.6 },
-    { url: `${baseUrl}/aanmelden`, priority: 0.5 },
-  ].map((page) => ({
-    url: page.url,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: page.priority,
-  }));
+    { url: base, priority: 1 },
+    { url: `${base}/kaart`, priority: 0.9 },
+    { url: `${base}/loop-de-kamp`, priority: 0.8 },
+    { url: `${base}/over-de-kamp`, priority: 0.6 },
+    { url: `${base}/aanmelden`, priority: 0.5 },
+  ].map((p) => ({ url: p.url, lastModified: new Date(), changeFrequency: "weekly" as const, priority: p.priority }));
 
-  return [...staticPages, ...businessUrls, ...categoryUrls];
+  return [...staticPages, ...categoryUrls, ...businessUrls];
 }

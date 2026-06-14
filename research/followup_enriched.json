@@ -1,0 +1,2465 @@
+[
+  {
+    "id": "new-pien-kunst-en-antiek",
+    "name": "PIEN kunst & antiek",
+    "status": "closed",
+    "confidence": "high",
+    "geoConfidence": "low",
+    "suggestedCategory": "Interieur & kunst",
+    "subcategory": "Voormalige kunst- en antiekhandel (gesloten)",
+    "correctedAddress": "Grote Sint Jansstraat 1, 3811 HX Amersfoort",
+    "postalCode": "3811 HX",
+    "phone": "033 472 8971",
+    "websiteUrl": "",
+    "openingNote": "PERMANENT GESLOTEN. De eigenaren Janny en Reinold Stuurman kondigden op hun eigen website aan te stoppen: \"In 1968 begonnen wij onze kunst- en antiekzaak en nu is het tijd om te stoppen.\" (gearchiveerd, Wayback Machine, mei 2021). Het domein pienkunstantiek.nl is daarna verlopen en overgenomen: het leidt nu via een 301-redirect naar antiekrodin.be, een niet-gerelateerde Belgische antiekopkoper. De vermeldingen op antiek-in.nl, Cylex, Telefoonboek en Yelp zijn niet-geclaimde, verouderde aggregatorpagina's die enkel de oude NAP-gegevens herhalen en geen bewijs van actuele bedrijfsvoering vormen. Openingstijden, geo-coordinaten en een eigen og:image konden niet betrouwbaar worden geverifieerd en zijn daarom leeg gelaten.",
+    "refinedShortNL": "Voormalige kunst- en antiekhandel aan de Grote Sint Jansstraat, sinds 1968 gerund door Janny en Reinold Stuurman. Inmiddels gesloten.",
+    "refinedLongNL": "PIEN kunst & antiek was sinds 1968 een vertrouwd adres aan de Grote Sint Jansstraat in de Amersfoortse binnenstad, met een breed assortiment van Art Nouveau en Art Deco tot schilderijen, keramiek en oosterse en etnografische objecten. De zaak werd decennialang gerund door Janny en Reinold Stuurman, die op hun website afscheid namen met de woorden dat het na al die jaren \"tijd was om te stoppen\". De winkel is inmiddels gesloten en het oude webadres verwijst nu door naar een niet-gerelateerde partij.",
+    "publicPersonName": "Janny en Reinold Stuurman",
+    "publicPersonRole": "Oprichters / eigenaren (1968 - sluiting)",
+    "specialties": [
+      "Art Nouveau en Art Deco",
+      "Schilderijen",
+      "Keramiek",
+      "Oosterse kunst",
+      "Etnografica",
+      "Vijftiger- en zestigerjaren design"
+    ],
+    "keyFacts": [
+      {
+        "label": "Opgericht",
+        "value": "1968"
+      },
+      {
+        "label": "Status",
+        "value": "Permanent gesloten"
+      },
+      {
+        "label": "Eigenaren",
+        "value": "Janny en Reinold Stuurman"
+      },
+      {
+        "label": "Rechtsvorm",
+        "value": "V.O.F. Pien (Professional Interior Exhibits Netherlands)"
+      },
+      {
+        "label": "Locatie",
+        "value": "Grote Sint Jansstraat 1, binnenstad Amersfoort"
+      }
+    ],
+    "tags": [
+      "kunst",
+      "antiek",
+      "Art Nouveau",
+      "Art Deco",
+      "binnenstad Amersfoort",
+      "gesloten"
+    ],
+    "hasGoogleReviews": false,
+    "imageSource": "",
+    "ogImageUrl": "",
+    "imageLicenseNote": "Geen eigen og:image beschikbaar. Het leeggevallen domein toont nu uitsluitend een og:image van de niet-gerelateerde Belgische zaak Antiek RODIN; deze mag NIET worden gebruikt. Geen stockafbeelding gebruiken. Bij eventuele publicatie eerst een geverifieerde, met toestemming verkregen eigen afbeelding zoeken (bijv. via de oud-eigenaren of het stadsarchief Amersfoort).",
+    "sources": [
+      "http://web.archive.org/web/20210518042637/http://pienkunstantiek.nl/",
+      "http://www.pienkunstantiek.nl/ (live, 301-redirect naar antiekrodin.be)",
+      "https://www.antiek-in.nl/amersfoort/pien-antiekhandel",
+      "https://www.cylex.nl/bedrijf/v-o-f--pien--professional-interior-exhibits-netherlands--11258194.html",
+      "https://www.telefoonboek.nl/bedrijven/t2843947/amersfoort/v.o.f.-pien-professional-interior-exhibits-netherlands/",
+      "https://www.yelp.com/biz/antiekhandel-pien-amersfoort",
+      "http://www.uniekwinkelen.nl/winkels.htm"
+    ]
+  },
+  {
+    "id": "new-il-divino-wijnwinkel",
+    "name": "Il diVino Wijnwinkel",
+    "status": "open",
+    "correctedAddress": "Grote Sint Jansstraat 2A, 3811 HX Amersfoort",
+    "postalCode": "3811 HX",
+    "phone": "033 303 82 65",
+    "websiteUrl": "https://www.ildivino-wijnwinkel.nl",
+    "facebookUrl": "https://www.facebook.com/www.ildivino.nl/",
+    "instagramUrl": "https://www.instagram.com/il.divino.wijnwinkel/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Il+diVino+Wijnwinkel+Grote+Sint+Jansstraat+2A+Amersfoort",
+    "hasGoogleReviews": false,
+    "suggestedCategory": "Winkels & makers",
+    "subcategory": "Wijnwinkel met spannende wijnen en wijnworkshops",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "11:00",
+        "closes": "16:00"
+      }
+    ],
+    "openingNote": "Volgens VVV Amersfoort: ma t/m za 10:00-17:00, zondag 11:00-16:00 (in de winter zondag 11:00-15:00). LET OP: deze tijden konden niet 100% bevestigd worden — een Google-gebaseerde bron (vind-open.nl) noemt afwijkende tijden (ma gesloten; di/wo 11:00-18:00; do 11:00-19:00; vr 10:00-19:00; za 10:00-17:30; zo 13:00-17:30). Verifieer de actuele openingstijden telefonisch of op Google voordat je publiceert. Winkel is geopend sinds 1 maart 2022 (officiele opening door wethouder Willem-Jan Stegeman op 10 maart 2022).",
+    "ogImageUrl": "https://cdn.myonlinestore.eu/93c5246b-6be1-11e9-a722-44a8421b9960/images/il%20divino%20cat_winkels.jpg",
+    "imageSource": "Eigen og:image / website van Il diVino Wijnwinkel (ildivino-wijnwinkel.nl, myonlinestore CDN)",
+    "imageLicenseNote": "Afbeelding afkomstig van de eigen website van de ondernemer (geen stockfoto). Het is een algemene 'winkels'-categorieafbeelding, niet specifiek de Amersfoort-vestiging. Vraag expliciet toestemming van eigenaar Ewout Jansen voordat je deze afbeelding publiceert; vraag bij voorkeur een actuele foto van de winkel aan de Grote Sint Jansstraat.",
+    "refinedShortNL": "Wijnwinkel voor spannende, eerlijke wijnen uit minder bekende streken, plus wijnworkshops en proeverijen midden in De Kamp.",
+    "refinedLongNL": "Il diVino is dé plek in het centrum van Amersfoort voor karaktervolle wijnen uit minder bekende regio's, met veel aandacht voor biologische en natuurwijnen uit onder meer Griekenland, Marokko, Tsjechie en Georgie. Eigenaar Ewout Jansen opende de vestiging aan de Grote Sint Jansstraat in 2022 als derde winkel naast Hilversum en Bussum. Naast persoonlijk advies kun je er terecht voor wijnworkshops, proeverijen op maat en relatiegeschenken.",
+    "specialties": [
+      "Wijnen uit minder bekende wijnstreken (o.a. Griekenland, Georgie, Marokko, Tsjechie)",
+      "Biologische en natuurwijnen",
+      "Wijnworkshops en cursussen",
+      "Proeverijen op maat (groepen vanaf 10 personen)",
+      "Relatiegeschenken en wijnpakketten",
+      "Persoonlijk wijnadvies"
+    ],
+    "keyFacts": [
+      {
+        "label": "Opgericht (Amersfoort)",
+        "value": "1 maart 2022"
+      },
+      {
+        "label": "Eigenaar",
+        "value": "Ewout Jansen"
+      },
+      {
+        "label": "Vestigingen",
+        "value": "Amersfoort, Bussum en Hilversum"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Spannende bio- en natuurwijnen uit minder bekende streken"
+      },
+      {
+        "label": "Extra",
+        "value": "Wijnworkshops, proeverijen en wijnclub"
+      }
+    ],
+    "tags": [
+      "wijnwinkel",
+      "wijn",
+      "natuurwijn",
+      "biologische wijn",
+      "wijnworkshop",
+      "proeverij",
+      "relatiegeschenken",
+      "De Kamp",
+      "Amersfoort",
+      "Grote Sint Jansstraat"
+    ],
+    "publicPersonName": "Ewout Jansen",
+    "publicPersonRole": "Eigenaar",
+    "priceRange": "€€",
+    "confidence": "medium",
+    "geoConfidence": "low",
+    "sources": [
+      "https://www.vvvamersfoort.nl/nl/ildivinoamersfoort",
+      "https://www.ildivino-wijnwinkel.nl",
+      "https://www.ildivino-wijnwinkel.nl/c-1954363/onze-winkels/",
+      "https://www.destadamersfoort.nl/lokaal/lokaal/799096/wijnwinkel-il-divino-officieel-geopend",
+      "https://nl.linkedin.com/posts/ewoutpfjansen_il-divino-wijnwinkel-amersfoort-grote-activity-6976158582211780608--Hex",
+      "https://vind-open.nl/amersfoort/il-divino-wijnwinkel-amersfoort-808266",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3048399541/il-divino-wijnwinkel"
+    ]
+  },
+  {
+    "id": "new-kapsalon-rene-benoit",
+    "name": "Kapsalon René Benoît",
+    "status": "open",
+    "confidence": "low",
+    "correctedAddress": "Grote Sint Jansstraat 1-E, 3811 HX Amersfoort",
+    "postalCode": "3811 HX",
+    "phone": "033 472 13 65",
+    "lat": 52.157224,
+    "lng": 5.393612,
+    "geoConfidence": "medium",
+    "suggestedCategory": "Beauty & verzorging",
+    "subcategory": "Kapsalon (heren & dames)",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kapsalon+Ren%C3%A9+Beno%C3%AEt+Grote+Sint+Jansstraat+1+Amersfoort",
+    "hasGoogleReviews": false,
+    "openingNote": "Status onzeker. Inschrijving bij de KvK (nr. 31046863, eenmanszaak, sinds 1996) staat als actief vermeld, en de salon bestaat al ruim 25 jaar op deze locatie. Er is echter geen eigen website, geen actuele Google-recensies gevonden, en één kappersgids (WieWatHaar) toont een 'niet meer in bedrijf?'-melding — dit lijkt een generieke meldknop, geen bevestigde sluiting. Openingstijden konden niet betrouwbaar uit een primaire bron worden bevestigd en zijn daarom niet opgenomen. Aanbevolen: telefonisch verifiëren (033 472 13 65) vóór publicatie.",
+    "refinedShortNL": "Sfeervolle ouderwetse kapsalon in hartje De Kamp, waar René en Maschinka je met vakmanschap en persoonlijke aandacht ontvangen.",
+    "refinedLongNL": "Kapsalon René Benoît is al ruim 25 jaar gevestigd in een karakteristiek pand aan de Grote Sint Jansstraat, op een steenworp van de Kamperbinnenpoort. In deze gezellige salon hangt de sfeer van een ouderwetse opkamer, waar René Benoît en zijn zelf opgeleide assistente Maschinka klanten met vakmanschap en oprechte persoonlijke aandacht knippen. Gezelligheid en moderne technieken gaan hier vanzelfsprekend hand in hand.",
+    "publicPersonName": "René Benoît",
+    "publicPersonRole": "Eigenaar & kapper",
+    "specialties": [
+      "Knippen heren",
+      "Knippen dames",
+      "Persoonlijk advies",
+      "Klassiek vakmanschap",
+      "Knippen op afspraak"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "1996 (ruim 25 jaar op locatie)"
+      },
+      {
+        "label": "Team",
+        "value": "René Benoît & Maschinka"
+      },
+      {
+        "label": "Sfeer",
+        "value": "Ouderwetse, gezellige opkamer"
+      },
+      {
+        "label": "Locatie",
+        "value": "Historisch pand bij de Kamperbinnenpoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 472 13 65"
+      }
+    ],
+    "tags": [
+      "kapsalon",
+      "kapper",
+      "haar",
+      "De Kamp",
+      "Amersfoort",
+      "binnenstad",
+      "vakmanschap",
+      "persoonlijke aandacht"
+    ],
+    "imageSource": "Geen geschikte afbeelding gepubliceerd. De enige gevonden foto (assets.plaece.nl, via tijdvooramersfoort.nl) is afkomstig van een dataplatform, niet van de onderneming zelf, en is zonder toestemming/licentie niet bruikbaar. De salon heeft geen eigen website/og:image.",
+    "imageLicenseNote": "Niet publiceren zonder bevestigde toestemming van de eigenaar. Gevonden foto is van een derde-dataplatform (Plaece) zonder duidelijke licentie; geen eigen og:image van de onderneming beschikbaar. Vraag de eigenaar om een eigen beeld.",
+    "sources": [
+      "http://www.uniekwinkelen.nl/rene_benoit.htm",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/434115988/kapsalon-rene-benoit-kapsalon",
+      "https://drimble.nl/bedrijf/amersfoort/15733742/kapsalon-rene-benoit.html",
+      "https://haar.expert/kapsalons/rene-benoit-grote-sint-jansstraat-1/e-3811-hx-amersfoort",
+      "https://www.wiewathaar.nl/salons/rene-benoit/",
+      "https://www.openingstijden.com/open/kapsalon-rene-benoit/amersfoort/",
+      "https://www.cylex.nl/bedrijf/kapsalon-rene-benoit-11215669.html"
+    ]
+  },
+  {
+    "id": "new-orium-goudsmeden",
+    "name": "ORIUM Goudsmeden",
+    "status": "open",
+    "confidence": "high",
+    "correctedAddress": "Grote Sint Jansstraat 5, 3811 HX Amersfoort",
+    "postalCode": "3811 HX",
+    "lat": 52.156963,
+    "lng": 5.393823,
+    "geoConfidence": "medium",
+    "phone": "+31 33 257 2971",
+    "websiteUrl": "https://www.orium-goudsmeden.nl",
+    "facebookUrl": "https://www.facebook.com/p/ORIUM-goudsmeden-100057134572784/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ORIUM+Goudsmeden+Grote+Sint+Jansstraat+5+Amersfoort",
+    "hasGoogleReviews": true,
+    "suggestedCategory": "Mode & sieraden",
+    "subcategory": "Goudsmidatelier & juwelier",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Geopend dinsdag t/m zaterdag 10:00-17:00; gesloten op zondag en maandag. Donderdag koopavond op afspraak. Open atelier in de winkel; gevestigd in het Kamp-kwartier bij de Beestenmarkt-parkeergarage. Adres bevestigd als Grote Sint Jansstraat 5 (geen huisnummerconflict).",
+    "publicPersonName": "Marcel Baartmans",
+    "publicPersonRole": "Meester Goudsmid (eigenaar)",
+    "refinedShortNL": "Goudsmidatelier in De Kamp waar Marcel Baartmans op maat sieraden en trouwringen smeedt, naast Nomos-horloges en designmerken.",
+    "refinedLongNL": "ORIUM Goudsmeden is een ambachtelijk goudsmidatelier aan de Grote Sint Jansstraat, waar meestergoudsmid Marcel Baartmans en Inge Zegers in een open atelier sieraden, trouwringen en manchetknopen op maat ontwerpen en vervaardigen in goud en platina. Naast eigen creaties verkoopt de zaak collecties van gerenommeerde merken zoals Niessing, Gellner en Angela Hübel, plus Nomos Glashütte-horloges. Bestaande sieraden worden met zorg vermaakt of gerepareerd, met behoud van hun emotionele waarde.",
+    "specialties": [
+      "Sieraden op maat ontwerpen en smeden",
+      "Trouw- en verlovingsringen",
+      "Vermaken en repareren van bestaande sieraden",
+      "Goud en platina edelsmeedwerk",
+      "Nomos Glashütte-horloges",
+      "Designermerken (Niessing, Gellner, Angela Hübel)"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Grote Sint Jansstraat 5, 3811 HX Amersfoort"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Di t/m za 10:00-17:00; zo & ma gesloten"
+      },
+      {
+        "label": "Telefoon",
+        "value": "+31 33 257 2971"
+      },
+      {
+        "label": "Goudsmid",
+        "value": "Marcel Baartmans, Meester Goudsmid"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Open atelier; sieraden op maat & Nomos-horloges"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "4,5 sterren (14 reviews)"
+      }
+    ],
+    "tags": [
+      "goudsmid",
+      "sieraden op maat",
+      "trouwringen",
+      "atelier",
+      "Nomos horloges",
+      "juwelier",
+      "De Kamp",
+      "Amersfoort",
+      "edelsmid",
+      "handgemaakt"
+    ],
+    "priceRange": "€€€",
+    "imageSource": "",
+    "ogImageUrl": "",
+    "imageLicenseNote": "Geen bruikbare eigen og:image gevonden: de officiele site (www.orium-goudsmeden.nl) is een oudere site zonder og:image en zonder JSON-LD; alleen legacy sliced-table button-JPG's. Geen stockbeeld gebruikt. Vraag de eigenaar om een eigen foto met expliciete publicatietoestemming voordat er een afbeelding wordt geplaatst.",
+    "sources": [
+      "https://www.orium-goudsmeden.nl",
+      "https://nederlandsgildevangoudsmeden.nl/ledenoverzicht/marcel-baartmans/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/352130398/orium-goudsmeden",
+      "https://www.cylex.nl/bedrijf/orium-goudsmeden-10728680.html",
+      "https://wanderlog.com/place/details/587047/orium-goudsmeden",
+      "https://niessing.com/nl-HU/merchant/ORIUM-goudsmeden",
+      "https://www.facebook.com/p/ORIUM-goudsmeden-100057134572784/"
+    ]
+  },
+  {
+    "id": "new-bakkerij-boersma",
+    "name": "Bakkerij Boersma",
+    "status": "closed",
+    "confidence": "high",
+    "correctedAddress": "Zuidsingel 60, 3811 HD Amersfoort",
+    "postalCode": "3811 HD",
+    "lat": 52.156287,
+    "lng": 5.393692,
+    "geoConfidence": "medium",
+    "phone": "+31 33 472 0571",
+    "suggestedCategory": "Koffie, lunch & zoet",
+    "subcategory": "Ambachtelijke (voormalige) stadsbakkerij — brood en banket",
+    "openingNote": "PERMANENT GESLOTEN. Bakkerij Boersma, ruim 100 jaar de enige ambachtelijke stadsbakkerij in de binnenstad van Amersfoort, is gestopt. Vierde-generatie bakker Sjouke Boersma kon noodgedwongen niet doorgaan nadat hij een glutenintolerantie ontwikkelde. De sluiting werd aangekondigd in 2023 (Nederlands Dagblad, 30 sept 2023: \"De enige stadsbakkerij die nog over is in de binnenstad van Amersfoort gaat sluiten\"). Een Facebook-bericht van 27 jan 2024 bevestigt dat de zaak toen al drie maanden dicht was. De officiele website (bakkerboersma.nl) resolved niet meer op enige DNS-server (NXDOMAIN op Google 8.8.8.8, Cloudflare 1.1.1.1 en lokaal) — de site is offline. Geen aanwijzing voor heropening of overname (peildatum juni 2026). Openingstijden die nog op directory-sites (tijdvooramersfoort, cylex e.d.) staan zijn verouderde cache en niet betrouwbaar.",
+    "hasGoogleReviews": true,
+    "publicPersonName": "Sjouke Boersma",
+    "publicPersonRole": "Bakker, vierde generatie (familiebedrijf, ruim 100 jaar)",
+    "refinedShortNL": "Ruim een eeuw de enige ambachtelijke stadsbakkerij van de Amersfoortse binnenstad. Helaas permanent gesloten.",
+    "refinedLongNL": "Bakkerij Boersma was meer dan honderd jaar de enige echte ambachtelijke stadsbakkerij in het centrum van Amersfoort, met vers brood dat 's ochtends nog warm in de schappen lag en zicht op de oven waar de broden op de vloer werden gebakken. Vierde-generatie bakker Sjouke Boersma zag zich noodgedwongen genoodzaakt te stoppen nadat hij een glutenintolerantie ontwikkelde. De zaak aan de Zuidsingel 60 is sindsdien definitief gesloten en de website is uit de lucht.",
+    "specialties": [
+      "Ambachtelijk vloerbrood",
+      "Vers dagvers brood",
+      "Banket en gebak",
+      "Op de vloer gebakken broden",
+      "Traditionele stadsbakkerij"
+    ],
+    "tags": [
+      "bakkerij",
+      "ambachtelijk",
+      "stadsbakkerij",
+      "brood",
+      "binnenstad Amersfoort",
+      "Zuidsingel",
+      "gesloten",
+      "familiebedrijf"
+    ],
+    "keyFacts": [
+      {
+        "label": "Status",
+        "value": "Permanent gesloten"
+      },
+      {
+        "label": "Reden sluiting",
+        "value": "Bakker ontwikkelde glutenintolerantie"
+      },
+      {
+        "label": "Geschiedenis",
+        "value": "Ruim 100 jaar familiebedrijf, 4e generatie"
+      },
+      {
+        "label": "Aangekondigd",
+        "value": "September 2023; dicht sinds eind 2023"
+      },
+      {
+        "label": "Bijzonderheid",
+        "value": "Laatste ambachtelijke stadsbakkerij in de binnenstad van Amersfoort"
+      },
+      {
+        "label": "Website",
+        "value": "Offline (domein resolved niet meer)"
+      }
+    ],
+    "facebookUrl": "https://www.facebook.com/Boersmabakkerij/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakkerij+Boersma+Zuidsingel+60+Amersfoort",
+    "imageSource": "none",
+    "imageLicenseNote": "Geen eigen og:image beschikbaar: de officiele website (bakkerboersma.nl) is offline (NXDOMAIN), dus er kon geen door de eigenaar gepubliceerde afbeelding worden opgehaald of geverifieerd. Een afbeelding op de toeristensite (assets.plaece.nl) is een third-party asset zonder bevestigde gebruiksrechten en is daarom NIET overgenomen. Geen stockafbeelding gebruikt.",
+    "sources": [
+      "https://www.nd.nl/opinie/columns/1193546/de-bakker-stopt-noodgedwongen-overkwam-dat-anderen-maar-",
+      "https://www.facebook.com/Boersmabakkerij/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/697314516/bakkerij-boersma",
+      "https://www.cylex.nl/bedrijf/bakkerij-boersma-10749617.html",
+      "https://www.bakkerboersma.nl/over-ons-sjouke-boersma",
+      "DNS-check: bakkerboersma.nl / www.bakkerboersma.nl => NXDOMAIN (Google 8.8.8.8, Cloudflare 1.1.1.1, lokaal)"
+    ],
+    "openingHoursSpec": []
+  },
+  {
+    "id": "new-singelhuis",
+    "name": "Singelhuis",
+    "status": "open",
+    "suggestedCategory": "Eten & drinken",
+    "subcategory": "Sfeervolle event-, kook- en dinerlocatie voor groepen (workshops, vergaderingen & feestjes)",
+    "correctedAddress": "Zuidsingel 67, 3811 HD Amersfoort",
+    "postalCode": "3811 HD",
+    "lat": 52.1566765,
+    "lng": 5.3935917,
+    "geoConfidence": "high",
+    "websiteUrl": "https://singelhuis.nl",
+    "phone": "+31 6 22504459",
+    "facebookUrl": "https://www.facebook.com/profile.php?id=100071598317220",
+    "instagramUrl": "https://www.instagram.com/singelhuis/",
+    "googleMapsUrl": "https://www.google.nl/maps/place/Zuidsingel+67,+3811+HD+Amersfoort/@52.1566798,5.391403,17z",
+    "hasGoogleReviews": true,
+    "ogImageUrl": "https://singelhuis.nl/wp-content/uploads/2022/10/279887701_165937259136217_626844878020761856_n.jpg",
+    "imageSource": "singelhuis.nl (eigen website-afbeelding; sfeerfoto interieur)",
+    "imageLicenseNote": "Geen og:image- of JSON-LD-tag op de site; dit is de eigen sfeerfoto van het Singelhuis op hun domein. Toestemming van de eigenaar nodig voordat de afbeelding gepubliceerd wordt. Geen stockfoto gebruikt.",
+    "openingNote": "Het Singelhuis is een verhuur-/event- en kooklocatie die uitsluitend op reservering/afspraak werkt (per e-mail info@singelhuis.nl of WhatsApp) — er zijn geen vaste inloop-openingstijden. De zaak is actief en geopend (ingeschreven als Singelhuis Amersfoort B.V.); adres bevestigd op de eigen site (Zuidsingel 67, 3811 HD), geen huisnummerconflict. Let op: aggregator-sites verwarren dit soms met café/restaurant ''t Singelhuys' op hetzelfde adres en tonen daardoor afwijkende telefoonnummers en een groepscapaciteit tot 55; de eigen site noemt groepen tot 30 personen.",
+    "priceRange": "",
+    "refinedShortNL": "Sfeervolle kook- en eventlocatie midden in Amersfoort: kookworkshops, diners met groepen, vergaderingen en feestjes — geheel op maat.",
+    "refinedLongNL": "Het Singelhuis aan de Zuidsingel is een warme, huiselijke locatie in het hart van Amersfoort die je als 'tweede woonkamer' kunt afhuren. Met een goed geoutilleerde keuken verzorgen ze samen met diverse chefs kookworkshops, diners en (wijn)proeverijen voor groepen, en de ruimte leent zich net zo goed voor vergaderingen, lezingen en verjaardags- of bedrijfsfeesten tot zo'n 30 personen. Reserveren gaat eenvoudig op afspraak via e-mail of WhatsApp.",
+    "specialties": [
+      "Kookworkshops met chefs",
+      "Diners voor groepen",
+      "Wijn- en spijsproeverijen",
+      "Vergaderingen en bijeenkomsten",
+      "Verjaardags- en bedrijfsfeesten",
+      "Locatieverhuur op maat"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Kook-, diner- en eventlocatie (op afspraak)"
+      },
+      {
+        "label": "Locatie",
+        "value": "Zuidsingel 67, historisch centrum Amersfoort"
+      },
+      {
+        "label": "Groepsgrootte",
+        "value": "Tot circa 30 personen"
+      },
+      {
+        "label": "Reserveren",
+        "value": "Per e-mail of WhatsApp"
+      },
+      {
+        "label": "Faciliteiten",
+        "value": "Goed geoutilleerde keuken en spoelkeuken; beamer en flip-over beschikbaar"
+      },
+      {
+        "label": "Parkeren",
+        "value": "Parkeergelegenheid op loopafstand"
+      }
+    ],
+    "tags": [
+      "kookworkshop",
+      "kookstudio",
+      "eventlocatie",
+      "diner",
+      "groepen",
+      "vergaderlocatie",
+      "feestlocatie",
+      "wijnproeverij",
+      "bedrijfsuitje",
+      "locatieverhuur",
+      "Amersfoort",
+      "Zuidsingel"
+    ],
+    "confidence": "high",
+    "sources": [
+      "https://singelhuis.nl",
+      "https://feestjegeven.nl/l/singelhuis/n2nu26h1rt",
+      "https://www.telefoonboek.nl/bedrijven/t8636219/amersfoort/singelhuis-amersfoort-b.v./",
+      "https://www.facebook.com/profile.php?id=100071598317220",
+      "https://www.instagram.com/singelhuis/",
+      "https://www.transfirm.nl/nl/organisatie/834420060001-singelhuis-amersfoort-b.v."
+    ]
+  },
+  {
+    "id": "new-hairstyling-geke",
+    "name": "Hairstyling Geke",
+    "status": "open",
+    "correctedAddress": "Zuidsingel 68, 3811 HD Amersfoort",
+    "postalCode": "3811 HD",
+    "phone": "033-4722361",
+    "websiteUrl": "https://gekekappers.mytreatwell.nl",
+    "instagramUrl": "https://www.instagram.com/gekekappersamersfoort/",
+    "facebookUrl": "https://www.facebook.com/GekeKappers/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hairstyling+Geke+Zuidsingel+68+3811+HD+Amersfoort",
+    "hasGoogleReviews": false,
+    "priceRange": "€17,95 - €246,85",
+    "suggestedCategory": "Beauty & verzorging",
+    "subcategory": "Kapsalon gespecialiseerd in krullend haar",
+    "lat": 52.155,
+    "lng": 5.3876,
+    "geoConfidence": "low",
+    "confidence": "high",
+    "ogImageUrl": "https://cdn1.treatwell.net/images/view/v2.i9393605.w1080.h720.xC0656B00/",
+    "imageSource": "Treatwell-profielfoto van Geke kappers (og:image van gekekappers.mytreatwell.nl)",
+    "imageLicenseNote": "Afkomstig van de eigen Treatwell-boekingspagina van de salon (og:image). Rechten liggen bij de salon/Treatwell; vraag de eigenaar om toestemming voordat je deze afbeelding publiceert. Geen stockfoto.",
+    "refinedShortNL": "Sfeervolle kapsalon in de oude binnenstad van Amersfoort, gespecialiseerd in het knippen van krullend haar.",
+    "refinedLongNL": "Hairstyling Geke is een stijlvolle kapsalon aan de Zuidsingel in het historische hart van Amersfoort, met comfortabele wasstoelen en een ervaren team. Eigenaresse Geke ontwikkelde een eigen techniek om elk type krullend haar optimaal te knippen, naast knippen, kleuren en verzorgende behandelingen voor dames en heren. Online reserveren kan eenvoudig via Treatwell; de salon is woensdag tot en met zaterdag geopend.",
+    "specialties": [
+      "Krullend haar knippen",
+      "Knippen dames & heren",
+      "Kleuren, highlights & lowlights",
+      "Wassen en knippen",
+      "Truffel-hotstone behandeling",
+      "Online reserveren via Treatwell"
+    ],
+    "keyFacts": [
+      {
+        "label": "Specialisatie",
+        "value": "Knippen van krullend haar (eigen techniek)"
+      },
+      {
+        "label": "Ligging",
+        "value": "Oude binnenstad, Zuidsingel"
+      },
+      {
+        "label": "Reserveren",
+        "value": "Online via Treatwell of telefonisch"
+      },
+      {
+        "label": "Reviews",
+        "value": "1.731+ geverifieerde Treatwell-reviews, gem. 4,8 sterren"
+      },
+      {
+        "label": "Jubileum",
+        "value": "Bestaat ruim 25 jaar"
+      }
+    ],
+    "tags": [
+      "kapper",
+      "kapsalon",
+      "krullend haar",
+      "curly hair",
+      "dameskapper",
+      "herenkapper",
+      "kleuren",
+      "Amersfoort",
+      "De Kamp",
+      "binnenstad"
+    ],
+    "publicPersonName": "Geke",
+    "publicPersonRole": "Eigenaresse / kapster",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "",
+        "closes": ""
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "",
+        "closes": ""
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "",
+        "closes": ""
+      }
+    ],
+    "openingNote": "Geopend en actief op Zuidsingel 68, aan de rand van het De Kamp-gebied in de historische binnenstad van Amersfoort. Adres en postcode (3811 HD) komen overeen met de opgegeven gegevens; geen huisnummerconflict. Gesloten op maandag, dinsdag en zondag. Openingstijden consistent bevestigd via de eigen Treatwell-pagina, openingstijden.com en zoekresultaten. Exacte geo-coördinaten konden niet uit een geverifieerde bron worden afgeleid; lat/lng zijn een benadering voor het Zuidsingel-blok (geoConfidence laag) en Google Maps-URL is een zoek-URL i.p.v. een geverifieerde place-pin. hasGoogleReviews op false gezet omdat een specifieke Google Maps-listing met reviews niet kon worden geverifieerd (reviews wel ruim aanwezig op Treatwell: 1.731+).",
+    "sources": [
+      "https://gekekappers.mytreatwell.nl",
+      "https://www.treatwell.nl/salon/geke-kappers/",
+      "https://www.openingstijden.com/open/hairstyling-geke/amersfoort/",
+      "https://www.cylex.nl/bedrijf/hairstyling-geke-11792588.html",
+      "https://www.instagram.com/gekekappersamersfoort/",
+      "https://www.facebook.com/GekeKappers/",
+      "https://www.destadamersfoort.nl/zakelijk/nieuws/43077/hoera-25-jaar-412517",
+      "https://www.yelp.com/biz/geke-kappers-amersfoort"
+    ]
+  },
+  {
+    "id": "new-heart-en-arrow-trouwringen",
+    "name": "Heart & Arrow Trouwringen",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "high",
+    "correctedAddress": "Kamperbinnenpoort 8, 3811 AL Amersfoort",
+    "postalCode": "3811 AL",
+    "lat": 52.1571956,
+    "lng": 5.3929036,
+    "phone": "+31 6 84677204",
+    "websiteUrl": "https://www.heartandarrow.nl",
+    "instagramUrl": "https://www.instagram.com/heartandarrow.trouwringen/",
+    "facebookUrl": "https://www.facebook.com/HeartandArrowTrouwringen/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Heart+%26+Arrow+Trouwringen+Kamperbinnenpoort+8+Amersfoort",
+    "hasGoogleReviews": true,
+    "suggestedCategory": "Mode & sieraden",
+    "subcategory": "Juwelier voor trouw- en verlovingsringen",
+    "priceRange": "",
+    "ogImageUrl": "https://www.heartandarrow.nl/wp-content/uploads/2023/11/IMG_2606.jpg",
+    "imageSource": "heartandarrow.nl (eigen geüploade winkel-/productfoto, /wp-content/uploads/2023/11/IMG_2606.jpg)",
+    "imageLicenseNote": "Eigen foto van de ondernemer op heartandarrow.nl; geen stock. De homepage heeft GEEN og:image meta-tag; de enige getagde og:image is een productfoto van een ring (https://www.heartandarrow.nl/wp-content/uploads/2017/09/SR10.jpg) en kan als fallback dienen. Let op: de homepage bevat ook stockfoto's (shutterstock_*, 240_F_*) die NIET gebruikt mogen worden. Bevestig schriftelijke toestemming van de eigenaar vóór publicatie.",
+    "refinedShortNL": "Specialist in trouw- en verlovingsringen bij de Kamperbinnenpoort. Ruim 3000 ringen, persoonlijk advies en vakmanschap voor jullie ja-woord.",
+    "refinedLongNL": "Heart & Arrow is een sfeervolle juwelier aan de Kamperbinnenpoort, in het historische hart van Amersfoort. De boutique is volledig gespecialiseerd in trouwringen, verlovingsringen en vriendschapsringen, met een collectie van ruim 3000 modellen in goud, witgoud, rosé en platina. Onder het genot van persoonlijk advies helpen ze stellen hun perfecte ringen te kiezen; op maandag en dinsdag uitsluitend op afspraak.",
+    "specialties": [
+      "Trouwringen",
+      "Verlovingsringen",
+      "Vriendschapsringen",
+      "Ringen op maat",
+      "Persoonlijk ringadvies",
+      "Goud, witgoud, rosé & platina"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamperbinnenpoort 8, 3811 AL Amersfoort"
+      },
+      {
+        "label": "Specialisme",
+        "value": "Trouw- en verlovingsringen"
+      },
+      {
+        "label": "Collectie",
+        "value": "Ruim 3000 ringen"
+      },
+      {
+        "label": "Telefoon",
+        "value": "+31 6 84677204"
+      },
+      {
+        "label": "Maandag & dinsdag",
+        "value": "Alleen op afspraak"
+      },
+      {
+        "label": "Beoordeling",
+        "value": "4,08/5 (36 reviews) op openingstijden.nl; ook reviews op Google/Tripadvisor"
+      }
+    ],
+    "tags": [
+      "trouwringen",
+      "verlovingsringen",
+      "juwelier",
+      "sieraden",
+      "ringen op maat",
+      "bruiloft",
+      "Kamperbinnenpoort",
+      "Amersfoort centrum"
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Geverifieerd OPEN op Kamperbinnenpoort 8 (3811 AL), aan de Kamperbinnenpoort in het centrum van Amersfoort. Zondag gesloten. Maandag en dinsdag uitsluitend op afspraak (directories tonen 09:00-21:00 op afspraak); woensdag t/m zaterdag 11:00-17:00. Het in de opdracht genoemde Weverssingel 10 kon NIET worden bevestigd als huidig adres - alle actuele bronnen (eigen website, openingstijden.nl, telefoonboek.nl, Tripadvisor) noemen uitsluitend Kamperbinnenpoort 8; Weverssingel 10 is vermoedelijk een verouderde/foutieve vermelding. Tip: bevestig de exacte openingstijden telefonisch, omdat directories soms afwijken.",
+    "sources": [
+      "https://www.heartandarrow.nl/",
+      "https://www.heartandarrow.nl/contact/",
+      "https://www.heartandarrow.nl/product/juwelier-kamperbinnenpoort-gate-amersfoort/",
+      "https://www.openingstijden.nl/Heart-en-Arrow-Trouwringen-Verlovingsringen/Amersfoort/Kamperbinnenpoort-8/",
+      "https://www.openingstijden.com/o2863606/heart-&-arrow-trouwringen-boutique-kamperbinnenpoort-8-amersfoort/",
+      "https://www.telefoonboek.nl/bedrijven/t2863606/amersfoort/heart-&-arrow-trouwringen-boutique/",
+      "https://www.tripadvisor.nl/Attraction_Review-g188613-d26817418-Reviews-Heart_Arrow_Trouwringen_Boutique-Amersfoort.html",
+      "https://nominatim.openstreetmap.org/"
+    ]
+  },
+  {
+    "id": "new-schoenmakerij-hartog",
+    "name": "Schoenmakerij Hartog",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "medium",
+    "correctedAddress": "Kamp 9, 3811 AM Amersfoort",
+    "postalCode": "3811 AM",
+    "lat": 52.157313,
+    "lng": 5.393773,
+    "phone": "+31 6 31043773",
+    "websiteUrl": "https://schoenmakerijhartog.nl",
+    "facebookUrl": "https://www.facebook.com/p/Schoenmakerij-Hartog-Amersfoort-100063591729237/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kamp%209%203811%20AM%20Amersfoort",
+    "hasGoogleReviews": false,
+    "suggestedCategory": "Services & praktisch",
+    "subcategory": "Ambachtelijke schoenmakerij & lederwarenreparatie",
+    "priceRange": "",
+    "publicPersonName": "Mario Hartog",
+    "publicPersonRole": "Schoenmaker / eigenaar",
+    "ogImageUrl": "",
+    "imageSource": "",
+    "imageLicenseNote": "Geen eigen og:image of bruikbare afbeelding op de website (kale Twenty Fifteen WordPress zonder social meta). Geen stockbeeld gebruikt. Vraag de eigenaar (Mario Hartog) om een eigen foto met publicatietoestemming voordat er beeld wordt geplaatst.",
+    "refinedShortNL": "Ambachtelijke schoenmaker aan de Kamp sinds de jaren 60: schoenreparaties, lederwaren herstellen en (fiets)sleutels kopiëren — klaar terwijl je wacht.",
+    "refinedLongNL": "Schoenmakerij Hartog is al sinds de jaren 60 te vinden aan de Kamp in het hart van Amersfoort, waar duurzaamheid de maat is. Je kunt er terecht voor schoenreparaties, het herstellen van lederwaren zoals tassen, en het kopiëren van fiets- en autosleutels, vaak klaar terwijl je wacht. Daarnaast verkoopt de winkel kwaliteitslederen handschoenen, riemen, tassen, portemonnees en schapenwollen pantoffels.",
+    "specialties": [
+      "Schoenreparaties",
+      "Reparatie van lederwaren en tassen",
+      "Kopiëren van (fiets)sleutels",
+      "Schoenen oprekken",
+      "Lederwaren: handschoenen, riemen, portemonnees",
+      "Naamplaatjes / naamborden"
+    ],
+    "keyFacts": [
+      {
+        "label": "Op deze locatie sinds",
+        "value": "Jaren 60 aan de Kamp"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Wo, vr & za 12:00–16:00"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 9, 3811 AM Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "06-31043773"
+      },
+      {
+        "label": "Let op",
+        "value": "Niet altijd aanwezig (gezondheidsredenen) — bel vooraf"
+      },
+      {
+        "label": "Niet meer",
+        "value": "Zolen en hakken vervangen behoort niet meer tot het aanbod"
+      }
+    ],
+    "tags": [
+      "schoenmaker",
+      "schoenmakerij",
+      "ambachtelijk",
+      "schoenreparatie",
+      "lederwaren",
+      "sleutelservice",
+      "duurzaamheid",
+      "De Kamp",
+      "Amersfoort centrum"
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "12:00",
+        "closes": "16:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "12:00",
+        "closes": "16:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "openingNote": "Geopend op woensdag, vrijdag en zaterdag van 12:00 tot 16:00 uur. De eigenaar kan om gezondheidsredenen niet altijd aanwezig zijn; bel daarom bij voorkeur vooraf. Op de website staan periodieke sluitingen vermeld (onder meer rond medio juni en in de zomer 2026). Locatie en adres (Kamp 9) bevestigd; geen huisnummerconflict. Geo-coördinaten afkomstig van de officiële toeristische site Tijd voor Amersfoort (niet uit een geverifieerde Google Maps-pin), vandaar geoConfidence medium.",
+    "sources": [
+      "https://schoenmakerijhartog.nl/",
+      "https://schoenmakerijhartog.nl/?page_id=21",
+      "https://schoenmakerijhartog.nl/?page_id=17",
+      "https://schoenmakerijhartog.nl/?page_id=11",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/4282903185/schoenmakerij-hartog",
+      "https://www.vvvamersfoort.nl/en/locations/2943/schoenmakerij-hartog",
+      "https://www.openingstijden.com/open/schoenmakerij-hartog/amersfoort/",
+      "https://www.facebook.com/p/Schoenmakerij-Hartog-Amersfoort-100063591729237/"
+    ]
+  },
+  {
+    "id": "new-smart-repair-house",
+    "name": "Smart Repair House",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "low",
+    "correctedAddress": "Kamp 27, 3811 AM Amersfoort",
+    "postalCode": "3811 AM",
+    "lat": 52.1556,
+    "lng": 5.3865,
+    "websiteUrl": "https://smartrepairhouse.nl",
+    "phone": "033 479 0016",
+    "suggestedCategory": "Services & praktisch",
+    "subcategory": "Smartphone- & tabletreparatie en accessoires",
+    "openingNote": "Adres bevestigd via de officiële website: Kamp 27, 3811 AM Amersfoort, schuin tegenover Scapino. Het opgegeven huisnummer (27) klopt; geen conflict. Zaak is actief met live website, volledige contactgegevens en openingstijden. Donderdag is koopavond (tot 21:00). Geen Google Maps-URL of reviewstatus kunnen bevestigen via beschikbare zoekmachine.",
+    "hasGoogleReviews": false,
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "13:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:30",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:30",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "imageSource": "none",
+    "imageLicenseNote": "De officiële website bevat geen og:image of bruikbare hero-afbeelding (alleen favicon-PNG's). Geen eigen afbeelding beschikbaar om te gebruiken; conform instructie geen stockbeeld toegevoegd. Bij publicatie eerst eigen beeld + toestemming van de eigenaar opvragen.",
+    "refinedShortNL": "Smartphone- en tabletreparatie in hartje Amersfoort, schuin tegenover Scapino. Ook hoesjes, screenprotectors en accessoires.",
+    "refinedLongNL": "Smart Repair House aan de Kamp 27 repareert je smartphone of tablet en maakt 'm weer als nieuw. Naast reparaties vind je er accessoires zoals telefoonhoesjes en screenprotectors. De winkel ligt in de Amersfoortse binnenstad, schuin tegenover Scapino, en is zeven dagen per week geopend met koopavond op donderdag.",
+    "specialties": [
+      "Smartphonereparatie",
+      "Tabletreparatie",
+      "Schermreparatie",
+      "Telefoonhoesjes",
+      "Screenprotectors",
+      "Telefoonaccessoires"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 27, 3811 AM Amersfoort (schuin tegenover Scapino)"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 479 0016"
+      },
+      {
+        "label": "E-mail",
+        "value": "info@smartrepairhouse.nl"
+      },
+      {
+        "label": "Specialisme",
+        "value": "Smartphone- & tabletreparatie en accessoires"
+      },
+      {
+        "label": "Koopavond",
+        "value": "Donderdag tot 21:00"
+      },
+      {
+        "label": "Geopend",
+        "value": "7 dagen per week"
+      }
+    ],
+    "tags": [
+      "telefoonreparatie",
+      "smartphonereparatie",
+      "tabletreparatie",
+      "schermreparatie",
+      "telefoonhoesjes",
+      "screenprotectors",
+      "accessoires",
+      "binnenstad",
+      "Kamp",
+      "Amersfoort"
+    ],
+    "sources": [
+      "https://smartrepairhouse.nl"
+    ]
+  },
+  {
+    "id": "new-repair-n-go",
+    "name": "Repair n Go Amersfoort",
+    "status": "open",
+    "confidence": "medium",
+    "correctedAddress": "Kamp 41, 3811 AN Amersfoort",
+    "postalCode": "3811 AN",
+    "suggestedCategory": "Services & praktisch",
+    "subcategory": "Telefoon- en tabletreparatie",
+    "websiteUrl": "https://repairngo.nl/locations/amersfoort/",
+    "phone": "033 476 8164",
+    "facebookUrl": "https://www.facebook.com/repairngoNL/",
+    "instagramUrl": "https://www.instagram.com/repairngonl/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Repair+n+Go+Amersfoort+Kamp+41",
+    "hasGoogleReviews": true,
+    "geoConfidence": "low",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "13:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Currently open and operating at Kamp 41 in the historic centre (Beestenmarkt/Stadskern), on the Kamp. No closure notices found on the official site, tijdvooramersfoort.nl, tupalo.nl, hotfrog.nl or telefoonboek.nl. The store also trades as \"Repair n Go Amersfoort - Telefoon Expert\". Opening hours are taken only from the business's own servicepunten page (repairngo.nl/servicepunten/amersfoort) and could not be cross-confirmed against a live Google Business listing, so treat them as indicative; Sunday closed. House-number conflict resolved: the official location/listing pages and the Kadaster (KadastraleKaart.com) confirm Kamp 41, not Kamp 40 (a stray Kamp 40 appears in one directory listing). Postcode conflict resolved: Kadaster and Drimble give 3811 AN for Kamp 41; the official site's \"3811 AJ\" is a typo. Two phone numbers appear across the site (033 476 8164 and 033 466 6088); 033 476 8164 is the most consistently listed store number alongside amersfoort@repairngo.nl.",
+    "ogImageUrl": "https://repairngo.nl/wp-content/uploads/2018/09/national-nedarlanded.jpg",
+    "imageSource": "Official website og:image (repairngo.nl)",
+    "imageLicenseNote": "og:image from the chain's homepage is a generic brand/marketing graphic, not a verified photo of the Kamp 41 storefront; the Amersfoort location page only exposes the company logo as its image. Do NOT publish without explicit owner permission and ideally request a genuine storefront photo. No stock imagery used.",
+    "refinedShortNL": "Snelle smartphone- en tabletreparatie aan de Kamp: scherm of batterij vaak klaar terwijl je wacht, met originele onderdelen en garantie.",
+    "refinedLongNL": "Repair n Go aan de Kamp 41 in het centrum van Amersfoort repareert smartphones, iPhones en tablets van onder meer Apple, Samsung, Huawei, Sony en OnePlus. De meeste schermen en batterijen worden vervangen terwijl je wacht, vaak binnen ongeveer 30 minuten, met originele onderdelen en garantie op de reparatie. In vrijwel alle gevallen blijft je data behouden, behalve bij waterschade of softwareproblemen.",
+    "specialties": [
+      "iPhone schermreparatie",
+      "Smartphone batterij vervangen",
+      "Samsung reparatie",
+      "Tablet- en iPad-reparatie",
+      "Reparatie met originele onderdelen",
+      "Klaar terwijl je wacht (ca. 30 min)"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 41, 3811 AN Amersfoort"
+      },
+      {
+        "label": "Specialisme",
+        "value": "iPhone-, smartphone- en tabletreparatie"
+      },
+      {
+        "label": "Doorlooptijd",
+        "value": "Veel reparaties klaar terwijl je wacht (ca. 30 min)"
+      },
+      {
+        "label": "Merken",
+        "value": "Apple, Samsung, Huawei, Sony, OnePlus e.a."
+      },
+      {
+        "label": "Garantie",
+        "value": "Garantie op reparaties; data blijft meestal behouden"
+      },
+      {
+        "label": "Contact",
+        "value": "033 476 8164 / amersfoort@repairngo.nl"
+      }
+    ],
+    "tags": [
+      "telefoonreparatie",
+      "iphone reparatie",
+      "smartphone",
+      "tablet",
+      "scherm vervangen",
+      "batterij",
+      "amersfoort centrum",
+      "de kamp"
+    ],
+    "priceRange": "",
+    "sources": [
+      "https://repairngo.nl/locations/amersfoort/",
+      "https://repairngo.nl/servicepunten/amersfoort/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1453425491/repair-n-go-amersfoort",
+      "https://www.tupalo.nl/amersfoort/repair-n-go-amersfoort-telefoon-expert-kamp-41",
+      "https://www.hotfrog.nl/company/52848913014f07751fee1760f1d0d710",
+      "https://kadastralekaart.com/adres/amersfoort-kamp-41/0307200000410618",
+      "https://drimble.nl/adres/amersfoort/3811AN/kamp-41.html"
+    ]
+  },
+  {
+    "id": "new-corner-corner",
+    "name": "The Corner House",
+    "status": "open",
+    "confidence": "medium",
+    "correctedAddress": "Kamp 44, 3811 AS Amersfoort",
+    "postalCode": "3811 AS",
+    "lat": 52.157889,
+    "lng": 5.395155,
+    "geoConfidence": "high",
+    "suggestedCategory": "Koffie, lunch & zoet",
+    "subcategory": "Koffie- en lunchroom",
+    "phone": "+31 33 880 1763",
+    "websiteUrl": "https://www.thecornerhouse.nl/",
+    "facebookUrl": "https://www.facebook.com/TheCornerHouseAmersfoort/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Corner+House+Kamp+44+Amersfoort&query_place_id=",
+    "hasGoogleReviews": true,
+    "priceRange": "€10 - €25",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "10:00",
+        "closes": "17:30"
+      }
+    ],
+    "openingNote": "IDENTITY CORRECTED: The source data was wrong. The website hint (thecornerhairstudio.nl) is unreachable/non-existent and there is no hair salon/barbershop here. Kamp 44, 3811 AS Amersfoort is \"The Corner House\", a koffie- en lunchroom (cafe/lunchroom) in a monumental building on the Kamp shopping street. The original \"Beauty & verzorging\" / kapsalon classification is incorrect. The business is currently open. HOURS DISCREPANCY: official-site-derived listings (Tijd voor Amersfoort, leuketip) state Mon-Fri 08:30-18:00, Sat-Sun 10:00-17:30 (recorded here); aggregators (Firmania, cylex, RestaurantGuru) instead show Tue-Sat ~09:30-18:00, Sun ~11:00-17:00, closed Monday. Verify exact current hours on Google Business / the official site before publishing.",
+    "refinedShortNL": "Gezellige koffie- en lunchroom in een monumentaal pand aan de Kamp, met huiselijke sfeer, verse koffie en eerlijke lunch.",
+    "refinedLongNL": "The Corner House is een sfeervolle koffie- en lunchroom in een monumentaal pand op winkelstraat de Kamp in hartje Amersfoort. De kaart is met liefde samengesteld, geïnspireerd op het traditionele koken van moeder en op gerechten die de eigenaren tijdens hun reizen ontdekten: van tosti's en panini's tot frisse salades en een dagelijkse linzensoep volgens geheim recept. 's Ochtends ben je welkom voor verse koffie en lekkers, in een huiselijke en intieme setting.",
+    "specialties": [
+      "Verse koffie en koffiemelanges",
+      "Lunch: tosti's, panini's en salades",
+      "Dagelijkse linzensoep (geheim familierecept)",
+      "Huisgemaakt gebak",
+      "Shared lunch experience (proeverij van voorgerechten)",
+      "Biologische thee"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Koffie- en lunchroom"
+      },
+      {
+        "label": "Locatie",
+        "value": "Monumentaal pand aan winkelstraat de Kamp"
+      },
+      {
+        "label": "Prijsindicatie",
+        "value": "€10 - €25 per persoon"
+      },
+      {
+        "label": "Sfeer",
+        "value": "Huiselijk en intiem"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 44, 3811 AS Amersfoort"
+      }
+    ],
+    "tags": [
+      "koffie",
+      "lunch",
+      "lunchroom",
+      "ontbijt",
+      "koffiebar",
+      "huiskamer",
+      "monumentaal pand",
+      "de Kamp",
+      "Amersfoort",
+      "biologische thee"
+    ],
+    "ogImageUrl": "",
+    "imageSource": "",
+    "imageLicenseNote": "No image set. The official website (thecornerhouse.nl) was unreachable to verification tools during research, so the business's own og:image could not be confirmed or captured. Per policy no stock image is used. Before publishing, capture the official og:image from thecornerhouse.nl or request an owner-provided photo with explicit publishing permission.",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3181420028/the-corner-house",
+      "https://firmania.nl/amersfoort/the-corner-house-454949",
+      "https://www.cylex.nl/bedrijf/the-corner-house-12976761.html",
+      "https://en.eet.nu/amersfoort/the-corner",
+      "https://restaurantguru.com/The-Corner-Amersfoort",
+      "https://www.facebook.com/TheCornerHouseAmersfoort/",
+      "https://www.leuketip.nl/steden/amersfoort/horeca/coffee-bites/55979866e4b08ef7c3e850cb",
+      "https://www.thecornerhouse.nl/"
+    ]
+  },
+  {
+    "id": "new-studio-release",
+    "name": "Studio Release",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "high",
+    "correctedAddress": "Kamp 45, 3811 AN Amersfoort",
+    "postalCode": "3811 AN",
+    "lat": 52.157866,
+    "lng": 5.395556,
+    "phone": "+31 85 401 3596",
+    "websiteUrl": "https://studiorelease.nl/amersfoort/",
+    "instagramUrl": "https://www.instagram.com/we.release/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Studio%20Release%20Kamp%2045%203811%20AN%20Amersfoort",
+    "hasGoogleReviews": true,
+    "priceRange": "€€",
+    "suggestedCategory": "Beauty & verzorging",
+    "subcategory": "Luxe massagesalon",
+    "ogImageUrl": "https://studiorelease.nl/wp-content/uploads/2026/06/amersfoort-massagesalon-1.jpg",
+    "imageSource": "Eigen og:image van studiorelease.nl (officiele website, Amersfoort-pagina)",
+    "imageLicenseNote": "Afkomstig van de eigen website van Studio Release (og:image). Bevestig toestemming van de eigenaar voor publicatie in de directory voordat de afbeelding live gaat.",
+    "publicPersonName": "Merle Minjon",
+    "publicPersonRole": "Eigenaar",
+    "refinedShortNL": "Luxe massagesalon net buiten de Kamperbinnenpoort, met massages volledig op maat in een serene, eigentijdse studio.",
+    "refinedLongNL": "Studio Release is een luxe massagesalon aan de Kamp, op een steenworp van de historische Kamperbinnenpoort. Ervaren masseurs stemmen elke behandeling volledig af op jouw wensen en klachten, van de Signature Massage op maat tot zwangerschaps-, duo- en ontspanningsmassages. In een sereen, eigentijds interieur kom je hier helemaal tot rust midden in het centrum van Amersfoort.",
+    "specialties": [
+      "Signature Massage op maat",
+      "Ontspanningsmassage",
+      "Zwangerschapsmassage",
+      "Postnatale massage",
+      "Duomassage",
+      "Cupping massage"
+    ],
+    "keyFacts": [
+      {
+        "label": "Geopend",
+        "value": "Oktober 2023"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Dagelijks 10:00-22:00"
+      },
+      {
+        "label": "Ligging",
+        "value": "Net buiten de Kamperbinnenpoort"
+      },
+      {
+        "label": "Online boeken",
+        "value": "Via studiorelease.nl / Salonized"
+      },
+      {
+        "label": "Onderdeel van",
+        "value": "Studio Release (ook in Hilversum en Utrecht)"
+      }
+    ],
+    "tags": [
+      "massage",
+      "wellness",
+      "ontspanning",
+      "luxe",
+      "massagesalon",
+      "self-care",
+      "De Kamp",
+      "Amersfoort centrum"
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "10:00",
+        "closes": "22:00"
+      }
+    ],
+    "openingNote": "Bevestigd geopend (sinds 1 oktober 2023) op Kamp 45, net buiten de Kamperbinnenpoort. Postcode gecorrigeerd naar 3811 AN op basis van de officiele website (JSON-LD), Fresha en colist; de hint \"3811 AM\" en de VVV-vermelding \"3811 NA\" zijn onjuist. Openingstijden 10:00-22:00 voor alle zeven dagen volgens de openingHoursSpecification op de eigen website; VVV vermeldt afwijkend zondag tot 21:00, maar de eigen site is leidend.",
+    "sources": [
+      "https://studiorelease.nl/amersfoort/",
+      "https://www.vvvamersfoort.nl/nl/locaties/6028/studio-release",
+      "https://www.destadamersfoort.nl/lokaal/overig/965951/eindelijk-een-luxe-massagestudio-in-amersfoort-release-opent-haar-deuren-aan-de-kamp",
+      "https://www.fresha.com/lvp/studio-release-massage-amersfoort-kamp-amersfoort-2MBbMJ"
+    ]
+  },
+  {
+    "id": "new-tulip-clinic",
+    "name": "Tulip Clinic",
+    "status": "open",
+    "correctedAddress": "Kamp 68, 3811 AT Amersfoort",
+    "postalCode": "3811 AT",
+    "lat": 52.158411,
+    "lng": 5.396333,
+    "geoConfidence": "high",
+    "phone": "+31 33 737 0216",
+    "websiteUrl": "https://tulipclinic.nl",
+    "instagramUrl": "https://www.instagram.com/tulipclinicnl/",
+    "facebookUrl": "https://www.facebook.com/tulipclinicnl/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tulip+Clinic+Kamp+68+Amersfoort",
+    "hasGoogleReviews": true,
+    "suggestedCategory": "Beauty & verzorging",
+    "subcategory": "Beauty- & laserkliniek (injectables en medische huidbehandelingen)",
+    "priceRange": "",
+    "ogImageUrl": "https://tulipclinic.nl/wp-content/uploads/elementor/thumbs/medische-huidtherapie-amersfoort-en-de-omgeving-r87n1jhylbs9vrcj56h8zq4hxu5va9gk4z1jlyu7i0.png",
+    "imageSource": "Official website (tulipclinic.nl) og:image / primaryImageOfPage",
+    "imageLicenseNote": "Business's own hosted image taken from the official site's og:image. Owner permission to publish must be confirmed before use; no stock imagery used.",
+    "publicPersonName": "Jalal Lotfi",
+    "publicPersonRole": "Dermatoloog en kliniekdirecteur (sinds 2017); publiekelijk vermeld op de Over ons-pagina",
+    "refinedShortNL": "Beauty- en laserkliniek in hartje De Kamp voor injectables, laserontharing en medische huidbehandelingen, met medische expertise.",
+    "refinedLongNL": "Tulip Clinic aan de Kamp 68 is een veelzijdige beauty- en laserkliniek in het centrum van Amersfoort die schoonheid combineert met medische expertise. Het team biedt onder meer botox en fillers, laserontharing, microneedling en medische huidbehandelingen voor onder andere acne en huidverbetering. De kliniek wordt geleid door dermatoloog Jalal Lotfi en werkt als AGB-geregistreerde praktijk met ervaren specialisten.",
+    "specialties": [
+      "Laserontharing",
+      "Injectables (botox & fillers)",
+      "Microneedling",
+      "Medische huidbehandelingen",
+      "Acnebehandeling",
+      "Anti-aging & huidverbetering"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 68, 3811 AT Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "+31 33 737 0216"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Di t/m za 10:00-18:00; ma en zo gesloten"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "ca. 4,7 sterren (200+ reviews)"
+      },
+      {
+        "label": "Type",
+        "value": "Beauty- & laserkliniek met medische expertise (AGB 90093792)"
+      }
+    ],
+    "tags": [
+      "beautykliniek",
+      "laserkliniek",
+      "laserontharing",
+      "injectables",
+      "botox",
+      "fillers",
+      "huidtherapie",
+      "microneedling",
+      "De Kamp",
+      "Amersfoort centrum"
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "openingNote": "Currently OPEN at Kamp 68, 3811 AT Amersfoort, on De Kamp in the historic centre. Hours from the clinic's own contact page (visible per-day text): Tuesday-Saturday 10:00-18:00; Monday and Sunday closed. Minor source discrepancy: a stale custom schema field on the site says \"Ma-Vr 09:00-18:00\" and Fresha additionally lists Thursday as closed; the website's own visible per-day hours were treated as authoritative. The \"Fine LaserClinic\" at Kamp 46 (3811 AS) noted in the registry is a SEPARATE, independent clinic (different owner Stephanie Dinkla, different phone/website) on the same street, not the same business.",
+    "confidence": "high",
+    "sources": [
+      "https://tulipclinic.nl/",
+      "https://tulipclinic.nl/contact/",
+      "https://tulipclinic.nl/over-ons/",
+      "https://www.fresha.com/lvp/tulip-clinic-beauty-laser-clinic-amersfoort-kamp-amersfoort-A87okq",
+      "https://www.treatwell.nl/en/place/tulip-laser-beauty-center/",
+      "https://injectablesbooking.nl/kliniek/tulip-clinic",
+      "https://www.zorgkaartnederland.nl/zorginstelling/esthetisch-medisch-centrum-fine-laser-clinic-amersfoort-amersfoort-10012030"
+    ]
+  },
+  {
+    "id": "new-leith-jewels",
+    "name": "Leith Jewels",
+    "status": "open",
+    "suggestedCategory": "Mode & sieraden",
+    "subcategory": "Juwelier — gouden & zilveren sieraden, horloges en trouwringen",
+    "correctedAddress": "Kamp 50, 3811 AS Amersfoort",
+    "postalCode": "3811 AS",
+    "lat": 52.1580125,
+    "lng": 5.3954087,
+    "geoConfidence": "high",
+    "websiteUrl": "https://www.leithjuwelier.nl/",
+    "phone": "033 785 0147",
+    "instagramUrl": "https://www.instagram.com/leith.jewels/",
+    "facebookUrl": "https://www.facebook.com/p/LEITH-Jewels-Amersfoort-61551398413911/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Leith+Jewels+Kamp+50+Amersfoort",
+    "hasGoogleReviews": false,
+    "ogImageUrl": "https://lirp.cdn-website.com/6cc83556/dms3rep/multi/opt/Afbeelding+van+WhatsApp+op+2024-11-01+om+11.54.24_c0e8d227-1920w.jpg",
+    "imageSource": "Official website leithjuwelier.nl og:image / twitter:image (business's own product photo, WhatsApp 2024-11-01)",
+    "imageLicenseNote": "Owned by the business (their own product photo on their official site). Confirm explicit owner permission before publishing in the directory.",
+    "priceRange": "",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "",
+        "closes": ""
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Geopend en gevestigd aan de Kamp in de Amersfoortse binnenstad. Maandag gesloten; di–za 11:00–17:00, zo 12:00–17:00. Bron: officiële site (leithjuwelier.nl/contact) en VVV Amersfoort. Let op: de officiële contactpagina toont voor zaterdag op één plek 11:00–17:00 en elders 12:00–17:00; VVV vermeldt 11:00–17:00, daarom hier 11:00–17:00 aangehouden. Huisnummerconflict opgelost: het is Kamp 50 (niet 52) — bevestigd door officiële site, VVV, OpenStreetMap (zaak met naam op nr. 50) en infobel.",
+    "refinedShortNL": "Sfeervolle juwelier aan de Kamp voor trendy zilveren en betaalbare gouden sieraden, horloges en op maat gemaakte trouwringen.",
+    "refinedLongNL": "Leith Jewels is een juwelier in de Amersfoortse binnenstad aan de Kamp, met een ruime collectie sieraden, horloges, verlovings- en trouwringen. Naast trendy zilver en betaalbaar goud vind je er edelstenen en luxe diamanten stukken. De winkel verzorgt ook reparaties, graveren, het inkopen van oud goud en het vervangen van horlogebatterijen.",
+    "specialties": [
+      "Gouden en zilveren sieraden",
+      "Verlovings- en trouwringen op maat",
+      "Horloges (diverse merken)",
+      "Sieraadreparatie en graveren",
+      "Inkoop oud goud",
+      "Horlogebatterij vervangen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 50, 3811 AS Amersfoort"
+      },
+      {
+        "label": "Type",
+        "value": "Juwelier / sieraden & horloges"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 785 0147"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Ma gesloten, di–za 11:00–17:00, zo 12:00–17:00"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Trouwringen, sieraden, horloges & reparatie"
+      },
+      {
+        "label": "Webshop",
+        "value": "Online bestellen via leithjuwelier.nl"
+      }
+    ],
+    "tags": [
+      "juwelier",
+      "sieraden",
+      "horloges",
+      "trouwringen",
+      "verlovingsringen",
+      "goud",
+      "zilver",
+      "diamant",
+      "reparatie",
+      "binnenstad Amersfoort",
+      "Kamp"
+    ],
+    "confidence": "high",
+    "sources": [
+      "https://www.leithjuwelier.nl/",
+      "https://www.leithjuwelier.nl/contact",
+      "https://www.vvvamersfoort.nl/nl/locaties/2951/leith-jewels-amersfoort",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/650868700/leith-jewels",
+      "https://www.infobel.com/nl/netherlands/leith_jewellery/amersfoort/NL102915851-0337850147/businessdetails.aspx",
+      "https://www.instagram.com/leith.jewels/",
+      "https://www.facebook.com/p/LEITH-Jewels-Amersfoort-61551398413911/",
+      "https://nominatim.openstreetmap.org/ (Kamp 50, 3811 AS Amersfoort — labeled 'Leith Jewels')"
+    ]
+  },
+  {
+    "id": "new-acell-telecommunicatie",
+    "name": "A'cell Telecommunicatie",
+    "status": "open",
+    "confidence": "medium",
+    "geoConfidence": "medium",
+    "correctedAddress": "Kamp 52, 3811 AS Amersfoort",
+    "postalCode": "3811 AS",
+    "lat": 52.158037,
+    "lng": 5.395482,
+    "phone": "+31 33 476 8004",
+    "websiteUrl": "",
+    "facebookUrl": "https://www.facebook.com/ACELLTelecommunicatie/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=A%27cell%20Telecommunicatie%20Kamp%2052%20Amersfoort",
+    "hasGoogleReviews": false,
+    "suggestedCategory": "Services & praktisch",
+    "subcategory": "Telefoonwinkel & reparatie",
+    "priceRange": "",
+    "ogImageUrl": "https://scontent-ams2-1.xx.fbcdn.net/v/t1.6435-1/56120056_2175577685840869_1561451844545282048_n.jpg",
+    "imageSource": "Facebook page (ACELL Telecommunicatie) og:image",
+    "imageLicenseNote": "Afbeelding afkomstig van de eigen Facebook-pagina van de onderneming (og:image). Geen expliciete toestemming van de eigenaar bevestigd — vraag toestemming aan vooraleer te publiceren. Geen stockafbeelding gebruikt.",
+    "openingNote": "Onderneming is actief en geopend: ingeschreven bij KvK (nr. 56723717, hoofdvestiging sinds maart 2013) op Kamp 52, een winkelstraat in De Kamp. Adres bevestigd zonder huisnummerconflict. Officiele website acell.nl is slechts een placeholder (\"Welkom op acell.nl\") zonder inhoud; Facebook is de feitelijke online aanwezigheid. Openingstijden zijn NIET opgenomen: bronnen spreken elkaar tegen (sommige 10:00-18:00, een andere \"open tot 22:00\") en meerdere gidsen tonen de tijden als afbeeldingen die niet verifieerbaar waren. Aanbevolen: tijden telefonisch (033 476 8004) bevestigen voor publicatie. Google Maps-reviews konden niet onafhankelijk worden geverifieerd; aggregatorscore ~8,4/10 (ca. 12 reviews) op openingstijden.com.",
+    "refinedShortNL": "Vertrouwde telefoonwinkel aan de Kamp voor reparatie van smartphones, spelcomputers en gadgets, plus accessoires en telecomdiensten.",
+    "refinedLongNL": "A'cell Telecommunicatie is al sinds 2013 een vaste waarde aan de Kamp, midden in het historische winkelhart van Amersfoort. Je kunt er terecht voor het repareren van smartphones, spelcomputers en andere gadgets, en voor een ruim aanbod telefoonaccessoires. Klanten roemen de persoonlijke service en vakkennis die de winkel onderscheiden van grote ketens.",
+    "specialties": [
+      "Smartphone reparatie",
+      "Reparatie spelcomputers en gadgets",
+      "Telefoonaccessoires",
+      "Telecomdiensten",
+      "Persoonlijk advies"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 52, 3811 AS Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "+31 33 476 8004"
+      },
+      {
+        "label": "Type",
+        "value": "Telefoonwinkel & reparatie"
+      },
+      {
+        "label": "Gevestigd sinds",
+        "value": "2013"
+      },
+      {
+        "label": "KvK",
+        "value": "56723717"
+      }
+    ],
+    "tags": [
+      "telefoonwinkel",
+      "telecom",
+      "smartphone reparatie",
+      "accessoires",
+      "de kamp",
+      "amersfoort"
+    ],
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3061082701/acell-telecommunicatie",
+      "https://www.facebook.com/ACELLTelecommunicatie/",
+      "https://www.openingstijden.com/o3650720/acell-kamp-52-amersfoort/",
+      "https://www.openingstijdengids.nl/acell/amersfoort/1",
+      "https://www.cylex.nl/bedrijf/a-cell-10787975.html",
+      "https://www.oozo.nl/bedrijven/amersfoort/stadskern/coninckstraat/188921/acell",
+      "https://nl.kompass.com/c/a-cell/nln2370241/",
+      "https://www.acell.nl/"
+    ]
+  },
+  {
+    "id": "new-fietsdiscounter",
+    "name": "Fietsdiscounter.nl",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "high",
+    "correctedAddress": "Kamp 56, 3811 AS Amersfoort",
+    "postalCode": "3811 AS",
+    "lat": 52.1580978,
+    "lng": 5.3956554,
+    "phone": "033 285 1531",
+    "websiteUrl": "https://fietsdiscounter.nl/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fietsdiscounter.nl+Kamp+56+Amersfoort",
+    "hasGoogleReviews": true,
+    "suggestedCategory": "Winkels & makers",
+    "subcategory": "Fietsenwinkel",
+    "priceRange": "€€",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:30",
+        "closes": "18:00"
+      }
+    ],
+    "openingNote": "Currently open and active. Geverifieerd op de Kamp (Binnenstad/Stadskern), Kamp 56, 3811 AS. Openingstijden afkomstig van de eigen winkelpagina (fietsdiscounter.nl/onze-winkel/): ma t/m za 09:30-18:00, zondag gesloten. Let op: enkele externe gidsen (near-place, IndeBuurt) vermelden 10:00-18:00 en open op zondag; bij twijfel is de eigen site aangehouden. Geen huisnummerconflict: Kamp 56 bevestigd door eigen site en OpenStreetMap.",
+    "ogImageUrl": "https://fietsdiscounter.nl/wp-content/uploads/2025/11/Schermafbeelding-2025-11-12-165505.png",
+    "imageSource": "Business's own website (og:image / Yoast schema primaryImageOfPage on fietsdiscounter.nl)",
+    "imageLicenseNote": "Eigen og:image van de ondernemer (gehost op fietsdiscounter.nl). Geen stockfoto. Vraag de eigenaar expliciet toestemming voor publicatie in de gids voordat het beeld live gaat; let op dat het beeld klein is (397x384) en mogelijk een schermafbeelding betreft.",
+    "refinedShortNL": "Voordelige fietsenwinkel op de Kamp met e-bikes, transport- en kinderfietsen van bekende merken — proefrijden kan in de winkel.",
+    "refinedLongNL": "Fietsdiscounter.nl is een fietsenwinkel midden in de Amersfoortse binnenstad aan de Kamp, gespecialiseerd in scherp geprijsde e-bikes, transportfietsen en kinderfietsen van betrouwbare merken. Je kunt de fietsen in de winkel testen en rekenen op garantie en service. Klanten waarderen de winkel met gemiddeld 4,7 sterren op Google.",
+    "specialties": [
+      "E-bikes / elektrische fietsen",
+      "Transportfietsen",
+      "Kinderfietsen",
+      "Stadsfietsen",
+      "Scherpe aanbiedingen / voordeelfietsen",
+      "Proefrit in de winkel"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 56, 3811 AS Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 285 1531"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Ma-za 09:30-18:00, zondag gesloten"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "4,7/5 (ca. 261 reviews)"
+      },
+      {
+        "label": "Specialisatie",
+        "value": "E-bikes, transport- en kinderfietsen"
+      },
+      {
+        "label": "KvK",
+        "value": "53477987"
+      }
+    ],
+    "tags": [
+      "fietsenwinkel",
+      "e-bike",
+      "elektrische fiets",
+      "transportfiets",
+      "kinderfiets",
+      "stadsfiets",
+      "binnenstad",
+      "de kamp",
+      "amersfoort",
+      "aanbieding"
+    ],
+    "sources": [
+      "https://fietsdiscounter.nl/",
+      "https://fietsdiscounter.nl/onze-winkel/",
+      "https://nominatim.openstreetmap.org/lookup?osm_ids=N2672776213",
+      "https://openstreetmap.app/poi/Nederland/Utrecht/Amersfoort/Kamp/N/2672776213",
+      "https://www.indebuurt.com/fietsenmaker-in-amersfoort/fietsdiscounter-nl-hdvo8/",
+      "https://nl.near-place.com/fietsdiscounter-kamp-56-amersfoort-amersfoort",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3833954602/fietsdiscounter-nl"
+    ]
+  },
+  {
+    "id": "new-flink",
+    "name": "Flink Amersfoort Centrum",
+    "status": "open",
+    "confidence": "medium",
+    "correctedAddress": "Kamp 58, 3811 AS Amersfoort",
+    "postalCode": "3811 AS",
+    "geoConfidence": "medium",
+    "lat": 52.158121,
+    "lng": 5.395702,
+    "suggestedCategory": "Services & praktisch",
+    "subcategory": "Boodschappenbezorging (dark store)",
+    "websiteUrl": "https://www.goflink.com/nl-NL/",
+    "googleMapsUrl": "https://www.google.com/maps/place/@52.158121,5.395702,17z/",
+    "hasGoogleReviews": true,
+    "openingNote": "Dit is een dark store: een bezorgmagazijn voor flitsbezorging, niet vrij toegankelijk voor publiek. Er zijn geen reguliere winkel-/openingstijden; je bestelt uitsluitend via de Flink-app of webshop en de boodschappen worden thuisbezorgd. Bezorging verloopt binnen een afgebakend bezorggebied. Openingstijden zijn niet als geverifieerde structured data (JSON-LD) gevonden; aggregatorsites noemen globaal bezorging tussen ca. 08:00 en middernacht, maar dat is niet bevestigd door de officiele bron en daarom niet als feit opgenomen. Status 'open': KvK-vestiging 81901496 / 000050754408 staat als 'Actief' geregistreerd en de Google-vermelding is live met reviews. De gemeentelijke sluitingskwesties rondom flitsbezorgers betroffen Utrecht en Tilburg; voor de vestiging op de Kamp in Amersfoort is geen sluiting aangetroffen.",
+    "refinedShortNL": "Flitsbezorger Flink bezorgt vanuit een dark store aan de Kamp je boodschappen razendsnel thuis via de app, binnen het centrum van Amersfoort.",
+    "refinedLongNL": "Flink runt aan de Kamp 58 een dark store: een bezorgmagazijn dat niet open is voor publiek, maar volledig is ingericht om online bestellingen razendsnel te verwerken. Via de Flink-app of webshop bestel je dagelijkse boodschappen die binnen het bezorggebied in het centrum van Amersfoort snel worden thuisbezorgd. Naast de gewone bezorging biedt de vestiging ook Too Good To Go-pakketten met producten tegen een gereduceerde prijs.",
+    "specialties": [
+      "Boodschappen razendsnel thuisbezorgd via de app",
+      "Flitsbezorging vanuit een lokale dark store",
+      "Ruim assortiment dagelijkse boodschappen",
+      "Bezorging binnen het centrum van Amersfoort",
+      "Too Good To Go-pakketten tegen gereduceerde prijs",
+      "Bestellen via app en webshop"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Dark store / flitsbezorging (niet publiek toegankelijk)"
+      },
+      {
+        "label": "Bestellen",
+        "value": "Via de Flink-app, webshop of Thuisbezorgd.nl"
+      },
+      {
+        "label": "KvK",
+        "value": "81901496 (vestiging 000050754408), status Actief"
+      },
+      {
+        "label": "Geregistreerd sinds",
+        "value": "1 december 2021"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "2,3 / 5 op basis van 73 reviews"
+      }
+    ],
+    "tags": [
+      "boodschappenbezorging",
+      "flitsbezorger",
+      "dark store",
+      "bezorgservice",
+      "supermarkt",
+      "thuisbezorgd",
+      "too good to go",
+      "centrum",
+      "de kamp"
+    ],
+    "imageSource": "",
+    "imageLicenseNote": "Geen geverifieerde, eigen og:image kunnen ophalen: de officiele site goflink.com blokkeert geautomatiseerde toegang (HTTP 403). De enige beschikbare og:image (via Wanderlog) is een generieke standaardafbeelding, geen merk-/bedrijfseigen beeld. Conform het beleid is geen stockbeeld of niet-geverifieerde afbeelding opgenomen. Vraag voor publicatie expliciet toestemming/officieel beeldmateriaal bij Flink op.",
+    "sources": [
+      "https://drimble.nl/bedrijf/amersfoort/000050754408/flink-amersfoort-centrum.html",
+      "https://wanderlog.com/place/details/11145583/flink-amersfoort-centrum",
+      "https://openkvk.nl/company/nevenvestiging-flink-amersfoort-centrum-81901496-50754408",
+      "https://www.transfirm.nl/nl/organisatie/819014960034-flink-amersfoort-centrum",
+      "https://www.frituurwereld.nl/flitsbezorger-flink-van-dark-store-naar-buurtfunctie/",
+      "https://nl.wikipedia.org/wiki/Flink_(supermarkt)",
+      "https://www.openingstijden.com/open/flink-amersfoort-centrum/amersfoort/",
+      "https://www.goflink.com/nl-NL/city/boodschappen-bezorgservice-amersfoort"
+    ]
+  },
+  {
+    "id": "new-snufl",
+    "name": "Snufl",
+    "status": "closed",
+    "confidence": "medium",
+    "geoConfidence": "low",
+    "correctedAddress": "Kamp 63, 3811 AP Amersfoort",
+    "postalCode": "3811 AP",
+    "suggestedCategory": "Winkels & makers",
+    "subcategory": "Vintage- en thriftwinkel (inbreng/tweedehands) — niet meer in bedrijf",
+    "websiteUrl": "",
+    "facebookUrl": "https://www.facebook.com/SNUFL/",
+    "instagramUrl": "",
+    "googleMapsUrl": "",
+    "phone": "",
+    "priceRange": "",
+    "hasGoogleReviews": false,
+    "ogImageUrl": "",
+    "imageSource": "",
+    "imageLicenseNote": "Not published. The only own image found is the Snufl Facebook cover/og:image (a 2023 fbcdn URL). Since Snufl appears to be a closed/defunct listing and owner permission cannot be confirmed, no image is recommended for publication.",
+    "openingNote": "Snufl is niet meer gevestigd op Kamp 63: dat pand wordt sinds oktober 2020 gebruikt door Belhadi Modestoffen, dat er nog steeds actief is. Snufl heeft geen verifieerbare actuele aanwezigheid (alleen een inactieve Facebook-pagina met een inbreng/consignment-concept en verouderde vermeldingen op Foursquare en openingstijdengids, dat 'momenteel gesloten' toont met onleesbare uren-afbeeldingen). Geen Google Maps-listing, reviews of geo gevonden; uren, telefoon en een publiceerbare afbeelding zijn niet te verifiëren en daarom leeg gelaten.",
+    "refinedShortNL": "Voormalige vintage- en inbrengwinkel op de Kamp; lijkt opgeheven — op Kamp 63 zit nu Belhadi Modestoffen.",
+    "refinedLongNL": "Snufl presenteerde zich als een vintage- en thriftwinkel met een kosteloze inbrengregeling, waarmee je overbodige spullen kon laten verkopen. Er is echter geen verifieerbare, actieve vestiging meer te vinden: het adres Kamp 63 (3811 AP) wordt sinds oktober 2020 gebruikt door stoffenwinkel Belhadi Modestoffen, die daar nog altijd actief is. Snufl lijkt daarmee gesloten of opgeheven; actuele openingstijden, telefoon en beeldmateriaal konden niet worden bevestigd.",
+    "specialties": [
+      "Vintage kleding en spullen",
+      "Tweedehands / thrift",
+      "Kosteloze inbrengregeling (consignment)",
+      "Verkoop van overbodige spullen"
+    ],
+    "tags": [
+      "vintage",
+      "thrift",
+      "tweedehands",
+      "inbreng",
+      "winkels-en-makers",
+      "de-kamp",
+      "gesloten"
+    ],
+    "keyFacts": [
+      {
+        "label": "Status",
+        "value": "Gesloten / niet meer op dit adres"
+      },
+      {
+        "label": "Adres (vermeld)",
+        "value": "Kamp 63, 3811 AP Amersfoort"
+      },
+      {
+        "label": "Huidige gebruiker van Kamp 63",
+        "value": "Belhadi Modestoffen (sinds okt. 2020)"
+      },
+      {
+        "label": "Concept (volgens Facebook)",
+        "value": "Vintage/thrift met kosteloze inbrengregeling"
+      },
+      {
+        "label": "Online aanwezigheid",
+        "value": "Inactieve Facebook-pagina; verouderde Foursquare-vermelding"
+      }
+    ],
+    "sources": [
+      "https://www.facebook.com/SNUFL/",
+      "https://www.openingstijdengids.nl/snufl/amersfoort/1",
+      "https://foursquare.com/v/snufl/4fec3d16e4b06e7096180c1e",
+      "https://www.destadamersfoort.nl/lokaal/zakelijk/373855/-advertorial-belhadi-van-markt-naar-winkel-veel-klanten-maken-z",
+      "https://www.cylex.nl/bedrijf/belhadi-modestoffen-13274941.html",
+      "https://www.tijdvooramersfoort.nl/en/locations/3098534527/belhadi-fashion-fabrics",
+      "https://vind-open.nl/amersfoort/belhadi-modestoffen-564561"
+    ]
+  },
+  {
+    "id": "new-belhadi-modestoffen",
+    "name": "Belhadi Modestoffen",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "medium",
+    "correctedAddress": "Kamp 63, 3811 AP Amersfoort",
+    "postalCode": "3811 AP",
+    "lat": 52.158191,
+    "lng": 5.396357,
+    "phone": "+31 33 211 0059",
+    "suggestedCategory": "Winkels & makers",
+    "subcategory": "Stoffenwinkel voor modestoffen, fournituren en naaibenodigdheden",
+    "hasGoogleReviews": true,
+    "openingNote": "Fysieke winkel bevestigd open en in bedrijf (laatst bevestigd april 2026 via openingstijden-directories). Geopend sinds oktober 2020. LET OP: de in de bron genoemde website belhadimodestoffen.nl is niet meer actief — DNS geeft NXDOMAIN en de domeinnaam staat te koop/registreren (\"Domeinnaam registreren\"-pagina); daarom geen websiteUrl of eigen og:image vastgelegd. Adres Kamp 63 wordt gedeeld met Snufl (een aparte vintage/kringloopwinkel, tel. 033-7370267); dit zijn twee verschillende ondernemingen op hetzelfde pand — geen huisnummerconflict, Kamp 63, 3811 AP klopt voor Belhadi (tel. 033-2110059). Openingstijden afkomstig van directories (VindOpen/Cylex), niet uit officiële JSON-LD.",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "12:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:30",
+        "closes": "17:00"
+      }
+    ],
+    "facebookUrl": "https://www.facebook.com/p/Belhadimodestoffen-100063607835681/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Belhadi+Modestoffen+Kamp+63+Amersfoort&query_place_id=ChIJ_74e4xhHxkcRgII8uFgL7Qo",
+    "imageSource": "none",
+    "imageLicenseNote": "Geen afbeelding vastgelegd. De eigen website belhadimodestoffen.nl is offline (domein vervallen/te koop), dus er is geen eigen og:image beschikbaar. Conform instructie geen stockfoto gebruikt. Voor publicatie: vraag de ondernemer om eigen winkel-/productfoto's met toestemming.",
+    "refinedShortNL": "Sfeervolle stoffenwinkel in hartje Amersfoort voor trendy modestoffen, bijzondere buitenlandse stoffen en fournituren, met persoonlijk vakadvies.",
+    "refinedLongNL": "Bij Belhadi Modestoffen aan de Kamp koop je trendy modestoffen volgens de laatste mode én bijzondere buitenlandse stoffen, voornamelijk uit Turkije en Italië. Naast stoffen vind je hier fournituren zoals garens (Gütermann en Mettler), ritsen, knopen en band — alles om zelf kleding of woonaccessoires te maken. Eigenaar Belhadi, bekend van de stoffenmarkten, opende de winkel in 2020 en helpt klanten graag met advies vanuit zijn brede vakkennis.",
+    "specialties": [
+      "Modestoffen volgens de laatste mode",
+      "Bijzondere buitenlandse stoffen (Turkije en Italië)",
+      "Fournituren: garens, ritsen, knopen en band",
+      "Stoffen voor kinder- en dameskleding",
+      "Persoonlijk vakadvies over stof en verwerking",
+      "Materialen voor zelf naaien en handwerk"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 63, 3811 AP Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 211 0059"
+      },
+      {
+        "label": "Type",
+        "value": "Stoffenwinkel / modestoffen"
+      },
+      {
+        "label": "Geopend sinds",
+        "value": "Oktober 2020"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Trendy modestoffen en buitenlandse stoffen"
+      },
+      {
+        "label": "Website",
+        "value": "Niet meer actief (domein vervallen)"
+      }
+    ],
+    "tags": [
+      "stoffenwinkel",
+      "modestoffen",
+      "fournituren",
+      "naaien",
+      "textiel",
+      "handwerk",
+      "Amersfoort centrum",
+      "De Kamp",
+      "zelf kleding maken"
+    ],
+    "publicPersonName": "Belhadi",
+    "publicPersonRole": "Eigenaar",
+    "sources": [
+      "https://www.cylex.nl/bedrijf/belhadi-modestoffen-13274941.html",
+      "https://vind-open.nl/amersfoort/belhadi-modestoffen-564561",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3098534527/belhadi-modestoffen",
+      "https://www.destadamersfoort.nl/lokaal/zakelijk/373855/-advertorial-belhadi-van-markt-naar-winkel-veel-klanten-maken-z",
+      "https://www.facebook.com/p/Belhadimodestoffen-100063607835681/",
+      "https://www.waze.com/live-map/directions/nl/ut/amersfoort/belhadi-modestoffen?to=place.ChIJ_74e4xhHxkcRgII8uFgL7Qo",
+      "https://www.openingstijdengids.nl/snufl/amersfoort/1",
+      "https://openstreetmap.app/poi/Nederland/Utrecht/Amersfoort/Kamp/N/2672776531"
+    ]
+  },
+  {
+    "id": "new-thai-massage-hoanghuong",
+    "name": "Thai Massage HoangHuong",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "high",
+    "correctedAddress": "Kamp 64, 3811 AT Amersfoort",
+    "postalCode": "3811 AT",
+    "lat": 52.1582254,
+    "lng": 5.3959645,
+    "phone": "033 752 09 63",
+    "websiteUrl": "https://thaimassagehoanghuong.nl",
+    "facebookUrl": "https://www.facebook.com/thaimassagehoanghuong/",
+    "googleMapsUrl": "https://www.google.com/maps/place/Thai+Massage+HoangHuong/@52.1582254,5.3959645,16z/data=!3m1!4b1!4m6!3m5!1s0x47c6469c0acee843:0x14d72d9a113e1634!8m2!3d52.1582254!4d5.3959645!16s%2Fg%2F11btx6yf7z",
+    "hasGoogleReviews": false,
+    "suggestedCategory": "Beauty & verzorging",
+    "subcategory": "Thaise massagesalon & nagelstudio",
+    "priceRange": "",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "openingNote": "Geopend en operationeel op Kamp 64. Openingstijden ma t/m za 10:00-21:00, zo 10:00-18:00 (bron: footer en contactpagina officiele site, bevestigd via zoekresultaten). Same-day afspraken telefonisch tussen 10:00 en 20:30. Goede parkeergelegenheid in de buurt volgens de salon.",
+    "ogImageUrl": "https://thaimassagehoanghuong.nl/wp-content/uploads/2024/04/Thai-Massage-HoangHuong-Amersfoort10-2000x1500.jpg",
+    "imageSource": "Eigen websitefoto van de salon (thaimassagehoanghuong.nl, wp-content upload 2024/04). De og:image meta is alleen het 250x250 logo/favicon; deze 2000x1500 salonfoto is de eigen brand-afbeelding die op de site wordt gebruikt.",
+    "imageLicenseNote": "Afbeelding is eigendom van de onderneming (op eigen website gepubliceerd). Toestemming van de eigenaar bevestigen voor publicatie in de directory; geen stockmateriaal gebruikt.",
+    "refinedShortNL": "Authentieke Thaise massagesalon en nagelstudio aan de Kamp, met traditionele, olie-, kruiden- en hot stone massages.",
+    "refinedLongNL": "Bij Thai Massage HoangHuong aan de Kamp 64 geniet je van authentieke Thaise massages in een verzorgde, hygienische salon in het hart van Amersfoort. Naast traditionele Thaise, olie-, kruiden-, voet- en hot stone massages kun je hier ook terecht voor een manicure of pedicure. De salon is zes dagen per week tot in de avond geopend, zodat ontspannen ook na werktijd kan.",
+    "specialties": [
+      "Traditionele Thaise massage",
+      "Hot stone massage",
+      "Kruidenmassage",
+      "Olie- en ontspanningsmassage",
+      "Voetmassage",
+      "Manicure & pedicure"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 64, 3811 AT Amersfoort"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Ma-za 10:00-21:00, zo 10:00-18:00"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 752 09 63 / 06 552 19 110"
+      },
+      {
+        "label": "Specialisme",
+        "value": "Thaise massages & nagelverzorging"
+      },
+      {
+        "label": "Parkeren",
+        "value": "Goede parkeergelegenheid in de buurt"
+      },
+      {
+        "label": "KvK",
+        "value": "64659461"
+      }
+    ],
+    "tags": [
+      "thaise massage",
+      "massagesalon",
+      "wellness",
+      "ontspanning",
+      "hot stone",
+      "nagelstudio",
+      "manicure",
+      "pedicure",
+      "amersfoort centrum",
+      "de kamp"
+    ],
+    "sources": [
+      "https://thaimassagehoanghuong.nl/",
+      "https://thaimassagehoanghuong.nl/contact/",
+      "https://www.fresha.com/lvp/thai-hoanghuong-kamp-amersfoort-A7DzYv",
+      "https://www.cylex.nl/bedrijf/thai-massage-hoanghuong-13226391.html",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/176939014/hoang-huong-thai-massages",
+      "https://www.waze.com/live-map/directions/netherlands/utrecht/amersfoort/thai-massage-hoanghuong",
+      "https://www.facebook.com/thaimassagehoanghuong/"
+    ]
+  },
+  {
+    "id": "new-perfect-dress",
+    "name": "Perfect Dress",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "medium",
+    "correctedAddress": "Kamp 70, 3811 AT Amersfoort",
+    "postalCode": "3811 AT",
+    "lat": 52.1583981,
+    "lng": 5.3961764,
+    "phone": "+31 6 87706764",
+    "websiteUrl": "https://perfect-dress.nl",
+    "instagramUrl": "https://www.instagram.com/perfect_dress.nl/",
+    "facebookUrl": "https://www.facebook.com/theperfectdressamersfoort/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Perfect+Dress+Kamp+70+Amersfoort",
+    "hasGoogleReviews": false,
+    "suggestedCategory": "Mode & sieraden",
+    "subcategory": "Galajurken & avondkleding",
+    "openingNote": "Geverifieerd open op Kamp 70 in winkelgebied De Kamp. De website noemt geen koppeling met 'De Galazaak'; dat is een aparte keten en de link kon niet bevestigd worden. Eerste pinksterdag gesloten; tweede pinksterdag 12:00-16:00.",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "ogImageUrl": "https://perfect-dress.nl/wp-content/uploads/2026/06/2026_R206i_FLEUR_2_BD.webp",
+    "imageSource": "perfect-dress.nl og:image (eigen campagnebeeld 2026)",
+    "imageLicenseNote": "Eigen beeld van de winkel, overgenomen uit de og:image van perfect-dress.nl. Toestemming van de eigenaar bevestigen vóór publicatie.",
+    "refinedShortNL": "Specialist in galajurken, cocktail- en avondjurken in maat 32 t/m 54, met persoonlijk pasadvies in hartje De Kamp.",
+    "refinedLongNL": "Perfect Dress aan de Kamp 70 is dé galazaak van Amersfoort voor galajurken, cocktailjurken, feestjurken en moeder-van-de-bruid-outfits. Je vindt er een ruime collectie in maat 32 t/m 54 met persoonlijk styling-advies en vermaak op maat via het eigen atelier. Plan een pasafspraak en laat je van top tot teen kleden voor je gala, bruiloft of feest.",
+    "specialties": [
+      "Galajurken",
+      "Cocktailjurken",
+      "Avond- en feestjurken",
+      "Moeder van de bruid",
+      "Maat 32 t/m 54",
+      "Vermaak op maat (atelier)"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 70, 3811 AT Amersfoort"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "di-za 10:00-17:00, zo 12:00-16:00, ma gesloten"
+      },
+      {
+        "label": "Maatvoering",
+        "value": "Maat 32 t/m 54"
+      },
+      {
+        "label": "Afspraak",
+        "value": "Pasafspraak aanbevolen; ook eigen atelier voor vermaak"
+      },
+      {
+        "label": "Contact",
+        "value": "06-87706764 (bel/WhatsApp), info@perfect-dress.nl"
+      }
+    ],
+    "tags": [
+      "galajurken",
+      "avondkleding",
+      "cocktailjurken",
+      "feestkleding",
+      "moeder van de bruid",
+      "mode",
+      "de kamp",
+      "amersfoort"
+    ],
+    "sources": [
+      "https://perfect-dress.nl",
+      "https://perfect-dress.nl/contact/",
+      "https://perfect-dress.nl/over-ons/",
+      "https://www.instagram.com/perfect_dress.nl/",
+      "https://www.facebook.com/theperfectdressamersfoort/",
+      "https://www.degalazaak.nl/winkels/amersfoort/",
+      "https://www.tijdvooramersfoort.nl/nl/tva/gebieden/de-kamp"
+    ]
+  },
+  {
+    "id": "new-happyfood",
+    "name": "HappyFood Amersfoort (Kamp)",
+    "status": "open",
+    "confidence": "medium",
+    "correctedAddress": "Kamp 76, 3811 AT Amersfoort",
+    "postalCode": "3811 AT",
+    "lat": 52.1584438,
+    "lng": 5.396454,
+    "geoConfidence": "high",
+    "phone": "033-7851364",
+    "suggestedCategory": "Eten & drinken",
+    "subcategory": "Cafetaria / snackbar met afhaal en bezorging",
+    "priceRange": "€",
+    "facebookUrl": "https://www.facebook.com/happyfoodamersfoort/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=HappyFood+Kamp+76+Amersfoort",
+    "hasGoogleReviews": false,
+    "openingNote": "Bevestigd open op Kamp 76 (3811 AT), in de historische binnenstad nabij de Kamperbinnenpoort. Telefoon 033-7851364. Meerdere onafhankelijke gidsen vermelden de vestiging als actief (\"vandaag vanaf 12:00 open\"); geen sluitingsmelding gevonden. Openingstijden worden breed genoemd als ca. 12:00-22:00, maar de dag-voor-dag tijden stonden alleen als afbeelding/JavaScript op de bronpagina's en konden niet per dag onafhankelijk worden geverifieerd; daarom is de gestructureerde openingsspec leeg gelaten. Let op: dit is een andere vestiging dan HappyFood aan het Euterpeplein 35a (3816 NP, tel. 033-4790920), waar de meeste reviewpagina's en het merksite happyfood.nl naar verwijzen.",
+    "refinedShortNL": "Cafetaria op de Kamp in de binnenstad: knapperige verse friet, snacks, broodjes en HappyBurgers om af te halen of te laten bezorgen.",
+    "refinedLongNL": "HappyFood is een kwaliteitscafetaria aan de Kamp 76, midden in de historische binnenstad van Amersfoort vlak bij de Kamperbinnenpoort. Je vindt er versgesneden friet, een breed assortiment snacks, verse broodjes en de eigen HappyBurgers, klaar om af te halen of thuis te laten bezorgen. Een vertrouwd adres voor een snelle, hartige hap in het centrum.",
+    "specialties": [
+      "Versgesneden friet",
+      "HappyBurgers",
+      "Klassieke snacks (frikandel, kroket)",
+      "Verse broodjes",
+      "Afhalen",
+      "Bezorging"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 76, 3811 AT Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-7851364"
+      },
+      {
+        "label": "Type",
+        "value": "Cafetaria / snackbar"
+      },
+      {
+        "label": "Afhalen",
+        "value": "Ja"
+      },
+      {
+        "label": "Ligging",
+        "value": "Historische binnenstad, nabij Kamperbinnenpoort"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Breed vermeld als ca. 12:00-22:00 (niet per dag geverifieerd)"
+      }
+    ],
+    "tags": [
+      "cafetaria",
+      "snackbar",
+      "fastfood",
+      "afhaal",
+      "bezorging",
+      "friet",
+      "burgers",
+      "binnenstad",
+      "Kamp"
+    ],
+    "imageSource": "none",
+    "imageLicenseNote": "Geen geverifieerde eigen afbeelding voor de Kamp 76-vestiging beschikbaar. De Facebook-pagina happyfoodamersfoort heeft een og:image, maar die hoort bij het merk/de Euterpeplein-vestiging en kon niet aan Kamp 76 worden toegeschreven; bovendien is geen eigenaarstoestemming bevestigd. Geen stockafbeeldingen gebruikt. Vraag de ondernemer om een eigen foto met publicatietoestemming voordat er een afbeelding wordt geplaatst.",
+    "sources": [
+      "https://www.openingstijdengids.nl/happyfood/amersfoort/2",
+      "https://www.openingstijden.com/open/happyfood-amersfoort-kamp/amersfoort/",
+      "https://www.telefoonboek.nl/bedrijven/t4160665/amersfoort/happyfood-amersfoort-kamp/",
+      "https://nominatim.openstreetmap.org/",
+      "https://www.facebook.com/happyfoodamersfoort/",
+      "https://happyfood.nl/locatie/amersfoort/"
+    ]
+  },
+  {
+    "id": "new-optiek-verkerk",
+    "name": "Optiek Verkerk",
+    "status": "open",
+    "confidence": "high",
+    "correctedAddress": "Kamp 78, 3811 AT Amersfoort",
+    "postalCode": "3811 AT",
+    "suggestedCategory": "Services & praktisch",
+    "subcategory": "Opticien & oogzorg",
+    "websiteUrl": "https://www.optiekverkerk.nl/amersfoort",
+    "phone": "033 472 17 19",
+    "facebookUrl": "https://www.facebook.com/optiekverkerk",
+    "instagramUrl": "https://www.instagram.com/optiekverkerk/",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Optiek+Verkerk+Kamp+78+3811+AT+Amersfoort",
+    "hasGoogleReviews": true,
+    "lat": 52.15843,
+    "lng": 5.39666,
+    "geoConfidence": "high",
+    "ogImageUrl": "https://optiekverkerk.nl/_images-v3/bba31636-b3ab-4500-a935-4c30e07ed3a4",
+    "imageSource": "Official website og:image (optiekverkerk.nl/amersfoort)",
+    "imageLicenseNote": "Business's own og:image from their official Amersfoort page (image/webp, HTTP 200). Owned by Optiek Verkerk; confirm explicit owner permission before publishing.",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "",
+        "closes": ""
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "",
+        "closes": ""
+      }
+    ],
+    "openingNote": "Geverifieerd open op Kamp 78 (winkel beslaat Kamp 78-80), aan de rand van het centrum nabij De Stier. Maandag en zondag gesloten. Donderdag ook koopavond 19:00-21:00 (aaneengesloten als 09:00-21:00 weergegeven; let op: er is een pauze 18:00-19:00 volgens de bron). Openingstijden consistent op officiële site en VVV Amersfoort.",
+    "refinedShortNL": "Zelfstandige kwaliteitsopticien aan de Kamp: nauwkeurige oogmetingen, persoonlijk advies en monturen op maat.",
+    "refinedLongNL": "Optiek Verkerk is de onafhankelijke kwaliteitsopticien aan de Kamp 78, aan de rand van het centrum vlak bij De Stier. Onder één dak werken opticiens, optometristen en contactlensspecialisten aan nauwkeurige oogmetingen, deskundig advies over brillenglazen en contactlenzen, en monturen op maat. Klanten roemen de rustige, persoonlijke aanpak; gratis parkeren is mogelijk in de eigen parkeergarage achter de zaak.",
+    "specialties": [
+      "Nauwkeurige oogmetingen / refractie",
+      "Persoonlijk brilladvies",
+      "Monturen op maat",
+      "Multifocale brillenglazen",
+      "Contactlenzen aanmeten",
+      "Optometrie & oogzorg"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Zelfstandige opticien"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 472 17 19"
+      },
+      {
+        "label": "E-mail",
+        "value": "amersfoort@optiekverkerk.nl"
+      },
+      {
+        "label": "Parkeren",
+        "value": "Gratis eigen parkeergarage achter de zaak (voor klanten)"
+      },
+      {
+        "label": "Koopavond",
+        "value": "Donderdagavond geopend (19:00-21:00)"
+      },
+      {
+        "label": "Locatie",
+        "value": "Aan de Kamp, nabij De Stier"
+      }
+    ],
+    "tags": [
+      "opticien",
+      "brillen",
+      "zonnebrillen",
+      "contactlenzen",
+      "oogmeting",
+      "optometrie",
+      "De Kamp",
+      "Amersfoort"
+    ],
+    "specialtiesNote": "",
+    "sources": [
+      "https://www.optiekverkerk.nl/amersfoort",
+      "https://www.vvvamersfoort.nl/nl/locaties/2927/optiek-verkerk-amersfoort",
+      "https://optiek.nl/opticiens/optiek-verkerk-amersfoort-kamp-78-3811-at-amersfoort",
+      "https://opiness.nl/review/optiek-verkerk-amersfoort",
+      "https://www.facebook.com/optiekverkerk"
+    ]
+  },
+  {
+    "id": "new-struijk-acousticon",
+    "name": "Struijk Acousticon",
+    "status": "open",
+    "confidence": "high",
+    "geoConfidence": "high",
+    "correctedAddress": "Kamp 86, 3811 AT Amersfoort",
+    "postalCode": "3811 AT",
+    "lat": 52.15861283,
+    "lng": 5.39683834,
+    "phone": "033-4728183",
+    "websiteUrl": "https://www.struijk-acousticon.nl",
+    "facebookUrl": "https://www.facebook.com/struijkaudiciens",
+    "instagramUrl": "https://www.instagram.com/struijkaudiciens",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Struijk+Acousticon+Kamp+86+Amersfoort",
+    "hasGoogleReviews": true,
+    "suggestedCategory": "Services & praktisch",
+    "subcategory": "Audicien & hoorzorg",
+    "priceRange": "",
+    "openingNote": "Geverifieerd als geopend op Kamp 86, 3811 AT Amersfoort (hoek De Kamp, historisch winkelgebied). Adres en openingstijden komen overeen op de eigen site, de overkoepelende site struijk-audiciens.nl, HoorProfs en meerdere bedrijvengidsen. Maandag gesloten; di t/m vr 09:00-17:00; zaterdag en zondag gesloten. Geen huisnummerconflict: 'De Kamp 86' en 'Kamp 86' verwijzen naar hetzelfde adres.",
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "refinedShortNL": "Zelfstandige vakaudicien op de Kamp, al 45+ jaar. Hoortoestellen, hoortesten, gehoorbescherming en oordoppen op maat in hartje Amersfoort.",
+    "refinedLongNL": "Struijk Acousticon is een zelfstandige vakaudicien aan Kamp 86 in het historische centrum van Amersfoort, al meer dan 45 jaar een vertrouwd adres voor hoorzorg. Het team helpt je persoonlijk bij de keuze en aanpassing van een hoortoestel, een gratis hoortest, gehoorbescherming en oordoppen op maat. Klanten waarderen de deskundige, rustige begeleiding, zichtbaar in de uitstekende Google-beoordelingen.",
+    "specialties": [
+      "Hoortoestellen aanmeten en aanpassen",
+      "Gratis hoortest",
+      "Gehoorbescherming op maat",
+      "Oordoppen op maat",
+      "Hoorhulpmiddelen",
+      "Persoonlijk hooradvies"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Zelfstandige vakaudicien"
+      },
+      {
+        "label": "Ervaring",
+        "value": "45+ jaar in Amersfoort"
+      },
+      {
+        "label": "Openingstijden",
+        "value": "Di t/m vr 09:00-17:00; ma, za, zo gesloten"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-4728183"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "ca. 9,4 (26 reviews)"
+      }
+    ],
+    "tags": [
+      "audicien",
+      "hoortoestellen",
+      "hoortest",
+      "gehoorbescherming",
+      "oordoppen op maat",
+      "hoorzorg",
+      "De Kamp",
+      "Amersfoort"
+    ],
+    "ogImageUrl": "",
+    "imageSource": "",
+    "imageLicenseNote": "Eigen og:image niet bruikbaar: de og:image-tag op struijk-acousticon.nl bevat een kapotte CMS-placeholder ({{dc:toolset:field...}}) in plaats van een geldige afbeeldings-URL. Geen geverifieerde eigen afbeelding gevonden; conform de regel geen stockbeeld gebruikt. Vraag de ondernemer om een eigen foto met publicatietoestemming voordat een beeld wordt geplaatst.",
+    "sources": [
+      "https://www.struijk-acousticon.nl",
+      "https://www.struijk-acousticon.nl/contact/",
+      "https://www.struijk-audiciens.nl/vestiging/struijk-acousticon-amersfoort/",
+      "https://www.zorgscore.nl/audicien/amersfoort/struijk-acousticon/99494b11-a263-4a0c-a7de-b17e05ea953c",
+      "https://www.hoorprofs.nl/audiciens/acousticon-amersfoort/",
+      "https://www.gehoorinfo.nl/Amersfoort/Kamp+86+/Acousticon+Amersfoort.html",
+      "https://api.pdok.nl/bzk/locatieserver/ (PDOK Locatieserver geocode Kamp 86)"
+    ],
+    "publicPersonName": "Ron & Joke",
+    "publicPersonRole": "Audiciens"
+  }
+]

@@ -7,12 +7,10 @@ export const metadata = {
 };
 
 export default function RoutePage() {
-  // Sort businesses by street number (roughly)
-  const sortedByAddress = [...businesses].sort((a, b) => {
-    const numA = parseInt(a.address.match(/\d+/)?.at(0) || "0");
-    const numB = parseInt(b.address.match(/\d+/)?.at(0) || "0");
-    return numA - numB;
-  });
+  // Walking order along the route (gate → street → singels), excluding closed.
+  const sortedByAddress = businesses
+    .filter((b) => b.status !== "closed")
+    .sort((a, b) => a.sortOrder - b.sortOrder);
 
   return (
     <div className="bg-background min-h-screen py-16 sm:py-24">
@@ -74,7 +72,7 @@ export default function RoutePage() {
           <p className="text-stone/80 text-lg mb-8 max-w-2xl mx-auto">
             Combineer de beste winkels, makers en restaurants op De Kamp voor een unieke Amersfoortse ervaring.
           </p>
-          <Link href="/" className="inline-flex items-center px-8 py-4 bg-amber text-white font-bold rounded-full hover:bg-stone hover:text-deep-green transition-all shadow-lg">
+          <Link href="/" className="inline-flex items-center px-8 py-4 bg-amber text-charcoal font-bold rounded-full hover:bg-stone hover:text-deep-green transition-all shadow-lg">
             Terug naar het overzicht
           </Link>
         </div>

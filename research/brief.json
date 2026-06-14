@@ -1,0 +1,244 @@
+{
+  "visionStatement": "Turn \"Ondernemers van de Kamp\" from a handsome but static listing into Amersfoort's definitive, living district destination — the Marylebone Village of De Kamp. The bar to clear is editorial: the site should feel like a lifestyle magazine with a soul (named maker stories, curated best-of round-ups, a date-filtered agenda) fused with a best-in-class utility layer (a true interactive map with pins + \"open nu\" filtering, live hours on every card, rigorous per-business schema). The strategic wedge against the Dutch incumbents (de9straatjes.nl, weareroermond.com) is to out-execute on exactly what they neglect: a real interactive map (they have none), real-time \"open now\" status (nobody surfaces it), and a Kamp Cadeaukaart local gift card (no street-level Dutch peer of this size offers one). De Kamp already owns the hardest assets — a bespoke key-free SVG map, a correct Europe/Amsterdam open-now engine, a full JSON-LD library, and a generative placeholder system — so this upgrade is mostly about surfacing, enriching, and adding an editorial + commerce layer on top of a strong technical core, not rebuilding. Every page must double as GEO-grade, passage-extractable content so Google AI Overviews and \"open nu in de buurt\" answers cite De Kamp by name. North-star feeling: \"De Kamp leeft\" — warm, editorial, trustworthy, unmistakably local, and current.",
+  "priorityFeatures": [
+    {
+      "feature": "Interactive district map v2 — upgrade the existing key-free SVG DistrictMap (src/components/DistrictMap.tsx) into a filterable hero tool: category filter chips, an 'Open nu' toggle wired to hours.ts/getOpenState, photo-thumbnail pins (placeholderDataUri fallback), pin clustering on mobile, and a synced list panel. Promote it from a detail-page mini-map to a first-class homepage + /kaart section.",
+      "impact": "Very high — this is the single clearest differentiator; de9straatjes and most BIDs have no real interactive map. Drives dwell time and is the navigational spine of the whole site.",
+      "effort": "Medium — the map, projection (geo.ts), coords, and open-now engine already exist; work is filtering state, thumbnail pins, the list-sync panel, and mobile clustering."
+    },
+    {
+      "feature": "'Open nu' as a first-class, site-wide feature — add an 'Open nu' filter + sort to BusinessExplorer, keep the live OpenBadge on every card/detail, and wire the same toggle into the map. Surface count ('23 nu open').",
+      "impact": "Very high and genuinely ownable — the hours.ts engine, OpenBadge and HoursTable already exist and are correct (cross-midnight, Amsterdam TZ); no major competitor surfaces this. Directly feeds 'open now near me' AI answers.",
+      "effort": "Low — engine + badge already built; this is wiring a filter/sort into the existing explorer plus the map toggle. Gated only by hours-data coverage (see content gaps)."
+    },
+    {
+      "feature": "Refined business cards & detail pages + WCAG fix — fix the confirmed contrast failures (introduce --amber-ink #8a5a16 for amber-coloured TEXT/links/meaningful icons; make primary CTAs deep-green-on-white; reserve amber fills for ≥18px bold or decoration), bump muted text to warm-brown/70, tighten the closing-soon pill. Then elevate cards (consistent meta, owner-photo-forward) and restructure detail pages into passage-extractable H2 blocks (Het verhaal, Specialiteiten/Goed voor, Openingstijden & locatie, Prijzen, Veelgestelde vragen).",
+      "impact": "High — fixes real accessibility/legal exposure (amber-on-cream is 2.93:1, white-on-amber buttons 3.13:1, both fail AA) and makes detail pages GEO-citable. Touches every page.",
+      "effort": "Low-to-medium — token addition + find/replace of amber-as-text usages (CategoryFilter, SectionLabel, FAQ '+', 'Reviews op Google'), then structural copy edits."
+    },
+    {
+      "feature": "Full per-business JSON-LD completion + GEO hardening — the schema.ts library already builds LocalBusiness/OpeningHoursSpecification/Breadcrumb/ItemList/FAQ/Place; finish the job: emit correct schemaType subtypes on every detail page, add WebPage/@id wiring, fill the empty SITE.social sameAs, add aggregateRating ONLY where real Google reviews exist (never fabricate), and add Event + GiftCard/Offer schema for the two new features. Keep llms.txt and sitemap lastmod current.",
+      "impact": "High — this is what makes the site eligible for AI Overviews and 'open nu' answers and lets it outrank incumbents on structured-data quality. The builders exist; it's mostly coverage + new node types.",
+      "effort": "Low-to-medium — extend existing schema.ts builders and ensure every page renders the right graph; no new architecture."
+    },
+    {
+      "feature": "Owner-photo-friendly placeholder system (productionised) — keep the deterministic generative placeholder.ts as the zero-network fallback, but formalise the BusinessImage precedence (approved owner photo → public imageCandidate after explicit owner approval → generative SVG) and add an owner-upload path in /aanmelden. Ensure next/image, alt text and aspect ratios are consistent so swapping a placeholder for a real photo is seamless and CWV-safe.",
+      "impact": "High — lets the grid look intentional and premium today while making it trivial to upgrade to real owner photography (which boosts AI Overview multimodal selection) as permissions land.",
+      "effort": "Low — placeholder.ts and BusinessImage already exist; work is the precedence rules, alt-text discipline, and the upload hook in the onboarding form."
+    },
+    {
+      "feature": "Kamp Cadeaukaart — local gift card redeemable only at De Kamp shops/horeca (chains excluded), modelled on Stadsie/Utrecht Cadeaukaart and Downtown Boise. Landing page with buy CTA (consumer + corporate/staff-gift), participating-merchant list (auto-pulled from the directory), balance checker, and an optional 'donate leftover balance to a local cause' angle. Promote as a hero CTA in nav/footer.",
+      "impact": "Very high strategic — the single highest-leverage feature per the competitive brief: loyalty + revenue + 'keep money local' brand story + every shop links back (SEO). No street-level Dutch peer of this size has one.",
+      "effort": "High — needs a payment/issuance backend or a third-party gift-card provider integration; ship the marketing page + merchant list first, wire commerce second."
+    },
+    {
+      "feature": "Events / Agenda ('Wat is er te doen') — a date-filterable events section (markets, late-night shopping, exhibitions, festivals) with Event JSON-LD for rich results. Even a lightly-curated calendar makes the district read as current to Google and AI engines.",
+      "impact": "Very high — table-stakes for every sophisticated competitor (Marylebone What's On, We Are Roermond agenda, Boise calendar); fresh dated content is what signals 'authoritative and current' to answer engines.",
+      "effort": "Medium — new data model + page + filter UI + Event schema; ongoing editorial cost to keep it fresh is the real constraint."
+    },
+    {
+      "feature": "Editorial 'Ondernemers van de Kamp' story strand — named owner/maker profiles plus curated best-of round-ups ('beste koffie op De Kamp', 'vintage & makers'). Reuses the existing publicPersonName/longDescription fields and the owner-photo system; each piece is unique long-tail, passage-extractable content.",
+      "impact": "High — the differentiator that makes Marylebone/Portland Neighborhood Guide feel premium not utilitarian, and it maps onto De Kamp's literal name. Strong SEO/GEO via unique long-tail.",
+      "effort": "Medium — needs a lightweight article/profile content type and template, plus genuine editorial writing and owner consent for portraits."
+    },
+    {
+      "feature": "Trust + audience layer — newsletter signup, press/review pull-quotes as social proof, and an Instagram feed. Fill the empty SITE.social profiles so sameAs schema resolves.",
+      "impact": "Medium-high — every leader runs a newsletter and surfaces credibility quotes; de9straatjes leans on NYT/Nat Geo pull-quotes for instant authority. Builds an owned audience and trust signals a new site lacks.",
+      "effort": "Low-to-medium — newsletter is an embed/API; pull-quotes and IG feed are component + content work."
+    },
+    {
+      "feature": "Bilingual NL/EN — add EN as a second locale across directory, categories and detail pages; widens reach to tourists (de9straatjes's NL/EN toggle is a proven edge) and adds hreflang/inLanguage signals.",
+      "impact": "Medium — broadens audience and adds international SEO signals; the structure already supports per-locale content.",
+      "effort": "Medium-to-high — i18n routing, translation of UI + ~75 business descriptions; do after the core upgrade lands."
+    },
+    {
+      "feature": "Short-form video tours — embed/host We-Are-Roermond-style shop-tour clips on detail and editorial pages with VideoObject schema.",
+      "impact": "Medium — deepens dwell time, feeds social, and multimodal pages are favoured by AI Overviews; reinforces the editorial positioning.",
+      "effort": "High (ongoing) — production-bound; ship the embed slot and schema now, fill over time."
+    }
+  ],
+  "pagePlan": [
+    {
+      "page": "Homepage ( / )",
+      "sections": [
+        "Hero — 'De Kamp leeft' splash with district line, primary CTAs: 'Verken de kaart' + 'Open nu', secondary 'Kamp Cadeaukaart'",
+        "SeoIntro — historie & ambacht editorial block + live stat row (X ondernemers, 9 categorieën, 5 straten, 13e-eeuwse poort); make stats reflect real live count",
+        "Interactive district map v2 — filterable map with category chips + 'Open nu' toggle, synced list panel (promoted from mini-map to hero tool)",
+        "BusinessExplorer — search + category filter + NEW 'Open nu' filter/sort, refined card grid",
+        "Featured / editorial teaser — horizontal scroll of featured businesses + latest 'Ondernemers van de Kamp' story or best-of round-up",
+        "Agenda teaser — next 3 events from 'Wat is er te doen' with date chips",
+        "Kamp Cadeaukaart band — hero CTA ('Geef De Kamp cadeau')",
+        "Newsletter + social proof — signup, press pull-quotes, Instagram strip",
+        "Owner CTA — 'Ben jij ondernemer op De Kamp?' → /aanmelden",
+        "JSON-LD graph — Organization, WebSite+SearchAction, district Place, ItemList"
+      ]
+    },
+    {
+      "page": "Interactive map ( /kaart )",
+      "sections": [
+        "Intro H1 + one-paragraph self-contained answer ('Waar ligt De Kamp en wat vind je er?')",
+        "Full-bleed interactive map — category filter chips, 'Open nu' toggle, photo-thumbnail pins, list panel synced to viewport/filters",
+        "Legend + walking context (afstand vanaf Kamperbinnenpoort, singels, parkeren/OV links)",
+        "Result list — cards mirroring active map filters",
+        "JSON-LD — Place + ItemList of pinned businesses"
+      ]
+    },
+    {
+      "page": "Directory / overview (in-page on / or /ondernemers)",
+      "sections": [
+        "Heading + intent line",
+        "Filter bar — search, category chips, 'Open nu', sort (Open nu eerst / A-Z / straat)",
+        "Card grid — refined BusinessCard with live OpenBadge, price, specialties",
+        "Browse-by-street secondary nav (Kamp, Achter de Kamp, Grote Sint Jansstraat, Zuidsingel, Weverssingel) — mirrors de9straatjes 'by street' pattern",
+        "JSON-LD ItemList"
+      ]
+    },
+    {
+      "page": "Category page ( /categorie/[slug] )",
+      "sections": [
+        "Breadcrumbs",
+        "H1 = category + intent + 130–160 word self-contained intro (from categories.ts blurb, expanded)",
+        "Filter/sort bar incl. 'Open nu'",
+        "Card grid for the category",
+        "Curated best-of round-up block linking the editorial strand (e.g. on /categorie/koffie-lunch-zoet → 'Beste koffie op De Kamp')",
+        "FAQ block + FAQPage schema (genuine Q&As)",
+        "JSON-LD — Breadcrumb + ItemList + FAQPage"
+      ]
+    },
+    {
+      "page": "Business detail ( /ondernemers/[id] )",
+      "sections": [
+        "Breadcrumbs",
+        "Header — category chip, live OpenBadge (inline), priceRange, 'Reviews op Google' (using --amber-ink, accessible)",
+        "Cover image — owner photo → approved candidate → generative placeholder",
+        "Het verhaal (H2) — longDescription as extractable passage",
+        "Specialiteiten / Goed voor (H2)",
+        "Goed om te weten — keyFacts",
+        "Het gezicht — owner/maker profile (publicPersonName + portrait when approved), link to full story if one exists",
+        "Veelgestelde vragen (H2) — FAQ + FAQPage schema",
+        "Right rail — Locatie & contact (accessible deep-green CTA), Openingstijden (HoursTable + OpenBadge), context mini-map highlighting this pin",
+        "Ook op De Kamp — related businesses",
+        "Owner-claim CTA → /aanmelden",
+        "JSON-LD — LocalBusiness subtype (correct schemaType) + OpeningHoursSpecification + Breadcrumb + FAQ; aggregateRating only if real reviews"
+      ]
+    },
+    {
+      "page": "Kamp Cadeaukaart ( /cadeaukaart )",
+      "sections": [
+        "Hero — 'Geef De Kamp cadeau', value prop (alleen bij lokale, onafhankelijke zaken)",
+        "Hoe het werkt — 3-step explainer (kopen → besteden → saldo)",
+        "Koop-CTA's — particulier + zakelijk (personeelscadeau)",
+        "Waar te besteden — participating-merchant list auto-pulled from directory",
+        "Saldo checken — balance checker",
+        "Doe iets goeds — optional 'doneer restsaldo aan lokaal goed doel'",
+        "FAQ + FAQPage schema",
+        "JSON-LD — Offer/GiftCard + Organization"
+      ]
+    },
+    {
+      "page": "Agenda ( /agenda — 'Wat is er te doen' )",
+      "sections": [
+        "H1 + intent line",
+        "Date filter (komende / deze maand / op datum) + category filter",
+        "Event list/cards with date, venue (linked to business), description",
+        "Past/recurring highlights",
+        "JSON-LD — Event[] (ItemList of Event)"
+      ]
+    },
+    {
+      "page": "Verhalen / editorial ( /verhalen )",
+      "sections": [
+        "Index hero — 'Ondernemers van de Kamp: de verhalen'",
+        "Story/profile grid (owner profiles + best-of round-ups) with cover images",
+        "Individual story template — H1, byline/date, body with named-owner quotes, embedded business cards + map pin, related stories, VideoObject slot",
+        "JSON-LD — Article + Person (for profiles) / breadcrumb"
+      ]
+    },
+    {
+      "page": "Over De Kamp ( /over-de-kamp )",
+      "sections": [
+        "Hero + thesis line",
+        "Een straat met een verhaal (history, Kamperbinnenpoort, 13e eeuw)",
+        "Waarom deze website",
+        "Kamperbinnenpoort & de singels (the 5 streets)",
+        "Press pull-quotes / credibility",
+        "Link out to directory, map, agenda, cadeaukaart",
+        "JSON-LD — AboutPage + Place"
+      ]
+    },
+    {
+      "page": "Loop de Kamp ( /loop-de-kamp )",
+      "sections": [
+        "Hero + route intent",
+        "Interactive route on the v2 map (ordered by house number, start Kamperbinnenpoort → singels)",
+        "Stop-by-stop timeline with business cards + walk-minute estimates (walkMinutesFromGate)",
+        "Practical info — parkeren, OV, horeca-pauzes",
+        "JSON-LD — Place / ItemList (route stops)"
+      ]
+    },
+    {
+      "page": "Aanmelden ( /aanmelden )",
+      "sections": [
+        "Hero — 'Meld je zaak aan, gratis'",
+        "Why claim (vindbaarheid, eigen verhaal + foto's, openingstijden, Cadeaukaart-deelname)",
+        "Form — NAP, hours, story, owner photo UPLOAD path (feeds the owner-photo precedence), consent checkbox for portrait",
+        "What happens next",
+        "JSON-LD — WebPage"
+      ]
+    }
+  ],
+  "designSystem": {
+    "mood": "Warm editorial-meets-cartographic: a sophisticated local lifestyle magazine with a soul. Premium but unpretentious, trustworthy, distinctly Amersfoort. Paper textures and serif display headlines (Playfair) over a deep-forest-and-amber palette; restrained motion (fade-rise, reduced-motion respected). It should feel curated and human, never like a utilitarian business directory.",
+    "palette": [
+      "#f6f0e2 (background — cream paper)",
+      "#fbf7ef (paper — card surface)",
+      "#211c17 (foreground — warm near-black ink, 14.9:1 on bg)",
+      "#18140f (charcoal — footer/hero)",
+      "#163a29 (deep-green — primary brand, 11.8:1 on paper; primary CTA fill with white text 12.6:1)",
+      "#1f4d38 (deep-green-600)",
+      "#c9822b (amber — DECORATION/FILL ONLY; never text on light, fails AA at 2.93:1)",
+      "#b3701f (amber-600 — fills / AA-large only)",
+      "#8a5a16 (NEW --amber-ink — amber-coloured TEXT/links/meaningful icons on paper, ~5.6:1, passes AA)",
+      "#d9a86a (gold — accents/map spine)",
+      "#b5603e (clay — terracotta accent)",
+      "#4a3326 (warm-brown — body ink, 11:1; bump muted text to warm-brown/70 ≈ 6.2:1, never /55)",
+      "#d8e0d2 (sage)",
+      "#e7decf (stone)",
+      "#c8bba4 (stone-600)"
+    ],
+    "typography": "Display/headings: Playfair Display (serif), weight 700–800, tight tracking (-0.01em) — editorial-magazine voice. Body/UI: Inter (sans), with small-caps uppercase tracked labels (0.2–0.3em) for eyebrows/section labels — but recolour these from --amber to --amber-ink so they pass contrast. Italic Playfair for pull-quotes and lede paragraphs. Maintain the H1 7xl display scale on detail pages; ensure 130–167 word self-contained passages under each H2 for GEO extractability.",
+    "motifs": [
+      "Bespoke key-free SVG cartography — the curving Kamp spine, Kamperbinnenpoort landmark, soft canal lines, category-coloured pins (the signature asset; lean into it)",
+      "Generative deterministic placeholder art (per-category gradient + monogram + motif) as the premium, zero-network image fallback that upgrades seamlessly to owner photography",
+      "Editorial eyebrow labels with the short amber rule (--amber-ink), serif display headlines, italic ledes",
+      "Film-grain/paper texture (.grain) and fade-rise reveal on premium surfaces",
+      "Live 'open nu' pulse dot (emerald) as a recurring real-time signal across cards, map pins and badges",
+      "Rounded editorial radii (var(--radius-lg/xl)) and soft float shadows for a tactile, magazine-spread feel"
+    ]
+  },
+  "contentGaps": [
+    "Coverage: only 47 of the ~75 De Kamp businesses are in src/data/businesses.ts — finish enrichment to the full district before launch claims; the research/ JSONs (discovery/district/enriched) are the source to mine.",
+    "Opening hours are sparse: most records have status but no structured `hours` array, so the 'open now' filter/sort and OpenBadge are data-starved. Populate DayHours for every business or the flagship 'Open nu' edge underperforms.",
+    "Owner photography: nearly all records are placeholder_only / shopfront_needed with no imageUrl. Build the owner-upload + consent flow and a permissioned path for imageCandidateUrl so real photos replace placeholders (multimodal boosts AI Overview selection).",
+    "Owner/maker stories: publicPersonName/publicPersonRole are null for most businesses, and longDescription is often thin/English. The editorial 'Ondernemers van de Kamp' strand needs real interviews, named owners, and proper Dutch copy.",
+    "No events data or agenda content exists — needs a content model and an ongoing editorial source (markets, koopzondagen, exhibitions) to keep it fresh.",
+    "No Cadeaukaart exists — needs the product/commerce decision (own issuance vs. third-party provider) plus participating-merchant terms.",
+    "Social proof is empty: SITE.social.instagram/facebook are blank (so sameAs schema is empty) and there are no press pull-quotes or reviews surfaced. Acquire/curate credibility quotes and connect real profiles.",
+    "No newsletter capture and no email audience.",
+    "No English content yet despite structure supporting bilingual; tourist-facing copy is missing.",
+    "aggregateRating is intentionally never emitted (good — no fabrication), but real Google review data isn't ingested where hasGoogleReviews is true; capture genuine ratings to unlock review rich-results legitimately.",
+    "FAQ content per category/business is minimal — needs genuine Q&As (not schema spam) to win 'People Also Ask' and AI extraction.",
+    "Detail-page longDescription mixes Dutch and English (e.g. several records have English long copy) — normalise language for consistency and SEO."
+  ],
+  "risks": [
+    "Accessibility/legal: amber-as-text (#c9822b at 2.93:1) and white-on-amber buttons (3.13:1) fail WCAG AA and appear site-wide (CategoryFilter, SectionLabel, FAQ '+', detail CTAs). Ship the --amber-ink token + CTA recolour as a P0 fix before further polish, or the upgrade compounds an existing compliance gap.",
+    "Data-coverage dependency: the two flagship differentiators ('Open nu' and the live map) are only as good as the hours/geo data. Launching them on 47/75 businesses with sparse hours will feel broken — sequence enrichment before promotion.",
+    "Editorial sustainability: agenda + stories + video are only differentiators if kept current; without an owner of ongoing content, a stale agenda actively signals 'dead site' to users and AI engines (the opposite of the goal).",
+    "Cadeaukaart scope/compliance: a real gift card introduces payments, refunds, balance liability, and possibly e-money/voucher regulation — easy to under-estimate. De-risk by shipping the marketing/merchant-list page first and integrating a proven third-party issuer rather than building issuance.",
+    "Owner-photo permissions: publishing scraped imageCandidateUrl images without explicit owner approval is a rights risk — keep the generative placeholder as default and gate real photos behind consent (the current permissionStatus model already anticipates this; don't bypass it).",
+    "Schema integrity: never emit aggregateRating, Event, or GiftCard schema for data not actually shown on the page — schema spam risks manual actions and undermines the GEO goal. Tie every node to real on-page content.",
+    "Performance/CWV: thumbnail pins, an Instagram feed, and video embeds can regress LCP/INP; keep the placeholder SVGs (zero-network) as the default and lazy-load third-party media.",
+    "i18n cost: bilingual NL/EN doubles content maintenance across ~75 businesses + editorial; treat as a phase-2 after the core upgrade rather than blocking launch.",
+    "Hydration/timezone correctness: the open-now engine computes on the client post-mount (Europe/Amsterdam) to avoid mismatch — any move to surface 'open now' server-side (e.g. for SSR sort) must preserve this or risk hydration bugs and wrong badges for non-NL visitors."
+  ]
+}

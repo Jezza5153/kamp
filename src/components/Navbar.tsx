@@ -45,14 +45,17 @@ const Navbar = () => {
           
           <div className="hidden md:flex items-center gap-10">
             <div className="flex space-x-8">
-              <Link href="/" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber transition-colors">
+              <Link href="/#ondernemers" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber transition-colors">
                 Ondernemers
               </Link>
+              <Link href="/kaart" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber transition-colors">
+                Kaart
+              </Link>
               <Link href="/loop-de-kamp" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber transition-colors">
-                de Route
+                Route
               </Link>
               <Link href="/over-de-kamp" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber transition-colors">
-                Story
+                Over
               </Link>
             </div>
             
@@ -83,26 +86,33 @@ const Navbar = () => {
         className="md:hidden overflow-hidden bg-background border-t border-stone/10"
       >
         <div className="px-4 pt-4 pb-8 space-y-4">
-          <Link 
-            href="/" 
+          <Link
+            href="/#ondernemers"
             onClick={() => setIsOpen(false)}
             className="block text-2xl font-serif font-bold text-deep-green py-2"
           >
             Ondernemers
           </Link>
-          <Link 
-            href="/loop-de-kamp" 
+          <Link
+            href="/kaart"
             onClick={() => setIsOpen(false)}
             className="block text-2xl font-serif font-bold text-deep-green py-2"
           >
-            de Route
+            Kaart
           </Link>
-          <Link 
-            href="/over-de-kamp" 
+          <Link
+            href="/loop-de-kamp"
             onClick={() => setIsOpen(false)}
             className="block text-2xl font-serif font-bold text-deep-green py-2"
           >
-            Story
+            Route
+          </Link>
+          <Link
+            href="/over-de-kamp"
+            onClick={() => setIsOpen(false)}
+            className="block text-2xl font-serif font-bold text-deep-green py-2"
+          >
+            Over
           </Link>
           <Link 
             href="/aanmelden" 

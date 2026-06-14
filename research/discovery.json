@@ -1,0 +1,488 @@
+[
+  {
+    "confirmedOpen": [
+      "Freddo — Kamp 16, 3811 AR Amersfoort. Coffee / matcha / ice cream / fresh sandwiches café opened by Andra Mirzoyan in November 2025. Confirmed live: own ordering site (freddo.sitedish.shop) lists Kamp 16 and hours 10:00–16:00 daily; Tijd voor Amersfoort listing active; indebuurt/Drimble article 27 Nov 2025 announces the opening. This is the business CURRENTLY operating at Kamp 16 (it replaced Ritos).",
+      "FLUPS (Fashion Lending & Upcycle Store) — Kamp 4, 3811 AR Amersfoort. Sustainable second-hand / upcycle fashion store (buy or rent luxury second-hand clothing, jewellery, bags, items from Amersfoort waste streams). Owner Marina; formerly trading as 'The Community of Closets'. Open Wed–Sat 10:00–18:00. Active site flupsonline.nl + Tijd voor Amersfoort listing."
+    ],
+    "likelyClosedOrMoved": [
+      {
+        "name": "BKK Thai Fun Dining — Kamp 10 (D'Gekroonde Bye-Korf)",
+        "reason": "CLOSED. The municipality revoked the operating permit; the restaurant was shut in early March 2024 after owner Rolls Ratelband's repeated misconduct (public drunkenness Jan 2023, banging on neighbours' doors/windows March 2023, suspected drink-driving April 2023). Mayor declared him 'of bad character' on 7 Oct 2023; his appeal was rejected by the court in April 2024 (destadamersfoort.nl / nieuwsplein33 / RTV Utrecht, 25 Jul 2024). The monumental 1667 building (214 m², 65 seats + 16 terrace, rent €33k/yr) is now listed FOR SALE on Horecaspot.nl at €149,000 as an 'exclusieve overnamekans: high-end restaurant in monumentaal pand', confirming the pand is vacant. The 'we hope to announce a reopening date soon' popup still on bkkthaifundining.nl is stale/aspirational; no reopening has occurred."
+      },
+      {
+        "name": "Ritos Amersfoort (Fresh Mex & Pokébowls) — Kamp 16",
+        "reason": "CLOSED / GONE FROM KAMP 16. Operator Ritos Utrecht B.V. was declared bankrupt by the Midden-Nederland court on 2 July 2025 (faillissement F.16/25/332, curator mr. D. de Goede). Ritos Amersfoort B.V. shows an insolvency-administrator 'Initiation' entry dated 10 Dec 2025 on Northdata (KVK 82251401). The Kamp 16 unit is now occupied by Freddo (opened Nov 2025, run by Andra Mirzoyan — same family as Ritos operator Serop Mirzoyan), so Ritos is no longer the operating business at this address. The Ritos chain site root (ritos-fresh-mex-en-pokebowls.nl) is now a placeholder and its /contact page 404s; ritosnederland.nl/amersfoort returns a server error. Old directory listings still echo the Kamp 16 address but are out of date."
+      }
+    ],
+    "missingBusinesses": [
+      {
+        "name": "Freddo",
+        "category": "Coffee bar / café (coffee, matcha, ice cream, fresh sandwiches)",
+        "address": "Kamp 16, 3811 AR Amersfoort",
+        "website": "https://freddo.sitedish.shop/ (also https://www.tijdvooramersfoort.nl/nl/locaties/612456906/freddo)",
+        "source": "https://drimble.nl/regio/utrecht/amersfoort/104787730/koffie-matcha-en-sandwiches-andra-opent-freddo-op-de-kamp.html",
+        "note": "NEW: opened November 2025 by Andra Mirzoyan at the former Ritos unit (Kamp 16). Italian-inspired concept; fruit matchas, organic latte alternatives (blue spirulina, raw cacao). Open daily 10:00–16:00. Same Mirzoyan family that ran the now-bankrupt Ritos."
+      },
+      {
+        "name": "FLUPS (Fashion Lending & Upcycle Store)",
+        "category": "Sustainable fashion / second-hand & upcycle retail",
+        "address": "Kamp 4, 3811 AR Amersfoort",
+        "website": "https://flupsonline.nl",
+        "source": "https://www.tijdvooramersfoort.nl/nl/locaties/1312864435/flups",
+        "note": "Recently rebranded/relocated concept on the Kamp — formerly 'The Community of Closets', now run by owner Marina. Buy or rent luxury second-hand clothing plus jewellery, bags, and items made from Amersfoort waste streams. Open Wed–Sat 10:00–18:00. Featured in Tijd voor Amersfoort's sustainable-shopping route as a current Kamp shop."
+      }
+    ],
+    "sources": [
+      "https://www.bkkthaifundining.nl/ (BKK Thai site — 'hope to reopen' popup, still listing Kamp 10; no reopening)",
+      "https://www.destadamersfoort.nl/112/overig/1052028/eigenaar-van-gesloten-thais-restaurant-aan-de-kamp-misdroeg-z (BKK Thai permit revoked, closed March 2024, owner Rolls Ratelband — 25 Jul 2024)",
+      "https://www.rtvutrecht.nl/nieuws/3768136/restaurant-van-rolls-ratelband-gesloten-na-misdragingen (RTV Utrecht — restaurant closed after misconduct)",
+      "https://horecaspot.nl/aanbod/bedrijf-3938-exclusieve-overnamekans-high-end-restaurant-in-monumentaal-pand (Kamp 10 monumental pand FOR SALE €149,000 — confirms vacant)",
+      "https://www.faillissementsdossier.nl/nl/faillissement/1882703/ritos-utrecht-b-v.aspx (Ritos Utrecht B.V. bankrupt 2 July 2025, F.16/25/332)",
+      "https://www.northdata.com/Ritos%20Amersfoort%20B%C2%B7V%C2%B7,%20Amersfoort/KVK%2082251401 (Ritos Amersfoort B.V. — insolvency administrator initiation 10 Dec 2025; registered Kamp 16)",
+      "https://drimble.nl/regio/utrecht/amersfoort/104787730/koffie-matcha-en-sandwiches-andra-opent-freddo-op-de-kamp.html (Freddo opening by Andra Mirzoyan at Kamp 16, published 27 Nov 2025)",
+      "https://freddo.sitedish.shop/ (Freddo live ordering site — Kamp 16, daily 10:00–16:00)",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/612456906/freddo (Freddo listing, Kamp 16)",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2402098718/ritos-amersfoort (Ritos listing — outdated, still shows Kamp 16)",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1312864435/flups (FLUPS — Kamp 4, sustainable fashion store)",
+      "https://flupsonline.nl (FLUPS official site)"
+    ],
+    "notes": "CLEAR RESOLUTION OF BOTH QUESTIONS:\n\n1) Kamp 16 — Freddo is the business CURRENTLY operating, NOT Ritos. Ritos and Freddo are run by the same family (Mirzoyan). Ritos's operating company Ritos Utrecht B.V. went bankrupt on 2 July 2025; Ritos Amersfoort B.V. shows insolvency proceedings initiated 10 Dec 2025. Andra Mirzoyan opened Freddo (coffee/matcha/sandwiches) at the very same Kamp 16 unit in November 2025. So Ritos at Kamp 16 = closed/replaced; Freddo = open. Treat any data source still showing 'Ritos, Kamp 16' as stale.\n\n2) Kamp 10 / BKK Thai Fun Dining (D'Gekroonde Bye-Korf) — CLOSED since early March 2024, permit revoked by the municipality after owner Rolls Ratelband's misconduct (appeal rejected April 2024). The historic 1667 pand is now actively listed FOR SALE on Horecaspot at €149,000 (214 m², 65+16 seats), confirming it is vacant. The 'reopening soon' popup on the old BKK site is aspirational and out of date — no reopening has happened. Note: Rolls Ratelband (Amersfoort restaurateur) is unrelated to TV personality Emile Ratelband.\n\nNEW OPENINGS / CHANGES on/near the Kamp in the last ~2 years: Freddo (Kamp 16, Nov 2025); FLUPS / Fashion Lending & Upcycle Store (Kamp 4, sustainable fashion, rebrand of 'The Community of Closets', owner Marina). A 'Café STU' was also referenced but it is in the Mondriaankwartier, not on the Kamp itself, so I left it out of confirmed Kamp openings. I could not find any new opening or closure specifically on Grote Sint Jansstraat in this window (only a commercial-space listing at Grote Sint Jansstraat 7, no named new tenant). Searches were US-routed (WebSearch) so a couple of Dutch sources (indebuurt.nl, eet.nu) blocked direct fetch (403/blocked) — findings above rely on the accessible sources cited."
+  },
+  {
+    "missingBusinesses": [
+      {
+        "name": "PIEN kunst & antiek",
+        "address": "Grote Sint Jansstraat 1, 3811 HX Amersfoort",
+        "category": "Interieur & kunst",
+        "website": "http://www.pienkunstantiek.nl",
+        "source": "yelp.com (Antiekhandel PIEN, updated Oct 2025); pienkunstantiek.nl; telefoonboek.nl",
+        "note": "Antiques and art dealer run since 1968; Art Nouveau/Deco, paintings, ceramics, oriental & ethnographic objects. Confirmed listed Oct 2025."
+      },
+      {
+        "name": "De Haarschneider",
+        "address": "Grote Sint Jansstraat 2, 3811 HX Amersfoort",
+        "category": "Beauty & verzorging",
+        "website": "",
+        "source": "telefoonboek.nl; kappersalons.nl; haar.expert",
+        "note": "Dames- en herenkapsalon. Phone 033-4702483. Active listing."
+      },
+      {
+        "name": "Il diVino Wijnwinkel",
+        "address": "Grote Sint Jansstraat 2a, 3811 HX Amersfoort",
+        "category": "Winkels & makers",
+        "website": "https://www.ildivino-wijnwinkel.nl",
+        "source": "vvvamersfoort.nl; tijdvooramersfoort.nl; destadamersfoort.nl",
+        "note": "Wine shop specialising in lesser-known regions; wine workshops. Owner Ewout Jansen. Near Beestenmarkt garage, Kamp end of the street."
+      },
+      {
+        "name": "Kapsalon René Benoît",
+        "address": "Grote Sint Jansstraat 1-E, 3811 HX Amersfoort",
+        "category": "Beauty & verzorging",
+        "website": "",
+        "source": "uniekwinkelen.nl; cylex.nl; kappers.nl; haar.expert",
+        "note": "Hair salon, established 10+ years at this spot (René Benoît & Maschinka)."
+      },
+      {
+        "name": "Orium Goudsmeden",
+        "address": "Grote Sint Jansstraat 5, 3811 HX Amersfoort",
+        "category": "Mode & sieraden",
+        "website": "https://www.orium-goudsmeden.nl",
+        "source": "tijdvooramersfoort.nl; yelp.com (updated May 2026); drimble.nl",
+        "note": "Goldsmith / custom jewelry atelier; also sells Nomos watches. Confirmed active May 2026."
+      },
+      {
+        "name": "Bakkerij Boersma",
+        "address": "Zuidsingel 60, 3811 HD Amersfoort",
+        "category": "Koffie, lunch & zoet",
+        "website": "https://www.bakkerboersma.nl",
+        "source": "tijdvooramersfoort.nl; bakkerboersma.nl; kompass.com",
+        "note": "Artisan bread bakery with shop in the city centre. Open Wed-Sat. Sits at the Kamp end of Zuidsingel."
+      },
+      {
+        "name": "Alivio kappersbenodigdheden & kapsalon",
+        "address": "Zuidsingel 63, 3811 HD Amersfoort",
+        "category": "Beauty & verzorging",
+        "website": "",
+        "source": "uniekwinkelen.nl; openingstijden.nl; kapper-nl.open-closed.net",
+        "note": "Hairdressing supplies shop and salon. Phone 033-4720379."
+      },
+      {
+        "name": "Downey's Coffee & Tea",
+        "address": "Zuidsingel 65, 3811 HD Amersfoort",
+        "category": "Koffie, lunch & zoet",
+        "website": "https://www.downeys.nl",
+        "source": "tijdvooramersfoort.nl; vvvamersfoort.nl; tripadvisor.com",
+        "note": "Social-enterprise lunchroom where people with intellectual disabilities work; lunch, coffee/tea, high tea. Open Tue-Sat 10:00-17:00. Confirmed active."
+      },
+      {
+        "name": "Singelhuis",
+        "address": "Zuidsingel 67, 3811 HD Amersfoort",
+        "category": "Eten & drinken",
+        "website": "https://singelhuis.nl",
+        "source": "singelhuis.nl; feestjegeven.nl; telefoonboek.nl",
+        "note": "Event / cooking & dining venue (groups, workshops, celebrations); KvK describes it as lunchroom/restaurant/cafe & cooking studio. Formerly 't Singelhuys cafe. Active."
+      },
+      {
+        "name": "Hairstyling Geke (Geke Kappers)",
+        "address": "Zuidsingel 68, 3811 HD Amersfoort",
+        "category": "Beauty & verzorging",
+        "website": "https://gekekappers.mytreatwell.nl",
+        "source": "yelp.com (updated Mar 2026); telefoonboek.nl; treatwell.nl",
+        "note": "Hair salon specialising in cutting curly hair. Phone 033-4722361. Confirmed active Mar 2026."
+      },
+      {
+        "name": "Heart & Arrow Trouwringen",
+        "address": "Kamperbinnenpoort 8, 3811 AL Amersfoort",
+        "category": "Mode & sieraden",
+        "website": "https://www.heartandarrow.nl",
+        "source": "heartandarrow.nl; telefoonboek.nl; theperfectwedding.nl",
+        "note": "Jeweler specialising in wedding/engagement rings (3000+ rings). On the Kamperbinnenpoort corner; some directories also tag it Weverssingel 10. Phone 06-84677204."
+      }
+    ],
+    "confirmedOpen": [
+      "Orium Goudsmeden — Grote Sint Jansstraat 5 (confirmed active May 2026 via tijdvooramersfoort.nl & Yelp)",
+      "Il diVino Wijnwinkel — Grote Sint Jansstraat 2a (active, vvvamersfoort.nl)",
+      "PIEN kunst & antiek — Grote Sint Jansstraat 1 (listing updated Oct 2025)",
+      "Bakkerij Boersma — Zuidsingel 60 (active, tijdvooramersfoort.nl, current opening hours)",
+      "Downey's Coffee & Tea — Zuidsingel 65 (active, tijdvooramersfoort.nl)",
+      "Hairstyling Geke — Zuidsingel 68 (Yelp updated Mar 2026)",
+      "Singelhuis — Zuidsingel 67 (active, singelhuis.nl)",
+      "Heart & Arrow Trouwringen — Kamperbinnenpoort 8 (active, heartandarrow.nl)"
+    ],
+    "likelyClosedOrMoved": [
+      {
+        "name": "De Eetstee — Zuidsingel 66 (biologisch vegetarisch restaurant)",
+        "reason": "CLOSED. Eet.nu and HappyCow both mark it gesloten/closed. The premises at Zuidsingel 66 are now La Base Pizza, which is already on your list. No action needed beyond noting the old tenant is gone."
+      },
+      {
+        "name": "Louis Blancardi Wijnen — Zuidsingel 62 (old address)",
+        "reason": "Likely MOVED. Old directories (uniekwinkelen) list Wijnhandel Louis Blancardi at Zuidsingel 62, but you already have it at Kamp 42. Treat the Zuidsingel 62 listing as stale; your Kamp 42 entry is the current one."
+      },
+      {
+        "name": "Kamperbinnenpoort 3 (retail unit)",
+        "reason": "VACANT / for rent. Funda in Business and bedrijfspand.com list the 69 m² corner retail space as available to let — no operating business there currently, so nothing to add."
+      }
+    ],
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/352130398/orium-goudsmeden",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/697314516/bakkerij-boersma",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2370099036/downey-s-coffee-tea",
+      "https://www.vvvamersfoort.nl/nl/ildivinoamersfoort",
+      "https://www.heartandarrow.nl/product/juwelier-kamperbinnenpoort-gate-amersfoort/",
+      "https://singelhuis.nl/",
+      "https://www.yelp.com/biz/antiekhandel-pien-amersfoort",
+      "https://www.yelp.com/biz/geke-kappers-amersfoort",
+      "https://www.yelp.com/biz/orium-goudsmeden-amersfoort",
+      "https://www.yelp.com/biz/de-eetstee-amersfoort",
+      "http://www.uniekwinkelen.nl/winkels3.htm",
+      "https://www.telefoonboek.nl/bedrijven/t2858222/amersfoort/de-haarschneider/",
+      "https://www.cylex.nl/bedrijf/kapsalon-rene-benoit-11215669.html",
+      "https://www.bakkerboersma.nl/contact",
+      "https://www.fundainbusiness.nl/winkel/amersfoort/object-89440779-kamperbinnenpoort-3/",
+      "https://www.happycow.net/reviews/de-eetstee-amersfoort-17519"
+    ],
+    "notes": "Researched the four target areas. Found 11 businesses in scope not on your list: 5 on Grote Sint Jansstraat (PIEN antiek nr 1, De Haarschneider nr 2, Il diVino nr 2a, René Benoît nr 1-E, Orium Goudsmeden nr 5), 5 on the Kamp end of Zuidsingel 60-68 (Bakkerij Boersma 60, Alivio 63, Downey's 65, Singelhuis 67, Hairstyling Geke 68), and Heart & Arrow Trouwringen on the Kamperbinnenpoort corner (nr 8). Categories are my best mapping to your existing scheme; adjust as you see fit (e.g. Singelhuis could be Eten & drinken or a venue, Alivio is supplies+salon).\\n\\nDe Eetstee (Zuidsingel 66) is closed — its spot is your La Base Pizza, so that swap is already reflected. Louis Blancardi Wijnen shows at Zuidsingel 62 in old data but you have it at Kamp 42 (moved); ignore the Zuidsingel listing. Kamperbinnenpoort 3 is an empty retail unit for rent.\\n\\nCaveats: Weverssingel near nr 2 — beyond Bij Sophie (already listed) at nr 2 and Heart & Arrow which some directories tag at Weverssingel 10 (but its real storefront is Kamperbinnenpoort 8), I found mostly commercial-property listings (e.g. Weverssingel 10, a large former Expert unit) rather than active small shops, so nothing extra to add there. uniekwinkelen.nl is a useful but partly outdated directory (expired SSL cert); I cross-checked every candidate against a fresher source (tijdvooramersfoort, VVV, Yelp 2025-2026, or the business's own site) before including it. Phone numbers in notes are from directory data and not independently re-verified for 2026."
+  },
+  {
+    "confirmedOpen": [
+      "Toko Tjin — Kamp 2",
+      "FLUPS — Kamp 4",
+      "Keizerin — Kamp 4",
+      "Wit-Lof — Kamp 5",
+      "De Ruiter Makelaarshuis — Kamp 6",
+      "BKK Thai Fun Dining — Kamp 10",
+      "Bloembinderij All Seasons — Kamp 11",
+      "SPAR City Amersfoort — Kamp 15-17",
+      "Freddo — Kamp 16",
+      "Ritos Amersfoort — Kamp 16",
+      "Saya Boutique Hotel — Kamp 19",
+      "Star Juwelier — Kamp 28",
+      "HairBeautiful — Kamp 30",
+      "Poke2Go Amersfoort — Kamp 32",
+      "Jack's Casino & Sports Amersfoort — Kamp 33",
+      "Indian Flavour — Kamp 34",
+      "Holland Parket — Kamp 37",
+      "Avondwinkel S&N (Het Avondwinkeltje S&N) — Kamp 39",
+      "Skitzo — Kamp 40",
+      "Louis Blancardi Wijnen — Kamp 42",
+      "Awazé — Kamp 48",
+      "Babai — Kamp 49",
+      "De Heren van Amersfoort — Kamp 51",
+      "Bever Amersfoort — Kamp 53",
+      "Toko Dong-A — Kamp 61",
+      "Studio Mr Bunny — Kamp 62",
+      "The Far East — Kamp 74",
+      "Terre des Hommes Amersfoort — Kamp 79",
+      "Binnenspecialist van den Berg Amersfoort — Kamp 82",
+      "De Aubergerie — Kamp 88",
+      "Kapsalon Sura Amersfoort — Achter de Kamp 30"
+    ],
+    "likelyClosedOrMoved": [
+      {
+        "name": "De Tafelaar — Kamp 8",
+        "reason": "Could not positively re-confirm as currently open at Kamp 8. Multiple current directory sources (utrecht-nieuws.nl street registry, goudengids, yoys) place 'Double F Cosmetica' at Kamp 8, 3811 AR. De Tafelaar may have closed/moved or shares the address; verify on the ground. (Not removed from your list, just flagged as uncertain.)"
+      },
+      {
+        "name": "Atelier Misura Sartoria — Kamp 1",
+        "reason": "Still listed (utrecht-nieuws registry shows 'Misura Sartoria' at Kamp 1), so likely open — flagged only because no recent independent confirmation page was found. Treat as open unless on-site check says otherwise."
+      }
+    ],
+    "missingBusinesses": [
+      {
+        "name": "Schoenmakerij Hartog",
+        "address": "Kamp 9, 3811 AM",
+        "category": "Services & praktisch (schoen- en lederreparatie)",
+        "website": "https://schoenmakerijhartog.nl",
+        "source": "tijdvooramersfoort.nl/nl/locaties/4282903185/schoenmakerij-hartog; utrecht-nieuws.nl/straten/kamp",
+        "note": "Ambachtelijke schoenmaker, op deze locatie sinds de jaren '60."
+      },
+      {
+        "name": "De Gouden Naald",
+        "address": "Kamp 12, 3811 AR",
+        "category": "Services & praktisch (kleermaker / kledingreparatie)",
+        "website": "https://www.tijdvooramersfoort.nl/nl/locaties/2285951495/de-gouden-naald-amersfoort",
+        "source": "firmania.nl; openingstijden.nl; utrecht-nieuws.nl/straten/kamp",
+        "note": "Kleermaker, bestaat al 30+ jaar."
+      },
+      {
+        "name": "J&L Lijstenmakerij",
+        "address": "Kamp 14, 3811 AR",
+        "category": "Interieur & kunst (lijstenmakerij / giclée & kunst)",
+        "website": "https://jl-lijstenmakerij.nl",
+        "source": "jl-lijstenmakerij.nl; vvvamersfoort.nl; tijdvooramersfoort.nl",
+        "note": "Op de Kamp sinds 1994, tussen de Stier en de Kamperbinnenpoort."
+      },
+      {
+        "name": "Big Bazar",
+        "address": "Kamp 17 (bij SPAR City, 15-17)",
+        "category": "Keten / anker (variety store)",
+        "website": "",
+        "source": "openingstijdengids.nl/utrecht/amersfoort/kamp",
+        "note": "Mogelijk verouderd — Big Bazar ging landelijk failliet (2023); ter plaatse verifiëren of dit pand nog Big Bazar is."
+      },
+      {
+        "name": "Robert Harms Tweewielers",
+        "address": "Kamp 20, 3811 AR (ook genoemd als Kamp 18/20)",
+        "category": "Winkels & makers (fietsenspecialist / tweewielers)",
+        "website": "https://www.robertharms.nl",
+        "source": "pointerfietsen.nl dealerpagina (3811 AR Kamp 20); huka.nl; utrecht-nieuws.nl",
+        "note": "Officiële Pointer/Huka-dealer; pand op hoek Kamp."
+      },
+      {
+        "name": "Runnersworld Aart Stigter",
+        "address": "Kamp 25, 3811 AM",
+        "category": "Winkels & makers (hardloop-/sportwinkel)",
+        "website": "https://runnersworldamersfoort.nl",
+        "source": "openingstijden.nl; openingstijdengids.nl; tiendeo.nl",
+        "note": "Hardloopspeciaalzaak (Runners4life op tijdvooramersfoort/registry)."
+      },
+      {
+        "name": "Werners Optiek",
+        "address": "Kamp 26, 3811 AN",
+        "category": "Beauty & verzorging / Services (opticien / brillen)",
+        "website": "https://www.wernersoptiek.nl",
+        "source": "wernersoptiek.nl; vvvamersfoort.nl; tijdvooramersfoort.nl",
+        "note": "Opticien met eigenzinnige designerbrillen, sinds begin 2019 op de Kamp."
+      },
+      {
+        "name": "Smart Repair House",
+        "address": "Kamp 27 (per utrecht-nieuws registry)",
+        "category": "Services & praktisch (smartphone-/tabletreparatie & accessoires)",
+        "website": "https://smartrepairhouse.nl",
+        "source": "utrecht-nieuws.nl/straten/kamp; smartrepairhouse.nl",
+        "note": "Huisnummer 27 uit straatregister; eigen site bevestigt vestiging Amersfoort centrum."
+      },
+      {
+        "name": "Scapino",
+        "address": "Kamp 36 / 36A",
+        "category": "Keten / anker (schoenen & sport)",
+        "website": "https://www.scapino.nl",
+        "source": "openingstijdengids.nl; utrecht-nieuws.nl/straten/kamp",
+        "note": "Schoenenketen."
+      },
+      {
+        "name": "Repair n Go (Telefoon Expert)",
+        "address": "Kamp 41, 3811 AN",
+        "category": "Services & praktisch (telefoon-/tabletreparatie)",
+        "website": "https://repairngo.nl",
+        "source": "repairngo.nl/locations/amersfoort; askmap; utrecht-nieuws.nl",
+        "note": "iPhone/smartphone/tablet reparatie."
+      },
+      {
+        "name": "The Corner (kapsalon/barbershop) — 'The Corner'",
+        "address": "Kamp 44",
+        "category": "Beauty & verzorging (kapsalon / barbershop)",
+        "website": "https://thecornerhairstudio.nl",
+        "source": "utrecht-nieuws.nl/straten/kamp",
+        "note": "Registry vermeldt 'The Corner' op Kamp 44; aard (kapsalon) afgeleid, ter plaatse verifiëren."
+      },
+      {
+        "name": "Studio Release",
+        "address": "Kamp 45, 3811 NA",
+        "category": "Beauty & verzorging (luxe massagesalon)",
+        "website": "https://www.vvvamersfoort.nl/nl/locaties/6028/studio-release",
+        "source": "vvvamersfoort.nl/nl/locaties/6028/studio-release",
+        "note": "Massagesalon net buiten de Kamperbinnenpoort."
+      },
+      {
+        "name": "Tulip Clinic – Beauty & Laser Clinic",
+        "address": "Kamp 68, 3811 AT (registry noemt ook 'Fine LaserClinic' op Kamp 46)",
+        "category": "Beauty & verzorging (beauty- & laserkliniek)",
+        "website": "https://tulipclinic.nl",
+        "source": "fresha.com; tulipclinic.nl; waze; utrecht-nieuws.nl",
+        "note": "Op Kamp 46 staat in de registry 'Fine LaserClinic' — mogelijk aparte kliniek of voorganger; Tulip Clinic zit op Kamp 68."
+      },
+      {
+        "name": "Leith Jewels",
+        "address": "Kamp 50 (per utrecht-nieuws) / Kamp 52 (per vvvamersfoort & search)",
+        "category": "Mode & sieraden (juwelier / horloges)",
+        "website": "",
+        "source": "vvvamersfoort.nl/nl/kamp; tijdvooramersfoort.nl; utrecht-nieuws.nl/straten/kamp",
+        "note": "Bronnen verschillen tussen Kamp 50 en 52; sieraden & horloges."
+      },
+      {
+        "name": "A'cell Telecommunicatie",
+        "address": "Kamp 52, 3811 AS",
+        "category": "Services & praktisch (telecom / telefoonwinkel)",
+        "website": "",
+        "source": "openingstijdengids.nl; yelp.com/biz/a-cell-amersfoort; utrecht-nieuws.nl",
+        "note": "Telecomwinkel."
+      },
+      {
+        "name": "Fietsdiscounter.nl",
+        "address": "Kamp 56",
+        "category": "Winkels & makers (fietsenwinkel)",
+        "website": "https://www.fietsdiscounter.nl",
+        "source": "utrecht-nieuws.nl/straten/kamp",
+        "note": "Fietsenwinkel; huisnummer uit straatregister."
+      },
+      {
+        "name": "Flink (Amersfoort Centrum)",
+        "address": "Kamp 58, 3811 AS",
+        "category": "Services & praktisch (boodschappenbezorging / dark store)",
+        "website": "https://www.goflink.com",
+        "source": "drimble.nl; transfirm.nl; openkvk.nl; utrecht-nieuws.nl",
+        "note": "Dark store / bezorgservice — fysiek pand maar niet als reguliere winkel toegankelijk."
+      },
+      {
+        "name": "Snufl",
+        "address": "Kamp 63, 3811 AP",
+        "category": "Mode & sieraden / Winkels & makers (vintage & thrift)",
+        "website": "https://www.facebook.com/SNUFL/",
+        "source": "openingstijdengids.nl/snufl/amersfoort; foursquare.com",
+        "note": "Vintage- en kringloop-/thriftwinkel. (Op Kamp 63 vermeldt de registry ook 'Belhadi modestoffen' — zie hieronder; mogelijk verschillende units of opvolging.)"
+      },
+      {
+        "name": "Belhadi Modestoffen",
+        "address": "Kamp 63, 3811 AP",
+        "category": "Winkels & makers (stoffenwinkel / modestoffen)",
+        "website": "https://belhadimodestoffen.nl",
+        "source": "firmania.nl; vind-open.nl; tijdvooramersfoort.nl; utrecht-nieuws.nl",
+        "note": "Stoffenwinkel (trendy en buitenlandse modestoffen). Deelt huisnummer 63 met Snufl in bronnen — verifieer welke unit actueel is."
+      },
+      {
+        "name": "Thai Massage HoangHuong (Thai HoangHuong)",
+        "address": "Kamp 64, 3811 AT",
+        "category": "Beauty & verzorging (Thaise massage & nagels)",
+        "website": "https://thaimassagehoanghuong.nl",
+        "source": "fresha.com; tijdvooramersfoort.nl/nl/locaties/176939014; telefoonboek.nl",
+        "note": "Thaise massagesalon."
+      },
+      {
+        "name": "Perfect Dress (galakledingwinkel)",
+        "address": "Kamp 70, 3811 AT",
+        "category": "Mode & sieraden (galakleding / avondjurken)",
+        "website": "https://perfect-dress.nl",
+        "source": "perfect-dress.nl/over-ons; utrecht-nieuws.nl (vermeld als 'Galakledingwinkel')",
+        "note": "Registry noemt het 'Galakledingwinkel'; over-ons-pagina van Perfect Dress geeft Kamp 70. Mogelijk ook gelinkt aan 'De Galazaak' — naam ter plaatse verifiëren."
+      },
+      {
+        "name": "HappyFood",
+        "address": "Kamp 76",
+        "category": "Eten & drinken (afhaal / fastfood)",
+        "website": "",
+        "source": "openingstijdengids.nl/happyfood/amersfoort; openingstijden.com",
+        "note": "Eetgelegenheid/afhaal op de Kamp."
+      },
+      {
+        "name": "Optiek Verkerk",
+        "address": "Kamp 78",
+        "category": "Beauty & verzorging / Services (opticien)",
+        "website": "https://www.vvvamersfoort.nl/nl/locaties/2927/optiek-verkerk-amersfoort",
+        "source": "vvvamersfoort.nl/nl/kamp; utrecht-nieuws.nl/straten/kamp",
+        "note": "Opticien."
+      },
+      {
+        "name": "Struijk Acousticon (HoorProfs)",
+        "address": "Kamp 86, 3811 AT",
+        "category": "Services & praktisch (audicien / hoortoestellen)",
+        "website": "https://www.struijk-acousticon.nl",
+        "source": "struijk-acousticon.nl; hoorprofs.nl; telefoonboek.nl; utrecht-nieuws.nl",
+        "note": "Audicien/hoorspecialist, 45+ jaar in Amersfoort."
+      },
+      {
+        "name": "Double F Cosmetica",
+        "address": "Kamp 8, 3811 AR",
+        "category": "Beauty & verzorging (cosmetica / beautywinkel)",
+        "website": "https://doublefonline.nl",
+        "source": "goudengids.nl; detelefoongids.nl; yoys.nl; readymap.nl",
+        "note": "Cosmeticawinkel. Let op: conflicteert met 'De Tafelaar' op Kamp 8 in jullie lijst — mogelijk verschillende units (8/8A) of opvolging; ter plaatse verifiëren."
+      },
+      {
+        "name": "ReYoutiefull Store",
+        "address": "Kamp 19, 3811 AM",
+        "category": "Mode & sieraden (duurzaam / tweedehands designkleding)",
+        "website": "https://www.vvvamersfoort.nl/nl/locaties/2930/reyoutiefull-store",
+        "source": "vvvamersfoort.nl/nl/locaties/2930/reyoutiefull-store; vvvamersfoort.nl/nl/kamp",
+        "note": "Duurzaam concept (consignment) van de eigenaren van Arthur & Willemijn, in hun oude pand op Kamp 19. Deelt nr. 19 met Saya Boutique Hotel. NB: het straatregister vermeldt op Kamp 19 nog 'Arthur & Willemijn', maar die winkel is verhuisd (Kortegracht) — ReYoutiefull is de huidige retailbewoner."
+      },
+      {
+        "name": "Babai & Margan Tapijten (tweede Babai-locatie)",
+        "address": "Achter de Kamp 106, 3811 JH",
+        "category": "Interieur & kunst (Perzische & oosterse tapijten)",
+        "website": "https://www.babai.nl",
+        "source": "companyinfo.nl (Babai & Margan Tapijten); babai.nl/contact",
+        "note": "Tweede Babai-vestiging (showroom/parkeren op Achter de Kamp 106/108), naast de winkel op Kamp 49."
+      },
+      {
+        "name": "Glitter en Glas",
+        "address": "Achter de Kamp 32",
+        "category": "Interieur & kunst",
+        "website": "",
+        "source": "tijdvooramersfoort.nl/nl/tva/gebieden/de-kamp; ossendrijver.nl (winkel Achter de Kamp 32)",
+        "note": "Reeds in jullie lijst — hier alleen ter bevestiging dat het pand Achter de Kamp 32 is."
+      }
+    ],
+    "notes": "House numbers on Kamp run odd on one side and even on the other; many buildings are split into units (e.g., 8/8A, 34/34A, 36/36A), which explains several apparent address conflicts. Key data sources: (1) utrecht-nieuws.nl/straten/kamp — a full KvK-style street registry that gave per-house-number listings (most complete single source, but can lag a year or two and still showed stale entries like 'burgerme', 'Kaldi', 'Arthur & Willemijn'); (2) openingstijdengids.nl; (3) vvvamersfoort.nl and tijdvooramersfoort.nl gebied pages; (4) each business's own site / Fresha / Thuisbezorgd. CONFLICTS TO VERIFY ON-SITE: Kamp 8 (De Tafelaar vs Double F Cosmetica); Kamp 19 (Saya Boutique Hotel + ReYoutiefull Store + stale 'Arthur & Willemijn'); Kamp 16 (Freddo + Ritos + Studio Mr Bunny's own site oddly lists Kamp 16, though it's at Kamp 62); Kamp 50 vs 52 for Leith Jewels; Kamp 63 (Snufl vs Belhadi Modestoffen); Kamp 70 ('Galakledingwinkel'/Perfect Dress/De Galazaak). EXCLUDED as NOT on Kamp: Fashion Livy (Kamperbinnenpoort 3), The Wax Bar (Grote Sint Jansstraat 13), Run2Day (Grote Haag 129). LIKELY CLOSED (stale registry entries): 'burgerme' Kamp 72 (eet.nu marks it Closed); 'Kaldi' Kamp 10 (now BKK Thai Fun Dining); 'Big Bazar' Kamp 17 (chain went bankrupt nationally 2023 — verify). 'Krijco' at Kamp 33 = the operating company of Jack's Casino (same venue, already in your list). The grachten-side businesses already in your list (Grote Sint Jansstraat, Zuidsingel, Weverssingel) were not re-investigated as they fall outside the Kamp/Achter de Kamp scope.",
+    "sources": [
+      "https://www.utrecht-nieuws.nl/straten/kamp",
+      "https://www.openingstijdengids.nl/utrecht/amersfoort/kamp",
+      "https://www.vvvamersfoort.nl/nl/kamp",
+      "https://www.tijdvooramersfoort.nl/nl/tva/gebieden/de-kamp",
+      "https://ondernemersbinnenstadamersfoort.nl/samenwerking/de-kamp-e-o/",
+      "https://schoenmakerijhartog.nl",
+      "https://jl-lijstenmakerij.nl",
+      "https://www.robertharms.nl",
+      "https://www.pointerfietsen.nl/3811-ar-20-robert-harms-tweewielers-amersfoort/",
+      "https://www.wernersoptiek.nl",
+      "https://repairngo.nl/locations/amersfoort/",
+      "https://www.vvvamersfoort.nl/nl/locaties/6028/studio-release",
+      "https://tulipclinic.nl",
+      "https://www.fresha.com/lvp/tulip-clinic-beauty-laser-clinic-amersfoort-kamp-amersfoort-A87okq",
+      "https://www.openingstijdengids.nl/snufl/amersfoort/1",
+      "https://belhadimodestoffen.nl",
+      "https://www.fresha.com/lvp/thai-hoanghuong-kamp-amersfoort-A7DzYv",
+      "https://perfect-dress.nl/over-ons/",
+      "https://www.openingstijdengids.nl/happyfood/amersfoort/2",
+      "https://www.struijk-acousticon.nl",
+      "https://doublefonline.nl/over-ons",
+      "https://www.vvvamersfoort.nl/nl/locaties/2930/reyoutiefull-store",
+      "https://www.babai.nl/contact/",
+      "https://companyinfo.nl/organisatieprofiel/vervaardiging-van-vloerkleden-en-tapijt/babai-margan-tapijten-amersfoort-95852913-000061231126",
+      "https://www.awazerestaurant.nl/contact/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/112407254/indian-flavour",
+      "https://en.eet.nu/amersfoort/burgerme",
+      "https://drimble.nl/bedrijf/amersfoort/000050754408/flink-amersfoort-centrum.html"
+    ]
+  }
+]

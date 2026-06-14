@@ -1,64 +1,151 @@
 @import "tailwindcss";
 
+/*
+ * Design system — "De Kamp leeft."
+ * Warm editorial palette (paper, forest green, amber, earth tones) tuned for
+ * a sophisticated, trustworthy local guide. All colours are tokens so the
+ * palette can be refined in one place.
+ */
+
 :root {
-  --background: #F7F1E6; /* Cream */
-  --foreground: #1F1B18; /* Charcoal */
-  --deep-green: #183D2B;
-  --amber: #C9822B;
-  --warm-brown: #4A3326;
-  --sage: #D8E0D2;
-  --stone: #E8DFD2;
+  /* Neutrals — warm paper to warm near-black */
+  --background: #f6f0e2; /* cream paper */
+  --paper: #fbf7ef; /* card surface */
+  --foreground: #211c17; /* warm near-black ink */
+  --charcoal: #18140f; /* deep warm black (footer / hero) */
+
+  /* Brand */
+  --deep-green: #163a29;
+  --deep-green-600: #1f4d38;
+  --amber: #c9822b; /* DECORATION / FILL ONLY — fails AA as text on light */
+  --amber-600: #b3701f;
+  --amber-ink: #8a5a16; /* amber-coloured TEXT / links / labels on light (AA ~5.6:1) */
+  --gold: #d9a86a;
+  --clay: #b5603e; /* terracotta accent */
+  --warm-brown: #4a3326;
+
+  /* Supporting tones */
+  --sage: #d8e0d2;
+  --stone: #e7decf;
+  --stone-600: #c8bba4;
+
+  /* Radii & shadows */
+  --radius-sm: 0.75rem;
+  --radius: 1.25rem;
+  --radius-lg: 2rem;
+  --radius-xl: 2.75rem;
+  --shadow-card: 0 1px 2px rgba(24, 20, 15, 0.04), 0 18px 40px -24px rgba(22, 58, 41, 0.25);
+  --shadow-float: 0 30px 70px -28px rgba(22, 58, 41, 0.4);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-paper: var(--paper);
   --color-foreground: var(--foreground);
+  --color-charcoal: var(--charcoal);
+
   --color-deep-green: var(--deep-green);
+  --color-deep-green-600: var(--deep-green-600);
   --color-amber: var(--amber);
+  --color-amber-600: var(--amber-600);
+  --color-amber-ink: var(--amber-ink);
+  --color-gold: var(--gold);
+  --color-clay: var(--clay);
   --color-warm-brown: var(--warm-brown);
+
   --color-sage: var(--sage);
   --color-stone: var(--stone);
-  
-  --font-serif: var(--font-playfair), serif;
-  --font-sans: var(--font-inter), sans-serif;
+  --color-stone-600: var(--stone-600);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair), serif;
+  font-family: var(--font-playfair), Georgia, serif;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-.text-editorial {
-  font-family: var(--font-playfair), serif;
+::selection {
+  background-color: color-mix(in srgb, var(--amber) 35%, transparent);
+  color: var(--charcoal);
 }
 
-/* Custom Utilities */
-.bg-cream { background-color: #F7F1E6; }
-.text-deep-green { color: #183D2B; }
-.bg-deep-green { background-color: #183D2B; }
-.text-amber { color: #C9822B; }
-.bg-amber { background-color: #C9822B; }
+/* Accessible focus ring (keyboard only) */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
-/* Visionary Utilities */
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Helper utilities ---- */
+.text-editorial { font-family: var(--font-playfair), Georgia, serif; }
+
+.bg-cream { background-color: var(--background); }
+.bg-paper { background-color: var(--paper); }
+.text-deep-green { color: var(--deep-green); }
+.bg-deep-green { background-color: var(--deep-green); }
+.text-amber { color: var(--amber); }
+.bg-amber { background-color: var(--amber); }
+
 .vertical-text {
   writing-mode: vertical-rl;
   text-orientation: mixed;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
+.no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.ornament {
-  text-shadow: 0 0 40px rgba(0,0,0,0.05);
+.ornament { text-shadow: 0 0 40px rgba(0, 0, 0, 0.05); }
+
+/* Subtle film-grain / paper texture for premium surfaces */
+.grain { position: relative; }
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+
+/* Reveal-on-scroll without layout shift */
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { animation: fade-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }

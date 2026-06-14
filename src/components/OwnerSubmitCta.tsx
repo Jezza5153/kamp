@@ -29,7 +29,7 @@ const OwnerSubmitCta = () => {
               </p>
               <Link
                 href="/aanmelden"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-amber text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-stone hover:text-deep-green transition-all shadow-xl hover:scale-105 active:scale-95"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-amber text-charcoal font-black uppercase tracking-widest text-xs rounded-full hover:bg-stone hover:text-deep-green transition-all shadow-xl hover:scale-105 active:scale-95"
               >
                 Mijn zaak aanmelden
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

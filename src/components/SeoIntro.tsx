@@ -1,47 +1,60 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { businesses } from "@/data/businesses";
+import { CATEGORIES } from "@/lib/categories";
 
-const SeoIntro = () => {
+export default function SeoIntro() {
+  const active = businesses.filter((b) => b.status !== "closed");
+  const stats = [
+    { value: `${active.length}`, label: "ondernemers" },
+    { value: `${CATEGORIES.length}`, label: "categorieën" },
+    { value: "5", label: "straten" },
+    { value: "13e eeuw", label: "sinds de stadspoort" },
+  ];
+
   return (
-    <section className="py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-6xl font-serif font-black text-deep-green leading-[0.9] mb-8">
-              Historie <br /> & Ambacht
+    <section className="overflow-hidden bg-background py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+            <p className="mb-4 text-xs font-black uppercase tracking-[0.3em] text-amber-ink">Over De Kamp</p>
+            <h2 className="font-serif text-4xl font-black leading-[0.95] text-deep-green sm:text-6xl">
+              Historie <br /> & ambacht
             </h2>
-            <div className="w-20 h-2 bg-amber rounded-full" />
+            <div className="mt-8 h-1.5 w-20 rounded-full bg-amber" />
           </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
-          >
-            <p className="text-2xl font-serif font-bold text-warm-brown leading-snug italic">
-              De Kamp is niet zomaar een straat; het is de levendige as die historisch Amersfoort zijn karakter geeft.
+
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15 }} className="space-y-6">
+            <p className="font-serif text-2xl font-bold italic leading-snug text-warm-brown">
+              De Kamp is niet zomaar een straat — het is de onafhankelijke, levende as die de historische binnenstad van
+              Amersfoort haar karakter geeft.
             </p>
-            <div className="prose prose-lg text-warm-brown/70 leading-relaxed space-y-6">
+            <div className="space-y-5 leading-relaxed text-warm-brown/75">
               <p>
-                Aan De Kamp in Amersfoort vind je een unieke verzameling van meer dan 50 lokale ondernemers. Van authentieke toko’s en ambachtelijke makers tot verfijnde restaurants en boutique hotels. Het is de plek waar historie en vernieuwing hand in hand gaan. 
+                De route begint bij de <strong className="text-deep-green">Kamperbinnenpoort</strong>, de oudste nog
+                bestaande stadspoort van Amersfoort uit de 13e eeuw. Daarachter loopt de circa 350 meter lange straat de
+                oude stad in — langs tientallen rijksmonumenten vol eigenzinnige winkels, makers, wereldkeukens en
+                vertrouwde vakzaken.
               </p>
               <p>
-                Deze gids is een eerbetoon aan de gezichten achter de etalages. We nodigen je uit om de straat te ontdekken, niet als een snelle winkelstraat, maar als een verzameling verhalen.
+                Van een ambachtelijke schoenmaker en een Ethiopisch restaurant tot een goudsmid, een wijnkoper en een
+                interieurstylist: achter elke gevel zit een ondernemer met een eigen verhaal. Deze gids brengt ze samen —
+                niet als snelle winkelstraat, maar als een verzameling verhalen op loopafstand van elkaar.
               </p>
             </div>
+
+            <dl className="grid grid-cols-2 gap-x-8 gap-y-6 border-t border-stone/40 pt-8 sm:grid-cols-4">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <dt className="font-serif text-3xl font-black text-deep-green">{s.value}</dt>
+                  <dd className="mt-1 text-[11px] font-bold uppercase tracking-wider text-warm-brown/50">{s.label}</dd>
+                </div>
+              ))}
+            </dl>
           </motion.div>
         </div>
       </div>
     </section>
   );
-};
-
-export default SeoIntro;
+}

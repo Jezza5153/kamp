@@ -1,0 +1,342 @@
+[
+  {
+    "title": "Competitive analysis: shopping-street / district showcase websites, and how De Kamp can outrank them",
+    "findings": [
+      "GOLD STANDARD - Marylebone Village (marylebonevillage.com, London): The single best model for De Kamp. It is run as a managed estate site and fuses a clean five-bucket directory (Shopping, Lifestyle, Food & Drink, What's On, About & Visit) with genuine EDITORIAL storytelling - it publishes a real magazine, 'The Marylebone Journal', plus curated round-ups ('best coffee spots', 'top beauty spots') that read like a lifestyle magazine and funnel readers into specific venues. It also runs a 'Privilege Card' loyalty programme, a What's On events calendar, a monthly newsletter and an Instagram feed. Takeaway: it does not feel like a business listing, it feels like a destination with a personality and an editorial voice - that is what makes a district site feel sophisticated rather than utilitarian.",
+      "De 9 Straatjes (de9straatjes.nl, Amsterdam): The closest Dutch peer to De Kamp's concept. Strengths: 250+ businesses organised both by category (Vintage, Boutiques, Food/Drinks/Sleep, etc.) AND by individual street; bilingual NL/EN; heavy atmospheric photography (50+ image carousel); a dated News/blog section; and crucially strong PRESS-VALIDATION social proof (pull-quotes from NYT, National Geographic, Lonely Planet positioning it as 'Amsterdam's best shopping hub'). Weakness De Kamp can beat: its 'Route' page is underdeveloped - it has no true interactive map (just a calculate-route button and external parking/transport links) and no on-map shop pins. Takeaway: borrow their bilingual + press-quote credibility, but out-execute them on the interactive map, which they neglect.",
+      "We Are Roermond (weareroermond.com): The strongest Dutch BIZ binnenstad example and a near-direct template for a town-centre site. It offers a full directory of ALL shops + horeca with category filters (boutique, specialty, brown cafe, restaurant), a date-filterable events agenda (festivals, markets, concerts), and notably a strong VIDEO content strand (a dedicated YouTube channel touring new shops). Funded by BIZ Binnenstad Roermond (bizroermond.nl). Takeaway: the combination of a complete merchant directory + a date-filtered events agenda + short-form video is exactly the 'living, current' feel a district site needs; static directories feel dead by comparison.",
+      "LOCAL GIFT CARD as the killer loyalty mechanic - Stadsie (stadsie.nl) / Utrecht Cadeaukaart: A standout Dutch model. A district/city gift card redeemable ONLY at independent local shops and horeca (chains explicitly excluded), sold to consumers and to companies for staff gifts. Stadsie reports 100,000+ cards sold and 'millions spent directly with local entrepreneurs', operates across 15 cities, allows leftover balance to be donated to local charity, and gives each merchant a directory listing. US BIDs do the same: Downtown Boise (downtownboise.org) heavily promotes 'Downtown Boise Gift Cards' as its single most-featured CTA ('Give the experience of Downtown Boise'). Takeaway: a 'Kamp Cadeaukaart' is the highest-leverage feature De Kamp could add - it is a loyalty + revenue + 'keep-spending-local' story all in one, and it gives every shop a reason to link back to the site (SEO).",
+      "Events agenda is table-stakes and a ranking driver - every serious site (Marylebone 'What's On', We Are Roermond agenda, Downtown Boise calendar, Amherst BID, Milwaukee Downtown) leads with a date-filtered events calendar. Strijp-S Eindhoven (strijp-s.nl) leans entirely on this 'living destination' framing (Dutch Design Week, festivals, exhibitions) and on lifestyle storytelling by theme (Living/Working/Learning) rather than a flat tenant list. Takeaway: fresh, dated event content is what makes Google and AI answer engines treat a district site as authoritative and current; a directory alone is not enough.",
+      "Curated EDITORIAL / storytelling separates the sophisticated sites from the amateur ones. Marylebone Journal, Portland Neighborhood Guide (portlandneighborhood.com - 'tells the story of the people, places and independent businesses who define each community'), and We Are Roermond's shop-tour videos all use narrative and named owner profiles, not just NAP+hours. Mapme's downtown/Chinatown guides (mapme.com) add 'picks by local experts', 360 views and audio. Takeaway: owner/maker profile stories ('Ondernemers van de Kamp' as literal human stories) are both the brand differentiator AND strong unique long-tail content for SEO/GEO.",
+      "True INTERACTIVE MAP with pins + filters is surprisingly rare and therefore a differentiation opportunity. De 9 Straatjes lacks one; Strijp-S outsources navigation to paid tours; most BID sites have only a static PDF map/guide. The platforms that nail it (Mapme, Proxi) are third-party tools precisely because few district sites build their own. De Kamp already has a DistrictMap component - investing here is a cheap way to leapfrog the Dutch incumbents.",
+      "'Open now' real-time status is almost universally ABSENT (Downtown Boise, Marylebone, De 9 Straatjes all omit live hours on the homepage). De Kamp ALREADY has an OpenBadge / HoursTable / hours.ts implementation. This is a genuine, ownable edge - surface it prominently (filter 'open now', sort by open) because no major competitor does it well.",
+      "CODEBASE CONTEXT - De Kamp already ships: BusinessGrid + BusinessCard directory, CategoryFilter, BusinessSearch, DistrictMap, OpenBadge/HoursTable (live hours), FeaturedBusinesses + FeaturedHorizontal, JsonLd schema, sitemap/robots, OwnerSubmitCta, bilingual-capable structure. So the GAPS versus best-in-class are specifically: (1) a gift card, (2) an events agenda, (3) editorial owner-story content/magazine, (4) a newsletter, (5) press/social-proof quotes, (6) richer interactive-map pins+filtering. Files reviewed: /Users/jezza/kamp/src/components/ and /Users/jezza/kamp/src/lib/."
+    ],
+    "examples": [
+      {
+        "name": "Marylebone Village (London)",
+        "url": "https://www.marylebonevillage.com/",
+        "takeaway": "Gold standard: fuses a clean category directory with a real editorial magazine (Marylebone Journal), curated 'best-of' round-ups, a What's On calendar, a Privilege Card loyalty scheme and a newsletter. Feels like a lifestyle destination, not a listing. This is the bar to clear."
+      },
+      {
+        "name": "De 9 Straatjes (Amsterdam)",
+        "url": "https://de9straatjes.nl/en",
+        "takeaway": "Closest Dutch peer: 250+ shops browsable by category AND by street, bilingual NL/EN, lush photography, and strong press pull-quotes (NYT, Nat Geo) for credibility. Its weak, non-interactive 'Route' map is a gap De Kamp can beat."
+      },
+      {
+        "name": "We Are Roermond (BIZ binnenstad)",
+        "url": "https://www.weareroermond.com/",
+        "takeaway": "Best Dutch BIZ town-centre template: complete shop+horeca directory with filters, a date-filterable events agenda, and a dedicated YouTube channel touring new shops. Shows how directory + agenda + video creates a 'living' feel."
+      },
+      {
+        "name": "Stadsie / Utrecht Cadeaukaart",
+        "url": "https://stadsie.nl/",
+        "takeaway": "The local-gift-card model: a card spendable only at independent local shops (no chains), 100k+ sold, millions kept local, leftover balance donatable to charity, each merchant gets a listing. Highest-leverage feature for De Kamp to copy as a 'Kamp Cadeaukaart'."
+      },
+      {
+        "name": "Downtown Boise Association (US BID)",
+        "url": "https://downtownboise.org/",
+        "takeaway": "Confirms the gift-card-as-hero pattern internationally: 'Downtown Boise Gift Cards' is the most-promoted CTA on the site, alongside an interactive DT Map & Guide, events calendar, directory and newsletter."
+      },
+      {
+        "name": "Strijp-S (Eindhoven)",
+        "url": "https://www.strijp-s.nl/en/information",
+        "takeaway": "Themed-storytelling model (Living/Working/Learning) with heavy photography and an events-led 'destination' identity (Dutch Design Week). Good template for narrative-first framing, though it weakly outsources its map to paid tours."
+      },
+      {
+        "name": "Portland Neighborhood Guide",
+        "url": "https://portlandneighborhood.com/",
+        "takeaway": "Editorial neighbourhood-guide model: profiles 'the people, places and independent businesses who define each community' - the template for owner/maker story content that doubles as SEO."
+      },
+      {
+        "name": "Mapme downtown/city guides",
+        "url": "https://mapme.com/solutions/downtown-maps/",
+        "takeaway": "Reference for a rich interactive map: pins with photos, 'picks by local experts', 360 views and audio guides. Shows the ceiling for an interactive district map that De Kamp's DistrictMap component could approach."
+      }
+    ],
+    "recommendations": [
+      {
+        "item": "Launch a 'Kamp Cadeaukaart' local gift card (redeemable only at De Kamp shops/horeca)",
+        "priority": "P0",
+        "why": "Single highest-leverage move. Modelled on Stadsie/Utrecht Cadeaukaart and Downtown Boise, it is simultaneously a loyalty mechanic, a revenue stream, a 'keep money local' brand story, and an SEO asset (every shop links back). No Dutch street-level peer of De Kamp's size offers this, so it is a clear differentiator. Add a balance checker and an optional charity-donation of leftover balance."
+      },
+      {
+        "item": "Add a date-filterable Events / Agenda section ('Wat is er te doen')",
+        "priority": "P0",
+        "why": "Table-stakes for every sophisticated competitor (Marylebone What's On, We Are Roermond agenda, Downtown Boise calendar). Fresh dated content signals 'current and authoritative' to Google and AI answer engines and is what makes a district feel alive rather than a static directory. Mark up with Event JSON-LD to win rich results."
+      },
+      {
+        "item": "Build an editorial 'Ondernemers van de Kamp' story strand - named owner/maker profiles plus curated 'best-of' round-ups",
+        "priority": "P1",
+        "why": "This is the differentiator that makes Marylebone and Portland Neighborhood Guide feel premium instead of utilitarian, and it maps directly onto De Kamp's own name/concept. Each profile is unique long-tail content (great for SEO/GEO) and gives the brand a human voice. Lean into the storytelling the flat directories lack."
+      },
+      {
+        "item": "Upgrade the existing DistrictMap into a true interactive map: pins with photos, category filtering, and an 'open now' toggle wired to the existing hours.ts/OpenBadge",
+        "priority": "P1",
+        "why": "A genuine interactive map with pins is rare even among leaders (De 9 Straatjes and most BIDs lack one). De Kamp already has DistrictMap, OpenBadge and HoursTable - combining them into a filterable, 'open now'-aware map leapfrogs the Dutch incumbents on a feature they neglect, for relatively low cost."
+      },
+      {
+        "item": "Add a newsletter signup and prominent social proof (press pull-quotes + Instagram feed)",
+        "priority": "P1",
+        "why": "Every leading site (Marylebone, We Are Roermond, Boise) runs a newsletter and surfaces credibility quotes. De 9 Straatjes leans heavily on NYT/Nat Geo pull-quotes for instant authority. A newsletter builds an owned audience; press/review quotes and a live Instagram feed add the trust signals a new site otherwise lacks."
+      },
+      {
+        "item": "Make 'Open now' a first-class, prominent feature: an 'Open nu' filter and sort, plus live status on every card",
+        "priority": "P2",
+        "why": "De Kamp already has the live-hours infrastructure (OpenBadge, HoursTable, hours.ts) and almost no competitor surfaces this well (Boise, Marylebone, De 9 Straatjes all omit it). Promoting it turns an existing build into a visible, ownable edge that is genuinely useful to visitors deciding where to go right now."
+      },
+      {
+        "item": "Add short-form video tours of shops (embed/host) in the style of We Are Roermond's YouTube channel",
+        "priority": "P2",
+        "why": "We Are Roermond's shop-tour videos are a big part of why it feels current and engaging. Video deepens dwell time, feeds social channels, and is increasingly favoured in search. A lightweight, ongoing video strand reinforces the editorial/storytelling positioning above."
+      },
+      {
+        "item": "Ship full bilingual NL/EN and tighten local-SEO/GEO schema (LocalBusiness per shop, OpeningHoursSpecification, breadcrumb, FAQ)",
+        "priority": "P2",
+        "why": "De 9 Straatjes' NL/EN toggle widens its reach to tourists; De Kamp's structure already supports this and it already has JsonLd/sitemap. Completing bilingual coverage plus rigorous per-business structured data (hours, geo, category) is what makes the site eligible for AI Overviews and 'open now near me' style answers - directly serving the goal of outranking competitors."
+      }
+    ]
+  },
+  {
+    "title": "De Kamp — Refined, Build-Ready Design System (Next.js 16 + Tailwind v4)",
+    "findings": [
+      "PALETTE AUDIT (measured against the real tokens in src/app/globals.css). The single most important fix: --amber #c9822b as TEXT on the cream/paper background is 2.93:1 — it FAILS WCAG AA for normal text, yet it is used everywhere as the link/label colour (CategoryFilter active state, category-page links, FAQ '+', 'Reviews op Google'). --amber-600 #b3701f is only 3.74:1 (AA-large only). RULE: amber is a fill/decoration colour, never a text colour on light surfaces. Introduce a dedicated --amber-ink #8a5a16 (~5.6:1 on paper) for any amber-coloured text/link/icon-with-meaning. Verified passers to keep: deep-green on paper 11.8:1, foreground on background 14.9:1, warm-brown on paper 11:1, white on deep-green 12.6:1.",
+      "SECONDARY CONTRAST GAPS. (a) White on --amber buttons = 3.13:1 — borderline, fails AA for the small-caps uppercase button labels used on the detail page CTA ('Route via Google Maps' is 12px uppercase = 'normal' weight by WCAG). Either darken button amber to --amber-600 (still 3.3:1, also short) or — recommended — make primary CTAs deep-green-on-white-text (12.6:1) and reserve amber buttons for >=18px bold only. (b) price text uses warm-brown/55 (#8a7665, 4.04:1) — bump muted text to warm-brown/70 minimum (6.2:1). (c) Closing-soon badge amber-700 on amber tint = 4.2:1 (AA-large) — fine for the bold pill text but tighten the tint one step. (d) The map's white/40-45 footer/compass labels on deep-green are decorative — acceptable, but the hover-tooltip 'category' uses amber-600 on paper (3.7:1): switch to --amber-ink.",
+      "COMPONENT INVENTORY — what already exists and is good vs. what is half-built. STRONG foundation already in place: a genuinely bespoke key-free SVG DistrictMap (src/components/DistrictMap.tsx) that plots the real curving street spine with the Kamperbinnenpoort landmark and live open-dots — this is the signature asset and is far better than a generic Google embed; a deterministic generative placeholder system (src/lib/placeholder.ts) with per-category palettes, monograms and motifs (excellent, on-brand, zero network cost); a correct Europe/Amsterdam 'open now' engine handling cross-midnight periods (src/lib/hours.ts) feeding OpenBadge with a live ping dot; a sticky filter bar with search + category chips + 'Nu open' + map toggle (src/components/BusinessExplorer.tsx). The architecture is sound — this is a refinement job, not a rebuild.",
+      "INCONSISTENCY / DEBT to resolve as part of the system. (1) TWO competing card surfaces: the dark image-overlay BusinessCard (good, premium) vs. the loop-de-kamp page's plain white rounded boxes and the category page reusing BusinessCard — unify on ONE card. (2) TWO category filters: the live CATEGORIES registry (src/lib/categories.ts, 9 cats incl. 'Keten / anker') AND a stale hardcoded list in src/components/CategoryFilter.tsx (8 cats, drifted copy) — delete CategoryFilter.tsx, it is dead/duplicate. (3) categorie/[slug]/page.tsx has its OWN hardcoded categoryMap that omits 'keten-anker' (so those businesses have no landing page) and is editorially thin (generic auto-FAQ, raw BusinessCard grid, no map, no open-now). (4) loop-de-kamp is a flat text timeline with NO map and NO open-now despite both utilities existing. (5) Navbar sticky bg is rgba(247,241,230,*) but the token background is #f6f0e2 — a near-but-not-exact mismatch; drive it from the token. (6) Sticky offsets are magic numbers: nav h-20/h-24 (80/96px) but explorer sticky uses top-[72px]/sm:top-[88px] — they don't match the nav height, so the filter bar tucks slightly under the nav. Define --nav-h and reference it.",
+      "DETAIL PAGE is the most polished surface (src/components/BusinessDetailClient.tsx): editorial pull-quote story, key-facts dl, sticky contact rail, hours table, context mini-map, owner CTA. Gaps for trustworthiness: no visible 'last verified' / source-transparency signal even though the data model carries verificationStatus + updatedAt + sourceUrls; the giant italic-serif longDescription block (text-2xl italic) is hard to read at length (italic + serif + 1.45 line-height for a full paragraph) — reserve italic serif for a 1–2 line pull-quote and set the body in upright serif or sans at a comfortable measure.",
+      "DATA MODEL IS RICH AND UNDER-USED. The Business type already carries priceRange, specialties, goodFor, keyFacts, hours, status (open/seasonal/temporarily_closed/closed/unknown), geoConfidence, hasGoogleReviews, acceptsReservations, menuUrl, verificationStatus, permissionStatus, imageStatus, updatedAt. The design system should surface these as first-class UI tokens (a 'seasonal'/'temporarily_closed' badge variant is defined in the type but OpenBadge only handles open/closing/closed/opens_later/unknown — add tonal variants), and use imageStatus/permissionStatus to drive the placeholder vs. photo decision transparently rather than silently."
+    ],
+    "recommendations": [
+      {
+        "item": "PRINCIPLES (the spine of the system). 1) Trust over flash — every gimmick must earn its place by helping a customer decide 'can I go there now, and will I like it'. 2) Editorial, not app-like — generous whitespace, a real type hierarchy, one accent. 3) The street is the hero — the district map and walking sequence are the differentiator vs. a flat directory. 4) Honest placeholders — never fake a photo or a rating; the generative cover IS the brand when a photo is missing. 5) Calm motion — motion confirms state and guides the eye; nothing loops or auto-plays in the reading path. 6) Accessible by default — AA contrast, visible focus, full keyboard + screen-reader paths, reduced-motion honoured (already wired in globals.css).",
+        "priority": "high",
+        "why": "A directory for 'discovering a street' lives or dies on trust and scannability; codifying principles prevents the next iteration from drifting back toward the 3D/cinematic gimmickry called out as a risk."
+      },
+      {
+        "item": "PALETTE REFINEMENT (exact hex, drop into :root in src/app/globals.css). Neutrals: --background #F6F0E2 (cream, keep), --paper #FBF7EF (card, keep), --paper-sunk #EFE7D6 (recessed wells/inputs), --foreground #211C17 (keep), --line #E2D8C4 (hairline borders, replaces ad-hoc stone/40). Forest: --deep-green #163A29 (keep), --deep-green-600 #1F4D38 (keep), --deep-green-700 #0F2A1D (map/footer depth). Amber family split by ROLE: --amber #C9822B (FILL ONLY — buttons-with-large-text, dots, motifs), --amber-600 #B3701F (hover fill), --amber-ink #8A5A16 (TEXT/links/meaningful icons on light — ~5.6:1, AA pass), --gold #D9A86A (decorative only). Accents: --clay #A8512E (terracotta, darkened from #b5603e for AA), --warm-brown #4A3326 (keep). Status: --open #047857 / --open-bg #E1EFE8, --soon #B45309 / --soon-bg #FBEAD6, --muted-ink #6E5949 (min text grey, 6.2:1). Sage/stone retained for surfaces only, never for text.",
+        "priority": "high",
+        "why": "Splitting amber into fill vs. ink is the one change that fixes the only real accessibility failure (amber text at 2.93:1) without losing the warm look. Naming colours by role stops the recurring 'amber as text' mistake."
+      },
+      {
+        "item": "TYPE SCALE (Playfair Display display, Inter UI/body — already loaded). Display/H1 detail: clamp(2.5rem,6vw,4.75rem)/0.95/-0.02em Playfair 800. H1 page: clamp(2.25rem,4.5vw,3.5rem). H2: 1.875–2.25rem. H3 card title: 1.5rem/0.95. Eyebrow/section-label: 0.6875rem (11px) Inter 800 uppercase, tracking 0.28em, colour --amber-ink. Body-lead: 1.25rem/1.5 Inter 500. Body: 1rem/1.6 Inter 400, max measure 66ch. Meta/caption: 0.8125rem (13px). Micro-chip: 0.6875rem MIN (retire the 9–10px black-uppercase labels on cards — too small to read, fails legibility even if contrast passes). RULE: italic Playfair only for 1–2 line pull-quotes, never for body paragraphs (fixes the long italic longDescription block).",
+        "priority": "high",
+        "why": "There are at least four different 'tiny black uppercase' label sizes (9px/10px/11px/13px) doing the same job across cards, badges and labels. One eyebrow token plus a real body scale restores hierarchy and readability — the core of looking 'sophisticated' rather than busy."
+      },
+      {
+        "item": "SIGNATURE COMPONENT — Sticky filter bar (refine src/components/BusinessExplorer.tsx). Keep the structure; fixes: (a) drive the sticky top from a --nav-h CSS var so the bar pins flush under the navbar (currently 72/88 vs nav 80/96). (b) 'Nu open' becomes the FIRST, most prominent control with a live count ('14 nu open') and the green ping dot — it is the highest-intent filter. (c) Make filter state URL-synced (?cat=&open=1&q=) so results are shareable/bookmarkable and back-button works. (d) Category chips: show count per chip, mark the active one with aria-pressed and a check, and ensure the horizontal scroll has a fade-mask affordance on mobile. (e) Add a 'sort' affordance (Aanbevolen / A–Z / Nu open eerst). (f) Result count gets aria-live='polite' so screen readers hear '14 ondernemers' after filtering.",
+        "priority": "high",
+        "why": "The bar already exists and works; these turn it from a control strip into a trustworthy, shareable, screen-reader-friendly discovery tool — and 'open now' is exactly what a customer on the street needs first."
+      },
+      {
+        "item": "SIGNATURE COMPONENT — District map (elevate src/components/DistrictMap.tsx into the centrepiece). It is already bespoke and on-brand — invest here rather than swapping to Google tiles. Adds: (a) two-way hover/focus sync with the card grid (hovering a pin lifts its card and vice-versa) via a shared hovered-id. (b) pin colour by category (already) + a small fixed legend; open pins keep the emerald dot. (c) tap target >=44px on mobile (current pins are 13–18px — wrap each Link in an invisible 44px hit-area). (d) a 'You are here / Kamperbinnenpoort' anchor and N compass for orientation. (e) respect prefers-reduced-motion on the pin scale. (f) the detail-page mini-map should re-use the SAME component with a single highlight (already does) but add the walking-distance ('± X min vanaf de poort'). Keep it as a real <Link> graph (SSR-friendly, keyboard-navigable) — do not convert to canvas.",
+        "priority": "high",
+        "why": "This is the product's true differentiator and the thing that says 'a real curated street, not a CSV'. It is 80% built; the remaining 20% (grid sync, tap targets, legend, orientation) is what makes it feel premium and usable on a phone in-situ."
+      },
+      {
+        "item": "SIGNATURE COMPONENT — Business card (consolidate to ONE, refine src/components/BusinessCard.tsx). Keep the dark-overlay editorial look. At-a-glance trio the customer needs: category (eyebrow), OPEN-NOW state, and price — promote all three so they're scannable without hover. Fixes: (a) the meta row (OpenBadge + price) currently sits BELOW the image in faint text — move an open-now dot onto the image and keep the badge in the always-visible meta strip; ensure price uses --muted-ink not /55. (b) raise the tiny 9px category chip to the 11px eyebrow token. (c) the hover arrow-button and -translate-y lift are good — gate them behind a group, and ensure the whole card is one focusable link (it is) with a visible focus ring (it has one — keep). (d) show a subtle 'Tijdelijk gesloten'/'Seizoen' ribbon when status !== open, using the new badge variants. (e) when no photo, the generative cover already renders — add a 1px inner ring so it reads as intentional art, not a missing image.",
+        "priority": "high",
+        "why": "Two card styles (overlay card vs. the loop page's white boxes) make the site feel unfinished. One card that surfaces category + open + price at a glance is the single highest-leverage scannability win and directly serves 'customers discovering the street'."
+      },
+      {
+        "item": "SIGNATURE COMPONENT — Detail page (polish src/components/BusinessDetailClient.tsx). Keep the layout. Add a TRUST STRIP under the H1: 'Geverifieerd via openbare bronnen · bijgewerkt 14 jun 2026' driven by verificationStatus + updatedAt, with a subtle info popover linking sourceUrls — this is what makes the listing feel real and non-spammy. Fix the readability of the story (upright serif or Inter body at 66ch, italic only for a 1–2 line lead quote). Surface acceptsReservations -> a 'Reserveer' button and menuUrl -> 'Bekijk menukaart' when present. Order the sticky rail: Open-now + hours FIRST (highest intent), then Route, then contact, then mini-map. Never invent a star rating — keep the honest 'Reviews op Google' outbound link (good as-is, just recolour to --amber-ink).",
+        "priority": "medium",
+        "why": "The detail page already converts; adding visible provenance and the reservation/menu actions closes the trust loop and the booking loop without fabricating data — exactly the 'trustworthy' bar set by the brief."
+      },
+      {
+        "item": "SIGNATURE COMPONENT — Category landing (rebuild src/app/categorie/[slug]/page.tsx using the CATEGORIES registry). Delete the local categoryMap (it omits keten-anker) and import from src/lib/categories.ts so all 9 categories get a page. Give each landing: a category hero using the registry blurb + icon, a filtered DistrictMap (only this category's pins lit), the unified BusinessExplorer/grid with open-now, and a genuinely category-specific intro instead of the templated auto-FAQ. Also delete the dead src/components/CategoryFilter.tsx (duplicate, drifted).",
+        "priority": "medium",
+        "why": "Right now a whole category ('Keten / anker') silently has no landing page and the existing pages are editorially thin. Sourcing from the single registry removes drift and makes every category a credible SEO + UX entry point."
+      },
+      {
+        "item": "SIGNATURE COMPONENT — 'Loop de Kamp' route (rebuild src/app/loop-de-kamp/page.tsx as a true guided walk). Pair the existing numbered timeline with the DistrictMap so each stop highlights its pin as you scroll (scroll-spy + map sync). Show per-stop: open-now state, price, walk-time from the previous stop, and a thumbnail (photo or generative cover). Offer themed loops ('Koffie & makers', 'Avondje eten') by filtering the same data. Add a single 'Open route in Google/Apple Maps' deep-link that stitches the stops. Keep the elegant timeline rail, but it must carry the same at-a-glance trio as the cards.",
+        "priority": "medium",
+        "why": "The route is a named nav item and a strong narrative hook, but today it's a plain text list with no map and no open-now despite both utilities existing — connecting them turns it into the memorable 'experience' surface the brief asks for."
+      },
+      {
+        "item": "PLACEHOLDER SYSTEM (formalise the already-excellent src/lib/placeholder.ts as policy). Make it an intentional 3-tier image policy keyed off imageStatus/permissionStatus: (1) owner_approved/local photo -> show it; (2) no photo -> deterministic generative cover (monogram + per-category palette + motif) WITH a tiny 'Foto volgt' / owner-invite affordance so it reads as deliberate, not broken; (3) never hot-link scraped imageCandidateUrl into the live grid (BusinessImage already correctly ignores non-local URLs — keep that rule, it is a real trust/legal safeguard). Add a faint inner border + paper grain to covers so they sit as editorial tiles. Document that the generative cover is a brand feature, not a fallback of last resort.",
+        "priority": "medium",
+        "why": "The generative placeholder is genuinely sophisticated and is what lets a half-populated directory still look intentional and premium — promoting it to documented policy (and keeping the no-hotlink rule) protects both the aesthetic and the site's trustworthiness/legal posture."
+      },
+      {
+        "item": "MICRO-INTERACTIONS (aid, never distract — durations/easing as tokens). Standardise: 150ms for hover/focus state, 300–400ms for layout/enter, easing cubic-bezier(0.22,1,0.36,1) (already used in .reveal). Keep: card lift+shadow on hover, the open-now ping dot, map pin scale, AnimatePresence on the grid. Add: card<->map hover sync, chip press feedback, smooth scroll-spy on the route. REMOVE/RESTRAIN: anything that animates on a loop in the reading path, parallax/3D tilt on cards, and auto-playing motion — these read as gimmicky. Gate every transform behind prefers-reduced-motion (globals.css already nukes durations under reduced-motion — keep and rely on it). Skeletons over spinners for any async.",
+        "priority": "medium",
+        "why": "The recent commit history ('3D effects', 'cinematic', 'immersive splash') is exactly the gimmickry the brief warns against; codifying a small, purposeful motion vocabulary keeps the polish while removing the distraction."
+      },
+      {
+        "item": "WCAG-AA, FOCUS & MOBILE-FIRST (make the existing good bones compliant). Contrast: apply the amber-ink split (above); raise all muted text to >=--muted-ink; raise micro-labels to >=11px. Focus: the :focus-visible amber ring in globals.css is good — but amber on dark surfaces (deep-green contact card) needs a light ring; add a focus-ring token that flips to cream on dark. Targets: all interactive elements >=44x44px (map pins and the tiny card 'X'/clear buttons currently fall short). Semantics: aria-live on result count, aria-pressed on toggles/chips (partly done), aria-current on the active nav link, and a 'Skip to results' link. Mobile: filter bar collapses to a search + a single 'Filters (n)' sheet button under ~480px; bottom-sticky 'Route'/'Bel' on the detail page; map height capped and pannable; 16px min input font to stop iOS zoom; honour safe-area insets.",
+        "priority": "high",
+        "why": "These are concrete, mostly small diffs against code that's already 80% accessible — they move it from 'looks accessible' to 'is AA', which is non-negotiable for a public, trust-first local guide and most of the work targeted at customers will happen on a phone."
+      },
+      {
+        "item": "TOP PITFALLS TO AVOID (guardrails). 1) Amber as body/link text on light — the one measured AA failure; fix first. 2) Fabricating ratings/photos — always link out to Google reviews; never hot-link scraped images. 3) Two of everything — kill duplicate CategoryFilter and the hardcoded category map; one card, one filter source, one map component. 4) Sticky-offset drift — derive from --nav-h, not magic numbers. 5) Tiny text/targets — no <11px labels, no <44px tap targets. 6) Gimmick motion — no 3D tilt, parallax, or looping animation in the reading path. 7) Decorative-only map — if the map doesn't sync with the grid/route it's just wallpaper; make it interactive or cut it. 8) Hydration mismatches on 'open now' — keep the client-after-mount pattern already used in OpenBadge/DistrictMap (don't compute 'now' on the server). 9) Over-truncating descriptions — keep a readable measure, don't clamp the story to two lines on the detail page.",
+        "priority": "high",
+        "why": "These are the specific, observed failure modes in THIS codebase (not generic advice) — each maps to a concrete file, so they double as the regression checklist for the redesign."
+      }
+    ],
+    "examples": [
+      {
+        "name": "src/app/globals.css",
+        "takeaway": "Token home — add the role-split amber (--amber fill vs --amber-ink text), --nav-h, --line, status colours and motion-duration tokens here; the @theme inline block already maps tokens to Tailwind utilities, and reduced-motion is already handled."
+      },
+      {
+        "name": "src/lib/placeholder.ts",
+        "takeaway": "The standout asset: deterministic per-category generative covers (monogram + motif + palette). Promote to documented 3-tier image policy; it is what keeps a half-populated directory looking intentional."
+      },
+      {
+        "name": "src/components/DistrictMap.tsx",
+        "takeaway": "Bespoke key-free SVG map of the real curving street with live open-dots — the signature differentiator. Needs grid<->map hover sync, 44px tap targets, a legend and orientation anchor; keep it as SSR <Link> graph, don't swap for Google tiles."
+      },
+      {
+        "name": "src/lib/hours.ts",
+        "takeaway": "Correct Europe/Amsterdam 'open now' engine (handles cross-midnight). Add tonal handling for the seasonal/temporarily_closed statuses the data model already defines; keep client-after-mount usage to avoid hydration mismatch."
+      },
+      {
+        "name": "src/components/BusinessCard.tsx",
+        "takeaway": "The card to standardise on. Surface category + open-now + price at a glance (currently price/badge sit faint below the image); raise 9px labels to the 11px eyebrow token; add status ribbons."
+      },
+      {
+        "name": "src/components/CategoryFilter.tsx",
+        "takeaway": "Dead/duplicate filter with a drifted hardcoded category list — delete it; the live source of truth is src/lib/categories.ts (CATEGORIES registry)."
+      },
+      {
+        "name": "src/app/categorie/[slug]/page.tsx",
+        "takeaway": "Has its own categoryMap that omits 'keten-anker' (no landing page for those businesses) and a templated FAQ. Rebuild off the CATEGORIES registry with a category hero, filtered map and open-now grid."
+      },
+      {
+        "name": "src/app/loop-de-kamp/page.tsx",
+        "takeaway": "Flat text timeline with no map and no open-now despite both utilities existing. Rebuild as a scroll-synced guided walk with per-stop open/price/walk-time and a Maps deep-link."
+      },
+      {
+        "name": "src/components/BusinessDetailClient.tsx",
+        "takeaway": "Most polished surface. Add a 'verified via public sources · updated <date>' trust strip (data model has verificationStatus + updatedAt + sourceUrls), surface reservations/menu, and fix the long italic-serif story block's readability."
+      }
+    ]
+  },
+  {
+    "title": "Best-in-class per-business listing spec for the De Kamp directory (~75 businesses)",
+    "findings": [
+      "The codebase already has a mature data model (src/data/businesses.ts, lines 77-143) and a strong detail UI (src/components/BusinessDetailClient.tsx). Existing fields cover: identity, address + streetSegment, structured hours (DayHours[]), priceRange, specialties, goodFor, keyFacts, publicPersonName/Role, longDescription story, lat/lng with walk-minutes from the Kamperbinnenpoort (geo.ts walkMinutesFromGate), acceptsReservations, menuUrl, googleMapsUrl, hasGoogleReviews, gallery[], imageCandidateUrl, servesCuisine, schemaType, and updatedAt. This is well ahead of a typical directory.",
+      "Data-completeness audit of research/enriched.json (49 records) shows the real gap is not the schema but FILL RATE and a few missing dimensions: priceRange present on 57%, instagramUrl 53%, structured hours frequently absent, gallery effectively empty (placeholder/Unsplash cover only), while specialties/keyFacts/lat/googleMapsUrl/hasGoogleReviews are 100%. So 'open now' and price level silently degrade for ~40% of listings.",
+      "Reviews/ratings are deliberately NOT stored as numbers — the model only carries hasGoogleReviews + googleMapsUrl and links out, never fabricating a star rating (businesses.ts line 131). This is the correct trust posture for a curated directory that cannot legally re-publish Google's aggregateRating, but it means the listing currently shows NO on-page social proof beyond a 'Reviews op Google' link.",
+      "Entirely ABSENT dimensions (no field anywhere in the type, no UI): payment methods (pinnen/contant/creditcard), accessibility (rolstoeltoegankelijk, drempel, toilet), spoken languages, sustainability/local-sourcing signals, and any structured primary action beyond phone/email/website/maps (no reserve/order/appointment button wired to a real URL despite acceptsReservations existing as a boolean).",
+      "The claim-your-listing flow exists (src/app/aanmelden/page.tsx) but is a generic, non-functional form (action='#'): it is not reachable as a per-listing 'Is dit jouw zaak? Claimen' deep link with the business pre-filled, has no verification step, and asks owners to email photos manually rather than upload. The detail page does have a per-business 'Beheer deze zaak' CTA (BusinessDetailClient.tsx line 233-244) but it just routes to the same blank form.",
+      "'Open now' logic is centralized (lib/hours.ts + OpenBadge), and walking distance from the Kamperbinnenpoort is computed live from coordinates (geo.ts), so the two highest-value 'at a glance' signals are architecturally solid — they just need data coverage and should also surface 'closes at HH:MM' / 'opens HH:MM' rather than a binary open/closed.",
+      "Related/nearby businesses (lib/related.ts) and a key-free SVG district map (DistrictMap) already exist, so 'related/nearby' is largely solved; the opportunity is to make nearby contextual (same street segment / within N min walk) rather than only same-category."
+    ],
+    "recommendations": [
+      {
+        "item": "Name + category + subcategory + one-line description (existing: name, category, subcategory, shortDescription). UI: H1 + category pill + lede paragraph already shipped (BusinessDetailClient lines 41-52). Keep.",
+        "priority": "must-have",
+        "why": "Identity and scannability; already implemented and complete across the dataset."
+      },
+      {
+        "item": "'Open now' + today's hours with closing time. Data: hours: DayHours[] + status + hoursNote (exist). UI: OpenBadge + HoursTable (exist) but upgrade the badge from binary to 'Nu open · sluit 18:00' / 'Gesloten · opent morgen 10:00'. Action: backfill hours so coverage goes from ~partial to ~100%.",
+        "priority": "must-have",
+        "why": "The single most-used signal in a local directory; logic is built (lib/hours.ts) but data coverage and a dynamic closing-time label are the gap."
+      },
+      {
+        "item": "Address + walking distance from the Kamperbinnenpoort + map pin + one-tap directions. Data: address, lat/lng, geoConfidence (exist). UI: walk-minutes line + 'Route via Google Maps' button + DistrictMap (all exist, lines 159-178, 204-207). Keep; optionally add metres and a 'vanaf station' time.",
+        "priority": "must-have",
+        "why": "Place-anchored discovery is the directory's reason to exist; fully built and the gate-distance is a genuine local differentiator."
+      },
+      {
+        "item": "Primary action button wired to a real destination, chosen by business type: Reserveren (restaurants), Bestellen/Menukaart (food), Afspraak maken (beauty/services/tailor), or Bekijk website (retail). Data: NEW reservationUrl/orderUrl/appointmentUrl (currently only acceptsReservations:boolean + menuUrl exist, under-used). UI: a single prominent CTA in the right rail above phone/website.",
+        "priority": "must-have",
+        "why": "Listings should convert intent to action; today the only real actions are call/email/maps, and acceptsReservations is a dead boolean with no link. The data showed e.g. Misura books via afspraak.misurasartoria.nl — that URL belongs in a button."
+      },
+      {
+        "item": "Contact block: phone (tap-to-call), email, website, Instagram. Data: phone/email/websiteUrl/instagramUrl (exist). UI: right-rail rows + icon buttons (lines 156-191). Keep; raise instagramUrl/phone fill rate (currently ~53% IG).",
+        "priority": "must-have",
+        "why": "Baseline contactability; built, but ~half of records lack social/contact links so it needs a backfill + claim-flow capture, not new UI."
+      },
+      {
+        "item": "Price level. Data: priceRange (exists, 57% filled) — standardise to €/€€/€€€ tier PLUS optional concrete range. UI: price pill in the header (line 44, exists). Action: fill the missing 43% and split 'tier' from 'example price'.",
+        "priority": "must-have",
+        "why": "Sets expectation and enables future filtering; field and UI exist but it's free-text and half-empty, so it can't yet drive a filter."
+      },
+      {
+        "item": "Trust signals without fabricating ratings: 'Reviews op Google' link (exists) PLUS a 'Sinds {year}' / years-in-business badge, 'Geverifieerd' badge tied to verificationStatus, and optionally 1-2 owner-approved verbatim quotes. Data: keyFacts already carry 'Sinds', verificationStatus exists; NEW optional reviewQuote[]. UI: small badge row near the H1.",
+        "priority": "must-have",
+        "why": "The deliberate no-fabricated-stars policy is correct, but the page currently shows almost no on-page social proof; longevity + verified status are honest, ownable trust signals already in the data."
+      },
+      {
+        "item": "Owner face + story. Data: publicPersonName/Role + longDescription (exist); ADD ownerPhotoUrl and an optional pull-quote. UI: 'Het gezicht' card (lines 117-130) currently shows only an initial in a circle — wire in a real headshot via the claim flow.",
+        "priority": "must-have",
+        "why": "Human story is the editorial differentiator vs Google; the slot is built but starved of the actual photo, which only the claim flow can supply."
+      },
+      {
+        "item": "Photos / gallery (3-8 images: gevel, interior, product, owner). Data: gallery[] + imageCandidateUrl/imageCandidateSource (exist, gallery ~empty). UI: NEW gallery grid/lightbox on the detail page (today only a single cover renders, line 59). Source via claim flow with owner consent.",
+        "priority": "must-have",
+        "why": "Visual richness drives engagement and is the most-felt gap (cover images are placeholder/Unsplash); schema is ready, content and a gallery component are missing."
+      },
+      {
+        "item": "'Goed voor' / amenity tags: vegan, terras, kindvriendelijk, glutenvrij, hond welkom, afhalen, etc. Data: goodFor[] + specialties[] (exist, 100% specialties). UI: 'Goed voor' checklist + 'Specialiteiten' chips (lines 76-101). Keep; standardise the tag vocabulary so it can power homepage filters.",
+        "priority": "must-have",
+        "why": "Drives intent-based discovery and filtering; implemented, but tags are free-text per record so they need a controlled vocabulary to be filterable."
+      },
+      {
+        "item": "Payment methods (Pinnen / Contant / Creditcard / Tikkie). Data: NEW paymentMethods: string[]. UI: small icon row in 'Goed om te weten'. Note 'Pinnen' may double as a goodFor tag but deserves its own structured field for filtering.",
+        "priority": "nice-to-have",
+        "why": "Genuinely useful in NL (cash-free shops are common) but lower-frequency than hours/price/actions; entirely absent today."
+      },
+      {
+        "item": "Accessibility: rolstoeltoegankelijk, drempelvrij, toilet aanwezig, hond toegestaan. Data: NEW accessibility: string[] or structured booleans. UI: accessibility line in 'Goed om te weten' + a filter facet. Map to schema.org isAccessibleForFree/areas where possible.",
+        "priority": "nice-to-have",
+        "why": "High value for the users who need it and a credibility/inclusivity signal, but data is hard to source reliably and is fully missing today — best captured via the claim flow."
+      },
+      {
+        "item": "Spoken languages. Data: NEW languages: string[] (default ['Nederlands']). UI: a small 'Talen' line. Populate only when non-obvious (e.g. English/Italian at the tailor).",
+        "priority": "nice-to-have",
+        "why": "Helps tourists/expats in a tourist-adjacent historic centre, but default-Dutch makes it low-signal for most listings."
+      },
+      {
+        "item": "Sustainability / local-sourcing. Data: NEW sustainability: string[] (e.g. 'tweedehands', 'lokaal gemaakt', 'reststromen'). UI: a 'Duurzaam' chip. Several records already mention 'duurzaam'/'reststromen' in prose (FLUPS) — promote to a tag.",
+        "priority": "nice-to-have",
+        "why": "On-brand for a local-makers directory and already latent in descriptions, but only relevant to a subset of businesses."
+      },
+      {
+        "item": "Popular dishes / signature products. Data: specialties[] already carries this; ADD optional structured popularItems with name + optional price for food. UI: a short 'Populair' list under the story. Link menuUrl when present.",
+        "priority": "nice-to-have",
+        "why": "Strong for cafes/restaurants and partly covered by specialties; full structured menu items are higher-effort and only matter for the food subset."
+      },
+      {
+        "item": "Related / nearby businesses, made spatial. Data: lat/lng + streetSegment + lib/related.ts (exist). UI: 'In de buurt' cards (lines 213-230) — switch from same-category to nearest-by-walk and same-street-segment, reusing walkMinutesFromGate / distanceMeters.",
+        "priority": "nice-to-have",
+        "why": "Cross-discovery already ships; making it geographic (vs categorical) better fits a one-street directory and reuses existing geo helpers."
+      },
+      {
+        "item": "Claim-your-listing flow, per-business and verified. Data: verificationStatus/permissionStatus + 'Beheer deze zaak' CTA (exist). UI: change the CTA to a deep link /aanmelden?bedrijf={id} that pre-fills the form (src/app/aanmelden/page.tsx is currently a blank, non-submitting form), add a verification step (email/phone match or KvK), and allow direct photo/hours upload instead of 'email us'.",
+        "priority": "must-have",
+        "why": "This is the engine that fills every gap above (photos, owner face, hours, payment, accessibility, real action URLs). Today the CTA exists but lands on a generic, non-functional, non-prefilled form (action='#'), so the data flywheel is broken."
+      },
+      {
+        "item": "Freshness signal. Data: updatedAt (exists, sparsely filled). UI: a quiet 'Bijgewerkt {maand jaar}' line + a 'Gegevens kloppen niet? Meld het' link near hours/contact.",
+        "priority": "nice-to-have",
+        "why": "Builds trust and crowdsources corrections cheaply; field exists but is unused in the UI and rarely populated."
+      }
+    ],
+    "examples": [
+      {
+        "name": "Existing Business type (src/data/businesses.ts lines 77-143)",
+        "takeaway": "Already defines hours, priceRange, specialties, goodFor, keyFacts, gallery, acceptsReservations, menuUrl, googleMapsUrl, hasGoogleReviews, schemaType, updatedAt — the schema is strong; the work is fill rate + ~5 new fields (paymentMethods, accessibility, languages, sustainability, reservation/order/appointment URLs)."
+      },
+      {
+        "name": "BusinessDetailClient.tsx (the current listing UI)",
+        "takeaway": "Header with open badge + price pill (l.41-52), single cover image (l.59, no gallery), story/specialties/goodFor/keyFacts/owner-face/FAQ on the left, sticky contact + hours + map rail on the right (l.153-207), nearby cards (l.213-230), and a per-business claim CTA (l.233-244). The slots for owner photo and gallery exist but are starved of data."
+      },
+      {
+        "name": "lib/geo.ts walkMinutesFromGate + DistrictMap",
+        "takeaway": "Live walking-distance-from-the-Kamperbinnenpoort and a key-free on-brand SVG map are already implemented — a strong place-anchored differentiator that most directories lack."
+      },
+      {
+        "name": "src/app/aanmelden/page.tsx (claim flow)",
+        "takeaway": "A generic, non-submitting form (action='#') that asks owners to email photos manually and is not per-business pre-filled — the weakest link, and the one fix that unlocks photos, owner faces, hours, and real action URLs across all ~75 listings."
+      },
+      {
+        "name": "research/enriched.json field audit (49 records)",
+        "takeaway": "priceRange 57%, instagramUrl 53%, structured hours partial, gallery ~0%, while specialties/keyFacts/lat/googleMapsUrl/hasGoogleReviews are 100% — proving the bottleneck is content fill rate and the claim flow, not the data model."
+      }
+    ]
+  }
+]

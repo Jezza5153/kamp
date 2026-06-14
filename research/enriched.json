@@ -1,0 +1,5327 @@
+[
+  {
+    "id": "de-tafelaar",
+    "name": "De Tafelaar",
+    "status": "open",
+    "lat": 52.157376,
+    "lng": 5.393383,
+    "geoConfidence": "medium",
+    "googleMapsUrl": "https://maps.google.com/?q=De+Tafelaar+Kamp+8+Amersfoort",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/people/Tafelaar-Amersfoort",
+    "instagramUrl": "https://instagram.com/tafelaaramersfoort",
+    "ogImageUrl": "https://tafelaaramersfoort.nl/pics/homepage.png",
+    "imageSource": "tafelaaramersfoort.nl",
+    "imageLicenseNote": "Business's own promo image (og:image from official website) — most defensible source, but confirm owner permission before publishing.",
+    "priceRange": "€€",
+    "refinedShortNL": "Sfeervol shared-dining restaurant op de Kamp: kleine seizoensgerechten van lokale makers, borrel en diner. 4.8 op Google, 5 min van de Flint.",
+    "refinedLongNL": "De Tafelaar is een shared-dining restaurant aan Kamp 8 in het centrum van Amersfoort, op vijf minuten lopen van Theater de Flint. Je deelt er kleine, seizoensgebonden gerechten gemaakt met producten van lokale makers, van een uitgebreide borrel tot een compleet diner. Geopend van woensdag t/m zondag, met op vrijdag en zaterdag al vanaf 15:00 een borrelmoment; reserveren kan online of telefonisch, en er is een Chef's Choice arrangement vanaf 7 personen.",
+    "specialties": [
+      "Shared dining",
+      "Lokale seizoensproducten",
+      "Borrelplanken",
+      "Diner",
+      "Weekendlunch",
+      "Chef's Choice arrangement"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 8, 3811 AR Amersfoort"
+      },
+      {
+        "label": "Keuken",
+        "value": "Shared dining / seizoensgebonden"
+      },
+      {
+        "label": "Geopend sinds",
+        "value": "November 2025"
+      },
+      {
+        "label": "Prijsklasse",
+        "value": "€€"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "4.8 (110 reviews)"
+      },
+      {
+        "label": "Telefoon",
+        "value": "+31 6 341 279 32"
+      },
+      {
+        "label": "Reserveren",
+        "value": "Online of telefonisch"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "17:00 - 23:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "17:00 - 23:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "15:00 - 00:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "11:00 - 00:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "11:00 - 15:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "17:00",
+        "closes": "23:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "17:00",
+        "closes": "23:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "15:00",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "11:00",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "openingNote": "Geopend woensdag t/m zondag; maandag en dinsdag gesloten. Op vrijdag opent men om 15:00 en op zaterdag om 11:00 voor borrel/lunch. Tijden uit de officiële openingHoursSpecification (JSON-LD) op tafelaaramersfoort.nl.",
+    "confidence": "high",
+    "sources": [
+      "https://www.tafelaaramersfoort.nl (officiële website, JSON-LD Restaurant schema: adres, geo, openingstijden, telefoon, priceRange, socials, og:image)",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2106189786/de-tafelaar (referentie directory, geo 52.157376/5.393383)",
+      "WebSearch: De Tafelaar Amersfoort openingstijden",
+      "WebSearch: De Tafelaar Amersfoort Google reviews (4.8 rating bevestigd)"
+    ]
+  },
+  {
+    "id": "bkk-thai",
+    "name": "BKK Thai Fun Dining",
+    "status": "open",
+    "lat": 52.15743,
+    "lng": 5.3934785,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/place/Bkk+Thai+Fun+Dining/@52.15743,5.3934785,17z/data=!4m5!3m4!1s0x47c647c0291994bd:0xecd13d24bf931447!8m2!3d52.15743!4d5.3934785",
+    "hasGoogleReviews": true,
+    "instagramUrl": "https://www.instagram.com/bkkthaifundining/",
+    "facebookUrl": "https://www.facebook.com/p/Bkk-Thai-Fun-Dining-100086461358221/",
+    "ogImageUrl": "https://www.bkkthaifundining.nl/images/bkk-share-image.png?v3",
+    "imageSource": "bkkthaifundining.nl",
+    "imageLicenseNote": "Business's own og:share image (bkk-share-image.png, HTTP 200, 57KB) — most defensible source, but confirm owner permission before publishing.",
+    "priceRange": "",
+    "refinedShortNL": "Authentieke Thaise keuken als 'fun dining' in het historische pand D'Gekroonde Bye-Korf aan de Kamp, met live DJ op vrijdag en zaterdag.",
+    "refinedLongNL": "BKK Thai Fun Dining serveert authentieke Thaise gerechten, bereid door Thaise chefs met uitsluitend verse, natuurlijke ingrediënten, in het sfeervolle historische pand D'Gekroonde Bye-Korf aan de Kamp in Amersfoort. Naast een veelzijdige menukaart zijn er huisgemaakte cocktails en internationale topwijnen, en op vrijdag en zaterdag draait een live DJ. Het restaurant is zeven dagen per week geopend vanaf 16:30 uur en wordt door gasten gewaardeerd met een 4,4 op Google.",
+    "specialties": [
+      "Authentieke Thaise keuken",
+      "Fun dining concept",
+      "Live DJ (vr & za)",
+      "Huisgemaakte cocktails",
+      "Internationale wijnen",
+      "Historisch pand"
+    ],
+    "keyFacts": [
+      {
+        "label": "Keuken",
+        "value": "Thais"
+      },
+      {
+        "label": "Concept",
+        "value": "Fun dining"
+      },
+      {
+        "label": "Pand",
+        "value": "D'Gekroonde Bye-Korf"
+      },
+      {
+        "label": "Telefoon",
+        "value": "085 876 91 08"
+      },
+      {
+        "label": "E-mail",
+        "value": "reserveringen@bkk-thai.nl"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 10, 3811 AR Amersfoort"
+      },
+      {
+        "label": "Google-rating",
+        "value": "4,4"
+      },
+      {
+        "label": "Live muziek",
+        "value": "Vrijdag & zaterdag"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "16:30 - 23:00"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "16:30 - 23:00"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "16:30 - 23:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "16:30 - 00:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "16:30 - 00:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "16:30 - 00:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "16:30 - 23:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "16:30",
+        "closes": "23:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "16:30",
+        "closes": "23:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "16:30",
+        "closes": "23:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "16:30",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "16:30",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "16:30",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "16:30",
+        "closes": "23:00"
+      }
+    ],
+    "openingNote": "Openingstijden uit het 'opening-times'-blok van de officiële site (keuken 7/7 tot 22:00). Een pop-up op dezelfde site vermeldt afwijkend \"Open Monday till Sunday: 17.00-00.00\"; de gestructureerde lijst is hier aangehouden. Bevestig actuele tijden via Google.",
+    "sources": [
+      "https://www.bkkthaifundining.nl/",
+      "https://goo.gl/maps/pt3Hy9KNAevyt62i8 (resolved to Google Maps place, coords 52.15743,5.3934785)",
+      "https://restaurantguru.com/Bkk-Thai-Fun-Dining-Amersfoort",
+      "https://wanderlog.com/place/details/10624738/bkk-thai-fun-dining",
+      "https://www.facebook.com/p/Bkk-Thai-Fun-Dining-100086461358221/",
+      "https://www.instagram.com/bkkthaifundining/"
+    ]
+  },
+  {
+    "id": "keizerin",
+    "name": "Keizerin",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157321,
+    "lng": 5.393191,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Keizerin+Kamp+4+Amersfoort",
+    "hasGoogleReviews": true,
+    "instagramUrl": "https://www.instagram.com/keizerinamersfoort/",
+    "facebookUrl": "https://www.facebook.com/keizerin.amersfoort/",
+    "priceRange": "",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09116_4202787316.jpg",
+    "imageSource": "assets.plaece.nl",
+    "imageLicenseNote": "Business's own promo photo, served via the Tijd voor Amersfoort directory CDN (plaece.nl / og:image). Most defensible image for this listing, but confirm owner permission before publishing.",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m zaterdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:30"
+      }
+    ],
+    "openingNote": "Maandag en zondag gesloten; dinsdag t/m zaterdag 10:00-17:30. Eén webbron noemt ook openstelling op de laatste zondag van de maand (13:00-17:00) - niet bevestigd in de officiele bronnen, dus voor publicatie verifieren.",
+    "refinedShortNL": "Sfeervolle damesmodeboetiek aan de Kamp met unieke merken, persoonlijk advies en een shop-in-shop van het Amsterdamse label King Louie.",
+    "refinedLongNL": "Keizerin is een kleurrijke damesmodeboetiek in de historische Kampstraat in Amersfoort, waar unieke mode en persoonlijk advies centraal staan. De winkel hangt vol bijzondere merken en heeft sinds kort een 'shop in shop' van het Amsterdamse label King Louie. Geopend van dinsdag tot en met zaterdag van 10:00 tot 17:30 uur.",
+    "specialties": [
+      "Damesmode",
+      "Unieke merken",
+      "King Louie shop-in-shop",
+      "Persoonlijk advies",
+      "Boutique"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Damesmodeboetiek"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 4, 3811 AR Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 752 16 30"
+      },
+      {
+        "label": "Merken",
+        "value": "o.a. King Louie (shop-in-shop)"
+      },
+      {
+        "label": "Wijk",
+        "value": "De Kamp"
+      }
+    ],
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2108216659/keizerin",
+      "https://keizerin.business.site (officiele website - geeft HTTP 404, lijkt niet meer actief)",
+      "https://www.cylex.nl/bedrijf/keizerin-amersfoort-13066931.html",
+      "https://firmania.nl/amersfoort/keizerin-amersfoort-498580",
+      "https://www.facebook.com/keizerin.amersfoort/",
+      "https://www.instagram.com/keizerinamersfoort/"
+    ]
+  },
+  {
+    "id": "toko-tjin",
+    "name": "Toko Tjin",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157301,
+    "lng": 5.393107,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Toko%20Tjin%2C%20Kamp%202%2C%203811%20AR%20Amersfoort",
+    "hasGoogleReviews": true,
+    "priceRange": "€€",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc00553_326045762.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Business's own promo photo, served from the plaece.nl CDN that powers the official tijdvooramersfoort.nl listing (filenames dsc00553 / toko-tjin-bier / toko-tjin-snacks indicate Toko Tjin's own imagery). Confirm owner permission before publishing.",
+    "refinedShortNL": "Aziatische toko en afhaal sinds 1973, tegenover de Kamperbinnenpoort. Verse kruiden, sauzen en dagverse Chinees-Indische maaltijden.",
+    "refinedLongNL": "Toko Tjin is sinds 1973 een begrip op de Kamp in Amersfoort, pal tegenover de Kamperbinnenpoort. In deze sfeervolle Aziatische supermarkt vind je verse groenten en kruiden, exotische sauzen en specerijen, talloze soorten rijst en noodles, plus een breed assortiment Indonesische en Surinaamse ingrediënten. Aan de toonbank worden dagvers Chinese en Indische maaltijden bereid, klaar om mee te nemen.",
+    "specialties": [
+      "Aziatische toko",
+      "Chinees-Indische afhaalmaaltijden",
+      "Indonesische ingrediënten",
+      "Surinaamse producten",
+      "Verse kruiden & specerijen",
+      "Rijst & noodles"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "1973"
+      },
+      {
+        "label": "Type",
+        "value": "Aziatische supermarkt & afhaal"
+      },
+      {
+        "label": "Keuken",
+        "value": "Chinees / Indisch / Indonesisch"
+      },
+      {
+        "label": "Telefoon",
+        "value": "+31 33 472 9300"
+      },
+      {
+        "label": "Ligging",
+        "value": "Tegenover de Kamperbinnenpoort"
+      },
+      {
+        "label": "Postcode",
+        "value": "3811 AR"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "12:00 - 20:00"
+      },
+      {
+        "days": "Dinsdag t/m zaterdag",
+        "hours": "10:00 - 20:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "12:00 - 20:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "12:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "20:00"
+      }
+    ],
+    "openingNote": "Openingstijden bevestigd via de tijdvooramersfoort.nl-listing (JSON-LD) en openingstijden.com; controleer feestdagen apart.",
+    "instagramUrl": "",
+    "facebookUrl": "",
+    "sources": [
+      "https://tokotjin.nl",
+      "https://centrum.tokotjin.nl/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2520133471/toko-tjin-de-kamp",
+      "https://www.openingstijden.com/open/toko-tjin/amersfoort/",
+      "https://restaurantguru.com/Toko-Tjin-Amersfoort",
+      "https://en.eet.nu/amersfoort/toko-tjin"
+    ]
+  },
+  {
+    "id": "flups",
+    "name": "FLUPS",
+    "status": "open",
+    "lat": 52.157321,
+    "lng": 5.393191,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=FLUPS%2C+Kamp+4%2C+3811+AR+Amersfoort",
+    "hasGoogleReviews": false,
+    "facebookUrl": "https://www.facebook.com/flupsonline/",
+    "instagramUrl": "https://www.instagram.com/flupsonline/",
+    "ogImageUrl": "https://flupsonline.nl/cdn/shop/files/Logo_voor_socials_1200x1200.png?v=1693930405",
+    "imageSource": "flupsonline.nl",
+    "imageLicenseNote": "Business's own og:image (FLUPS logo, hosted on flupsonline.nl/Shopify CDN, HTTP 200 verified) — most defensible option; confirm owner permission before publishing. Interior/store photos also exist on the reference directory (assets.plaece.nl) but those are third-party directory images and were not used.",
+    "priceRange": "",
+    "openingNote": "Geverifieerd via de eigen contactpagina van FLUPS en de referentiebron (Tijd voor Amersfoort): woensdag t/m zaterdag 10:00-18:00 uur, maandag/dinsdag/zondag gesloten. Een eerdere zoekmachine-samenvatting met afwijkende tijden (o.a. zondag open) kon niet worden bevestigd en is niet overgenomen.",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "refinedShortNL": "Fashion Lending & Upcycle Store op de Kamp: leen of koop luxe tweedehands en vintage designerkleding, plus sieraden en tassen van Amersfoortse reststromen.",
+    "refinedLongNL": "FLUPS (Fashion Lending & Upcycle Store) van Marina Horseling op Kamp 4 maakt duurzaam shoppen makkelijk: je koopt of leent er luxe tweedehands en vintage designerkleding, waarbij je geleende stukken tot 25 dagen mag houden. Naast kleding vind je er sieraden, tassen en items gemaakt van (Amersfoortse) reststromen. De winkel is geopend van woensdag tot en met zaterdag, van 10:00 tot 18:00 uur.",
+    "specialties": [
+      "Vintage designerkleding",
+      "Kleding lenen",
+      "Tweedehands mode",
+      "Upcycling",
+      "Duurzame mode",
+      "Lokale reststromen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Concept",
+        "value": "Fashion Lending & Upcycle Store"
+      },
+      {
+        "label": "Aanbod",
+        "value": "Luxe tweedehands & vintage designerkleding"
+      },
+      {
+        "label": "Lenen",
+        "value": "Kleding tot 25 dagen lenen"
+      },
+      {
+        "label": "Oprichter",
+        "value": "Marina Horseling"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 785 4500"
+      },
+      {
+        "label": "Geopend",
+        "value": "Wo t/m za 10:00-18:00"
+      }
+    ],
+    "sources": [
+      "https://flupsonline.nl",
+      "https://flupsonline.nl/en/pages/locatie-en-openingstijden",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1312864435/flups",
+      "https://www.nieuwsplein33.nl/nieuws/3830634/video-ondernemer-marina-horseling-denkt-dat-winkelen-bewuster-en-duurzamer-kan",
+      "https://evendo.com/locations/netherlands/amersfoort/shop/flups"
+    ]
+  },
+  {
+    "id": "atelier-misura-sartoria",
+    "name": "Atelier Misura Sartoria",
+    "status": "open",
+    "lat": 52.157183,
+    "lng": 5.393263,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Misura%20Sartoria%20Kamp%201%20Amersfoort",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/misurasartoria",
+    "instagramUrl": "https://www.instagram.com/misurasartoria/",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09121_375202506.jpg",
+    "imageSource": "tijdvooramersfoort.nl / assets.plaece.nl",
+    "imageLicenseNote": "Locatiefoto uit de officiële Tijd voor Amersfoort-listing (assets.plaece.nl). Bevestig toestemming van de eigenaar voor publicatie. De eigen website heeft geen og:image; alternatief is het bedrijfslogo op misurasartoria.nl.",
+    "priceRange": "Maatpakken vanaf ca. €499 (Business Suit)",
+    "refinedShortNL": "Atelier voor maatpakken, trouwpakken en maatshirts tegenover de Kamperbinnenpoort. Persoonlijk styling­advies en Italiaans vakmanschap sinds 2012.",
+    "refinedLongNL": "Atelier Misura Sartoria maakt aan de Kamp 1, recht tegenover de Kamperbinnenpoort, sinds 2012 maatpakken, trouwpakken, maatshirts en bedrijfskleding voor man én vrouw. Oprichter Jimmy Karaaslan zet een familietraditie in vakmanschap voort: je kiest samen met het team uit fijne stoffen en krijgt een pak met een perfecte pasvorm dat bij je persoonlijkheid past. Langskomen kan op afspraak via afspraak.misurasartoria.nl; donderdag is er koopavond tot 21.00 uur.",
+    "specialties": [
+      "Maatpakken",
+      "Trouwpakken",
+      "Maatshirts",
+      "Bedrijfskleding op maat",
+      "Damesmaatkleding (Donna)"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "2012"
+      },
+      {
+        "label": "Type",
+        "value": "Maatkleding / kleermakerij"
+      },
+      {
+        "label": "Oprichter",
+        "value": "Jimmy Karaaslan"
+      },
+      {
+        "label": "Specialisme",
+        "value": "Maatpakken & trouwpakken"
+      },
+      {
+        "label": "Vestigingen",
+        "value": "Amersfoort & Rotterdam"
+      },
+      {
+        "label": "Afspraak",
+        "value": "afspraak.misurasartoria.nl"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 260 0308"
+      },
+      {
+        "label": "Koopavond",
+        "value": "Donderdag tot 21.00"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "10.00 - 18.00"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "10.00 - 18.00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "10.00 - 21.00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "10.00 - 18.00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "9.00 - 18.00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Alleen op afspraak"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "openingNote": "Maandag gesloten; zondag alleen op afspraak. Donderdag koopavond tot 21.00. Bezoek bij voorkeur op afspraak via afspraak.misurasartoria.nl. Let op aangepaste openingstijden rond feestdagen/bedrijfsuitje (o.a. zon 7 juni gesloten i.v.m. bedrijfsuitje), zoals vermeld op de website.",
+    "sources": [
+      "https://www.misurasartoria.nl",
+      "https://www.misurasartoria.nl/atelier-amersfoort/",
+      "https://www.misurasartoria.nl/over-ons/",
+      "https://afspraak.misurasartoria.nl",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/109654734/atelier-misura-sartoria-amersfoort",
+      "https://wanderlog.com/place/details/13546397/misura-sartoria-suits-m--f",
+      "https://nl.revieweuro.com/utrecht/misura-sartoria-suits-m-514853"
+    ]
+  },
+  {
+    "id": "wit-lof",
+    "name": "Wit-Lof",
+    "status": "open",
+    "lat": 52.157189,
+    "lng": 5.393476,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "hasGoogleReviews": true,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Wit-Lof%20Kamp%205%20Amersfoort",
+    "facebookUrl": "https://www.facebook.com/WitLofAmersfoort/",
+    "priceRange": "€",
+    "ogImageUrl": "https://assets.plaece.nl/thumb/gNSFWNPVKne0x-w6xRZ3DxA76UCg4iymGBMYQnTcG5E/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTEyN183OTI5MDYyOS5qcGc.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Business's own promotional photo, served from the official Tijd voor Amersfoort city directory's CDN (plaece.nl). Original at https://assets.plaece.nl/odp-ubase/image/dsc09127_79290629.jpg. Confirm owner permission before publishing.",
+    "refinedShortNL": "Verse, gezonde maaltijden om af te halen of te laten bezorgen — vega(n) én vlees, wisselend per seizoen. Sinds 2017 op de Kamp.",
+    "refinedLongNL": "Wit-Lof is een maaltijdwinkel op de Kamp waar elke dag verse, gezonde gerechten met liefde worden bereid om af te halen of te laten bezorgen. Het menu wisselt per seizoen en biedt voor iedereen iets, van stamppotten en stoofgerechten in de winter tot lichtere zomergerechten als gevuld Libanees flatbread en Thaise rode curry, met altijd vega(n)- én vleesopties. Milieubewust tot in de details: bezorging gaat met elektrische fietsen en je kunt kiezen voor herbruikbare bakjes.",
+    "specialties": [
+      "Verse maaltijdbezorging",
+      "Afhalen",
+      "Vega(n) gerechten",
+      "Seizoenskeuken",
+      "Catering",
+      "Duurzaam"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "2012 (op de Kamp sinds 2017)"
+      },
+      {
+        "label": "Type",
+        "value": "Maaltijdwinkel — afhalen & bezorgen"
+      },
+      {
+        "label": "Keuken",
+        "value": "Gezond, vega(n) & vlees, seizoensgebonden"
+      },
+      {
+        "label": "Bezorging",
+        "value": "Elektrische fietsen, herbruikbare bakjes"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-4328367"
+      },
+      {
+        "label": "Google",
+        "value": "4,3 sterren (±72 reviews)"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag t/m vrijdag",
+        "hours": "16:00 - 19:00"
+      },
+      {
+        "days": "Zaterdag en zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "16:00",
+        "closes": "19:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "16:00",
+        "closes": "19:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "16:00",
+        "closes": "19:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "16:00",
+        "closes": "19:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "openingNote": "Officiële website en de eigen bestelsite (bestellen.wit-lof.com, JSON-LD) geven beide ma-vr 16:00-19:00, za-zo gesloten. Let op: de stadsgids Tijd voor Amersfoort vermeldt afwijkend di-zo 16:00-20:00 en maandag gesloten — de eigen sites zijn aangehouden als leidend.",
+    "sources": [
+      "http://wit-lof.com/",
+      "https://bestellen.wit-lof.com/informatie",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3589594934/wit-lof",
+      "https://wanderlog.com/place/details/16187615/wit-lof",
+      "https://www.facebook.com/WitLofAmersfoort/",
+      "https://en.eet.nu/amersfoort/wit-lof-amersfoort"
+    ]
+  },
+  {
+    "id": "de-ruiter-makelaarshuis",
+    "name": "De Ruiter Makelaarshuis",
+    "status": "open",
+    "openingNote": "Geopend ma-vr 08:30-17:30; zaterdag op afspraak (directories vermelden 10:00-13:00); zondag gesloten. De website (JSON-LD) laat de openingstijden leeg; tijden komen van de officiele 'Vestiging Amersfoort'-pagina en branchegidsen.",
+    "openingHours": [
+      {
+        "days": "Maandag t/m vrijdag",
+        "hours": "08:30 - 17:30"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "Op afspraak (10:00 - 13:00)"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "08:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "08:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "08:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "08:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "08:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "lat": 52.1573521,
+    "lng": 5.393306,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=De+Ruiter+Makelaarshuis+Kamp+6+3811+AR+Amersfoort",
+    "hasGoogleReviews": true,
+    "instagramUrl": "https://www.instagram.com/deruitermakelaarshuis/",
+    "ogImageUrl": "https://www.deruitermakelaarshuis.nl/wp-content/uploads/2025/12/Abe-Van-Ancum-fotografie-25-min-1536x480.jpg",
+    "imageSource": "deruitermakelaarshuis.nl",
+    "imageLicenseNote": "Eigen professionele bedrijfsfoto van de website (fotografie Abe van Ancum). De pagina's bevatten geen og:image-meta, dus dit is de eigen hero-afbeelding van het bedrijf — bevestig toestemming van de eigenaar/fotograaf voor publicatie.",
+    "priceRange": "",
+    "refinedShortNL": "NVM-makelaar in een sfeervol rijksmonument aan de Kamp bij de Kamperbinnenpoort. Aankoop, verkoop, taxatie en verhuur in Amersfoort.",
+    "refinedLongNL": "De Ruiter Makelaarshuis is sinds 2005 gevestigd in een fraai rijksmonument aan de Kamp 6, op een steenworp van de Kamperbinnenpoort in de historische binnenstad van Amersfoort. Het ervaren NVM-team begeleidt je bij aankoop, verkoop, taxatie en verhuur en behoort tot de best verkopende kantoren van de stad. Doordeweeks geopend van 08:30 tot 17:30 uur; op zaterdag op afspraak.",
+    "specialties": [
+      "Verkoopmakelaar",
+      "Aankoopmakelaar",
+      "Taxaties",
+      "Verhuur",
+      "NVM-makelaar",
+      "Funda"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 6, 3811 AR Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 - 470 27 00"
+      },
+      {
+        "label": "Opgericht",
+        "value": "Begin 2000 (Roland de Ruiter)"
+      },
+      {
+        "label": "Op deze locatie sinds",
+        "value": "2005"
+      },
+      {
+        "label": "Pand",
+        "value": "Rijksmonument bij de Kamperbinnenpoort"
+      },
+      {
+        "label": "Aangesloten bij",
+        "value": "NVM / Funda"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "3,6 sterren (46 reviews)"
+      },
+      {
+        "label": "KvK",
+        "value": "32077352"
+      }
+    ],
+    "confidence": "high",
+    "sources": [
+      "https://www.deruitermakelaarshuis.nl/contact/",
+      "https://www.deruitermakelaarshuis.nl/medewerkers/roland-de-ruiter/",
+      "https://www.deruitermakelaarshuis.nl/amersfoort/",
+      "https://www.deruitermakelaarshuis.nl/",
+      "https://www.openingstijden.com/o2028260/de-ruiter-makelaarshuis-kamp-6-amersfoort/",
+      "https://huisassist.nl/taxateurs/utrecht/amersfoort/de-ruiter-makelaarshuis/",
+      "https://nominatim.openstreetmap.org/search?q=Kamp+6,+3811+AR+Amersfoort"
+    ]
+  },
+  {
+    "id": "spar-city-amersfoort",
+    "name": "SPAR City Amersfoort",
+    "status": "open",
+    "lat": 52.1573605,
+    "lng": 5.394089,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=SPAR+city+Amersfoort+Kamp+15+Amersfoort",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/SPARamersfoort/",
+    "priceRange": "$$",
+    "ogImageUrl": "https://cdn.prod.website-files.com/65f95db71b19f54e688292d6/65f986df50a9949ffc82c4ae_winkel.jpg",
+    "imageSource": "sparcityamersfoort.nl",
+    "imageLicenseNote": "Business's own storefront/promo photo, pulled from the og:image of its official lunch-ordering site (sparcityamersfoort.nl). Most defensible option, but confirm owner permission before publishing.",
+    "openingNote": "Winkeltijden volgens officiele SPAR-website (JSON-LD). De lunch-/keukenbestelservice hanteert afwijkende bestel-deadlines (bestellen voor vandaag tot 11:00 uur).",
+    "openingHours": [
+      {
+        "days": "Maandag t/m zaterdag",
+        "hours": "08:00 - 22:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "10:00 - 22:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "10:00",
+        "closes": "22:00"
+      }
+    ],
+    "refinedShortNL": "Buurtsupermarkt in hartje Amersfoort met dagelijkse boodschappen, vers belegde broodjes, salades en koffie to go. Dagelijks open tot 22:00 uur.",
+    "refinedLongNL": "SPAR City Amersfoort ligt aan de Kamp, op een steenworp van de Kamperbinnenpoort in het oude centrum. Naast je dagelijkse boodschappen vind je hier ambachtelijk verse producten: zelf belegde broodjes, huisgemaakte salades en smoothies, vers gebakken croissants en koffie to go. De winkel is elke dag geopend tot 22:00 uur en biedt daarnaast een lunchbezorgservice en zakelijke catering voor kantoren in de buurt.",
+    "specialties": [
+      "Dagelijkse boodschappen",
+      "Verse broodjes & salades",
+      "Koffie to go",
+      "Lunchbezorging",
+      "Borrel & gemak",
+      "Zakelijke catering"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "2017"
+      },
+      {
+        "label": "Type",
+        "value": "SPAR City buurtsupermarkt"
+      },
+      {
+        "label": "Dagelijks open",
+        "value": "tot 22:00 uur"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 15-17, 3811 AM Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-8200999"
+      },
+      {
+        "label": "E-mail",
+        "value": "info@sparcityamersfoort.nl"
+      },
+      {
+        "label": "Bezorging",
+        "value": "Lunch & Thuisbezorgd.nl"
+      }
+    ],
+    "instagramUrl": "",
+    "sources": [
+      "https://www.spar.nl/winkels/spar-city-amersfoort-333/",
+      "https://www.sparcityamersfoort.nl/",
+      "https://www.openingstijden.nl/Spar/Amersfoort/Kamp-15-17/",
+      "https://wanderlog.com/place/details/2931111/spar-city-store",
+      "https://amersfoort.nieuws.nl/nieuws/jonge-ondernemer-opent-spar-city-amersfoort",
+      "https://nl.linkedin.com/posts/bas-dekker-b3788646_hoera-spar-city-amersfoort-is-vandaag-activity-6945337597049102336-EC9a"
+    ]
+  },
+  {
+    "id": "freddo",
+    "name": "Freddo",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157492,
+    "lng": 5.393843,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Freddo%20Kamp%2016%20Amersfoort",
+    "hasGoogleReviews": false,
+    "instagramUrl": "https://www.instagram.com/freddo.amersfoort",
+    "facebookUrl": "https://www.facebook.com/61574728471903",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc6548-kopie-groot_808204671.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl)",
+    "imageLicenseNote": "Business's own promo image as published on the official Tijd voor Amersfoort listing (JSON-LD image + og:image) — confirm owner permission before publishing.",
+    "priceRange": "€",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "11:00 - 16:30"
+      },
+      {
+        "days": "Dinsdag t/m zaterdag",
+        "hours": "10:30 - 16:30"
+      },
+      {
+        "days": "Zondag",
+        "hours": "11:00 - 15:30"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "11:00",
+        "closes": "16:30"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:30",
+        "closes": "16:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:30",
+        "closes": "16:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:30",
+        "closes": "16:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:30",
+        "closes": "16:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:30",
+        "closes": "16:30"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "11:00",
+        "closes": "15:30"
+      }
+    ],
+    "openingNote": "Openingstijden volgens de officiële Tijd voor Amersfoort-locatiepagina. Telefoon: 06 83848727. Controleer op feestdagen.",
+    "refinedShortNL": "Italiaanse koffiespot op de Kamp: freddo cappuccino, fruitige matcha, plantaardige latte's, huisgemaakte ijsthee en verse broodjes.",
+    "refinedLongNL": "Freddo is de nieuwe koffiespot van Andra Mirzoyan op Kamp 16, met Italiaanse roots en een eigentijdse twist. Naast een dubbele espresso of freddo cappuccino vind je hier verrassende fruitmatcha's en biologische latte-alternatieven met bijzondere ingrediënten zoals blauwe spirulina en rauwe cacao. Daarbij verse broodjes, ijs en huisgemaakte ijsthee — door de week vanaf 10:30 uur geopend, in het hart van de Kamp.",
+    "specialties": [
+      "Specialty koffie",
+      "Freddo cappuccino",
+      "Fruitmatcha",
+      "Plantaardige latte's",
+      "Verse broodjes",
+      "Huisgemaakt ijs"
+    ],
+    "keyFacts": [
+      {
+        "label": "Keuken",
+        "value": "Koffie & lunch, Italiaanse roots"
+      },
+      {
+        "label": "Eigenaar",
+        "value": "Andra Mirzoyan"
+      },
+      {
+        "label": "Geopend",
+        "value": "2025"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 16, 3811 AR Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "06 83848727"
+      },
+      {
+        "label": "Specials",
+        "value": "Blauwe spirulina & rauwe cacao latte's"
+      }
+    ],
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/612456906/freddo",
+      "https://drimble.nl/regio/utrecht/amersfoort/104787730/koffie-matcha-en-sandwiches-andra-opent-freddo-op-de-kamp.html",
+      "https://www.instagram.com/freddo.amersfoort",
+      "https://atfreddo.com/"
+    ]
+  },
+  {
+    "id": "bloembinderij-all-seasons",
+    "name": "Bloembinderij All Seasons",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157334,
+    "lng": 5.39385,
+    "geoConfidence": "high",
+    "priceRange": "",
+    "hasGoogleReviews": true,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bloembinderij+All+Seasons+Kamp+11+Amersfoort",
+    "facebookUrl": "https://www.facebook.com/p/Bloembinderij-All-Seasons-100063566412745/",
+    "instagramUrl": "",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09133_1402685231.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing JSON-LD)",
+    "imageLicenseNote": "Shop photo from the official Tijd voor Amersfoort city directory listing (assets.plaece.nl). The business's own website exposes no og:image, so this is the most defensible verified shop image. Confirm owner/photographer permission before publishing.",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Maandag en zondag gesloten. Openingstijden bevestigd via de eigen contactpagina en het bloemistenregister regiobloemist.nl (identieke tijden).",
+    "refinedShortNL": "Veelzijdige bloemenwinkel aan de Kamp met dagelijks verse snijbloemen en planten, deskundig advies en eigen bezorgdienst in Amersfoort.",
+    "refinedLongNL": "Bloembinderij All Seasons aan Kamp 11 in de historische binnenstad van Amersfoort is een veelzijdige bloemenwinkel waar een enthousiast team u ontvangt met deskundig advies en dagelijks vers aangevoerde kwaliteitssnijbloemen en planten. U kunt er terecht voor boeketten op maat, rouw- en bruidsbloemen en (zakelijke) bloemabonnementen, met oog voor sfeer, beleving en vakmanschap. Bestellen kan in de winkel of via de webshop; met de eigen bezorgdienst leveren ze in en rond Amersfoort en daarbuiten door heel Nederland.",
+    "specialties": [
+      "Boeketten op maat",
+      "Rouwbloemen",
+      "Bruidsboeketten",
+      "Snijbloemen & planten",
+      "Bloemabonnementen",
+      "Eigen bezorgdienst"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 11, 3811 AM Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-4720372"
+      },
+      {
+        "label": "E-mail",
+        "value": "info@bloembinderijallseasons.nl"
+      },
+      {
+        "label": "Geopend",
+        "value": "di t/m vr 10-17u, za 9-17u"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Rouw- & bruidsbloemen"
+      },
+      {
+        "label": "Bezorging",
+        "value": "Eigen dienst in Amersfoort, landelijk via WY-bloemisten"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "4,8 (ca. 40 reviews)"
+      }
+    ],
+    "sources": [
+      "https://www.bloem-binderijallseasons.nl",
+      "https://bloembinderijallseasons.nl/contact/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/371478436/bloembinderij-all-seasons",
+      "https://www.regiobloemist.nl/en/florist/18389/bloembinderij-all-seasons-amersfoort",
+      "https://www.bloemenwinkels.nl/utrecht/amersfoort/bloembinderij-all-seasons/",
+      "https://www.facebook.com/p/Bloembinderij-All-Seasons-100063566412745/"
+    ]
+  },
+  {
+    "id": "saya-boutique-hotel",
+    "name": "Saya Boutique Hotel",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157424,
+    "lng": 5.394184,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Saya%20Boutique%20Hotel%2C%20Kamp%2019%2C%20Amersfoort&query_place_id=",
+    "hasGoogleReviews": true,
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/saya-boutique-hotel-1_1078014669.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Hotel's own promotional/interior photo as published on the official Tijd voor Amersfoort directory listing (Plaece CMS asset). Most defensible image available since the apex site sayahotel.nl does not expose a usable og:image. Confirm owner permission before publishing.",
+    "refinedShortNL": "Stijlvol selfservice boutiquehotel op de Kamp: zelf inchecken via lockbox, luxe kamers, eigen terras en gratis snelle wifi.",
+    "refinedLongNL": "Saya Boutique Hotel is een sfeervol selfservice boutiquehotel midden in het centrum van Amersfoort, op loopafstand van de winkelstraten en de Kamperbinnenpoort. Je checkt zelf in via een lockbox en verblijft in luxe ingerichte kamers met een eigen terrasje en gratis supersnelle wifi. Ontbijt is van dinsdag t/m zaterdag op de kamer bij te boeken, in samenwerking met Anna's Smaakatelier.",
+    "specialties": [
+      "Selfservice boutiquehotel",
+      "Zelf inchecken via lockbox",
+      "Luxe kamers",
+      "Eigen terras",
+      "Gratis snelle wifi",
+      "Ontbijt op de kamer (di-za)"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Selfservice boutiquehotel"
+      },
+      {
+        "label": "Inchecken",
+        "value": "Zelf via lockbox, vanaf 15:00"
+      },
+      {
+        "label": "Uitchecken",
+        "value": "Tot 11:00"
+      },
+      {
+        "label": "Ontbijt",
+        "value": "Bij te boeken op de kamer (di t/m za), i.s.m. Anna's Smaakatelier"
+      },
+      {
+        "label": "Wifi",
+        "value": "Gratis, supersnel"
+      },
+      {
+        "label": "Beoordeling",
+        "value": "8,6/10 op Booking.com (482 reviews)"
+      }
+    ],
+    "priceRange": "",
+    "openingNote": "Zelf inchecken via lockbox; check-in vanaf 15:00, check-out tot 11:00 (bron: Booking.com). Geen vaste publieks-/baliedienst gepubliceerd — als selfservice hotel feitelijk 24/7 toegankelijk voor gasten. Exacte receptie-/openingstijden niet als officiele specificatie te verifieren, daarom niet als opening hours opgegeven.",
+    "instagramUrl": "",
+    "facebookUrl": "",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3873092799/saya-boutique-hotel",
+      "https://sayahotel.nl",
+      "https://www.booking.com/hotel/nl/beyoutiefull-boutique.html",
+      "https://www.booking.com/reviews/nl/hotel/beyoutiefull-boutique.en-gb.html",
+      "https://www.tripadvisor.com/Hotel_Review-g188613-d23978322-Reviews-Saya_Boutique_Hotel-Amersfoort.html",
+      "https://www.google.com/travel/hotels/entity/ChoInNb2n-fV273tARoNL2cvMTFxNDY1NF83eBAB"
+    ]
+  },
+  {
+    "id": "poke2go",
+    "name": "Poke2Go Amersfoort",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.15771,
+    "lng": 5.39445,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Poke2Go+Amersfoort+Kamp+32+Amersfoort",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/Pokeg2oAmersfoort/",
+    "instagramUrl": "https://www.instagram.com/poke2go.amersfoort/",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc01372_2007811633.jpg",
+    "imageSource": "assets.plaece.nl",
+    "imageLicenseNote": "Business's own promo/dish photo, hosted on the Plaece ordering platform that powers the official Poke2Go Amersfoort listing and the Tijd voor Amersfoort directory. Most defensible image available — confirm owner permission before publishing.",
+    "priceRange": "€€",
+    "openingHours": [
+      {
+        "days": "Maandag t/m donderdag",
+        "hours": "16:00 - 20:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Zaterdag en zondag",
+        "hours": "16:00 - 20:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "16:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "16:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "16:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "16:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "16:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "openingNote": "Openingstijden volgens de officiële website (amersfoort.poke2go.nl), waar JSON-LD en de zichtbare tekst overeenkomen: ma t/m do en za-zo 16:00-20:00, vrijdag gesloten. Externe aggregators (eet.nu, openingstijden.com) tonen afwijkende tijden — verifieer telefonisch (033-2023262) of via Google bij twijfel.",
+    "refinedShortNL": "Verse poké bowls, açaí bowls en desserts om zelf samen te stellen op de Kamp — met zalm, tonijn of vegan toppings, snel afgehaald of bezorgd.",
+    "refinedLongNL": "Bij Poke2Go aan de Kamp 32 stel je je eigen Hawaiiaanse poké bowl samen met verse vis, edamame, wakame en tientallen toppings, plus açaí bowls en desserts. Populaire keuzes zijn de 'Sweet Tuna' met tonijn, radijs en unagi-dressing en de 'Crunchy Chicken' met krokante kip en chili-mayo. Je bestelt eenvoudig online voor afhalen of bezorging; de zaak scoort gemiddeld rond de 4 sterren over ruim 430 reviews.",
+    "specialties": [
+      "Poké bowls op maat",
+      "Açaí bowls",
+      "Verse vis (zalm & tonijn)",
+      "Vegan opties",
+      "Desserts",
+      "Afhalen & bezorgen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Keuken",
+        "value": "Poké / Hawaiiaans"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 32, 3811 AS Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-2023262"
+      },
+      {
+        "label": "Reviews",
+        "value": "± 4,0 sterren (435 beoordelingen)"
+      },
+      {
+        "label": "Dieet",
+        "value": "Vegan opties beschikbaar"
+      },
+      {
+        "label": "Service",
+        "value": "Online bestellen, afhalen & bezorgen"
+      }
+    ],
+    "sources": [
+      "https://amersfoort.poke2go.nl (officiële website — JSON-LD Restaurant schema: telefoon, geo, openingstijden, aggregateRating)",
+      "https://amersfoort.poke2go.nl/informatie (zichtbare openingstijden bevestigen JSON-LD)",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/415614862/poke2go-amersfoort (JSON-LD Place: adres, geo 52.157664/5.394425, og:image business-foto's)",
+      "https://www.facebook.com/Pokeg2oAmersfoort/ (live, HTTP 200)",
+      "https://www.instagram.com/poke2go.amersfoort/ (live, HTTP 200)",
+      "WebSearch: openingstijden, Google reviews (435), menu-items Sweet Tuna & Crunchy Chicken"
+    ]
+  },
+  {
+    "id": "ritos-amersfoort",
+    "name": "Ritos Amersfoort",
+    "status": "open",
+    "lat": 52.157492,
+    "lng": 5.393843,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ritos%20Amersfoort%20Kamp%2016%20Amersfoort",
+    "hasGoogleReviews": true,
+    "instagramUrl": "https://www.instagram.com/ritos_nederland/",
+    "facebookUrl": "https://www.facebook.com/Ritosnederland/",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09138_2484086839.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Restaurant promo/listing photo served from the official Plaece/Tijd voor Amersfoort directory record (assets.plaece.nl) — not stock. It is the og:image of the official reference listing rather than the business's own domain (ritos.nl resolves to an unrelated IT company). Confirm owner/operator permission with Ritos or Tijd voor Amersfoort before publishing.",
+    "priceRange": "€€",
+    "refinedShortNL": "Fresh Mex & Poké op de Kamp: 100% halal burrito's en Hawaiiaanse pokébowls met een Japanse twist, vers samengesteld om mee te nemen of te bezorgen.",
+    "refinedLongNL": "Ritos is een casual fast-food restaurant aan de Kamp 16 dat twee keukens op één menu samenbrengt: Mexicaanse burrito's en Hawaiiaanse pokébowls met een Japanse touch, vers en op jouw smaak samengesteld. Alle gerechten zijn 100% halal, met ook vegetarische en glutenvrije opties, en je bestelt eenvoudig via het QR-systeem voor afhalen of laten bezorgen. Doordeweeks meestal vanaf 11:15 geopend tot 21:00 uur (maandag vanaf 15:00, donderdag vanaf 13:00, zondag vanaf 12:00).",
+    "specialties": [
+      "Pokébowls",
+      "Burrito's",
+      "Fresh Mex",
+      "100% Halal",
+      "Vegetarisch & glutenvrij",
+      "Afhalen & bezorgen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Keuken",
+        "value": "Mexicaans & Hawaiiaans (Fresh Mex & Poké)"
+      },
+      {
+        "label": "Halal",
+        "value": "100% halal"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Pokébowls & burrito's"
+      },
+      {
+        "label": "Dieetwensen",
+        "value": "Vegetarisch & glutenvrij mogelijk"
+      },
+      {
+        "label": "Bestellen",
+        "value": "QR-bestelsysteem, afhalen & bezorgen"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 785 27 38"
+      },
+      {
+        "label": "Postcode",
+        "value": "3811 AR"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "15:00 - 21:00"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "11:15 - 21:00"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "11:15 - 21:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "13:00 - 21:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "11:15 - 21:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "11:15 - 21:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "12:00 - 21:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "15:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "11:15",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "11:15",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "13:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "11:15",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "11:15",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "21:00"
+      }
+    ],
+    "openingNote": "Openingstijden bevestigd via meerdere directory-listings (Tijd voor Amersfoort, VVV Amersfoort, het-menu.nl) in juni 2026; tijden kunnen op feestdagen afwijken. Verifieer bij twijfel telefonisch of via de officiële website.",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2402098718/ritos-amersfoort",
+      "https://ritosnederland.nl/amersfoort/",
+      "https://www.ritos-fresh-mex-en-pokebowls.nl/contact",
+      "https://www.vvvamersfoort.nl/nl/locaties/2983/ritos-amersfoort",
+      "https://www.instagram.com/ritos_nederland/",
+      "https://restaurantguru.com/Ritos-Amersfoort-Amersfoort",
+      "https://www.het-menu.nl/amersfoort/restaurant/ritos_amersfoort"
+    ]
+  },
+  {
+    "id": "hairbeautiful",
+    "name": "HairBeautiful",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157644,
+    "lng": 5.394356,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/dir/?api=1&destination=52.157644%2C5.394356",
+    "hasGoogleReviews": false,
+    "facebookUrl": "https://www.facebook.com/HairBeautifulofficial",
+    "instagramUrl": "https://www.instagram.com/hairbeautifulofficial",
+    "ogImageUrl": "https://primary.jwwb.nl/public/m/v/h/temp-ovguflimqujsuzympgjd/mez0ym/FanolaFiberFix.jpg",
+    "imageSource": "primary.jwwb.nl",
+    "imageLicenseNote": "Business's own og:image from hairbeautiful.nl (JouwWeb CDN) — depicts a Fanola product the salon uses, not a portrait of the salon interior; most defensible choice but confirm owner permission before publishing.",
+    "priceRange": "",
+    "refinedShortNL": "Vertrouwde hair & beauty salon aan de gezellige Kamp, ruim 10 jaar ervaring. Knippen, kleuren, keratine en microblading — di t/m za.",
+    "refinedLongNL": "HairBeautiful is een gevestigde hair & beauty salon aan de sfeervolle Kamp 30 in het centrum van Amersfoort, met ruim tien jaar ervaring en gediplomeerde vakmensen. Naast knippen, kleuren en föhnen kun je hier terecht voor keratinebehandelingen, permanent, harsen en microblading, gewerkt met kwaliteitsproducten van onder meer Fanola. In een huiselijke, gastvrije sfeer staat een kopje koffie, thee of cappuccino voor je klaar; geopend dinsdag tot en met zaterdag van 10:00 tot 17:00 uur.",
+    "specialties": [
+      "Knippen & kleuren",
+      "Keratinebehandeling",
+      "Microblading",
+      "Föhnen & styling",
+      "Harsen & epileren",
+      "Fanola-producten"
+    ],
+    "keyFacts": [
+      {
+        "label": "Ervaring",
+        "value": "Ruim 10 jaar"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 888 62 53"
+      },
+      {
+        "label": "E-mail",
+        "value": "info@hairbeautiful.nl"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 30, 3811 AS Amersfoort"
+      },
+      {
+        "label": "Type",
+        "value": "Hair & beauty salon"
+      },
+      {
+        "label": "Extra",
+        "value": "Gratis koffie, thee of cappuccino"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m zaterdag",
+        "hours": "10:00-17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Maandag en zondag gesloten. Openingstijden bevestigd via de officiële website (hairbeautiful.nl); geen Google Business-uren geverifieerd.",
+    "sources": [
+      "https://www.hairbeautiful.nl/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1875048216/hairbeautiful",
+      "https://www.facebook.com/HairBeautifulofficial/",
+      "https://www.instagram.com/hairbeautifulofficial"
+    ]
+  },
+  {
+    "id": "star-juwelier",
+    "name": "Star Juwelier",
+    "status": "open",
+    "lat": 52.15763,
+    "lng": 5.3943,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Star+Juwelier+Kamp+28+Amersfoort",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/Starjuwelier",
+    "instagramUrl": "https://www.instagram.com/starjuwelier",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09153_3159453264.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Business's own storefront/product photo as supplied to the Tijd voor Amersfoort directory; the official website (starjuwelier.nl) exposes only its square logo PNG (https://starjuwelier.nl/wp-content/uploads/2022/05/Vierkant-Star-logo-PNG.png) as a structured image. Confirm owner permission before publishing the photo.",
+    "priceRange": "",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "13:00-17:00"
+      },
+      {
+        "days": "Dinsdag t/m zaterdag",
+        "hours": "10:00-17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "13:00-16:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "13:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "13:00",
+        "closes": "16:00"
+      }
+    ],
+    "openingNote": "Openingstijden volgens de eigen JSON-LD van starjuwelier.nl (home- en contactpagina). Let op: enkele externe gidsen (o.a. openingstijden.nl, juwelier-in.nl) vermelden de winkel op zondag als gesloten — controleer de zondagopening (13:00-16:00) eventueel telefonisch.",
+    "refinedShortNL": "Vertrouwde juwelier op de Kamp sinds 1999. Specialist in 14-, 18- en 22-karaats gouden sieraden, trouwringen en maatwerk. Ook online via de webshop.",
+    "refinedLongNL": "Star Juwelier is sinds 1999 een vertrouwd familieadres in het centrum van Amersfoort, op de Kamp 28 vlak bij de Kamperbinnenpoort. De winkel is gespecialiseerd in 14-, 18- en 22-karaats gouden sieraden, trouwringen, kettingen, armbanden en horloges, met daarnaast maatwerk, handgravure, reparaties en het inkopen van goud. Je kunt er terecht in de stijlvolle winkel of online via de webshop, telkens met deskundig persoonlijk advies en een warm welkom.",
+    "specialties": [
+      "Gouden sieraden 14/18/22 karaat",
+      "Trouwringen",
+      "Sieraden op maat",
+      "Handgravure",
+      "Reparaties",
+      "Goud inkopen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "1999"
+      },
+      {
+        "label": "Type",
+        "value": "Juwelier / goudsmid"
+      },
+      {
+        "label": "Specialisatie",
+        "value": "14-18-22 karaats goud & trouwringen"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 28, 3811 AR Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 475 25 33 / 06 23244585"
+      },
+      {
+        "label": "E-mail",
+        "value": "info@starjuwelier.nl"
+      },
+      {
+        "label": "Webshop",
+        "value": "starjuwelier.nl"
+      }
+    ],
+    "confidence": "high",
+    "sources": [
+      "https://starjuwelier.nl (JSON-LD: geo, adres, openingstijden, telefoon, foundingDate, legalName)",
+      "https://starjuwelier.nl/contact/ (openingstijden + social links Facebook/Instagram)",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/292785061/star-juwelier (JSON-LD geo-bevestiging + og:image foto)",
+      "https://www.openingstijden.nl/Star-juwelier/Amersfoort/Kamp-28/ (openingstijden, telefoon)",
+      "https://www.juwelier-in.nl/amersfoort/star-juwelier (omschrijving, diensten, sinds 1999)",
+      "WebSearch: Star Juwelier Amersfoort openingstijden / Google reviews"
+    ]
+  },
+  {
+    "id": "jacks-casino-sports",
+    "name": "Jack's Casino & Sports Amersfoort",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157625,
+    "lng": 5.394884,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jack%27s%20Casino%20%26%20Sports%20Amersfoort%2C%20Kamp%2033%2C%20Amersfoort",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/jackscasinoamersfoort",
+    "instagramUrl": "https://www.instagram.com/jacks.casino/",
+    "ogImageUrl": "https://jacks.nl/media/2023-04/jacksnl-opengraph.jpg",
+    "imageSource": "jacks.nl",
+    "imageLicenseNote": "Business's own brand promo image (official jacks.nl og:image) — most defensible source; confirm owner permission before publishing. A venue-specific interior photo is also available via the reference listing (assets.plaece.nl/odp-ubase/image/dsc09157_1111233745.jpg), but its licensing is via the directory aggregator and should be cleared separately.",
+    "priceRange": "€€",
+    "refinedShortNL": "Sfeervol Jack's Casino & Sports in hartje Amersfoort aan de Kamp: gokkasten, roulette, live sportweddenschappen én verse keuken. Gratis entree.",
+    "refinedLongNL": "Midden in het centrum van Amersfoort, aan de gezellige winkelstraat de Kamp, vind je Jack's Casino & Sports. Naast een breed aanbod gokkasten, videoslots en roulettetafels kun je hier live wedden op voetbal, darts, tennis en meer, terwijl de eigen koks zorgen voor culinaire verrassingen. Met gratis entree, gratis snacks, drankjes en wifi en dagelijks ruime openingstijden (door de week tot 01.00 uur, in het weekend tot 02.00 uur) is het een toegankelijke uitgaansplek in de binnenstad.",
+    "specialties": [
+      "Gokkasten & videoslots",
+      "Roulette",
+      "Live sportweddenschappen",
+      "Eigen keuken",
+      "Gratis entree",
+      "Centrum Amersfoort"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 33, 3811 AM Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 479 5238"
+      },
+      {
+        "label": "Entree",
+        "value": "Gratis"
+      },
+      {
+        "label": "Keten sinds",
+        "value": "2003 (JVH Gaming)"
+      },
+      {
+        "label": "Wedden op",
+        "value": "Voetbal, darts, tennis, F1"
+      },
+      {
+        "label": "Extra",
+        "value": "Gratis snacks, drankjes & wifi"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag t/m woensdag",
+        "hours": "09:00 - 01:00"
+      },
+      {
+        "days": "Donderdag t/m zaterdag",
+        "hours": "09:00 - 02:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "09:00 - 01:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "09:00",
+        "closes": "01:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:00",
+        "closes": "01:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:00",
+        "closes": "01:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:00",
+        "closes": "02:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "02:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "02:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "09:00",
+        "closes": "01:00"
+      }
+    ],
+    "openingNote": "Sluitingstijden lopen door na middernacht (01:00/02:00). Openingstijden bevestigd via de officiële jackscasino.nl-vestigingspagina en de tijdvooramersfoort.nl JSON-LD.",
+    "sources": [
+      "https://www.jacks.nl",
+      "https://www.jackscasino.nl/vestigingen/amersfoort",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/4040331392/jack-s-casino-sports-amersfoort",
+      "https://www.openingstijden.nl/Jacks-Casino/Amersfoort/Kamp-33/",
+      "https://www.telefoonboek.nl/bedrijven/t3852508/amersfoort/jacks-casino-amersfoort/",
+      "https://www.jvhgaming.com/nl/content/over-jvh/historie.html"
+    ]
+  },
+  {
+    "id": "holland-parket",
+    "name": "Holland Parket",
+    "status": "open",
+    "lat": 52.157742,
+    "lng": 5.395184,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Holland+Parket+Kamp+37+Amersfoort",
+    "hasGoogleReviews": false,
+    "facebookUrl": "https://www.facebook.com/pages/Holland-Parket/338082472872350",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc05833_387444287.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl)",
+    "imageLicenseNote": "Showroom interior photo from the official Tijd voor Amersfoort listing (plaece.nl CDN) for Holland Parket. The business's own website only exposes a logo PNG as og:image (https://hollandparket.nl/wp-content/uploads/logo.png), so this verified showroom photo is preferred. Confirm owner/photographer permission before publishing.",
+    "priceRange": "",
+    "refinedShortNL": "Vloerenspecialist in een sfeervolle showroom op de Kamp: ruim 2.500 houten, PVC-, laminaat- en kurkvloeren, met eigen ervaren vloerleggers.",
+    "refinedLongNL": "Holland Parket is dé vloerenspecialist van midden-Nederland en heeft zijn Amersfoortse showroom op Kamp 37, midden in de historische binnenstad. Je vindt er meer dan 2.500 vloeren: echte houten en parketvloeren, PVC en vinyl, laminaat en kurk, met deskundig en vrijblijvend advies. Bijzonder is dat het bedrijf werkt met eigen ervaren vloerleggers, die je vloer ook kunnen renoveren of schuren.",
+    "specialties": [
+      "Houten vloeren & parket",
+      "PVC- en vinylvloeren",
+      "Laminaat & kurk",
+      "Eigen vloerleggers",
+      "Renoveren & schuren",
+      "Vrijblijvend vloeradvies"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 37, 3811 AN Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 - 47 555 01"
+      },
+      {
+        "label": "E-mail",
+        "value": "amersfoort@hollandparket.nl"
+      },
+      {
+        "label": "Opgericht",
+        "value": "1988 (in Ede, door Wijnand van Beek)"
+      },
+      {
+        "label": "Assortiment",
+        "value": "Meer dan 2.500 vloeren"
+      },
+      {
+        "label": "Bijzonder",
+        "value": "Eigen ervaren vloerleggers"
+      },
+      {
+        "label": "Branche",
+        "value": "Vloerenspecialist / parket"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 16:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "openingNote": "Donderdagavond op afspraak mogelijk (volgens openingstijden.nl tot 20:30). Maandag en zondag gesloten. Hours per de Amersfoort-vestiging op de officiële website; let op: de algemene JSON-LD op de site vermeldt afwijkend dagelijks 09:00-17:00 (generieke standaardwaarde, niet branche-specifiek).",
+    "sources": [
+      "https://hollandparket.nl",
+      "https://hollandparket.nl/vestigingen/amersfoort/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2564269941/holland-parket",
+      "https://www.openingstijden.nl/Holland-Parket/Amersfoort/Kamp-37/",
+      "https://floorlife.nl/holland-parket-amersfoort/over-ons/",
+      "https://www.klantenvertellen.nl/reviews/1038794/holland_parket"
+    ]
+  },
+  {
+    "id": "avondwinkel-sn",
+    "name": "Avondwinkel S&N",
+    "status": "open",
+    "lat": 52.157771,
+    "lng": 5.395273,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Avondwinkel+S%26N+Kamp+39+Amersfoort&query_place_id=",
+    "facebookUrl": "https://www.facebook.com/p/Het-avondwinkeltje-SN-100065088627277/",
+    "hasGoogleReviews": false,
+    "ogImageUrl": "https://assets.plaece.nl/thumb/b6r_4gp4Tuk6_Cru1GAv4BvrIM0GEZwRoU6UeEE30xQ/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTE2NV8yNDIxMDQ5NTgwLmpwZw.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl og:image)",
+    "imageLicenseNote": "Listing's own og:image from the official Tijd voor Amersfoort city directory (plaece.nl asset CDN), not stock. Confirm owner/photographer permission and licensing before publishing commercially.",
+    "priceRange": "€",
+    "openingNote": "Hours corroborated across openingstijden.com, openingstijdengids.nl and search results. The Tijd voor Amersfoort listing's own text says \"iedere weekdag open tot 01:00, op zaterdag en zondag tot 02:00\", which differs slightly on Sunday from the opening-hours directories (Sun until 00:00). Opening time 16:00 per the opening-hours directories. Phone number varies between listings: +31 6 34226696 (Tijd voor Amersfoort) and 06-24334565 (openingstijdengids.nl/openingstijden.com) — verify the current number with the shop.",
+    "openingHours": [
+      {
+        "days": "Maandag t/m donderdag",
+        "hours": "16:00 - 01:00"
+      },
+      {
+        "days": "Vrijdag en zaterdag",
+        "hours": "16:00 - 02:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "16:00 - 00:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "16:00",
+        "closes": "01:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "16:00",
+        "closes": "01:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "16:00",
+        "closes": "01:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "16:00",
+        "closes": "01:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "16:00",
+        "closes": "02:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "16:00",
+        "closes": "02:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "16:00",
+        "closes": "00:00"
+      }
+    ],
+    "refinedShortNL": "Avondwinkel op de Kamp voor de hoge nood: snacks, snoep, drankjes, sigaretten en boodschappen tot diep in de nacht, ook in het weekend.",
+    "refinedLongNL": "Het Avondwinkeltje S&N aan de Kamp 39 is de vertrouwde avondwinkel in het Amersfoortse stadshart voor wanneer je 's avonds nog iets nodig hebt. Je vindt er een praktisch assortiment: zuivel, snacks, snoep, frisdrank, sigaretten en alcoholische dranken. De winkel is iedere dag open vanaf 16:00 uur en doordeweeks tot 01:00 uur, in het weekend zelfs tot 02:00 uur.",
+    "specialties": [
+      "Avondwinkel",
+      "Snacks & snoep",
+      "Frisdrank & bier",
+      "Sigaretten",
+      "Late openingstijden",
+      "Boodschappen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Avondwinkel / late-night shop"
+      },
+      {
+        "label": "Ligging",
+        "value": "Kamp 39, stadshart Amersfoort"
+      },
+      {
+        "label": "Open tot",
+        "value": "01:00 (wk) / 02:00 (weekend)"
+      },
+      {
+        "label": "Opent",
+        "value": "Dagelijks vanaf 16:00"
+      },
+      {
+        "label": "Telefoon",
+        "value": "+31 6 34226696 (verifiëren)"
+      }
+    ],
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2138016370/avondwinkel-s-n",
+      "https://www.openingstijden.com/o3142134/het-avondwinkeltje-s&n-kamp-39-amersfoort/",
+      "https://www.openingstijdengids.nl/het-avondwinkeltje-s-en-n/amersfoort/1",
+      "https://nl.near-place.com/avondwinkel-s-n-kamp-39-amersfoort",
+      "https://www.facebook.com/p/Het-avondwinkeltje-SN-100065088627277/"
+    ]
+  },
+  {
+    "id": "skitzo",
+    "name": "Skitzo",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157777,
+    "lng": 5.394778,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/dir/?api=1&destination=52.157777%2C5.394778",
+    "hasGoogleReviews": false,
+    "facebookUrl": "https://www.facebook.com/skitzowinkel",
+    "priceRange": "€-€€€",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/p1080575-600x450_4240214929.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Image from the business's own Tijd voor Amersfoort (Citymarketing Amersfoort) listing, served via assets.plaece.nl — confirm owner/Citymarketing permission before publishing. The official skitzo-sieraden.nl site exposes no og:image of its own.",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Openingstijden volgens de directorylisting (Tijd voor Amersfoort): di t/m za 10:00-17:00, ma en zo gesloten. De eigen contactpagina vermeldde recenter wo t/m za 11:00-17:00 plus bezoek op afspraak (dinsdag of buiten openingstijden) — controleer Google voor actuele/aangepaste tijden.",
+    "refinedShortNL": "Sfeervolle juwelier op de Kamp met unieke, handgemaakte sieraden, horloges en tassen — plus eigen goudsmidatelier voor reparatie en goudinkoop.",
+    "refinedLongNL": "Skitzo zit al meer dan 25 jaar op Kamp 40 in het hart van Amersfoort en staat bekend als een van de leukste juweliers van de stad. Je vindt er unieke, in Nederland handgemaakte sieraden van kleine ontwerpers en ateliers, naast horloges en tassen (waaronder Maria La Verda) in elke prijsklasse. Via het eigen goudsmidatelier (Atelier Pronk) kun je ook terecht voor maatwerk, reparaties en de inkoop van oud goud.",
+    "specialties": [
+      "Handgemaakte sieraden",
+      "Unieke ontwerpen",
+      "Horloges",
+      "Tassen",
+      "Goudsmidatelier & reparatie",
+      "Inkoop oud goud"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "Meer dan 25 jaar op de Kamp"
+      },
+      {
+        "label": "Type",
+        "value": "Juwelier / sieraden"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Handgemaakte, unieke sieraden uit NL"
+      },
+      {
+        "label": "Atelier",
+        "value": "Eigen goudsmidatelier (Atelier Pronk)"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 472 1417"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 40, 3811 AS Amersfoort"
+      }
+    ],
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1993983577/skitzo",
+      "https://skitzo-sieraden.nl/",
+      "https://skitzo-sieraden.nl/contact/",
+      "https://www.cylex.nl/bedrijf/skitzo-10707725.html",
+      "https://www.youropi.com/nl/amersfoort/winkelen/skitzo-4844/",
+      "https://www.facebook.com/skitzowinkel"
+    ]
+  },
+  {
+    "id": "awaze",
+    "name": "Awazé",
+    "status": "open",
+    "confidence": "high",
+    "refinedShortNL": "Het eerste Ethiopische (en vegan) restaurant van Amersfoort, op de Kamp. Deel injera-schalen met de hand — bestek hoeft niet.",
+    "refinedLongNL": "Awazé is sinds 2019 het eerste Ethiopische restaurant van Amersfoort, gevestigd in een historisch pand op de Kamp. Eigenaresse Wosene Asmamaw kookt zelf authentieke, kruidige gerechten — van pittige kip en gekruid rundvlees tot ruime veganistische schalen — die je deelt met de hand op een injera, de licht-zure pannenkoek waarop alles wordt geserveerd. De gezellige, warme sfeer en de gastvrijheid leveren consequent lovende reviews op.",
+    "specialties": [
+      "Ethiopische keuken",
+      "Veganistisch",
+      "Injera",
+      "Deelschalen",
+      "Eten met de hand",
+      "Glutenvrije opties"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "2019"
+      },
+      {
+        "label": "Keuken",
+        "value": "Ethiopisch & vegan"
+      },
+      {
+        "label": "Eigenaresse",
+        "value": "Wosene Asmamaw"
+      },
+      {
+        "label": "Bijzonder",
+        "value": "Eerste Ethiopische restaurant van Amersfoort"
+      },
+      {
+        "label": "Serveerwijze",
+        "value": "Op injera, geen bestek nodig"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 737 0029"
+      }
+    ],
+    "lat": 52.157975,
+    "lng": 5.395315,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Awaz%C3%A9%20Kamp%2048%20Amersfoort&query_place_id=",
+    "hasGoogleReviews": true,
+    "priceRange": "€€",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m zondag",
+        "hours": "17:00 - 22:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "17:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "17:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "17:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "17:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "17:00",
+        "closes": "22:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "17:00",
+        "closes": "22:00"
+      }
+    ],
+    "openingNote": "Maandag gesloten; dinsdag t/m zondag vanaf 17:00 geopend. Openingstijden volgens de eigen website (awazerestaurant.nl). Eén aggregator vermeldt 23:00 als sluitingstijd di-za; de officiële site houdt 22:00 aan. Reserveren aanbevolen.",
+    "ogImageUrl": "https://www.awazerestaurant.nl/wp-content/uploads/2020/01/DSC_0876-v2-1030x685.jpg",
+    "imageSource": "awazerestaurant.nl",
+    "imageLicenseNote": "Business's own og:image / promo photo from the official website — most defensible source. Confirm owner permission before publishing.",
+    "instagramUrl": "https://www.instagram.com/awaze_restaurant",
+    "facebookUrl": "https://www.facebook.com/awazerestaurant/",
+    "sources": [
+      "https://www.awazerestaurant.nl",
+      "https://www.awazerestaurant.nl/ethiopische-en-vegan-restaurant/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/930122048/awaze",
+      "https://restaurantguru.com/Awaze-Restaurant-Amersfoort",
+      "https://en.eet.nu/amersfoort/awaze",
+      "https://www.tripadvisor.com/Restaurant_Review-g188613-d18962526-Reviews-Awaze_Ethiopisch_Restaurant-Amersfoort.html",
+      "https://www.socialdeal.nl/bedrijf/amersfoort/awaze-ethiopisch-restaurant/"
+    ]
+  },
+  {
+    "id": "babai",
+    "name": "Babai",
+    "status": "open",
+    "confidence": "high",
+    "refinedShortNL": "Vertrouwd familiebedrijf sinds 1975 aan de Kamp: handgeknoopte Perzische en oosterse tapijten kopen, reinigen en restaureren.",
+    "refinedLongNL": "Babai is een Amersfoorts familiebedrijf met Iraanse wortels dat sinds 1975 gespecialiseerd is in handgeknoopte Perzische en oosterse tapijten. In de ruime showroom aan de Kamp 49 koopt en verkoopt men nieuwe en antieke tapijten, en verzorgt het vakkundige reiniging en restauratie. Service, kwaliteit en eerlijke prijzen staan voorop; bezoek is op dinsdag t/m zaterdag mogelijk, en op maandag, donderdagavond en zondag op afspraak.",
+    "specialties": [
+      "Perzische tapijten",
+      "Oosterse tapijten",
+      "Handgeknoopt",
+      "Tapijtreiniging",
+      "Restauratie",
+      "Antieke tapijten"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "1975"
+      },
+      {
+        "label": "Type",
+        "value": "Familiebedrijf"
+      },
+      {
+        "label": "Specialisme",
+        "value": "Perzische en oosterse tapijten"
+      },
+      {
+        "label": "Diensten",
+        "value": "Verkoop, reiniging en restauratie"
+      },
+      {
+        "label": "Showroom",
+        "value": "Ca. 300 m²"
+      },
+      {
+        "label": "Parkeren",
+        "value": "Gratis bij Achter de Kamp 108"
+      }
+    ],
+    "lat": 52.157944,
+    "lng": 5.395709,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Babai+Kamp+49+Amersfoort",
+    "hasGoogleReviews": false,
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Op afspraak"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "09:30 - 17:30"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:30 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Op afspraak"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:30",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Maandag, donderdagavond (17:30-21:00) en zondag uitsluitend op afspraak. Reference source vermeldt maandag en zondag als gesloten; de eigen website vermeldt 'alleen op afspraak'.",
+    "priceRange": "",
+    "ogImageUrl": "https://www.babai.nl/wp-content/uploads/2021/07/629-1-199x300.jpg",
+    "imageSource": "babai.nl",
+    "imageLicenseNote": "Geen og:image-tag aanwezig; dit is de primaryImageOfPage uit de eigen JSON-LD van babai.nl (eigen bedrijfsafbeelding). Lage resolutie (199x300). Bevestig toestemming van eigenaar voor publicatie en vraag indien mogelijk een hi-res versie of showroomfoto op.",
+    "facebookUrl": "https://www.facebook.com/p/Babai-100069180708806/",
+    "instagramUrl": "https://www.instagram.com/babaitapijten",
+    "sources": [
+      "https://www.babai.nl",
+      "https://www.babai.nl/contact/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3823650099/babai",
+      "https://www.cylex.nl/bedrijf/babai-perzische-tapijten-11000888.html"
+    ]
+  },
+  {
+    "id": "de-heren-van-amersfoort",
+    "name": "De Heren van Amersfoort",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157978,
+    "lng": 5.39582,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=De+Heren+van+Amersfoort+Kamp+51+Amersfoort",
+    "hasGoogleReviews": false,
+    "priceRange": "",
+    "refinedShortNL": "Familiezaak op de Kamp voor vloeren, gordijnen, zonwering en parket — deskundig advies in de winkel en vakkundig leggen bij u thuis.",
+    "refinedLongNL": "De Heren van Amersfoort is een familiebedrijf dat al ruim 25 jaar met passie woninginrichting verzorgt vanuit hun showroom aan Kamp 51, midden in de historische binnenstad. U vindt er de nieuwste collecties topmerken op het gebied van gordijnen, vloerbedekking, zonwering en parket. Deskundige begeleiding in de winkel en vakkundig leggen bij u thuis staan centraal, zonder dat het duur hoeft te zijn.",
+    "specialties": [
+      "Vloeren",
+      "Gordijnen",
+      "Zonwering",
+      "Parket",
+      "Raambekleding",
+      "Woninginrichting"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Woninginrichting / interieurwinkel"
+      },
+      {
+        "label": "Ervaring",
+        "value": "25+ jaar familiebedrijf"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 4720 600"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 51, 3811 AN Amersfoort"
+      },
+      {
+        "label": "Gesloten",
+        "value": "Maandag en zondag"
+      },
+      {
+        "label": "Service",
+        "value": "Advies in de winkel + leggen aan huis"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Maandag en zondag gesloten. Openingstijden bevestigd via de reference source (tijdvooramersfoort.nl); raadpleeg de website of bel voor afwijkende tijden rond feestdagen.",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09187_364871223.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl)",
+    "imageLicenseNote": "Eigen promotiefoto van het bedrijf, gehost op de plaece.nl/tijdvooramersfoort directory-CDN — bevestig toestemming van de eigenaar voor publicatie.",
+    "instagramUrl": "",
+    "facebookUrl": "",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1901312621/de-heren-van-amersfoort",
+      "https://www.telefoonboek.nl/bedrijven/t2846562/amersfoort/de-heren-van-amersfoort/",
+      "https://www.cylex.nl/bedrijf/de-heren-van-amersfoort-10620375.html",
+      "https://www.deherenvanamersfoort.nl/?page_id=725",
+      "https://drimble.nl/bedrijf/amersfoort/2884097/de-heren-van-amersfoort.html"
+    ]
+  },
+  {
+    "id": "louis-blancardi-wijnen",
+    "name": "Louis Blancardi Wijnen",
+    "status": "open",
+    "openingNote": "Vandaag (zondag) gesloten. Openingstijden bevestigd via openingstijden.com-aggregator; controleer actuele tijden telefonisch of via de eigen website, want de officiele site (louisblancardi.nl) is niet bereikbaar.",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "lat": 52.157808,
+    "lng": 5.394865,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Louis+Blancardi+Wijnen+Kamp+42+Amersfoort&query_place_id=",
+    "hasGoogleReviews": false,
+    "facebookUrl": "https://www.facebook.com/louisblancardiwijnen/",
+    "priceRange": "€€-€€€",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09162_2434463912.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl directory listing)",
+    "imageLicenseNote": "Eigen winkel-/sfeerfoto van de zaak zoals gepubliceerd in de Tijd voor Amersfoort-directory (CDN plaece.nl). Bevestig toestemming van de eigenaar voor publicatie; bij voorkeur rechtstreeks bij Louis Blancardi Wijnen een eigen og:image opvragen, want de officiele website was tijdens verrijking niet bereikbaar.",
+    "refinedShortNL": "Onafhankelijke wijnhandel op de Kamp: gekwalificeerd vinoloog met avontuurlijke kwaliteitswijnen, champagnes, oudere amarones en dessertwijnen.",
+    "refinedLongNL": "Louis Blancardi Wijnen aan de Kamp 42 is een zelfstandige wijnhandel waar een gekwalificeerd vinoloog volledig onafhankelijk van keten of filiaal inkoopt. Het assortiment is veelzijdig en niet alledaags: van avontuurlijke kwaliteitswijnen uit klassieke en nieuwe wijnlanden tot 1er en grand cru champagnes, oudere jaargangen amarone en een ruime collectie dessertwijnen uit de hele wereld. Ook voor wijnaccessoires zoals decanteerkaraffen, kurkentrekkers en glazen ben je hier aan het juiste adres, met persoonlijk en deskundig advies.",
+    "specialties": [
+      "Kwaliteitswijnen",
+      "1er & grand cru champagnes",
+      "Oudere amarones",
+      "Dessertwijnen",
+      "Onafhankelijk vinoloog",
+      "Wijnaccessoires"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 42, 3811 AS Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 - 476 80 15"
+      },
+      {
+        "label": "E-mail",
+        "value": "wijnhandelblancardi@gmail.com"
+      },
+      {
+        "label": "Eigenaar",
+        "value": "François de Wekker"
+      },
+      {
+        "label": "Sinds",
+        "value": "ca. 2005"
+      },
+      {
+        "label": "Type",
+        "value": "Zelfstandige wijnhandel / vinoloog"
+      },
+      {
+        "label": "Pinnen",
+        "value": "Ja"
+      }
+    ],
+    "confidence": "medium",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1865448340/louis-blancardi-wijnen",
+      "https://www.openingstijden.com/o8019977/louis-blancardi-wijnen-kamp-42-amersfoort/",
+      "https://perswijn.nl/grootspraak_locatie/wijnhandel-louis-blancardi/",
+      "https://en.nicelocal.co.nl/amersfoort/shops/wijnhandel_louis_blancardi/",
+      "https://www.facebook.com/louisblancardiwijnen/"
+    ]
+  },
+  {
+    "id": "toko-dong-a",
+    "name": "Toko Dong-A",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.158158,
+    "lng": 5.396265,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Toko%20Dong-A%20Kamp%2061%20Amersfoort",
+    "hasGoogleReviews": true,
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09197_1093641845.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl official listing)",
+    "imageLicenseNote": "Image from the official Tijd voor Amersfoort / Plaece listing for this business (its own listing photo). Confirm owner/photographer permission before publishing.",
+    "priceRange": "",
+    "refinedShortNL": "Aziatische toko op de Kamp vol kruiden, specerijen en producten uit o.a. Thailand, Indonesië, Vietnam, Japan en Suriname.",
+    "refinedLongNL": "Toko Dong-A aan de Kamp 61 is een sfeervolle Aziatische toko in het hart van Amersfoort. Je vindt er een ruime selectie levensmiddelen, kruiden, specerijen, servies en cadeauartikelen uit onder meer Thailand, China, Vietnam, Indonesië, India, Japan, de Filipijnen en Suriname/Antillen. Ideaal voor wie thuis authentieke gerechten wil koken; geopend van dinsdag tot en met zondag (donderdag tot 20.00 uur), maandag gesloten.",
+    "specialties": [
+      "Aziatische levensmiddelen",
+      "Kruiden & specerijen",
+      "Indonesisch",
+      "Thais",
+      "Surinaams/Antilliaans",
+      "Servies & cadeauartikelen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 61, 3811 AP Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 476 7216"
+      },
+      {
+        "label": "Type",
+        "value": "Aziatische toko / supermarkt"
+      },
+      {
+        "label": "Herkomst producten",
+        "value": "Thailand, China, Vietnam, Indonesië, India, Japan, Filipijnen, Suriname/Antillen"
+      },
+      {
+        "label": "Gesloten",
+        "value": "Maandag"
+      },
+      {
+        "label": "Koopavond",
+        "value": "Donderdag tot 20.00 uur"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "10:00 - 20:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "12:00 - 18:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "18:00"
+      }
+    ],
+    "openingNote": "Maandag gesloten. Donderdag koopavond tot 20.00 uur. Openingstijden bevestigd via de officiële Tijd voor Amersfoort-listing (JSON-LD/kalender) en onafhankelijke zoekresultaten; controleer bij twijfel telefonisch.",
+    "facebookUrl": "",
+    "instagramUrl": "",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3483947753/toko-dong-a",
+      "https://www.openingstijden.com/open/toko-dong-a/amersfoort/",
+      "https://restaurantguru.com/Toko-Dong-A-Amersfoort",
+      "https://www.yelp.com/biz/toko-dong-a-amersfoort",
+      "https://evendo.com/locations/netherlands/amersfoort/shop/toko-dong-a"
+    ]
+  },
+  {
+    "id": "bever-amersfoort",
+    "name": "Bever Amersfoort",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.15808,
+    "lng": 5.39588,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bever+Amersfoort+Kamp+53+Amersfoort",
+    "hasGoogleReviews": true,
+    "priceRange": "€€",
+    "ogImageUrl": "https://www.bever.nl/content/dam/bever/stores/517.jpg",
+    "imageSource": "bever.nl",
+    "imageLicenseNote": "Business's own store photo, referenced as the official image in the LocalBusiness JSON-LD on bever.nl (store 517). Most defensible option — confirm owner/brand permission before publishing. Alternative: the reference listing's og:image set hosted on assets.plaece.nl (e.g. dsc06704-enhanced-nr_411163677.jpg), also business-provided promo imagery.",
+    "refinedShortNL": "Ruime, moderne outdoorwinkel vlak bij het historisch centrum: kleding, schoenen en kampeer- en wandeluitrusting voor je volgende avontuur.",
+    "refinedLongNL": "Bever Amersfoort is dé outdoorspeciaalzaak aan de Kamp, op een steenworp van het historische centrum. In deze ruime, moderne winkel vind je een brede collectie outdoor- en wandelkleding, schoenen en complete kampeer- en reisuitrusting van merken als Haglöfs en Sea to Summit, met persoonlijk en deskundig advies. Op donderdag is de winkel koopavond tot 20.00 uur; op zondag ben je tussen 12.00 en 17.00 uur welkom.",
+    "specialties": [
+      "Outdoorkleding",
+      "Wandelschoenen",
+      "Kampeeruitrusting",
+      "Backpacks",
+      "Reisartikelen",
+      "Deskundig advies"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Outdoor- & sportzaak"
+      },
+      {
+        "label": "Assortiment",
+        "value": "Kleding, schoenen & kampeeruitrusting"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 53-57, 3811 AN Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "085-88 850 88"
+      },
+      {
+        "label": "Koopavond",
+        "value": "Donderdag tot 20.00 uur"
+      },
+      {
+        "label": "Locatie",
+        "value": "Bij het historisch centrum"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "12:00 - 18:00"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "10:00 - 20:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "10:00 - 18:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:30 - 17:30"
+      },
+      {
+        "days": "Zondag",
+        "hours": "12:00 - 17:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "12:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Opening hours sourced from the official LocalBusiness JSON-LD and rendered store page on bever.nl (store 517), confirmed June 2026. The reference listing (tijdvooramersfoort.nl) lists slightly older hours (Thursday until 21:00, Sunday closed); the official bever.nl data has been used as the authoritative, current source.",
+    "sources": [
+      "https://www.bever.nl/winkels/amersfoort.html",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3898272727/bever-amersfoort",
+      "https://reviews.birdeye.com/bever-amsterfoort-177216284285642",
+      "https://www.openingstijden.nl/Bever/Amersfoort/Kamp-53-57/"
+    ]
+  },
+  {
+    "id": "dhome-de-winkel",
+    "name": "DHome de winkel",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.158175,
+    "lng": 5.395858,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/dir/?api=1&destination=52.158175%2C5.395858",
+    "hasGoogleReviews": false,
+    "facebookUrl": "https://www.facebook.com/DHome-412353955512862/",
+    "instagramUrl": "https://www.instagram.com/dhome_debbie_fontein/",
+    "priceRange": "",
+    "ogImageUrl": "https://www.dhome.nl/img/DHome-logo.jpg",
+    "imageSource": "dhome.nl",
+    "imageLicenseNote": "Business's own og:image (DHome logo) from dhome.nl — most defensible source; confirm owner permission before publishing. Richer storefront/interior photos are available via the Tijd voor Amersfoort listing (hosted on assets.plaece.nl, e.g. dhome-de-winkel-klein_3498163889.jpg) but those are third-party directory images — verify rights before use.",
+    "refinedShortNL": "Conceptstore van interieurstylist Debbie Fontein aan de Kamp: meubels, raambekleding, vloeren, verlichting, mode én persoonlijk interieuradvies.",
+    "refinedLongNL": "DHome de winkel is de conceptstore van interieurstylist Debbie Fontein, sinds mei 2023 gevestigd aan Kamp 60 in winkelgebied De Kamp. In deze sfeervolle boetiek met een neutrale stijl en pittige accenten vind je meubels, raambekleding, vloeren, karpetten, verlichting en bijzondere woonaccessoires, naast mode, sieraden en verantwoorde producten die je niet overal tegenkomt. Je kunt er bovendien terecht voor persoonlijk en betaalbaar interieuradvies; de winkel is open op donderdag en vrijdag van 10.00–17.00 uur en zaterdag van 10.00–16.00 uur.",
+    "specialties": [
+      "Interieuradvies",
+      "Meubels & woonaccessoires",
+      "Raambekleding & vloeren",
+      "Verlichting & karpetten",
+      "Conceptstore",
+      "Mode & sieraden"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "mei 2023"
+      },
+      {
+        "label": "Eigenaar",
+        "value": "Debbie Fontein"
+      },
+      {
+        "label": "Type",
+        "value": "Conceptstore / interieur"
+      },
+      {
+        "label": "Telefoon",
+        "value": "06 13196770"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 60, 3811 AT Amersfoort"
+      },
+      {
+        "label": "Wijk",
+        "value": "Winkelgebied De Kamp"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag t/m woensdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 16:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "openingNote": "Geopend donderdag en vrijdag 10.00-17.00 uur en zaterdag 10.00-16.00 uur; maandag t/m woensdag en zondag gesloten. Openingstijden volgens de Tijd voor Amersfoort-listing — bevestig actuele tijden voor publicatie.",
+    "specialtiesNote": "",
+    "refinedShortNLNote": "",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/3552999928/dhome-de-winkel",
+      "https://www.dhome.nl",
+      "https://www.wonen360.nl/article/9607872/interieuradviseur-verkoopt-niet-alleen-haar-favoriete-meubels-en-woonaccessoires/",
+      "https://www.instagram.com/dhome_debbie_fontein/",
+      "https://www.linkedin.com/in/debbie-fontein-de-jong-88384614/"
+    ]
+  },
+  {
+    "id": "terre-des-hommes-amersfoort",
+    "name": "Terre des Hommes Amersfoort",
+    "status": "open",
+    "lat": 52.15847,
+    "lng": 5.397068,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "openingHours": [
+      {
+        "days": "Dinsdag t/m zaterdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zondag, maandag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Geopend dinsdag t/m zaterdag 10:00-17:00; zondag en maandag gesloten. Eén bron (tijdvooramersfoort/meukisleuk) noemt zaterdag tot 16:00 — de officiële winkelpagina van Terre des Hommes vermeldt 17:00.",
+    "priceRange": "",
+    "hasGoogleReviews": true,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Terre%20des%20Hommes%20Amersfoort%20Kamp%2079",
+    "facebookUrl": "https://www.facebook.com/people/Terre-des-Hommes-Amersfoort/100064835614795/",
+    "instagramUrl": "https://www.instagram.com/terredeshommesamersfoort",
+    "ogImageUrl": "https://assets.plaece.nl/thumb/OnzEUavaxFX8srmjJpXJO02wX-Dns2T01jPBMT_hgng/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwMTYxMy0zXzM1NDg2MzIyNDEuanBn.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl directory listing)",
+    "imageLicenseNote": "Foto van de eigen winkel uit het officiële tijdvooramersfoort.nl-directorylisting (geleverd door plaece.nl). Geen stockfoto, maar bevestig toestemming van de winkel/rechthebbende vóór publicatie. Voorkeur: vraag een eigen og:image of foto rechtstreeks bij de winkel op.",
+    "refinedShortNL": "Sfeervolle tweedehandswinkel in hartje De Kamp: kwaliteitskleding, boeken en curiosa, gerund door vrijwilligers tegen kinderuitbuiting.",
+    "refinedLongNL": "Bij Terre des Hommes aan de Kamp 79 shop je eersteklas tweedehands en maak je tegelijk impact. In deze gezellige winkel vind je goede kwaliteit dames-, heren- en kinderkleding, schoenen, tassen, accessoires, speelgoed, boeken, platen, serviesgoed en curiosa. De winkel draait volledig op vrijwilligers en de hele opbrengst gaat naar de projecten van Terre des Hommes Nederland tegen kinderuitbuiting wereldwijd.",
+    "specialties": [
+      "Tweedehands winkel",
+      "Kringloop",
+      "Vintage kleding",
+      "Boeken & platen",
+      "Goed doel",
+      "Duurzaam shoppen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Tweedehandswinkel / kringloop"
+      },
+      {
+        "label": "Goed doel",
+        "value": "Terre des Hommes Nederland"
+      },
+      {
+        "label": "Bemensing",
+        "value": "Volledig door vrijwilligers"
+      },
+      {
+        "label": "Winkel geopend",
+        "value": "ca. 2011 (12,5 jaar in mei 2024)"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 737 0449 / 06-83590436"
+      },
+      {
+        "label": "E-mail",
+        "value": "winkel.amersfoort@tdh.nl"
+      },
+      {
+        "label": "Opbrengst 2025",
+        "value": "EUR 140.000 voor de strijd tegen kinderuitbuiting"
+      }
+    ],
+    "sources": [
+      "https://www.terredeshommes.nl/onze-winkels/amersfoort",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/4066033477/terre-des-hommes-amersfoort",
+      "https://www.openingstijdengids.nl/terre-des-hommes/amersfoort/1",
+      "https://www.meukisleuk.nl/winkels/219/terre-des-hommes-amersfoort.html",
+      "https://www.facebook.com/people/Terre-des-Hommes-Amersfoort/100064835614795/"
+    ]
+  },
+  {
+    "id": "studio-mr-bunny",
+    "name": "Studio Mr Bunny",
+    "status": "open",
+    "confidence": "high",
+    "refinedShortNL": "Handgemaakt atelier en winkel op de Kamp: unieke stolpen, trooststolpen, tassen en gezellige tuft-workshops met Mr Bunny.",
+    "refinedLongNL": "Studio Mr Bunny is een sfeervol handgemaakt atelier annex winkel aan de Kamp 62 in Amersfoort, waar kunst, natuur en ambacht samenkomen in unieke stolpen, betekenisvolle trooststolpen, curiosa en handgemaakte tassen. In de lichte, ruime werkplaats geeft Mr Bunny zelf met veel passie en geduld workshops spiegel tuften (5,5 uur, €97,50) en slippers tuften (2,5 uur, €57,50), voor maximaal vier deelnemers per sessie. De winkel is open op woensdag, donderdag en vrijdag van 12.00 tot 16.00 uur en daarbuiten op afspraak.",
+    "specialties": [
+      "Stolpen",
+      "Trooststolpen",
+      "Tuft-workshops",
+      "Handgemaakte tassen",
+      "Curiosa & woondecoratie",
+      "Creatief uitje"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Handgemaakt atelier & winkel"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Stolpen & trooststolpen"
+      },
+      {
+        "label": "Workshops",
+        "value": "Spiegel tuften (€97,50) & slippers tuften (€57,50)"
+      },
+      {
+        "label": "Groepsgrootte",
+        "value": "Max. 4 deelnemers per sessie"
+      },
+      {
+        "label": "Buurt",
+        "value": "De Kamp, Amersfoort"
+      }
+    ],
+    "priceRange": "$$",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "12:00 - 16:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "12:00 - 16:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "12:00 - 16:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "12:00",
+        "closes": "16:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "12:00",
+        "closes": "16:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "openingNote": "Open wo/do/vr 12.00-16.00 uur; daarbuiten op afspraak. Workshops verlopen op afspraak/reservering.",
+    "lat": 52.158245,
+    "lng": 5.3958866,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/place/studio+mr+bunny/@52.158245,5.3958866,17z/data=!4m8!3m7!1s0x47c64725f9b9479d:0xed228ee55194631b!8m2!3d52.158245!4d5.3958866!9m1!1b1!16s%2Fg%2F11l1r8yyr6",
+    "hasGoogleReviews": true,
+    "instagramUrl": "https://www.instagram.com/studiomrbunny",
+    "facebookUrl": "https://www.facebook.com/studiomrbunny",
+    "ogImageUrl": "https://www.studiomrbunny.nl/opengraph-image?a31a048f0545efcb",
+    "imageSource": "studiomrbunny.nl",
+    "imageLicenseNote": "Business's own OpenGraph card (1200x630 PNG, served from studiomrbunny.nl, HTTP 200 verified) — most defensible image source. Confirm owner permission before publishing. Alternatively, actual interior/product photos exist on assets.plaece.nl (the tijdvooramersfoort.nl directory aggregator) but those are hosted by a third-party directory; the business's own og:image is preferred.",
+    "sources": [
+      "https://www.studiomrbunny.nl (official website JSON-LD: address, geo, priceRange, social links, reviews, workshop catalog, og:image)",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1988445895/studio-mr-bunny (reference: opening hours wo/do/vr 12.00-16.00, geo, photos)",
+      "https://www.vvvamersfoort.nl/nl/locaties/3018/studio-mr-bunny (confirms listing)",
+      "https://www.oozo.nl/bedrijven/amersfoort/stadskern/coninckstraat/3066707/studio-mr-bunny (business directory)",
+      "WebSearch: 'Studio Mr Bunny Amersfoort Kamp 62 openingstijden' (confirmed wo/do/vr 12-16 + op afspraak)",
+      "Google Maps place URL + share.google/AO6z6QMDsW1Amx8O2 resolving to Google KG entry kgmid /g/11l1r8yyr6 (confirms Google presence)"
+    ]
+  },
+  {
+    "id": "indian-flavour",
+    "name": "Indian Flavour",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.157713,
+    "lng": 5.394481,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Indian%20Flavour%20Kamp%2034%20Amersfoort&query_place_id=ChIJobQb6ZpGxkcRiQEUg-GBAwk",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/p/Indian-Flavour-100054489487818/",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09155_917558258.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Business's own listing/promo photo as published on the official Citymarketing Amersfoort (tijdvooramersfoort.nl) directory; hosted on assets.plaece.nl. Confirm owner permission before publishing.",
+    "priceRange": "€",
+    "refinedShortNL": "Indiaas afhaal- en bezorgrestaurant aan de gezellige Kamp: 100% halal currys, biryani's en Surinaamse roti's om mee te nemen.",
+    "refinedLongNL": "Indian Flavour serveert authentieke Indiase gerechten aan de Kamp 34, midden in de levendige winkelstraat van Amersfoort. Op het menu staan onder meer geurige curry's, biryani's en Surinaamse roti's, allemaal 100% halal en met volop vegetarische keuzes. Je kunt elke dag in de middag en avond afhalen of laten bezorgen.",
+    "specialties": [
+      "Indiaas",
+      "100% Halal",
+      "Curry's",
+      "Biryani",
+      "Surinaamse roti",
+      "Afhalen & bezorgen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Keuken",
+        "value": "Indiaas / Surinaams"
+      },
+      {
+        "label": "Halal",
+        "value": "100% halal"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 34, 3811 AS Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 472 1035"
+      },
+      {
+        "label": "Service",
+        "value": "Afhalen & bezorgen"
+      },
+      {
+        "label": "Google-score",
+        "value": "ca. 3,8/5 (ruim 270 reviews)"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag t/m zondag",
+        "hours": "ca. 15:00 - 22:45"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "15:00",
+        "closes": "22:45"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "15:00",
+        "closes": "22:45"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "15:00",
+        "closes": "22:45"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "15:00",
+        "closes": "22:45"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "15:00",
+        "closes": "22:45"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "15:00",
+        "closes": "22:45"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "15:00",
+        "closes": "22:45"
+      }
+    ],
+    "openingNote": "Dagelijks geopend in de middag en avond tot ca. 22:45. Exacte openingstijd varieert per bron (rond 14:45-15:00); controleer de actuele tijden op Google of bel het restaurant. De officiële website indianflavour.nl was tijdens controle niet bereikbaar.",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/112407254/indian-flavour",
+      "https://assets.plaece.nl/odp-ubase/image/dsc09155_917558258.jpg",
+      "https://www.indianflavour-amersfoort.nl/contact",
+      "https://restaurantguru.com/Indiaas-Restaurant-Indian-Flavour-Amersfoort",
+      "https://www.facebook.com/p/Indian-Flavour-100054489487818/",
+      "https://www.waze.com/live-map/directions/netherlands/utrecht/amersfoort/indiaas-restaurant-indian-flavour"
+    ]
+  },
+  {
+    "id": "the-far-east",
+    "name": "The Far East",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.158408,
+    "lng": 5.396378,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Far+East+Kamp+74+Amersfoort",
+    "hasGoogleReviews": true,
+    "priceRange": "€€",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09205_3127035507.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl / Visit Amersfoort)",
+    "imageLicenseNote": "Business's own promo image as published on the official Visit Amersfoort (tijdvooramersfoort.nl) listing; verified reachable (HTTP 200, image/jpeg). Confirm owner permission before publishing.",
+    "refinedShortNL": "Vertrouwd Chinees-Indisch restaurant op de Kamp: Kantonese en Szechuanese specialiteiten, afhalen of bezorgen, elke dag open vanaf 16.00 uur.",
+    "refinedLongNL": "The Far East is een sfeervol Chinees-Indisch restaurant midden in het centrum van Amersfoort, aan de gezellige Kamp 74. Op de kaart staan authentieke Oosterse gerechten, van originele Kantonese en Szechuanese specialiteiten tot vertrouwde Indische rijst- en bamischotels, met populaire combinatiemenu's voor een schappelijke prijs. Je kunt er lekker ter plekke eten of je bestelling afhalen of laten bezorgen; de keuken is elke dag van de week geopend van 16.00 tot 21.00 uur.",
+    "specialties": [
+      "Kantonese keuken",
+      "Szechuanese specialiteiten",
+      "Chinees-Indisch",
+      "Afhalen & bezorgen",
+      "Combinatiemenu's",
+      "Wokgerechten"
+    ],
+    "keyFacts": [
+      {
+        "label": "Keuken",
+        "value": "Chinees-Indisch"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 74, 3811 AT Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "(033) 472 50 21"
+      },
+      {
+        "label": "Geopend",
+        "value": "Dagelijks 16.00 - 21.00 uur"
+      },
+      {
+        "label": "Service",
+        "value": "Eten, afhalen & bezorgen"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "ca. 4,2"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag t/m zondag",
+        "hours": "16:00 - 21:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "16:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "16:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "16:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "16:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "16:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "16:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "16:00",
+        "closes": "21:00"
+      }
+    ],
+    "openingNote": "Openingstijden volgens de officiële Visit Amersfoort-vermelding (tijdvooramersfoort.nl): elke dag 16.00 - 21.00 uur. Sommige aggregatorsites vermelden een iets vroegere sluiting (20.30); bevestig actuele tijden telefonisch of via de bestelsite.",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/141081316/the-far-east",
+      "https://www.thefareast-amersfoort.nl/",
+      "https://assets.plaece.nl/odp-ubase/image/dsc09205_3127035507.jpg",
+      "https://restaurantguru.com/The-Far-East-Amersfoort",
+      "https://www.yelp.com/biz/specialiteiten-restaurant-the-far-east-amersfoort",
+      "https://en.eet.nu/amersfoort/the-far-east"
+    ]
+  },
+  {
+    "id": "binnenspecialist-van-den-berg",
+    "name": "Binnenspecialist van den Berg Amersfoort",
+    "status": "closed",
+    "openingNote": "Deze vestiging aan de Kamp 82 is permanent gesloten. Binnenspecialist heeft de activiteiten uit het centrum van Amersfoort verplaatst naar de vestigingen in Voorthuizen (Van Malestijn) en Zeist (De Bruin) vanwege de slechte bereikbaarheid van de binnenstad. Historische openingstijden (toen nog geopend): di–vr 10:00–17:30, za 10:00–16:00, gesloten op ma en zo.",
+    "openingHours": [],
+    "openingHoursSpec": [],
+    "lat": 52.158549,
+    "lng": 5.396709,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Binnenspecialist+van+den+Berg+Kamp+82+Amersfoort&query_place_id=",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/binnenspecialist",
+    "instagramUrl": "https://www.instagram.com/binnenspecialist/",
+    "priceRange": "",
+    "ogImageUrl": "https://www.binnenspecialist.nl/modules/Socialmedia/Views/Frontend/Img/og_default.png",
+    "imageSource": "binnenspecialist.nl",
+    "imageLicenseNote": "Business's own default og:image (generic Binnenspecialist brand placeholder, HTTP 200, 25 KB PNG) — most defensible source but not a storefront photo; confirm owner permission before publishing. A genuine storefront photo of Kamp 82 exists on the reference listing (https://assets.plaece.nl/odp-ubase/image/dsc09215-2_1264688340.jpg) but is hosted/owned by Plaece/tijdvooramersfoort.nl, so it would require their permission rather than the business's.",
+    "refinedShortNL": "Voormalige Binnenspecialist van den Berg aan de Kamp 82 — vloeren, gordijnen, behang en zonwering. Deze binnenstadwinkel is inmiddels gesloten.",
+    "refinedLongNL": "Binnenspecialist van den Berg was de Amersfoortse vestiging van de Binnenspecialist-formule, gevestigd aan de Kamp 82 in de historische binnenstad. De winkel adviseerde over en leverde vloeren, behang, gordijnen en binnen- en buitenzonwering en stond bekend om persoonlijk maatwerk (4,8 sterren uit 16 Google-reviews). Deze locatie is inmiddels gesloten; de activiteiten zijn verplaatst naar de vestigingen in Voorthuizen en Zeist, beide met parkeergelegenheid voor de deur en behoud van dezelfde service en garantie.",
+    "specialties": [
+      "Vloeren",
+      "Gordijnen",
+      "Behang",
+      "Binnenzonwering",
+      "Buitenzonwering",
+      "Interieuradvies"
+    ],
+    "keyFacts": [
+      {
+        "label": "Status",
+        "value": "Gesloten (verplaatst naar Voorthuizen en Zeist)"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 82, 3811 AT Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-4801379"
+      },
+      {
+        "label": "Assortiment",
+        "value": "Vloeren, behang, gordijnen, zonwering"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "4,8 ster (16 reviews)"
+      },
+      {
+        "label": "Onderdeel van",
+        "value": "Binnenspecialist (CBW-erkend)"
+      }
+    ],
+    "confidence": "high",
+    "sources": [
+      "https://www.binnenspecialist.nl/van-den-berg-amersfoort",
+      "https://www.binnenspecialist.nl",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/4023424995/binnenspecialist-van-den-berg-amersfoort",
+      "https://zaubee.com/biz/binnenspecialist-van-den-berg-amersfoort-qo9lpw4n",
+      "https://firmania.nl/amersfoort/binnenspecialist-van-den-berg-amersfoort-547522",
+      "https://www.cbw-erkend.nl/bedrijven/Van-den-Berg-Binnenspecialist-AMERSFOORT"
+    ]
+  },
+  {
+    "id": "de-aubergerie",
+    "name": "Restaurant de Aubergerie",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.15865,
+    "lng": 5.396922,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/dir/?api=1&destination=52.15865%2C5.396922",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://nl-nl.facebook.com/pages/de-Aubergerie/187925561270843",
+    "priceRange": "€34 - €62",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m zaterdag",
+        "hours": "18:00 - 00:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "18:00",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "18:00",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "18:00",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "18:00",
+        "closes": "00:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "18:00",
+        "closes": "00:00"
+      }
+    ],
+    "openingNote": "Gasten arriveren tussen 18:00 en 20:00 uur (één seating). Telefonisch bereikbaar di t/m za vanaf 12:00. Sluitingsperiodes 2025/2026: 27 dec - 8 jan, 26 apr - 4 mei, 28 jul - 19 aug.",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/knofappel-aubergerie-01k-002_1329120067.jpeg",
+    "imageSource": "assets.plaece.nl",
+    "imageLicenseNote": "Eigen promotiebeeld van de Aubergerie zoals geleverd aan het officiële Tijd voor Amersfoort / Plaece-listing (og:image van de referentiebron). Bevestig toestemming van de eigenaar vóór publicatie; bij voorkeur een eigen foto van deaubergerie.nl (images/portfolio/*.jpg) gebruiken.",
+    "refinedShortNL": "Sfeervol Bib Gourmand-restaurant van Han & Ingrid Everts in een monumentaal pand uit 1700 aan de rand van de Amersfoortse binnenstad.",
+    "refinedLongNL": "In hun met een Bib Gourmand onderscheiden restaurant aan Kamp 88 verwelkomen Han en Ingrid Everts maximaal 28 gasten in een monumentaal pand uit circa 1700, modern-klassiek ingericht met eiken tafels en comfortabele fauteuils. De keuken is op de Franse leest geschoeid met kleine internationale invloeden en golft mee met de seizoenen; kies uit het Bib Gourmand keuzemenu of het uitdagender Surprise-menu, met passende wijnarrangementen. Geopend van dinsdag tot en met zaterdag, waarbij gasten tussen 18:00 en 20:00 arriveren.",
+    "specialties": [
+      "Bib Gourmand",
+      "Frans-seizoensgebonden keuken",
+      "Surprise-menu",
+      "Wijn-spijs arrangementen",
+      "Monumentaal pand (1700)",
+      "Intieme setting (max. 28 gasten)"
+    ],
+    "keyFacts": [
+      {
+        "label": "Keuken",
+        "value": "Frans, seizoensgebonden met internationale invloeden"
+      },
+      {
+        "label": "Onderscheiding",
+        "value": "Michelin Bib Gourmand"
+      },
+      {
+        "label": "Gastheer/-vrouw",
+        "value": "Han & Ingrid Everts"
+      },
+      {
+        "label": "Pand",
+        "value": "Monumentaal pand uit circa 1700"
+      },
+      {
+        "label": "Capaciteit",
+        "value": "Maximaal 28 gasten"
+      },
+      {
+        "label": "Reserveren",
+        "value": "Online via Guestplan of 033-4756096"
+      }
+    ],
+    "sources": [
+      "https://www.deaubergerie.nl",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1028998442/de-aubergerie-2",
+      "https://guide.michelin.com/nl/nl/utrecht/amersfoort/restaurant/de-aubergerie",
+      "https://www.gault-millau.nl/en/restaurants/de-aubergerie-amersfoort",
+      "https://www.tripadvisor.com/Restaurant_Review-g188613-d748063-Reviews-Restaurant_De_Aubergerie-Amersfoort.html",
+      "https://www.thefork.com/restaurant/de-aubergerie-r242425",
+      "https://restaurantguru.com/De-Aubergerie-Amersfoort"
+    ]
+  },
+  {
+    "id": "glitter-en-glas",
+    "name": "Glitter en Glas",
+    "status": "open",
+    "lat": 52.157139,
+    "lng": 5.394647,
+    "geoConfidence": "high",
+    "confidence": "medium",
+    "hasGoogleReviews": false,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Glitter%20en%20Glas%20Achter%20de%20Kamp%2032%20Amersfoort",
+    "facebookUrl": "https://www.facebook.com/GlitterenGlas/",
+    "instagramUrl": "https://www.instagram.com/glitterenglas/",
+    "ogImageUrl": "https://assets.plaece.nl/thumb/YR-LkT0oSCmqt2LCcK_A1P9Ad5vvDAa7abTKefs-0nQ/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTIyOV8zNjU2Mzc2NjEuanBn.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Business's own listing photo (DSC09229) sourced from the official Tijd voor Amersfoort / plaece.nl listing for Glitter en Glas. Most defensible image, but confirm owner permission before publishing as it is hosted on a third-party directory CDN rather than the business's own domain.",
+    "priceRange": "",
+    "openingNote": "Opening hours per VVV Amersfoort listing; verified by a single directory source only (not confirmed against a Google Business Profile or the official website, which lists no hours). Closed Sun, Mon and Tue. Recommend confirming directly, as ateliers like this often keep variable hours around exhibitions and events.",
+    "openingHours": [
+      {
+        "days": "Woensdag t/m vrijdag",
+        "hours": "10:00 - 16:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "11:00 - 15:00"
+      },
+      {
+        "days": "Zondag t/m dinsdag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "refinedShortNL": "Atelier en kunstwinkel voor glas-in-lood in hartje Amersfoort. Frank Winnubst restaureert, repareert en ontwerpt ramen, deuren en lampen.",
+    "refinedLongNL": "Glitter en Glas aan Achter de Kamp 32 is het atelier en de kunstwinkel van glas-in-loodkunstenaar Frank Winnubst (samen met Ilse Spetter), midden in winkelgebied De Kamp. Frank restaureert en repareert glas-in-lood en ontwerpt nieuwe ramen, deuren en lampen op maat. Voorin de winkel vind je raamhangers, lampen, deur- en raampanelen, porselein, sieraden en sjaals, aangevuld met wisselend werk van andere kunstenaars.",
+    "specialties": [
+      "Glas-in-lood",
+      "Restauratie & reparatie",
+      "Maatwerk ramen & deuren",
+      "Glaskunst lampen",
+      "Kunstwinkel",
+      "Wisselende exposities"
+    ],
+    "keyFacts": [
+      {
+        "label": "Eigenaar",
+        "value": "Frank Winnubst & Ilse Spetter"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Glas-in-lood"
+      },
+      {
+        "label": "Type",
+        "value": "Atelier & kunstwinkel"
+      },
+      {
+        "label": "Telefoon",
+        "value": "06 53 36 49 87"
+      },
+      {
+        "label": "E-mail",
+        "value": "frank@glitterenglas.nl"
+      },
+      {
+        "label": "Gebied",
+        "value": "De Kamp, Amersfoort"
+      }
+    ],
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2093568107/glitter-en-glas",
+      "https://www.vvvamersfoort.nl/nl/locaties/1506/glitter-en-glas",
+      "https://glasinloodkunstenaar.nl/",
+      "https://www.facebook.com/GlitterenGlas/",
+      "https://www.instagram.com/glitterenglas/",
+      "https://www.leuketip.com/cities/amersfoort/shops/glitter-en-glas/5598037ce4b08ef7c3e85716"
+    ]
+  },
+  {
+    "id": "kapsalon-sura",
+    "name": "Kapsalon Sura Amersfoort",
+    "status": "open",
+    "lat": 52.157102,
+    "lng": 5.394551,
+    "geoConfidence": "high",
+    "confidence": "medium",
+    "refinedShortNL": "Vertrouwde kapsalon in hartje Amersfoort voor dames, heren en kinderen. Binnenlopen of een afspraak maken kan allebei.",
+    "refinedLongNL": "Kapsalon Sura aan Achter de Kamp 30 is een gevestigde naam in het centrum van Amersfoort voor dames, heren en kinderen. Je kunt er spontaan binnenlopen of een afspraak maken voor knippen, kleuren, highlights en babylights, bruidskapsels, baard scheren en epileren. Op donderdag is de salon doorlopend geopend tot 21:00 uur, en op zaterdag tot 17:00 uur.",
+    "specialties": [
+      "Dames, heren & kinderen",
+      "Knippen & kleuren",
+      "Highlights & babylights",
+      "Bruidskapsels",
+      "Baard scheren",
+      "Epileren"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Achter de Kamp 30, 3811 JG Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 - 495 3200"
+      },
+      {
+        "label": "Voor",
+        "value": "Dames, heren & kinderen"
+      },
+      {
+        "label": "Afspraak",
+        "value": "Inlopen of afspraak maken"
+      },
+      {
+        "label": "Koopavond",
+        "value": "Donderdag tot 21:00"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "13:00 - 18:00"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "09:00 - 18:00"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "09:00 - 18:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "09:00 - 21:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "09:00 - 18:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "13:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Openingstijden afkomstig van openingstijden.com (gestructureerde data), niet bevestigd op de eigen website (kapsalonsura.nl was onbereikbaar tijdens controle). Bel 033 - 495 3200 om te bevestigen. Zondag gesloten.",
+    "priceRange": "",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09231_3004433160.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl)",
+    "imageLicenseNote": "Afbeelding uit de officiele directory-listing (Tijd voor Amersfoort / plaece.nl-platform), hoogstwaarschijnlijk door of namens de zaak aangeleverd. De eigen website kapsalonsura.nl was onbereikbaar, dus dit is het meest verdedigbare beschikbare beeld. Bevestig toestemming van de eigenaar voor publicatie.",
+    "hasGoogleReviews": false,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kapsalon%20Sura%20Achter%20de%20Kamp%2030%20Amersfoort",
+    "facebookUrl": "",
+    "instagramUrl": "",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/328257863/kapsalon-sura-amersfoort",
+      "https://www.openingstijden.com/o2860923/kapsalon-sura-v-o-f--achter-de-kamp-30-amersfoort/",
+      "https://opiness.nl/review/kapsalon-sura",
+      "https://haar.expert/kapsalons/kapsalon-sura-achter-de-kamp-30-3811-jg-amersfoort",
+      "https://www.kappers.nl/amersfoort/kapsalon-sura"
+    ]
+  },
+  {
+    "id": "annas-smaakatelier",
+    "name": "Anna's Smaakatelier",
+    "status": "open",
+    "lat": 52.157115,
+    "lng": 5.393956,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "hasGoogleReviews": true,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Anna%27s%20Smaakatelier%20Grote%20Sint%20Jansstraat%204%20Amersfoort",
+    "facebookUrl": "https://www.facebook.com/Annasmaakatelier/",
+    "instagramUrl": "",
+    "priceRange": "",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/foto-anna-en-team_3821906750.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl JSON-LD)",
+    "imageLicenseNote": "Business's own promotional team photo, served from the Plaece/Tijd voor Amersfoort CDN used in the official directory listing. The official annasmaakatelier.nl site is JS-rendered, so no static og:image could be extracted directly. Confirm owner permission before publishing.",
+    "refinedShortNL": "Taartzaak van Heel Holland Bakt-winnares Anna Yilmaz: ambachtelijke taart, goede koffie, lunch en high tea in de Amersfoortse binnenstad.",
+    "refinedLongNL": "Anna's Smaakatelier is de gezellige taart- en lunchzaak van Heel Holland Bakt-winnares Anna Yilmaz, sinds april 2021 gevestigd aan de Grote Sint Jansstraat in hartje Amersfoort. Je komt er voor ambachtelijke taartjes en financiers bij goede koffie of thee, een uitgebreide lunch en op vrijdag en zaterdag voor Anna's ontbijt met verse croissants en brioches. In de aangrenzende Anna's Living Room geeft Anna masterclasses en zijn besloten high tea's voor kleine gezelschappen mogelijk; haar Turkse achtergrond klinkt subtiel door in de Nederlandse recepten.",
+    "specialties": [
+      "Ambachtelijke taart",
+      "Koffie & thee",
+      "High tea",
+      "Lunch",
+      "Bakworkshops",
+      "Verse croissants & brioches"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "2021"
+      },
+      {
+        "label": "Keuken",
+        "value": "Patisserie / lunch"
+      },
+      {
+        "label": "Eigenaresse",
+        "value": "Anna Yilmaz (Heel Holland Bakt 2019)"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Taart & gebak"
+      },
+      {
+        "label": "Google",
+        "value": "4,6 sterren (~249 reviews)"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-2082374"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "09:00-17:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "09:00-17:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "09:00-17:30"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:00-17:30"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:30"
+      }
+    ],
+    "openingNote": "Gesloten op maandag, dinsdag en zondag. Vandaag (zondag 14 juni 2026) gesloten; de zaak is regulier geopend op woensdag t/m zaterdag.",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2655648317/anna-s-smaakatelier",
+      "https://www.annasmaakatelier.nl/openingstijden-locatie/",
+      "https://www.annasmaakatelier.nl/",
+      "https://www.facebook.com/Annasmaakatelier/",
+      "https://www.rtvutrecht.nl/nieuws/2172882/heel-holland-bakt-winnares-anna-yilmaz-opent-eigen-zaak-in-amersfoort",
+      "https://www.citymarketingamersfoort.nl/nieuws/nieuws-overzicht/van-heel-holland-bakt-naar-amersfoorts-icoon-anna-yilmaz-bakt-de-stad"
+    ]
+  },
+  {
+    "id": "jans-pakhuys",
+    "name": "Jans Pakhuys",
+    "status": "open",
+    "confidence": "medium",
+    "lat": 52.157087,
+    "lng": 5.39397,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jans+Pakhuys+Grote+Sint+Jansstraat+4+Amersfoort",
+    "hasGoogleReviews": false,
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/b6b187fe46798c7c6bfc0b147828fa56b35d7c84.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Photo of the atelier/artwork as published on the official Tijd voor Amersfoort/VVV listing for Jans Pakhuys (hosted on the plaece.nl directory CDN). The business's own site (janspakhuys.nl) now 301-redirects to the generic Eemhart corporate site and exposes no Jans Pakhuys-specific og:image, so this listing image is the most defensible. Confirm permission with Jans Pakhuys / Amerpoort (Eemhart) before publishing.",
+    "priceRange": "€€",
+    "refinedShortNL": "Atelier, galerie én cadeauwinkel in één: zo'n 14 kunstenaars met een verstandelijke beperking maken hier dagelijks unieke kunst en cadeaus.",
+    "refinedLongNL": "Jans Pakhuys aan de Grote Sint Jansstraat 4 is een bijzondere combinatie van atelier, galerie en cadeauwinkel in het hart van Amersfoort. Elke dag maken zo'n 14 kunstenaars met een licht tot matig verstandelijke beperking er schilderijen, kunstwerken en originele cadeaus die je live aan het werk ziet ontstaan. Alles wordt met liefde en aandacht gemaakt en is uniek, kleurrijk en van hoge kwaliteit; Jans Pakhuys is onderdeel van zorgorganisatie Amerpoort (Eemhart).",
+    "specialties": [
+      "Kunstatelier",
+      "Galerie",
+      "Cadeauwinkel",
+      "Sociale onderneming",
+      "Handgemaakte kunst",
+      "Originele cadeaus"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Atelier, galerie & cadeauwinkel"
+      },
+      {
+        "label": "Keuken",
+        "value": "n.v.t. (winkel/galerie)"
+      },
+      {
+        "label": "Kunstenaars",
+        "value": "circa 14"
+      },
+      {
+        "label": "Doelgroep",
+        "value": "Mensen met een verstandelijke beperking"
+      },
+      {
+        "label": "Onderdeel van",
+        "value": "Amerpoort / Eemhart"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 461 17 79"
+      },
+      {
+        "label": "Adres",
+        "value": "Grote Sint Jansstraat 4, 3811 HX Amersfoort"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "10:30 - 17:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:30",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:30",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:30",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:30",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Geopend dinsdag t/m vrijdag 10:30-17:00 en zaterdag 10:00-17:00; gesloten op maandag en zondag. Openingstijden komen uit zoekresultaten van directorybronnen (o.a. VVV Amersfoort) en stonden niet als JSON-LD openingHoursSpecification op de officiële pagina — verifieer bij het bedrijf voor publicatie. De officiële site janspakhuys.nl verwijst nu door naar de algemene Eemhart-site (Amerpoort is opgegaan in Eemhart).",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2205738819/jans-pakhuys",
+      "https://www.janspakhuys.nl (301 -> amerpoort.nl -> eemhart.nl)",
+      "https://www.amerpoort.nl/locaties/overdag/jans-pakhuys.html",
+      "https://www.vvvamersfoort.nl/en/locations/2205738819/jan-s-warehouse",
+      "https://amersfoort.socialekaartnederland.nl/organisaties/amerpoort-jans-pakhuys-amersfoort",
+      "https://www.degoedegids.nl/adres/6393/jans-pakhuys-cadeaus/"
+    ]
+  },
+  {
+    "id": "theehuis-something-else",
+    "name": "Theehuis Something Else",
+    "status": "open",
+    "lat": 52.156908,
+    "lng": 5.393862,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Theehuis%20Something%20Else%20Grote%20Sint%20Jansstraat%2011%20Amersfoort",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/TheeschenkerijSomethingElse",
+    "instagramUrl": "",
+    "priceRange": "€€",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09244_3722269228.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl)",
+    "imageLicenseNote": "Business's own promotional photo (credited \"Foto: Something Else\" on the official Tijd voor Amersfoort tourism listing), served via the plaece.nl CDN. Confirm owner permission before publishing.",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 17:30"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten (op afspraak voor evening tea / koopavond)"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:30"
+      }
+    ],
+    "openingNote": "Geopend woensdag t/m zaterdag 10.00-17.30 uur; maandag, dinsdag en zondag gesloten. Evening tea-diner, zondag of koopavond mogelijk op reservering/in overleg.",
+    "refinedShortNL": "Engels theehuis in een Anton Pieck-pandje bij de Kamp: high tea, afternoon tea, verse scones en lunch. Wo t/m za geopend, reserveren aanbevolen.",
+    "refinedLongNL": "Theehuis Something Else is sinds 2006 een sfeervolle Engelse theeschenkerij aan de Grote Sint Jansstraat 11, in een knus Anton Pieck-achtig pandje vlak bij de Kamperbinnenpoort. Hier geniet je van huisgemaakte high teas zoals de Cream Tea Royal For Two en de Something Else High Tea, afternoon tea, verse scones, lekkere sandwiches en tea-specialiteiten als St. Johns Tea en Knickerbockerscoffee, met seizoensgebonden en zoveel mogelijk biologische ingrediënten. Met circa 30 zitplaatsen binnen en een terras in de zomer is het geschikt voor verjaardagen, reünies of borrels; op reservering kan ook een evening tea-diner, en bezoekers van Museum Flehite krijgen elke tweede lunch of high tea voor de helft van de prijs.",
+    "specialties": [
+      "High tea",
+      "Afternoon tea",
+      "Engelse tearoom",
+      "Verse scones",
+      "Lunch & sandwiches",
+      "Tea-specialiteiten"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "2006"
+      },
+      {
+        "label": "Keuken",
+        "value": "Engels / tearoom"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "High tea & afternoon tea"
+      },
+      {
+        "label": "Zitplaatsen",
+        "value": "±30 binnen, +20 terras (zomer)"
+      },
+      {
+        "label": "Telefoon",
+        "value": "+31 33 475 66 44"
+      },
+      {
+        "label": "Postcode",
+        "value": "3811 HX Amersfoort"
+      },
+      {
+        "label": "Geopend",
+        "value": "Wo t/m za 10.00-17.30"
+      },
+      {
+        "label": "Museum Flehite-actie",
+        "value": "Elke 2e lunch/high tea halve prijs"
+      }
+    ],
+    "confidence": "high",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2520684170/theeschenkerij-something-else",
+      "https://www.vvvamersfoort.nl/nl/locaties/1475/lunch-tearoom-somethingelse",
+      "https://restaurantguru.com/Theeschenkerij-Something-Else-Amersfoort",
+      "https://www.tripadvisor.com/Restaurant_Review-g188613-d3568346-Reviews-Theeschenkerij_Something_Else-Amersfoort.html",
+      "https://en.eet.nu/amersfoort/theeschenkerij-somethingelse",
+      "https://www.facebook.com/TheeschenkerijSomethingElse"
+    ]
+  },
+  {
+    "id": "koko-de-verzamelwinkel",
+    "name": "KoKo de verzamelwinkel",
+    "status": "open",
+    "openingNote": "Let op: KoKo neemt afscheid en is bezig met een opheffingsuitverkoop met 50% korting op alles. De winkel is nog open tijdens de uitverkoop, maar sluit definitief; bel vooraf (033-475 1561) om de actuele situatie te checken.",
+    "lat": 52.157016,
+    "lng": 5.39404,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KoKo+de+verzamelwinkel+Grote+Sint+Jansstraat+6+Amersfoort",
+    "hasGoogleReviews": true,
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/schermafbeelding-20230221-114002_3192778530.png",
+    "imageSource": "assets.plaece.nl",
+    "imageLicenseNote": "Listing image van de KoKo-vermelding op tijdvooramersfoort.nl (gehost op plaece.nl, de CDN van die directory; afkomstig uit JSON-LD/og:image, HTTP 200 geverifieerd). Waarschijnlijk een door of namens de winkel aangeleverde winkelafbeelding. De eigen site koko.eu was tijdens controle offline (HTTP 503), dus geen og:image van het bedrijf zelf beschikbaar. Toestemming van de eigenaar bevestigen voor publicatie.",
+    "priceRange": "€-€€",
+    "openingHours": [
+      {
+        "days": "Vrijdag",
+        "hours": "11:00 - 17:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "11:00 - 17:00"
+      },
+      {
+        "days": "Maandag t/m donderdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Friday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "specialties": [
+      "Sieraden",
+      "Verzameldierfiguren",
+      "Handgeschilderde beeldjes",
+      "Originele cadeaus",
+      "Sieraden repareren"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "1985"
+      },
+      {
+        "label": "Assortiment",
+        "value": "Sieraden & dierfiguren"
+      },
+      {
+        "label": "Merken beeldjes",
+        "value": "Country Artists, Border Fine Arts, Clarecraft, Mats Jonasson"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-475 1561"
+      },
+      {
+        "label": "Status",
+        "value": "Opheffingsuitverkoop (-50%)"
+      },
+      {
+        "label": "Open",
+        "value": "Vrij & za 11:00-17:00"
+      }
+    ],
+    "refinedShortNL": "Sinds 1985 het adres op de Kamp voor bijzondere sieraden en handgeschilderde verzameldierfiguren. Nu opheffingsuitverkoop met 50% korting.",
+    "refinedLongNL": "KoKo de verzamelwinkel runt sinds 1985 aan de Grote Sint Jansstraat een sfeervolle cadeauwinkel met als motto 'net even iets anders': een verrassend aanbod kettingen, armbanden en oorbellen in alle prijsklassen, naast handgemaakte en met de hand beschilderde verzameldierfiguren van merken als Country Artists, Border Fine Arts, Clarecraft en Mats Jonasson. Klanten roemen de persoonlijke service, inclusief het repareren van kapotte sieraden. De winkel neemt nu afscheid met een opheffingsuitverkoop (50% korting); ze is open op vrijdag en zaterdag van 11:00 tot 17:00 uur.",
+    "confidence": "high",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1687675345/koko-de-verzamelwinkel",
+      "https://www.tijdvooramersfoort.nl/en/locations/1687675345/koko-the-collection-store",
+      "https://amersfoortnieuwsvandaag.nl/koko-de-verzamelwinkel/",
+      "https://www.koko.eu/",
+      "https://assets.plaece.nl/odp-ubase/image/schermafbeelding-20230221-114002_3192778530.png"
+    ]
+  },
+  {
+    "id": "eigenaar8-mini-store",
+    "name": "Eigenaar8 MINI store",
+    "status": "open",
+    "lat": 52.156408,
+    "lng": 5.393664,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.156408,5.393664",
+    "hasGoogleReviews": false,
+    "instagramUrl": "https://www.instagram.com/ministore.eigenaar8/",
+    "facebookUrl": "https://www.facebook.com/eigenaar8/",
+    "ogImageUrl": "https://assets.plaece.nl/thumb/M7bAJT1av7hsuEin66LP8V1b-qyTOwRZDYNFjnKUh48/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9laWdlbmFhcjgtbWluaXN0b3JlXzE0NDI1MjE3LmpwZw.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
+    "imageLicenseNote": "Business's own promotional store photo, uploaded to the official Tijd voor Amersfoort directory (CDN: assets.plaece.nl). Most defensible image, but confirm owner permission before publishing.",
+    "priceRange": "",
+    "refinedShortNL": "Sfeervolle MINI store van Maartje & Maurice aan de Zuidsingel: HKliving gemixt met vintage interieurparels en een lekker aanbod vinyl.",
+    "refinedLongNL": "Eigenaar8 MINI store zit aan de Zuidsingel 63, in het pand waar eigenaren Maartje & Maurice zelf boven wonen. Je vindt er een ruim aanbod van het interieurmerk HKliving, mooi gecombineerd met zorgvuldig uitgezochte vintage parels en een fijne selectie vinyl. De winkel is open op woensdag, vrijdag en zaterdag van 11.00 tot 17.00 uur, of op afspraak.",
+    "specialties": [
+      "HKliving",
+      "Vintage interieur",
+      "Vinyl",
+      "Woonaccessoires",
+      "Conceptstore"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Zuidsingel 63, 3811 AJ Amersfoort"
+      },
+      {
+        "label": "Eigenaren",
+        "value": "Maartje & Maurice"
+      },
+      {
+        "label": "Telefoon",
+        "value": "06 47919905"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "HKliving + vintage + vinyl"
+      },
+      {
+        "label": "KvK",
+        "value": "86463292"
+      },
+      {
+        "label": "Open",
+        "value": "Wo, vr, za 11.00-17.00 of op afspraak"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "11.00 - 17.00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "11.00 - 17.00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "11.00 - 17.00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Open op woensdag, vrijdag en zaterdag 11.00-17.00 uur, of op afspraak. Maandag, dinsdag, donderdag en zondag gesloten. Hours identically confirmed on both eigenaar8.nl and the Tijd voor Amersfoort listing.",
+    "sources": [
+      "https://www.eigenaar8.nl/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/4133843811/eigenaar8-hkliving-mini-store",
+      "https://transfirm.nl/nl/organisatie/86463292-000055889980-eigenaar8",
+      "https://www.instagram.com/ministore.eigenaar8/",
+      "https://allevintagewinkels.nl/utrecht/amersfoort/eigenaar8"
+    ]
+  },
+  {
+    "id": "picture-at-home",
+    "name": "Picture @ Home",
+    "status": "closed",
+    "openingNote": "De winkel aan de Grote Sint Jansstraat 15 in Amersfoort is per 31 oktober 2024 definitief gesloten. Lijstenmakerij Picture @ Home is sinds 1 november 2024 verhuisd naar een thuis-atelier op Buitenhof 66, 1354 GN Almere Haven en werkt voortaan uitsluitend op afspraak (ma-vr 10.00-17.00 uur, alleen op afspraak). De openingstijden hieronder zijn de historische winkeltijden in Amersfoort.",
+    "openingHours": [
+      {
+        "days": "Maandag t/m vrijdag",
+        "hours": "10:00 - 17:00 (historisch, Amersfoort)"
+      }
+    ],
+    "lat": 52.156769,
+    "lng": 5.393972,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/dir/?api=1&destination=52.156769%2C5.393972",
+    "hasGoogleReviews": false,
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09233_1828809843.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl / Citymarketing Amersfoort)",
+    "imageLicenseNote": "Eigen winkelfoto (dsc09233) uit de Tijd voor Amersfoort-listing van het bedrijf — meest verdedigbare beeld. Bevestig toestemming van eigenaar/Citymarketing Amersfoort vóór publicatie. LET OP: de og:image op de eigen website (pictureathome.nl/.../shutterstock_142587611.jpg) is een gelicenseerde Shutterstock-stockfoto en NIET gebruiken zonder eigen licentie.",
+    "priceRange": "",
+    "refinedShortNL": "Ambachtelijke lijstenmakerij — de Amersfoortse winkel aan de Grote Sint Jansstraat sloot eind 2024; nu op afspraak vanuit Almere Haven.",
+    "refinedLongNL": "Picture @ Home was een ambachtelijke lijstenmakerij en kunsthandel aan de Grote Sint Jansstraat 15, vlak bij de Kamp in het centrum van Amersfoort, gespecialiseerd in inlijstwerk op maat, sfeervolle passe-partouts en het optimaal presenteren van kunst, prenten en foto's. Per 31 oktober 2024 is de winkel in Amersfoort definitief gesloten. Sinds 1 november 2024 zet eigenaar de werkzaamheden voort vanuit een thuis-atelier op Buitenhof 66 in Almere Haven, uitsluitend op afspraak en met dezelfde persoonlijke service en vakmanschap.",
+    "specialties": [
+      "Lijstenmakerij op maat",
+      "Ambachtelijk inlijstwerk",
+      "Passe-partouts",
+      "Kunsthandel",
+      "Inlijsten op afspraak"
+    ],
+    "keyFacts": [
+      {
+        "label": "Type",
+        "value": "Lijstenmakerij & kunsthandel"
+      },
+      {
+        "label": "Status Amersfoort",
+        "value": "Gesloten per 31 okt 2024"
+      },
+      {
+        "label": "Verhuisd naar",
+        "value": "Buitenhof 66, Almere Haven"
+      },
+      {
+        "label": "Sinds nieuw adres",
+        "value": "1 november 2024"
+      },
+      {
+        "label": "Bereikbaarheid",
+        "value": "Alleen op afspraak"
+      },
+      {
+        "label": "E-mail",
+        "value": "info@pictureathome.nl"
+      }
+    ],
+    "confidence": "high",
+    "sources": [
+      "https://www.pictureathome.nl",
+      "https://www.pictureathome.nl/contact",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2381595876/picture-home"
+    ]
+  },
+  {
+    "id": "la-base-pizza",
+    "name": "La Base Pizza Amersfoort",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.156618,
+    "lng": 5.393608,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=La+Base+Pizza+Amersfoort+Zuidsingel+66",
+    "facebookUrl": "https://www.facebook.com/labasepizzaamersfoort/",
+    "instagramUrl": "https://www.instagram.com/labasepizza/",
+    "hasGoogleReviews": true,
+    "ogImageUrl": "https://labasepizza.nl/wp-content/uploads/2025/06/restaurantamersfoort1.jpg",
+    "imageSource": "labasepizza.nl",
+    "imageLicenseNote": "Business's own promo photo of the Amersfoort restaurant, hosted on their own domain (labasepizza.nl/wp-content/uploads). No og:image meta tag is published on the site, so this was selected from the business's own media library as the most defensible image. Confirm owner permission before publishing. Alternative business-supplied images exist on the Tijd voor Amersfoort directory CDN (assets.plaece.nl/odp-ubase/).",
+    "priceRange": "€€",
+    "openingHours": [
+      {
+        "days": "Maandag t/m zondag",
+        "hours": "17:00 - 21:30"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "17:00",
+        "closes": "21:30"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "17:00",
+        "closes": "21:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "17:00",
+        "closes": "21:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "17:00",
+        "closes": "21:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "17:00",
+        "closes": "21:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "17:00",
+        "closes": "21:30"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "17:00",
+        "closes": "21:30"
+      }
+    ],
+    "openingNote": "Zeven dagen per week geopend, uitsluitend 's avonds (17:00-21:30). Hours verified directly from the business website (labasepizza.nl) on 2026-06-14; consistent across NL and EN location pages.",
+    "refinedShortNL": "Authentieke Napolitaanse pizza uit de 480°C steenoven, gebakken in 60-90 seconden door Italiaanse pizzaioli. AVPN-gecertificeerd, 7 dagen open.",
+    "refinedLongNL": "Bij La Base Pizza aan de Zuidsingel proef je een stukje Napels in het hart van Amersfoort: échte Napolitaanse pizza's, gebakken in een ambachtelijke steenoven uit Napels op 480°C en in slechts 60 tot 90 seconden klaar. Het restaurant werkt met verse Italiaanse producten met DOP-keurmerk, waaronder 100% buffelmozzarella, grana padano en prosciutto crudo, en is officieel lid van de Associazione Verace Pizza Napoletana (AVPN, sinds 2021). De Italiaanse pizzaioli staan zeven dagen per week voor je klaar; je kunt blijven eten of afhalen.",
+    "specialties": [
+      "Napolitaanse pizza",
+      "Houtgestookte/steenoven 480°C",
+      "AVPN-gecertificeerd",
+      "Verse Italiaanse DOP-producten",
+      "Afhalen & eten",
+      "Groepsmenu's (10+ personen)"
+    ],
+    "keyFacts": [
+      {
+        "label": "Keuken",
+        "value": "Authentiek Napolitaans (pizza)"
+      },
+      {
+        "label": "Oven",
+        "value": "Ambachtelijke steenoven uit Napels, 480°C"
+      },
+      {
+        "label": "Baktijd",
+        "value": "60-90 seconden per pizza"
+      },
+      {
+        "label": "Certificering",
+        "value": "AVPN - Vera Pizza Napoletana (lid nr. 867, sinds 2021)"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033-2003188"
+      },
+      {
+        "label": "E-mail",
+        "value": "amersfoort@labasepizza.nl"
+      },
+      {
+        "label": "Open",
+        "value": "Ma t/m zo, 17:00-21:30"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "4,6 / 5"
+      }
+    ],
+    "sources": [
+      "https://labasepizza.nl",
+      "https://labasepizza.nl/en/locaties/amersfoort/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/1557219200/la-base-pizza-amersfoort",
+      "https://www.pizzanapoletana.org/en/associati/834-la_base_pizza_amersfoort",
+      "https://restaurantguru.com/La-Base-Amersfoort",
+      "https://www.facebook.com/labasepizzaamersfoort/"
+    ]
+  },
+  {
+    "id": "new-de-gouden-naald",
+    "name": "De Gouden Naald",
+    "status": "open",
+    "confidence": "medium",
+    "lat": 52.157447,
+    "lng": 5.393676,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=De+Gouden+Naald+Kamp+12+3811+AR+Amersfoort",
+    "hasGoogleReviews": false,
+    "priceRange": "€€",
+    "ogImageUrl": "https://assets.plaece.nl/thumb/yfPzMj624uidYHUGe6OTpxVlJrwUF6Gxgndlfs3_irw/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTEzMl8zNjY1Mjc1Mzk2LmpwZw.jpg",
+    "imageSource": "assets.plaece.nl (via tijdvooramersfoort.nl og:image)",
+    "imageLicenseNote": "Business's own listing photo served as the og:image on the official Tijd voor Amersfoort location page (verified live, HTTP 200 JPEG). Most defensible image available, but confirm owner/photographer permission before publishing.",
+    "refinedShortNL": "Vakkundige kledingreparatie en stomerij aan de Kamp: jassen, broeken en truien professioneel hersteld in hartje Amersfoort.",
+    "refinedLongNL": "De Gouden Naald is een vertrouwd adres voor kledingreparatie en stomerij aan de Kamp 12 in de historische binnenstad van Amersfoort. Je kunt er terecht voor professioneel herstel en vermaken van jassen, broeken, truien en ander textiel, plus een complete stomerijservice. Het bedrijf is al ruim dertig jaar actief in De Kamp en bereikbaar op 033 470 0881.",
+    "specialties": [
+      "Kledingreparatie",
+      "Stomerij",
+      "Vermaakwerk",
+      "Ritsen vervangen",
+      "Innemen & inkorten"
+    ],
+    "keyFacts": [
+      {
+        "label": "Categorie",
+        "value": "Kledingreparatie & stomerij"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 12, 3811 AR Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 470 0881"
+      },
+      {
+        "label": "Actief",
+        "value": "Ruim 30 jaar"
+      },
+      {
+        "label": "Wijk",
+        "value": "De Kamp, binnenstad"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "13:00 - 18:00"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "09:00 - 18:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "13:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Openingstijden afkomstig van openingstijden-aggregators (laatst bijgewerkt juli 2022); de actuele openingstijden-pagina toonde geen live tijden. Bel 033 470 0881 om te bevestigen voor publicatie.",
+    "sources": [
+      "https://www.tijdvooramersfoort.nl/nl/locaties/2285951495/de-gouden-naald-amersfoort",
+      "https://www.openingstijden.nl/De-Gouden-Naald/Amersfoort/Kamp-12/",
+      "https://www.openingstijden.com/open/de-gouden-naald-amersfoort/",
+      "https://firmania.nl/amersfoort/de-gouden-naald-221417",
+      "https://www.cylex.nl/bedrijf/de-gouden-naald-10834633.html",
+      "https://www.telefoonboek.nl/bedrijven/t2901048/amersfoort/de-gouden-naald-amersfoort/"
+    ]
+  },
+  {
+    "id": "new-robert-harms-tweewielers",
+    "name": "Robert Harms Tweewielers",
+    "status": "open",
+    "lat": 52.15755,
+    "lng": 5.394028,
+    "geoConfidence": "high",
+    "confidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Robert+Harms+Tweewielers+Kamp+20+Amersfoort",
+    "hasGoogleReviews": false,
+    "facebookUrl": "https://www.facebook.com/robertharms.nl",
+    "instagramUrl": "https://www.instagram.com/robertharms.nl/",
+    "ogImageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09144_2743354581.jpg",
+    "imageSource": "assets.plaece.nl",
+    "imageLicenseNote": "Storefront photo of the Amersfoort shop used on the official Amersfoort city directory (tijdvooramersfoort.nl, JSON-LD Place image). The business's own website (robertharms.nl) exposes no og:image. Confirm reuse permission with the shop or the directory operator before publishing; ideally swap for an image the owner supplies directly.",
+    "priceRange": "€€",
+    "refinedShortNL": "Fietsenwinkel op de gezellige Kamp: van Batavus en Gazelle tot e-bikes, plus specialist in aangepaste fietsen en Tworby-driewielers.",
+    "refinedLongNL": "Robert Harms Tweewielers zit midden in het centrum van Amersfoort, op de gezellige winkelstraat de Kamp, met een ruim assortiment stads-, e- en transportfietsen van merken als Batavus, Gazelle en Pointer. De winkel onderscheidt zich met aangepaste fietsen: als dealer van de Tworby-ombouwmodule en van Huka-driewielers maak je hier op afspraak (vaak samen met een ergotherapeut) een proefrit om veilig te blijven fietsen. Daarnaast kun je terecht voor reparaties, onderhoud en deskundig advies voor elke tweewieler.",
+    "specialties": [
+      "Stads- en e-bikes",
+      "Aangepaste fietsen",
+      "Tworby-driewielers",
+      "Huka-driewielers",
+      "Reparatie & onderhoud",
+      "Batavus & Gazelle"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 20 (ook Kamp 18), 3811 AR Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 785 2578"
+      },
+      {
+        "label": "E-mail",
+        "value": "info@robertharms.nl"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Aangepaste fietsen & driewielers (Tworby, Huka)"
+      },
+      {
+        "label": "Keten sinds",
+        "value": "2002"
+      },
+      {
+        "label": "Vestigingen",
+        "value": "Amersfoort, Laren, Baarn, Diemen"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "13:00 - 18:00"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "09:00 - 18:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "13:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Openingstijden volgens de Pointer-dealerpagina (pointerfietsen.nl): ma 13:00-18:00, di-vr 09:00-18:00, za 09:00-17:00, zo gesloten. Huka.nl vermeldt maandag gesloten i.p.v. middagopening — bevestig de maandagtijden telefonisch (033 785 2578) of via robertharms.nl voordat je publiceert.",
+    "sources": [
+      "https://www.robertharms.nl/nl/",
+      "https://www.robertharms.nl/nl/service/vestigingen/",
+      "https://www.pointerfietsen.nl/3811-ar-20-robert-harms-tweewielers-amersfoort/",
+      "https://www.huka.nl/verkooppunten/robert-harms-amersfoort/",
+      "https://www.tijdvooramersfoort.nl/nl/locaties/106203899/robert-harms-tweewielers-amersfoort",
+      "https://nl.polomap.com/amersfoort/153515",
+      "https://www.destadamersfoort.nl/lokaal/zakelijk/938955/driewieldag-in-amersfoort"
+    ]
+  },
+  {
+    "id": "new-runnersworld-aart-stigter",
+    "name": "Runnersworld Aart Stigter (nu Runners4Life)",
+    "status": "open",
+    "confidence": "high",
+    "refinedShortNL": "Hardloopspecialist aan de Kamp: persoonlijk schoenadvies, loopanalyse en topmerken. Sinds 2021 verder als Runners4Life.",
+    "refinedLongNL": "De vertrouwde hardloopwinkel aan de Kamp 25, ooit bekend als Runnersworld Aart Stigter, gaat sinds januari 2021 verder onder de naam Runners4Life. Het ervaren team van fervente hardlopers helpt zowel beginners als gevorderden met persoonlijk advies, een professionele loopanalyse en een breed assortiment hardloopschoenen, kleding en accessoires van topmerken. Met een 4,7-sterrenwaardering op Google is dit al jaren hét adres voor hardlopend Amersfoort, op loopafstand van de Kamperbinnenpoort.",
+    "openingNote": "Onder de naam \"Runnersworld Aart Stigter\" is dit bedrijf sinds januari 2021 verder gegaan als Runners4Life op hetzelfde adres (Kamp 25). De oude website runnersworldamersfoort.nl is niet meer in gebruik (geeft 404). Openingstijden geverifieerd via runners4life.nl en openingstijden-listings; tijden kunnen op feestdagen afwijken.",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "12:00 - 17:30"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "09:30 - 17:30"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:30 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "12:00 - 16:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "12:00",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:30",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "lat": 52.1575091,
+    "lng": 5.394478,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/place/Kamp+25,+3811+AM+Amersfoort/data=!4m2!3m1!1s0x47c6469c1c4679ad:0xd6400d5e22cb9767",
+    "hasGoogleReviews": true,
+    "ogImageUrl": "https://runners4life.nl/wp-content/uploads/2021/02/runners4life-winkel.png",
+    "imageSource": "runners4life.nl",
+    "imageLicenseNote": "Eigen winkelfoto/og:image van de huidige eigenaar (Runners4Life, opvolger van Runnersworld Aart Stigter) — bevestig toestemming van de eigenaar voor publicatie. De oude runnersworldamersfoort.nl-site is offline; deze afbeelding is de meest verdedigbare eigen bron.",
+    "facebookUrl": "https://www.facebook.com/Runners4Life.nl/",
+    "instagramUrl": "https://www.instagram.com/runners4life.nl/",
+    "priceRange": "€€",
+    "specialties": [
+      "Hardloopschoenen",
+      "Loopanalyse",
+      "Persoonlijk schoenadvies",
+      "Hardloopkleding",
+      "Loopgroepen & clinics",
+      "Topmerken"
+    ],
+    "keyFacts": [
+      {
+        "label": "Nu bekend als",
+        "value": "Runners4Life"
+      },
+      {
+        "label": "Naamswijziging",
+        "value": "januari 2021"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 760 0061"
+      },
+      {
+        "label": "Google-beoordeling",
+        "value": "4,7 / 5 (±135 reviews)"
+      },
+      {
+        "label": "Specialisatie",
+        "value": "Hardloopwinkel & loopanalyse"
+      },
+      {
+        "label": "Adres",
+        "value": "Kamp 25, 3811 AM Amersfoort"
+      }
+    ],
+    "sources": [
+      "https://runners4life.nl/de-winkel/",
+      "https://www.openingstijdengids.nl/runnersworld/amersfoort/1",
+      "https://www.openingstijden.nl/Runnersworld/Amersfoort/Kamp-25/",
+      "https://www.tiendeo.nl/Winkels/amersfoort/runnersworld-kamp/59360",
+      "https://www.yoys.nl/phone,31-337600061,Hardloopwinkel,Amersfoort,NL71450.html",
+      "https://www.northdata.com/Runners4Life%20B%C2%B7V%C2%B7,%20Amersfoort/KVK%2081088582",
+      "https://nominatim.openstreetmap.org/",
+      "https://runnersworldamersfoort.nl"
+    ]
+  },
+  {
+    "id": "new-werners-optiek",
+    "name": "Werners Optiek",
+    "status": "open",
+    "confidence": "high",
+    "refinedShortNL": "Persoonlijke opticien aan de Kamp sinds 2019. Brillen met een verhaal van kleine ateliers, eigenhandig gebouwd interieur en grondige oogmeting.",
+    "refinedLongNL": "Werners Optiek is sinds 1 maart 2019 de eigenzinnige opticien van Werner Bakker aan de Kamp in Amersfoort, die zijn winkel met de hand bouwde rond een werktafel van massief iepenhout. Naast bekende modemerken werkt hij met kleine ateliers met een verhaal, zoals het Japanse Eyevan (handgerolde titanium veren) en de Belgische ontwerper Pierre. Verwacht een grondige oogmeting, persoonlijk advies, Hoya-glazen en alle tijd om de bril te vinden die jou bijzonder maakt.",
+    "specialties": [
+      "Persoonlijk brilladvies",
+      "Exclusieve ateliermerken",
+      "Eyevan handgemaakt Japan",
+      "Grondige oogmeting",
+      "Contactlenzen",
+      "Hoya glazen"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "2019"
+      },
+      {
+        "label": "Opticien",
+        "value": "Werner Bakker"
+      },
+      {
+        "label": "Specialiteit",
+        "value": "Brillen van kleine ateliers"
+      },
+      {
+        "label": "Topmerken",
+        "value": "Eyevan, Pierre"
+      },
+      {
+        "label": "Glazen",
+        "value": "Hoya"
+      },
+      {
+        "label": "Donderdag",
+        "value": "Koopavond tot 20:00"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag t/m woensdag",
+        "hours": "09:30 - 17:30"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "09:30 - 20:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "09:30 - 17:30"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:30 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:30",
+        "closes": "20:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:30",
+        "closes": "17:30"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:30",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Gesloten op maandag en zondag. Bezoek op afspraak 's avonds is mogelijk. Hours verified via tijdvooramersfoort.nl and openingstijden search; small day-level variation exists between listings.",
+    "lat": 52.15761,
+    "lng": 5.39424,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Werners+Optiek+Kamp+26+Amersfoort",
+    "hasGoogleReviews": false,
+    "ogImageUrl": "https://www.wernersoptiek.nl/wp-content/uploads/2025/07/IMG_20250702_152341-scaled-600x600.jpg",
+    "imageSource": "wernersoptiek.nl",
+    "imageLicenseNote": "Business's own interior photo uploaded to wernersoptiek.nl (July 2025) showing the handmade elm-wood consultation table and eyewear display. No og:image meta tag exists on the site; this is the most defensible owner-supplied image. Confirm owner permission before publishing.",
+    "priceRange": "",
+    "facebookUrl": "https://www.facebook.com/WernersOptiek/",
+    "instagramUrl": "https://www.instagram.com/wernersoptiek_amersfoort/",
+    "sources": [
+      "https://www.wernersoptiek.nl/",
+      "https://www.tijdvooramersfoort.nl/en/locations/1707212240/werners-optics",
+      "https://www.vvvamersfoort.nl/en/locations/1879/werners-optiek",
+      "https://www.destadamersfoort.nl/zakelijk/nieuws/217837/brillen-met-een-verhaal-586612",
+      "https://www.openingstijden.com/open/werners-optiek/amersfoort/",
+      "https://www.facebook.com/WernersOptiek/",
+      "https://www.instagram.com/wernersoptiek_amersfoort/"
+    ]
+  },
+  {
+    "id": "new-big-bazar",
+    "name": "Big Bazar",
+    "status": "closed",
+    "confidence": "high",
+    "lat": 52.1574657,
+    "lng": 5.3940424,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Big+Bazar+De+Kamp+17+Amersfoort",
+    "hasGoogleReviews": true,
+    "priceRange": "€",
+    "openingNote": "Permanent gesloten. Big Bazar B.V. werd op 26 september 2023 door de rechtbank Amsterdam failliet verklaard; er kwam geen doorstart en alle vestigingen — waaronder Amersfoort — zijn gesloten. De vestiging Kamp 17 is uitgeschreven uit het handelsregister. Onderstaande tijden zijn de HISTORISCHE openingstijden van toen de winkel nog open was (overgenomen uit de JSON-LD van open-closed.nl) en gelden niet meer.",
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "13:00–18:00 (historisch)"
+      },
+      {
+        "days": "Dinsdag t/m vrijdag",
+        "hours": "09:30–18:00 (do tot 21:00) (historisch)"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:30–17:00 (historisch)"
+      },
+      {
+        "days": "Zondag (koopzondag)",
+        "hours": "12:00–17:00 (historisch)"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "13:00",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:30",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:30",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "ogImageUrl": "",
+    "imageSource": "",
+    "imageLicenseNote": "Geen verdedigbare eigen bedrijfsafbeelding gevonden. Het officiële domein bigbazar.eu is na het faillissement omgezet in een generieke shopping-blog en bevat geen vestigingsfoto of og:image van deze winkel. De enige beschikbare afbeelding is een placeholder-/logobestand van directory-aggregator open-closed.nl (https://open-closed.nl/images/branch/192/1927247163.png), dat geen eigen materiaal van het bedrijf is en niet als rechtenvrij kan worden beschouwd — niet gebruiken zonder bronverificatie. Aanbevolen: gezien de permanente sluiting geen afbeelding publiceren of een neutrale 'gesloten'-markering tonen.",
+    "refinedShortNL": "Voormalige Big Bazar-prijsknallerwinkel aan de Kamp (bij SPAR City). Sinds het faillissement in 2023 definitief gesloten.",
+    "refinedLongNL": "Big Bazar was de bekende Nederlandse koopjesketen met een breed assortiment huishoudartikelen, snoep, verzorging en seizoensspullen tegen lage prijzen, hier gevestigd aan De Kamp 17 in de Amersfoortse binnenstad, vlak naast SPAR City (nummers 15-17). De vestiging is echter niet meer in bedrijf: op 26 september 2023 verklaarde de rechtbank Amsterdam moederbedrijf Big Bazar B.V. failliet en een doorstart bleef uit, waardoor alle filialen sloten. Deze locatie staat dan ook als permanent gesloten te boek en is uitgeschreven uit het handelsregister; oudere directorysites tonen soms nog verouderde 'open'-tijden.",
+    "specialties": [
+      "Koopjeswinkel",
+      "Huishoudartikelen",
+      "Snoep & verzorging",
+      "Seizoensartikelen",
+      "Lage prijzen",
+      "Permanent gesloten"
+    ],
+    "keyFacts": [
+      {
+        "label": "Status",
+        "value": "Permanent gesloten (faillissement 2023)"
+      },
+      {
+        "label": "Faillissement uitgesproken",
+        "value": "26 september 2023, rechtbank Amsterdam"
+      },
+      {
+        "label": "Type",
+        "value": "Koopjes-/discountwinkel (warenhuis)"
+      },
+      {
+        "label": "Adres",
+        "value": "De Kamp 17, 3811 AM Amersfoort"
+      },
+      {
+        "label": "Locatie",
+        "value": "Binnenstad, bij SPAR City (15-17)"
+      },
+      {
+        "label": "Telefoon (historisch)",
+        "value": "033-4790421"
+      }
+    ],
+    "sources": [
+      "https://www.destadamersfoort.nl/lokaal/winkels/964189/winkelketen-big-bazar-falliet-verklaard",
+      "https://nos.nl/l/2494968",
+      "https://www.rtvnoord.nl/nieuws/1071153/rechter-verklaart-koopjesketen-big-bazar-failliet",
+      "https://transfirm.nl/nl/organisatie/33184624-000016364228-big-bazar-b.v.",
+      "http://amersfoort.open-closed.nl/big-bazar-openingstijden-de-kamp-17",
+      "https://www.openingstijden.com/o3904984/big-bazar-kamp-17-amersfoort/",
+      "https://www.bigbazar.eu/"
+    ]
+  },
+  {
+    "id": "new-j-l-lijstenmakerij",
+    "name": "J&L Lijstenmakerij",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.1574657,
+    "lng": 5.3937594,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=J%26L%20Lijstenmakerij%20Kamp%2014%203811%20AR%20Amersfoort",
+    "hasGoogleReviews": false,
+    "instagramUrl": "https://www.instagram.com/jl_lijstenmakerij/",
+    "facebookUrl": "https://www.facebook.com/p/JL-Art-Lijstenmakerij-100054385245810/",
+    "ogImageUrl": "https://jl-lijstenmakerij.nl/wp-content/uploads/2022/12/JL-Lijstenmakerij-Kerst-768x611.jpg",
+    "imageSource": "jl-lijstenmakerij.nl",
+    "imageLicenseNote": "Business's own og:image (declared in the site's og:image meta tag) — confirm owner permission before publishing. Note: the live site serves images via a zapwp.com image CDN; the canonical URL above is on the business's own domain.",
+    "priceRange": "€€",
+    "refinedShortNL": "Ambachtelijke lijstenmakerij sinds 1994, tussen de Stier en de Kamperbinnenpoort. Inlijstwerk, museumglas en giclée-kunstreproducties.",
+    "refinedLongNL": "Al sinds 1994 verzorgt J&L Lijstenmakerij aan de Kamp, tussen de Stier en de Kamperbinnenpoort, vakkundig inlijstwerk voor foto's, zeefdrukken, borduurwerk en kunst — met keuze uit diverse glassoorten en passe-partouts. Daarnaast vindt u er een grote collectie giclées en zeefdrukken van o.a. Corneille, Hans Innemée, Henk Helmantel en Marius van Dokkum, plus origineel werk van Anton Heyboer, Theo Onnes en Ineke ten Kaate. Elke giclée wordt in beperkte oplage geleverd met gesigneerd certificaat; ook wanddecoratie en inlijstingen voor bedrijven zijn mogelijk.",
+    "specialties": [
+      "Inlijstwerk op maat",
+      "Museumglas",
+      "Giclée-kunstreproducties",
+      "Zeefdrukken & originele kunst",
+      "Passe-partouts",
+      "Inlijsten voor bedrijven"
+    ],
+    "keyFacts": [
+      {
+        "label": "Sinds",
+        "value": "1994"
+      },
+      {
+        "label": "Specialisme",
+        "value": "Inlijstwerk & giclée-reproducties"
+      },
+      {
+        "label": "Ligging",
+        "value": "Tussen de Stier en de Kamperbinnenpoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 - 461 93 21"
+      },
+      {
+        "label": "E-mail",
+        "value": "mail@jl-lijstenmakerij.nl"
+      },
+      {
+        "label": "Donderdagavond",
+        "value": "Op afspraak"
+      }
+    ],
+    "openingHours": [
+      {
+        "days": "Maandag",
+        "hours": "Gesloten"
+      },
+      {
+        "days": "Dinsdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Woensdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Donderdag",
+        "hours": "11:00 - 17:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "10:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "Gesloten"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "10:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Gesloten op maandag en zondag. Woensdag* — bel vooraf als u iets wilt laten inlijsten. Donderdagavond op afspraak. Tijden afkomstig van de eigen website (jl-lijstenmakerij.nl); andere directories tonen afwijkende tijden, de website is leidend.",
+    "sources": [
+      "https://jl-lijstenmakerij.nl/ (eigen website — og:image, openingstijden, sinds 1994, beschrijving)",
+      "https://jl-lijstenmakerij.nl/contact/ (telefoon, e-mail, adres, Instagram-link)",
+      "https://www.vvvamersfoort.nl/nl/locaties/2901/j-l-lijstenmakerij (referentiebron VVV)",
+      "https://www.openingstijden.nl/J-L-Art-Lijstenmakerij/Amersfoort/Kamp-14/ (recensiestatus: 0 geverifieerde beoordelingen)",
+      "https://www.instagram.com/jl_lijstenmakerij/ (eigenaar Jan-Pieter Cop)",
+      "https://nominatim.openstreetmap.org (geocode: benoemde shop-node 'J&L Lijstenmakerij', Kamp 14, lat 52.1574657 / lng 5.3937594)"
+    ]
+  },
+  {
+    "id": "new-scapino",
+    "name": "Scapino Amersfoort",
+    "status": "open",
+    "confidence": "high",
+    "lat": 52.15766,
+    "lng": 5.39476,
+    "geoConfidence": "high",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Scapino+Kamp+36+Amersfoort",
+    "hasGoogleReviews": true,
+    "facebookUrl": "https://www.facebook.com/ScapinoNL.Amersfoort/",
+    "instagramUrl": "https://www.instagram.com/scapinonl/",
+    "priceRange": "€",
+    "ogImageUrl": "https://www.scapino.nl/logo-114.png",
+    "imageSource": "scapino.nl",
+    "imageLicenseNote": "Scapino's own brand logo from the official site's JSON-LD (no store-specific og:image or storefront photo is published). Defensible as the chain's own asset, but it is a logo, not a photo of the Kamp 36 store — confirm with the retailer before publishing and ideally source a real storefront image.",
+    "openingHours": [
+      {
+        "days": "Maandag t/m woensdag",
+        "hours": "09:30 - 18:00"
+      },
+      {
+        "days": "Donderdag (koopavond)",
+        "hours": "09:30 - 21:00"
+      },
+      {
+        "days": "Vrijdag",
+        "hours": "09:30 - 18:00"
+      },
+      {
+        "days": "Zaterdag",
+        "hours": "09:00 - 17:00"
+      },
+      {
+        "days": "Zondag",
+        "hours": "12:00 - 17:00"
+      }
+    ],
+    "openingHoursSpec": [
+      {
+        "dayOfWeek": "Monday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Tuesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "opens": "09:30",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "openingNote": "Opening hours taken directly from the official Scapino store page JSON-LD (scapino.nl/winkels/scapino-amersfoort-510049). Donderdag is koopavond (open until 21:00). Third-party aggregators list slightly different times, so verify around public holidays.",
+    "refinedShortNL": "Voordelige schoenen, sport- en vrijetijdskleding voor het hele gezin, midden in de Amersfoortse binnenstad aan de Kamp. Donderdag koopavond.",
+    "refinedLongNL": "Scapino aan de Kamp 36 is de vertrouwde voordeelwinkel in de Amersfoortse binnenstad voor schoenen, sportartikelen en vrijetijdskleding voor dames, heren en kinderen. De compacte maar overzichtelijk ingerichte winkel ligt op loopafstand van de Kamperbinnenpoort en is van maandag tot en met zaterdag open, met donderdag koopavond tot 21:00 en op zondag van 12:00 tot 17:00. Bekend om de lage prijzen en de laagsteprijsgarantie van de keten.",
+    "specialties": [
+      "Schoenen",
+      "Sportartikelen",
+      "Vrijetijdskleding",
+      "Kinderschoenen",
+      "Lage prijzen",
+      "Binnenstad Amersfoort"
+    ],
+    "keyFacts": [
+      {
+        "label": "Adres",
+        "value": "Kamp 36, 3811 AS Amersfoort"
+      },
+      {
+        "label": "Telefoon",
+        "value": "033 470 0106"
+      },
+      {
+        "label": "Assortiment",
+        "value": "Schoenen, sport- & vrijetijdskleding"
+      },
+      {
+        "label": "Koopavond",
+        "value": "Donderdag tot 21:00"
+      },
+      {
+        "label": "Doelgroep",
+        "value": "Dames, heren & kinderen"
+      },
+      {
+        "label": "Keten",
+        "value": "Scapino (laagsteprijsgarantie)"
+      }
+    ],
+    "sources": [
+      "https://www.scapino.nl/winkels/scapino-amersfoort-510049/",
+      "https://www.openingstijdengids.nl/scapino/amersfoort/1",
+      "https://www.openingstijden.nl/Scapino/Amersfoort/Kamp-36/",
+      "https://www.facebook.com/ScapinoNL.Amersfoort/",
+      "https://www.instagram.com/scapinonl/",
+      "https://www.google.com/maps/search/?api=1&query=Scapino+Kamp+36+Amersfoort"
+    ]
+  }
+]

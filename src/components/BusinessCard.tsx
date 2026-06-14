@@ -1,78 +1,77 @@
-"use client";
-
 import Link from "next/link";
-import { Business } from "@/data/businesses";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Star } from "lucide-react";
+import { Star, ArrowUpRight, MapPin } from "lucide-react";
+import type { Business } from "@/data/businesses";
+import BusinessImage from "./BusinessImage";
+import OpenBadge from "./OpenBadge";
 
 interface BusinessCardProps {
   business: Business;
+  priority?: boolean;
 }
 
-const BusinessCard = ({ business }: BusinessCardProps) => {
+export default function BusinessCard({ business, priority }: BusinessCardProps) {
+  const specialties = (business.specialties ?? business.tags ?? []).slice(0, 2);
+
   return (
-    <Link 
+    <Link
       href={`/ondernemers/${business.id}`}
-      className="group flex flex-col h-full perspective-1000"
+      className="group flex h-full flex-col rounded-[var(--radius-lg)] outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
-      <motion.div 
-        whileHover={{ rotateY: 5, rotateX: -5, scale: 1.02 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative aspect-[4/5] bg-stone/20 rounded-[2.5rem] overflow-hidden shadow-sm group-hover:shadow-[0_40px_80px_-20px_rgba(24,61,43,0.3)] transition-all duration-500 border border-white/40"
-      >
-        {business.imageUrl ? (
-          <img 
-            src={business.imageUrl} 
-            alt={business.name}
-            className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 ease-out"
+      <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-lg)] bg-stone/30 shadow-[var(--shadow-card)] ring-1 ring-black/[0.04] transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[var(--shadow-float)]">
+        <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.05]">
+          <BusinessImage
+            business={business}
+            priority={priority}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-stone/40 font-serif italic p-6 text-center">
-            {business.imageStatus === "placeholder" ? "Beeld volgt" : "Beeld in aanvraag"}
-          </div>
-        )}
-        
-        {/* Mirror/Glass Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/10 opacity-60 group-hover:opacity-20 transition-opacity duration-700" />
-        
-        {/* Floating elements */}
-        <div className="absolute inset-x-6 top-6 flex justify-between items-start">
-          <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white">
-              {business.category}
-            </span>
-          </div>
+        </div>
+
+        {/* legibility gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/15" />
+
+        {/* top chips */}
+        <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-2">
+          <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-md">
+            {business.category}
+          </span>
           {business.featured && (
-            <div className="w-10 h-10 rounded-full bg-amber/90 backdrop-blur-md flex items-center justify-center text-white shadow-xl">
-              <Star className="w-4 h-4 fill-current" />
-            </div>
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-amber text-white shadow-lg" title="Uitgelicht">
+              <Star className="h-4 w-4 fill-current" />
+            </span>
           )}
         </div>
 
-        {/* Bottom Glass Card - Reveals on Hover */}
-        <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/80 to-transparent translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-          <div className="flex justify-between items-end">
-            <div className="max-w-[80%]">
-              <p className="text-[10px] font-black uppercase tracking-widest text-amber mb-2">{business.address.replace(', Amersfoort', '')}</p>
-              <h3 className="text-2xl font-serif font-black text-white leading-tight">
-                {business.name}
-              </h3>
-            </div>
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-deep-green opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
-              <ArrowUpRight className="w-6 h-6" />
-            </div>
+        {/* bottom text */}
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <p className="mb-1 flex items-center gap-1 text-[10px] font-black uppercase tracking-[0.15em] text-amber-200/90">
+            <MapPin className="h-3 w-3" /> {business.address}
+          </p>
+          <div className="flex items-end justify-between gap-3">
+            <h3 className="font-serif text-2xl font-black leading-[0.95] text-white">{business.name}</h3>
+            <span className="flex h-10 w-10 flex-shrink-0 translate-y-1 items-center justify-center rounded-full bg-white text-deep-green opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              <ArrowUpRight className="h-5 w-5" />
+            </span>
           </div>
         </div>
-      </motion.div>
-      
-      {/* Short Story below (optional, removed for "Visionary" grid feel) */}
-      <div className="mt-6 px-4 group-hover:opacity-60 transition-opacity">
-        <p className="text-sm text-foreground/70 font-medium line-clamp-1 italic font-serif">
-          &quot;{business.shortDescription}&quot;
-        </p>
       </div>
+
+      {/* meta row */}
+      <div className="mt-3 flex items-center justify-between gap-2 px-1">
+        <OpenBadge hours={business.hours} />
+        {business.priceRange && (
+          <span className="text-xs font-bold text-warm-brown/70">{business.priceRange}</span>
+        )}
+      </div>
+
+      {specialties.length > 0 && (
+        <div className="mt-2 flex flex-wrap gap-1.5 px-1">
+          {specialties.map((s) => (
+            <span key={s} className="rounded-full bg-stone/40 px-2.5 py-0.5 text-[11px] font-semibold text-warm-brown/70">
+              {s}
+            </span>
+          ))}
+        </div>
+      )}
     </Link>
   );
-};
-
-export default BusinessCard;
+}

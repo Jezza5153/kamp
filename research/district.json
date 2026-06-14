@@ -1,0 +1,107 @@
+{
+  "officialName": "De Kamp (winkelgebied De Kamp), Amersfoort",
+  "summary": "\"De Kamp\" is a small, characterful independent-retail and hospitality district in the medieval binnenstad (historic centre) of Amersfoort, Netherlands, all within postcode area 3811. Its spine is the street \"Kamp\" (~350 m), which begins at the Kamperbinnenpoort — the city's oldest surviving medieval gate (two octagonal towers with an arch, second half of the 13th century) — and runs out into the old town toward Kruiskamp. Entering through the gate from the main Langestraat shopping axis, you cross into a quieter quarter of restored monumental buildings (Kamp alone has 22 rijksmonumenten) packed with owner-run boutiques, makers/concept stores, food shops, lunchrooms and a notably multicultural restaurant scene (French, Indian, Dutch, Italian, Ethiopian, Chinese, Indonesian and more). The district is organised by a winkeliersvereniging and the \"Vrienden van de Kamp\" (~150 shopkeepers, property owners and residents). Beyond Kamp itself, the cluster includes Achter de Kamp, Grote and Kleine Sint Jansstraat, the canal-lined Zuidsingel and Weverssingel, plus side streets (Coninckstraat, Kreupelstraat, Oliesteeg, Pothstraat) and Flintplein. It contrasts with Langestraat — Amersfoort's busy chain-store main street just outside the gate — by being smaller-scale, independent and atmospheric. NOTE ON CONFIDENCE: Anchor coordinates for the Kamperbinnenpoort, Kamp 1/2 and Kamp 88 are high-confidence (geocoded via OpenStreetMap/Nominatim against named businesses at those addresses). The district-centre coordinate and the exact membership of the \"cluster\" (which adjacent streets count) are best estimates — the retail district has no single official boundary, and sources differ slightly. House-number interpolation along Kamp is reliable for the SE half but the street curves, so a single straight-line interpolation will drift; see streetGeometry.",
+  "boundingStreets": [
+    "Kamp (the spine; runs from the Kamperbinnenpoort gate ~350 m NE/SE into the old town toward Kruiskamp)",
+    "Achter de Kamp (runs parallel to Kamp, between Grote Sint Jansstraat and Kamp)",
+    "Grote Sint Jansstraat",
+    "Kleine Sint Jansstraat",
+    "Zuidsingel (canal/singel, partly)",
+    "Weverssingel (canal/singel, partly)",
+    "Coninckstraat",
+    "Kreupelstraat",
+    "Oliesteeg",
+    "Pothstraat",
+    "Flintplein",
+    "Kamperbinnenpoort (the short street/gate passage at the SW end)",
+    "Langestraat (NOT part of the cluster - it is Amersfoort's separate main chain-store shopping street, lying just outside/NW of the Kamperbinnenpoort gate; the gate is the threshold between the two)"
+  ],
+  "alsoKnownAs": [
+    "Kamp",
+    "Winkelgebied De Kamp",
+    "De Kamp e.o. (en omgeving)",
+    "Kampkwartier",
+    "het Kampkwartier",
+    "historically: Coecamp / Oude Strate (1388), Kampstraat (1521-1914)"
+  ],
+  "history": "A \"kamp\" (from Latin campus) is an enclosed pasture. The land north/east of Amersfoort's first city wall was common grazing ground belonging to the Utrecht Sint-Maartensabdij, and cattle (vie/vee) were driven out to it - hence the gate's original name Viepoort (also Martenspoort). That gate, built in the second half of the 13th century as part of the first city wall, is the oldest surviving gate in the city: two octagonal brick towers with a connecting arch. After Amersfoort's boom prompted a second, larger wall around 1380 (with the outer Kamperbuitenpoort, demolished 1838), part of the Kamp came inside the town and the gate took its present name Kamperbinnenpoort. The droveway/trade route was recorded as \"Coecamp\"/\"Oude Strate\" in 1388 and \"Kampstraat\" from 1521, keeping that name until 1914. The gate lost its military role after the second wall was finished in the early 15th century; its arch was removed in 1827, the city council voted in 1914 to demolish it for a traffic junction, but national subsidy saved it and the arch was rebuilt 1931-1933. Kamp's through-traffic role faded after the Stadsring (1958) and the replacement of the Kampbrug (1965), and it evolved into today's small-scale independent shopping street within the 1259-era walled core whose moats survive as the Zuidsingel and Weverssingel canals.",
+  "streetGeometry": "The Kamp is roughly 350 m long. Its SW end is the Kamperbinnenpoort gate at about 52.1572 N, 5.3930 E. From the gate the street first runs a short stretch slightly N/NE, then bends and runs predominantly SE (and curving E) toward the Kruiskamp end. It is NOT a single straight line — it dog-legs near the gate and then arcs eastward — so interpolating a house position by number along a straight gate→end chord will drift (by several tens of metres in the middle). Geocoded anchors (OSM/Nominatim, against businesses at those addresses): Kamp 1 = 52.15718 N, 5.39326 E (Misura Sartoria); Kamp 2 = 52.15730 N, 5.39311 E (Toko Tjin); Kamp 40 = 52.15778 N, 5.39478 E (Skitzo); Kamp 88 (the far/SE end) = 52.15866 N, 5.39692 E (De Aubergerie). Practical interpolation: for low numbers (1-~20) hug the line near the gate (lat ~52.1572-52.1575, lon ~5.3930-5.3940); mid numbers (~30-50) sit near 52.1577-52.1578 N, 5.3944-5.3948 E; high numbers (~70-88) near 52.1584-52.1587 N, 5.3960-5.3970 E. Odd and even numbers run on opposite sides (odd south/southeast side near no.1; even north/northwest side near no.2). Postcodes along Kamp run 3811 AD through 3811 AT (commonly AM, AP, AR seen). For best results interpolate piecewise between the four anchors above rather than with one straight line.",
+  "approxCenter": {
+    "lat": 52.1578,
+    "lng": 5.3948
+  },
+  "anchors": [
+    {
+      "name": "Kamperbinnenpoort (medieval city gate, SW threshold of the district)",
+      "lat": 52.1572,
+      "lng": 5.393,
+      "note": "High confidence. OSM city_gate node: 52.15715 N, 5.39298 E. Oldest gate in Amersfoort (13th c.), between Langestraat (outside) and Kamp (inside). Postcode 3811 AL."
+    },
+    {
+      "name": "Kamp 1 (start of street, odd side, at the gate)",
+      "lat": 52.15718,
+      "lng": 5.39326,
+      "note": "High confidence. Geocoded to Misura Sartoria, Kamp 1. SE/south side of street."
+    },
+    {
+      "name": "Kamp 2 (start of street, even side, at the gate)",
+      "lat": 52.1573,
+      "lng": 5.39311,
+      "note": "High confidence. Geocoded to Toko Tjin, Kamp 2. NW/north side of street."
+    },
+    {
+      "name": "Kamp 88 (far / NE-SE end of the street)",
+      "lat": 52.15866,
+      "lng": 5.39692,
+      "note": "High confidence. Geocoded to restaurant De Aubergerie, Kamp 88. Near the Kruiskamp end."
+    },
+    {
+      "name": "Approximate geometric centre of the De Kamp retail/hospitality district",
+      "lat": 52.1578,
+      "lng": 5.3948,
+      "note": "Best estimate (no official boundary). Roughly the mid-point of the Kamp spine, near the block bounded by Kamp, Achter de Kamp and the Sint Jansstraten, a short walk from the Zuidsingel/Weverssingel canals."
+    },
+    {
+      "name": "Zuidsingel (canal edge of the district)",
+      "lat": 52.1567,
+      "lng": 5.3955,
+      "note": "Medium confidence (approximate). Tree-lined singel canal, one of the 1259 moat remnants; Muurhuizen frontages and boat tours."
+    }
+  ],
+  "whatMakesItSpecial": [
+    "Independent, owner-run retail: concept stores, makers, exclusive fashion and jewellery, design and interior shops, food shops and lunchrooms - very few chains, unlike Langestraat",
+    "Housed in carefully restored authentic monumental buildings; the Kamp street alone has 22 rijksmonumenten, including named houses like De Snuifmolen, De Gekroonde Bijenkorf and Het Zwarte Paard",
+    "A genuinely multicultural restaurant scene for its size - French, Indian, Dutch, Italian, Ethiopian, Chinese, Indonesian and more - giving a 'world cuisine' feel",
+    "Strong sense of place and organisation: a revived winkeliersvereniging and the 'Vrienden van de Kamp' (~150 shopkeepers, owners and residents) actively curate and promote the quarter",
+    "Entered through the Kamperbinnenpoort - you literally pass through a 13th-century gate from the bustling main street into a quieter, atmospheric quarter",
+    "Set within Amersfoort's intact medieval core, steps from the singel canals (Zuidsingel, Weverssingel) and the famous Muurhuizen, all in postcode 3811"
+  ],
+  "eventsAndCulture": [
+    "Amersfoort is the birthplace of painter Piet Mondriaan (born 7 March 1872, Kortegracht 11, a short walk from De Kamp); the Mondriaanhuis museum opened in 1994 in his birth house - a major cultural draw for the binnenstad",
+    "The binnenstad hosts regular markets (e.g. on the Hof and other squares) and is known for its singel/canal boat tours along the Zuidsingel and Weverssingel run in the Waterlinie context",
+    "The Kamperbinnenpoort itself is a heritage landmark and the symbolic gateway/photo spot of the quarter",
+    "The district sits beside the world-renowned Muurhuizen ('wall houses') ensemble, built ~1500 onward on the line of the demolished first city wall - a unique piece of urban heritage",
+    "The Vrienden van de Kamp / winkeliersvereniging run seasonal promotion and shopping events for the quarter (note: specific recurring festival names not confirmed in sources)"
+  ],
+  "funFacts": [
+    "'Kamp' has nothing to do with camping or with the WWII 'Kamp Amersfoort' concentration camp (a separate site outside the centre) - it means an enclosed pasture, from Latin campus",
+    "The gate's old name 'Viepoort' refers to 'vie' (vee = cattle) driven out to graze on the abbey's meadows",
+    "The street was literally called 'Oude Strate' (Old Street) back in 1388, then 'Kampstraat' from 1521 to 1914",
+    "The Kamperbinnenpoort was nearly demolished in 1914 to make a traffic roundabout; the national government blocked it and paid to restore it instead - its arch was rebuilt in 1931-1933",
+    "The canals you stroll along today (Zuidsingel, Weverssingel) are the surviving moat of the city wall completed in 1259"
+  ],
+  "sources": [
+    "https://nl.wikipedia.org/wiki/Kamp_(Amersfoort)",
+    "https://nl.wikipedia.org/wiki/Kamperbinnenpoort",
+    "https://www.tijdvooramersfoort.nl/nl/tva/gebieden/de-kamp",
+    "https://www.tijdvooramersfoort.nl/nl/blogs/blog-overzicht/ontdek-de-geschiedenis-van-de-kamp-in-amersfoort",
+    "https://ondernemersbinnenstadamersfoort.nl/samenwerking/de-kamp-e-o/",
+    "https://www.vvvamersfoort.nl/nl/locaties/1590/kamperbinnenpoort",
+    "https://www.archiefeemland.nl/hulp-bij-onderzoek/tips/wijken-en-straten/a/achter-de-kamp",
+    "https://www.archiefeemland.nl/hulp-bij-onderzoek/tips/wijken-en-straten/g/grote-sint-jansstraat",
+    "https://www.archiefeemland.nl/hulp-bij-onderzoek/tips/historische-encyclopedie/z/zuidsingel",
+    "https://nl.wikipedia.org/wiki/Mondriaanhuis",
+    "https://www.mondriaanroute.com/areas/amersfoort",
+    "https://nominatim.openstreetmap.org/ (geocoding of Kamperbinnenpoort and Kamp house numbers)"
+  ]
+}

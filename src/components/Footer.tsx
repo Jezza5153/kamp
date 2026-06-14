@@ -81,7 +81,7 @@ const Footer = () => {
                   placeholder="E-mailadres"
                   className="w-full bg-stone/5 border border-stone/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:border-amber transition-colors"
                 />
-                <button className="absolute right-2 top-2 bottom-2 px-4 bg-amber text-white font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-stone hover:text-deep-green transition-all">
+                <button className="absolute right-2 top-2 bottom-2 px-4 bg-amber text-charcoal font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-stone hover:text-deep-green transition-all">
                   Join
                 </button>
               </div>
