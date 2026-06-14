@@ -6,9 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "preview:cf": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy:cf": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "db:migrate:local": "wrangler d1 migrations apply kamp-db --local",
+    "db:migrate": "wrangler d1 migrations apply kamp-db --remote"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.19.11",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.18.0",
     "maplibre-gl": "^4.7.1",
@@ -24,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.100.0"
   }
 }

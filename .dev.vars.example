@@ -1,0 +1,11 @@
+# Copy to .dev.vars for local `wrangler dev` / `npm run preview:cf` (gitignored).
+# In production set these with `wrangler secret put <NAME>`.
+
+# Signs session cookies (any long random string)
+AUTH_SECRET="change-me-to-a-long-random-string"
+
+# Magic-link email sender (Resend). Or wire MailChannels instead.
+RESEND_API_KEY=""
+
+# Comma-separated emails that become admins on first login
+ADMIN_EMAILS="info@ondernemersvandekamp.nl"

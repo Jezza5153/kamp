@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ondernemers-van-de-kamp",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": { "enabled": true },
+  // D1 (SQLite): auth + owner-business links + pending/approved overrides + media.
+  // Create with `wrangler d1 create kamp-db` and paste the id below.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kamp-db",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // R2: owner photo uploads (PHOTOS) + Next ISR incremental cache.
+  "r2_buckets": [
+    { "binding": "PHOTOS", "bucket_name": "kamp-photos" },
+    { "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "kamp-next-cache" }
+  ],
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://ondernemersvandekamp.nl"
+  }
+  // Secrets (set via `wrangler secret put` or .dev.vars locally, NOT here):
+  //   AUTH_SECRET        — signs session cookies
+  //   RESEND_API_KEY     — sends magic-link emails (or use MailChannels)
+  //   ADMIN_EMAILS       — comma-separated emails seeded as admin
+}
