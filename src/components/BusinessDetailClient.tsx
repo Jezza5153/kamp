@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Globe, Phone, Mail, MapPin, Quote, Camera, Navigation, Star, CheckCircle2, Sparkles } from "lucide-react";
+import { Globe, Phone, Mail, MapPin, Quote, Camera, Navigation, Star, CheckCircle2, Sparkles, CalendarCheck, ShoppingBag, UtensilsCrossed, Share2 } from "lucide-react";
 import type { Business } from "@/data/businesses";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessImage from "@/components/BusinessImage";
@@ -176,6 +176,27 @@ export default function BusinessDetailClient({ business, related, districtBusine
                   <a href={directionsUrl(b.address, b.postalCode)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber px-6 py-3.5 text-sm font-black uppercase tracking-widest text-charcoal shadow-lg transition hover:bg-gold active:scale-95">
                     <Navigation className="h-4 w-4" /> Route via Google Maps
                   </a>
+
+                  {(b.bookingUrl || b.orderUrl || b.menuUrl) && (
+                    <div className="grid grid-cols-2 gap-2">
+                      {b.bookingUrl && (
+                        <a href={b.bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
+                          <CalendarCheck className="h-4 w-4" /> Reserveren
+                        </a>
+                      )}
+                      {b.orderUrl && (
+                        <a href={b.orderUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
+                          <ShoppingBag className="h-4 w-4" /> Bestellen
+                        </a>
+                      )}
+                      {b.menuUrl && (
+                        <a href={b.menuUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
+                          <UtensilsCrossed className="h-4 w-4" /> Menukaart
+                        </a>
+                      )}
+                    </div>
+                  )}
+
                   <div className="flex gap-3">
                     {b.websiteUrl && (
                       <a href={b.websiteUrl} target="_blank" rel="noopener noreferrer" className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
@@ -185,6 +206,11 @@ export default function BusinessDetailClient({ business, related, districtBusine
                     {b.instagramUrl && (
                       <a href={b.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex items-center justify-center rounded-full border border-white/25 px-4 py-3 transition hover:bg-white hover:text-deep-green">
                         <Camera className="h-4 w-4" />
+                      </a>
+                    )}
+                    {b.facebookUrl && (
+                      <a href={b.facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex items-center justify-center rounded-full border border-white/25 px-4 py-3 transition hover:bg-white hover:text-deep-green">
+                        <Share2 className="h-4 w-4" />
                       </a>
                     )}
                   </div>

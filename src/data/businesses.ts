@@ -334,7 +334,8 @@ export const businesses: Business[] = [
       "Cadeau zoeken",
       "Trouwen & gala"
     ],
-    "priceLevel": "budget"
+    "priceLevel": "budget",
+    "bookingUrl": "https://afspraak.misurasartoria.nl/"
   },
   {
     "id": "k-wereldwinkel-amersfoort",
@@ -373,7 +374,9 @@ export const businesses: Business[] = [
       "Shoppen",
       "Lokaal & ambachtelijk",
       "Cadeau zoeken"
-    ]
+    ],
+    "instagramUrl": "https://instagram.com/wereldwinkelamersfoort?igshid=16i5o6nkneyl",
+    "facebookUrl": "https://facebook.com/wereldwinkelamersfoort"
   },
   {
     "id": "toko-tjin",
@@ -568,7 +571,8 @@ export const businesses: Business[] = [
     "lastChecked": "2026-06-14",
     "perfectFor": [
       "Praktisch geregeld"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/jpvdwoerd/"
   },
   {
     "id": "k-fashion-livy",
@@ -643,7 +647,10 @@ export const businesses: Business[] = [
       "Koffie & lunch",
       "Even bijkomen",
       "Zoete trek"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/theefeestje/",
+    "facebookUrl": "https://www.facebook.com/theefeestje.nl/",
+    "menuUrl": "https://theefeestje.nl/menukaart-theefeestje/"
   },
   {
     "id": "flups",
@@ -969,7 +976,8 @@ export const businesses: Business[] = [
       "Even bijkomen",
       "Vegan",
       "Werkplek / koffie"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/tijdvooramersfoort"
   },
   {
     "id": "wit-lof",
@@ -1275,7 +1283,8 @@ export const businesses: Business[] = [
     "imageFit": "cover",
     "perfectFor": [
       "Praktisch geregeld"
-    ]
+    ],
+    "facebookUrl": "https://nl-nl.facebook.com/DeRuiterMakelaarshuis/"
   },
   {
     "id": "k-jewels-forever",
@@ -1311,7 +1320,9 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Shoppen",
       "Cadeau zoeken"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/jewelsforever033/",
+    "facebookUrl": "https://www.facebook.com/profile.php?id=61583905607162"
   },
   {
     "id": "k-speelpakhuis",
@@ -1501,7 +1512,8 @@ export const businesses: Business[] = [
       "Samen tafelen",
       "Date night"
     ],
-    "priceLevel": "mid"
+    "priceLevel": "mid",
+    "menuUrl": "https://www.tafelaaramersfoort.nl/menu"
   },
   {
     "id": "new-heart-en-arrow-trouwringen",
@@ -1654,7 +1666,9 @@ export const businesses: Business[] = [
       "Shoppen",
       "Cadeau zoeken",
       "Trouwen & gala"
-    ]
+    ],
+    "orderUrl": "https://www.heartandarrow.nl/ringmatenringmaat-ringmaat-meten-ringmaat-bepalen-juiste-ringmaat-ringmaat-meten-lint-ringmaat-opmeten-binnendiameter-ring-vingeromtrek-meten-ring-bestellen-ringmaat-tabel-brede-ringmaat-ri/",
+    "bookingUrl": "https://www.heartandarrow.nl/afspraak-maken/"
   },
   {
     "id": "new-schoenmakerij-hartog",
@@ -1680,7 +1694,6 @@ export const businesses: Business[] = [
       "De Kamp"
     ],
     "websiteUrl": "https://schoenmakerijhartog.nl",
-    "facebookUrl": "https://www.facebook.com/p/Schoenmakerij-Hartog-Amersfoort-100063591729237/",
     "phone": "+31 6 31043773",
     "sourceUrls": [
       "https://schoenmakerijhartog.nl/",
@@ -1969,7 +1982,6 @@ export const businesses: Business[] = [
     ],
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bloembinderij+All+Seasons+Kamp+11+Amersfoort",
     "hasGoogleReviews": true,
-    "facebookUrl": "https://www.facebook.com/p/Bloembinderij-All-Seasons-100063566412745/",
     "imageCandidateUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09133_1402685231.jpg",
     "imageCandidateSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing JSON-LD)",
     "schemaType": "Florist",
@@ -1980,7 +1992,8 @@ export const businesses: Business[] = [
       "Interieur & wonen",
       "Inspiratie opdoen",
       "Cadeau zoeken"
-    ]
+    ],
+    "orderUrl": "https://ordercentraal.nl/"
   },
   {
     "id": "new-de-gouden-naald",
@@ -2123,7 +2136,8 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Praktisch geregeld"
     ],
-    "priceLevel": "mid"
+    "priceLevel": "mid",
+    "instagramUrl": "https://www.instagram.com/tijdvooramersfoort"
   },
   {
     "id": "k-b-g-l-gold-silver",
@@ -2185,7 +2199,6 @@ export const businesses: Business[] = [
     ],
     "websiteUrl": "https://jl-lijstenmakerij.nl",
     "instagramUrl": "https://www.instagram.com/jl_lijstenmakerij/",
-    "facebookUrl": "https://www.facebook.com/p/JL-Art-Lijstenmakerij-100054385245810/",
     "sourceUrls": [
       "https://jl-lijstenmakerij.nl/ (eigen website — og:image, openingstijden, sinds 1994, beschrijving)",
       "https://jl-lijstenmakerij.nl/contact/ (telefoon, e-mail, adres, Instagram-link)",
@@ -2471,7 +2484,9 @@ export const businesses: Business[] = [
       "Vertrouwde namen",
       "Snelle hap",
       "Afhalen"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/sparnederland/",
+    "orderUrl": "https://www.spar.nl/bestellen/cartpage/"
   },
   {
     "id": "freddo",
@@ -2777,7 +2792,9 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Shoppen",
       "Cadeau zoeken"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/arthurenwillemijn/",
+    "facebookUrl": "https://www.facebook.com/arthurenwillemijn"
   },
   {
     "id": "k-reyoutiefull-store",
@@ -3054,7 +3071,8 @@ export const businesses: Business[] = [
       "Shoppen",
       "Lokaal & ambachtelijk"
     ],
-    "priceLevel": "mid"
+    "priceLevel": "mid",
+    "orderUrl": "https://www.robertharms.nl/nl/account/orders/"
   },
   {
     "id": "k-wibra-amersfoort",
@@ -3092,7 +3110,9 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Boodschappen",
       "Vertrouwde namen"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/wibranl/",
+    "facebookUrl": "https://www.facebook.com/WibraNederland/"
   },
   {
     "id": "new-runnersworld-aart-stigter",
@@ -3431,7 +3451,8 @@ export const businesses: Business[] = [
     "imageFit": "cover",
     "perfectFor": [
       "Praktisch geregeld"
-    ]
+    ],
+    "bookingUrl": "https://www.wernersoptiek.nl/afspraak/"
   },
   {
     "id": "new-smart-repair-house",
@@ -3776,7 +3797,10 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Verwennen",
       "Me-time"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/sjenkelsamersfoort/",
+    "facebookUrl": "https://www.facebook.com/sjenkelskappers",
+    "menuUrl": "https://sjenkels.nl/wp-content/uploads/2026/06/SJENKELS-PRIJSLIJST-MENUKAART_2026-AMERSFOORT.pdf"
   },
   {
     "id": "hairbeautiful",
@@ -4382,7 +4406,6 @@ export const businesses: Business[] = [
     ],
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Indian%20Flavour%20Kamp%2034%20Amersfoort&query_place_id=ChIJobQb6ZpGxkcRiQEUg-GBAwk",
     "hasGoogleReviews": true,
-    "facebookUrl": "https://www.facebook.com/p/Indian-Flavour-100054489487818/",
     "imageCandidateUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09155_917558258.jpg",
     "imageCandidateSource": "assets.plaece.nl (via tijdvooramersfoort.nl listing)",
     "schemaType": "Restaurant",
@@ -4842,7 +4865,6 @@ export const businesses: Business[] = [
     ],
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Avondwinkel+S%26N+Kamp+39+Amersfoort&query_place_id=",
     "hasGoogleReviews": false,
-    "facebookUrl": "https://www.facebook.com/p/Het-avondwinkeltje-SN-100065088627277/",
     "imageCandidateUrl": "https://assets.plaece.nl/thumb/b6r_4gp4Tuk6_Cru1GAv4BvrIM0GEZwRoU6UeEE30xQ/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTE2NV8yNDIxMDQ5NTgwLmpwZw.jpg",
     "imageCandidateSource": "assets.plaece.nl (via tijdvooramersfoort.nl og:image)",
     "schemaType": "Store",
@@ -5189,7 +5211,9 @@ export const businesses: Business[] = [
       "Koffie & lunch",
       "Even bijkomen",
       "Werkplek / koffie"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/leperron.nl/",
+    "facebookUrl": "https://www.facebook.com/leperron.nl/"
   },
   {
     "id": "louis-blancardi-wijnen",
@@ -5645,7 +5669,8 @@ export const businesses: Business[] = [
       "Verwennen",
       "Me-time"
     ],
-    "priceLevel": "mid"
+    "priceLevel": "mid",
+    "bookingUrl": "https://release.salonized.com/widget_bookings/new"
   },
   {
     "id": "awaze",
@@ -5801,7 +5826,8 @@ export const businesses: Business[] = [
       "Vegan",
       "Date night"
     ],
-    "priceLevel": "mid"
+    "priceLevel": "mid",
+    "menuUrl": "https://www.awazerestaurant.nl/menukaart-restaurant-awaze-amersfoort-utrecht/"
   },
   {
     "id": "babai",
@@ -5937,7 +5963,6 @@ export const businesses: Business[] = [
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Babai+Kamp+49+Amersfoort",
     "hasGoogleReviews": false,
     "instagramUrl": "https://www.instagram.com/babaitapijten",
-    "facebookUrl": "https://www.facebook.com/p/Babai-100069180708806/",
     "imageCandidateUrl": "https://www.babai.nl/wp-content/uploads/2021/07/629-1-199x300.jpg",
     "imageCandidateSource": "babai.nl",
     "schemaType": "FurnitureStore",
@@ -5974,7 +5999,6 @@ export const businesses: Business[] = [
     ],
     "websiteUrl": "https://www.leithjuwelier.nl/",
     "instagramUrl": "https://www.instagram.com/leith.jewels/",
-    "facebookUrl": "https://www.facebook.com/p/LEITH-Jewels-Amersfoort-61551398413911/",
     "phone": "033 785 0147",
     "sourceUrls": [
       "https://www.leithjuwelier.nl/",
@@ -7170,7 +7194,6 @@ export const businesses: Business[] = [
       "Amersfoort centrum",
       "De Kamp"
     ],
-    "facebookUrl": "https://www.facebook.com/p/Belhadimodestoffen-100063607835681/",
     "phone": "+31 33 211 0059",
     "sourceUrls": [
       "https://www.cylex.nl/bedrijf/belhadi-modestoffen-13274941.html",
@@ -7595,7 +7618,8 @@ export const businesses: Business[] = [
       "Verwennen",
       "Me-time",
       "Trouwen & gala"
-    ]
+    ],
+    "bookingUrl": "https://tulip-clinic.salonized.com/widget_bookings/new"
   },
   {
     "id": "new-perfect-dress",
@@ -8514,7 +8538,8 @@ export const businesses: Business[] = [
     "imageFit": "cover",
     "perfectFor": [
       "Praktisch geregeld"
-    ]
+    ],
+    "bookingUrl": "https://www.struijk-acousticon.nl/maak-een-afspraak/"
   },
   {
     "id": "de-aubergerie",
@@ -8663,7 +8688,8 @@ export const businesses: Business[] = [
       "Date night",
       "Zoete trek"
     ],
-    "priceLevel": "mid"
+    "priceLevel": "mid",
+    "menuUrl": "https://www.deaubergerie.nl/Menu/menukaart.pdf"
   },
   {
     "id": "k-step-events",
@@ -8699,7 +8725,8 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Shoppen",
       "Lokaal & ambachtelijk"
-    ]
+    ],
+    "bookingUrl": "https://sportstep.nl/reserveren"
   },
   {
     "id": "k-hotel-de-tabaksplant",
@@ -8735,7 +8762,9 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Overnachten",
       "Weekendje weg"
-    ]
+    ],
+    "facebookUrl": "https://www.facebook.com/cityapartmentsamersfoort/",
+    "bookingUrl": "https://www.autoeurope.nl/booking/car.cfm?aff=SDN"
   },
   {
     "id": "kapsalon-sura",
@@ -9301,7 +9330,8 @@ export const businesses: Business[] = [
       "Shoppen",
       "Lokaal & ambachtelijk"
     ],
-    "priceLevel": "mid"
+    "priceLevel": "mid",
+    "bookingUrl": "https://www.ildivino-wijnwinkel.nl/a-126621644/wit-vol-romig/bertholets-grande-reserve-chardonnay-doos/"
   },
   {
     "id": "annas-smaakatelier",
@@ -9599,7 +9629,9 @@ export const businesses: Business[] = [
       "Lokaal & ambachtelijk",
       "Cadeau zoeken"
     ],
-    "priceLevel": "mid"
+    "priceLevel": "mid",
+    "instagramUrl": "https://www.instagram.com/Eemhart_",
+    "facebookUrl": "https://www.facebook.com/Eemhart"
   },
   {
     "id": "new-orium-goudsmeden",
@@ -9625,7 +9657,6 @@ export const businesses: Business[] = [
       "Amersfoort"
     ],
     "websiteUrl": "https://www.orium-goudsmeden.nl",
-    "facebookUrl": "https://www.facebook.com/p/ORIUM-goudsmeden-100057134572784/",
     "phone": "+31 33 257 2971",
     "sourceUrls": [
       "https://www.orium-goudsmeden.nl",
@@ -9917,7 +9948,10 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Shoppen",
       "Lokaal & ambachtelijk"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/dewimperfabriek/",
+    "facebookUrl": "https://www.facebook.com/dewimperfabriek",
+    "bookingUrl": "https://de-wimperfabriek.salonized.com/widget_bookings/new"
   },
   {
     "id": "theehuis-something-else",
@@ -10103,7 +10137,10 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Verwennen",
       "Me-time"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/thewaxbar_nl/",
+    "facebookUrl": "https://www.facebook.com/TheWaxBarNL/",
+    "menuUrl": "https://www.thewaxbar.nl/en/menu"
   },
   {
     "id": "picture-at-home",
@@ -10218,7 +10255,9 @@ export const businesses: Business[] = [
       "Uit eten",
       "Samen tafelen",
       "Date night"
-    ]
+    ],
+    "orderUrl": "https://osolemio-amersfoort.nl/bestellen/",
+    "bookingUrl": "https://osolemio-amersfoort.nl/reserveren/"
   },
   {
     "id": "k-broers-fietsreparateurs",
@@ -10935,7 +10974,9 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Shoppen",
       "Cadeau zoeken"
-    ]
+    ],
+    "instagramUrl": "https://instagram.com/boetiek033",
+    "facebookUrl": "https://www.facebook.com/boetiek033"
   },
   {
     "id": "bij-sophie",
@@ -10978,7 +11019,10 @@ export const businesses: Business[] = [
       "Koffie & lunch",
       "Even bijkomen",
       "Werkplek / koffie"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/bijsophieamersfoort/",
+    "facebookUrl": "https://www.facebook.com/Bij-Sophie-101947825739514",
+    "menuUrl": "https://bijsophieamersfoort.nl/menu/"
   },
   {
     "id": "k-atelier-mimosa",
@@ -11016,7 +11060,9 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Verwennen",
       "Me-time"
-    ]
+    ],
+    "instagramUrl": "https://instagram.com/ateliermimosa.nl",
+    "bookingUrl": "https://afspraak.ateliermimosa.nl/"
   },
   {
     "id": "k-van-dijk-clinic",
@@ -11054,6 +11100,9 @@ export const businesses: Business[] = [
     "perfectFor": [
       "Verwennen",
       "Me-time"
-    ]
+    ],
+    "instagramUrl": "https://www.instagram.com/ancora_themes/",
+    "facebookUrl": "https://www.facebook.com/AncoraThemes/",
+    "bookingUrl": "https://www.vandijkclinic.nl/afspraak-maken/"
   }
 ];
