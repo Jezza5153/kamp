@@ -23,6 +23,9 @@ export default async function AdminPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-deep-green">Moderatie</h1>
         <div className="flex gap-3 text-sm">
+          <Link href="/admin/instellingen" className="text-amber-ink underline">
+            Instellingen
+          </Link>
           <Link href="/beheer" className="text-warm-brown underline">
             Vermeldingen
           </Link>

@@ -20,10 +20,18 @@ npx wrangler r2 bucket create kamp-photos        # owner photo uploads
 npx wrangler r2 bucket create kamp-next-cache    # Next.js ISR incremental cache
 
 # 3. Secrets (production)
-npx wrangler secret put AUTH_SECRET        # long random string
-npx wrangler secret put RESEND_API_KEY     # for magic-link emails (or use MailChannels)
+npx wrangler secret put AUTH_SECRET        # REQUIRED — long random string
+# Optional — these can ALSO be set in-app at /admin/instellingen after first login:
+npx wrangler secret put RESEND_API_KEY     # magic-link emails (else links log to the Worker)
 npx wrangler secret put ADMIN_EMAILS       # e.g. info@ondernemersvandekamp.nl
 ```
+
+**Bootstrap:** the **first account to log in** on an empty database is made admin
+automatically — so you don't need `ADMIN_EMAILS` to get started. Log in, open
+**/admin/instellingen**, and set the Resend API key + sender, the admin email(s),
+and the site URL there (stored in D1, no redeploy needed). Env secrets act as
+fallbacks/overrides. Until a Resend key is set, magic links print to the Worker
+logs (`wrangler tail`) so you can still log in.
 
 ## Local development
 ```bash

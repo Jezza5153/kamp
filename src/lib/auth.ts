@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { getDB, getEnv } from "@/lib/cf";
+import { getDB } from "@/lib/cf";
+import { getAdminEmails, getConfiguredSiteUrl, getResendConfig } from "@/lib/settings";
 
 /**
  * Magic-link auth for the owner/admin portal.
@@ -31,12 +32,8 @@ function randomToken(bytes = 32): string {
 }
 
 async function siteUrl(): Promise<string> {
-  const env = await getEnv();
-  return (
-    env?.NEXT_PUBLIC_SITE_URL ??
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    "https://ondernemersvandekamp.nl"
-  ).replace(/\/$/, "");
+  const configured = await getConfiguredSiteUrl();
+  return (configured ?? "https://ondernemersvandekamp.nl").replace(/\/$/, "");
 }
 
 // ---------------------------------------------------------------------------
@@ -66,18 +63,18 @@ export async function requestMagicLink(email: string): Promise<{ ok: boolean }> 
 }
 
 async function sendMagicLink(email: string, url: string): Promise<void> {
-  const env = await getEnv();
-  const key = env?.RESEND_API_KEY;
-  if (!key) {
-    // Local/dev without a mailer: surface the link in the Worker logs.
+  const { apiKey, from } = await getResendConfig();
+  if (!apiKey) {
+    // No mailer configured yet: surface the link in the Worker logs so an admin
+    // can still log in (set the Resend key in /admin/instellingen to send mail).
     console.log(`[magic-link] ${email} -> ${url}`);
     return;
   }
   await fetch("https://api.resend.com/emails", {
     method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from: "Ondernemers van de Kamp <login@ondernemersvandekamp.nl>",
+      from,
       to: [email],
       subject: "Je inloglink — Ondernemers van de Kamp",
       html: `<p>Hallo,</p><p>Klik om in te loggen en je vermelding te beheren:</p>
@@ -132,12 +129,16 @@ async function ensureProfile(email: string): Promise<SessionUser> {
     .first<SessionUser>();
   if (existing) return existing;
 
-  const env = await getEnv();
-  const admins = (env?.ADMIN_EMAILS ?? "")
-    .split(",")
-    .map((s) => s.trim().toLowerCase())
-    .filter(Boolean);
-  const role: Role = admins.includes(email) ? "admin" : "owner";
+  const admins = await getAdminEmails();
+  let role: Role = admins.includes(email) ? "admin" : "owner";
+  if (role === "owner") {
+    // Bootstrap: the very first account becomes admin, so a fresh deploy always
+    // has someone who can open /admin and configure admins/Resend in-app.
+    const c = await db
+      .prepare("SELECT COUNT(*) AS n FROM profiles WHERE role = 'admin'")
+      .first<{ n: number }>();
+    if ((c?.n ?? 0) === 0) role = "admin";
+  }
   const id = crypto.randomUUID();
   await db
     .prepare("INSERT INTO profiles (id, email, role, created_at) VALUES (?, ?, ?, ?)")
