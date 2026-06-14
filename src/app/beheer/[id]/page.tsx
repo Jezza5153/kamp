@@ -1,0 +1,97 @@
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
+import { canEdit, requireUser } from "@/lib/auth";
+import { allBusinessesSeed } from "@/lib/businessData";
+import { EDITABLE_FIELDS, FIELD_LABELS, pendingFieldsFor } from "@/lib/overrides";
+import { submitEdit } from "../actions";
+
+export const dynamic = "force-dynamic";
+export const metadata = { title: "Vermelding bewerken", robots: { index: false } };
+
+const MULTILINE = new Set(["shortDescription", "longDescription", "hoursNote"]);
+
+export default async function EditBusinessPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ saved?: string }>;
+}) {
+  const { id } = await params;
+  const { saved } = await searchParams;
+  const user = await requireUser();
+  if (!(await canEdit(user, id))) redirect("/beheer");
+
+  const biz = allBusinessesSeed.find((b) => b.id === id);
+  if (!biz) notFound();
+
+  // Pre-fill with the owner's in-flight pending edit, else the live value.
+  const pending = await pendingFieldsFor(id);
+  const value = (f: string): string =>
+    pending[f] ?? (biz as unknown as Record<string, unknown>)[f]?.toString() ?? "";
+
+  const action = submitEdit.bind(null, id);
+
+  return (
+    <main className="mx-auto max-w-2xl px-6 py-12">
+      <Link href="/beheer" className="text-sm text-warm-brown underline">
+        ← Mijn vermeldingen
+      </Link>
+      <h1 className="mt-3 text-2xl font-semibold text-deep-green">{biz.name}</h1>
+      <p className="mt-1 text-sm text-warm-brown">
+        Wijzigingen worden ter controle ingediend en verschijnen na goedkeuring op de site.
+      </p>
+
+      {saved ? (
+        <div className="mt-5 rounded-xl bg-sage/60 p-4 text-sm text-deep-green">
+          Bedankt! Je wijziging is ingediend en wacht op goedkeuring.
+        </div>
+      ) : null}
+      {Object.keys(pending).length > 0 && !saved ? (
+        <div className="mt-5 rounded-xl bg-gold/20 p-4 text-sm text-warm-brown">
+          Je hebt nog een wijziging in behandeling — onderstaande velden tonen die voorgestelde
+          tekst.
+        </div>
+      ) : null}
+
+      <form action={action} className="mt-6 space-y-5">
+        {EDITABLE_FIELDS.map((f) => (
+          <div key={f}>
+            <label htmlFor={f} className="block text-sm font-medium text-foreground">
+              {FIELD_LABELS[f]}
+            </label>
+            {MULTILINE.has(f) ? (
+              <textarea
+                id={f}
+                name={f}
+                rows={f === "longDescription" ? 6 : 3}
+                defaultValue={value(f)}
+                className="mt-1 w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green"
+              />
+            ) : (
+              <input
+                id={f}
+                name={f}
+                type="text"
+                defaultValue={value(f)}
+                className="mt-1 w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green"
+              />
+            )}
+          </div>
+        ))}
+
+        <div className="flex items-center gap-4 pt-2">
+          <button
+            type="submit"
+            className="rounded-xl bg-deep-green px-5 py-3 font-medium text-background transition hover:opacity-90"
+          >
+            Wijziging indienen
+          </button>
+          <span className="text-xs text-warm-brown">
+            Foto&apos;s wijzigen kan binnenkort — mail ons voorlopig je beeld.
+          </span>
+        </div>
+      </form>
+    </main>
+  );
+}

@@ -13,11 +13,35 @@
 
 import { businesses as seed, type Business } from "@/data/businesses";
 
-/** Approved overrides keyed by business id. Stub until D1 is wired (Phase 1). */
+/**
+ * Approved owner edits keyed by business id, read from D1.
+ *
+ * Returns {} when not running on Workers (plain `next build` / `next dev`) or
+ * when the table is empty/unreachable — so the static seed is always a safe
+ * fallback and the build never depends on the database being present.
+ */
 export async function getOverrides(): Promise<Record<string, Partial<Business>>> {
-  // Phase 1 (Cloudflare): read approved rows from D1 via getCloudflareContext().env.DB
-  // and return { [businessId]: { ...changedFields } }. Until then, no overrides.
-  return {};
+  try {
+    const { getDB } = await import("@/lib/cf");
+    const db = await getDB();
+    if (!db) return {};
+    const { results } = await db
+      .prepare(
+        "SELECT business_id, fields FROM business_overrides WHERE status = 'approved' ORDER BY reviewed_at ASC, submitted_at ASC"
+      )
+      .all<{ business_id: string; fields: string }>();
+    const map: Record<string, Partial<Business>> = {};
+    for (const row of results) {
+      try {
+        map[row.business_id] = { ...(map[row.business_id] ?? {}), ...JSON.parse(row.fields) };
+      } catch {
+        // skip a malformed override row rather than failing the whole page
+      }
+    }
+    return map;
+  } catch {
+    return {};
+  }
 }
 
 function applyOverride(b: Business, ov?: Partial<Business>): Business {
