@@ -7,7 +7,7 @@ import {
   type EditableField,
 } from "@/lib/overrides";
 import { listPendingMedia } from "@/lib/media";
-import { approve, reject, approvePhoto, rejectPhoto } from "./actions";
+import { approve, reject, approvePhoto, rejectPhoto, purgeBusinessData } from "./actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Moderatie", robots: { index: false } };
@@ -145,6 +145,46 @@ export default async function AdminPage() {
           );
         })}
       </ul>
+
+      <section className="mt-16 rounded-2xl border border-clay/30 bg-clay/5 p-6">
+        <h2 className="text-xl font-semibold text-clay">Gegevens wissen (AVG)</h2>
+        <p className="mt-1 max-w-prose text-sm text-warm-brown">
+          Verwijdert alle door de ondernemer ingediende gegevens van een zaak — geüploade
+          foto&apos;s (ook uit opslag), tekstwijzigingen en gekoppelde logins. De vermelding valt
+          terug op de basisgegevens. Niet terug te draaien. Typ <strong>WIS</strong> ter
+          bevestiging.
+        </p>
+        <form action={purgeBusinessData} className="mt-4 flex flex-wrap items-end gap-3">
+          <label className="text-sm">
+            <span className="block text-warm-brown">Zaak</span>
+            <select
+              name="businessId"
+              required
+              className="mt-1 w-64 rounded-lg border border-stone bg-background px-3 py-2 text-sm"
+            >
+              {[...allBusinessesSeed]
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map((b) => (
+                  <option key={b.id} value={b.id}>
+                    {b.name}
+                  </option>
+                ))}
+            </select>
+          </label>
+          <label className="text-sm">
+            <span className="block text-warm-brown">Bevestig</span>
+            <input
+              name="confirm"
+              required
+              placeholder="WIS"
+              className="mt-1 w-28 rounded-lg border border-stone bg-background px-3 py-2 text-sm"
+            />
+          </label>
+          <button className="rounded-xl bg-clay px-4 py-2 text-sm font-medium text-background hover:opacity-90">
+            Wis gegevens
+          </button>
+        </form>
+      </section>
     </main>
   );
 }
