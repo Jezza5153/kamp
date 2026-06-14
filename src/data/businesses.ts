@@ -331,6 +331,40 @@ export const businesses: Business[] = [
     "imageFit": "cover"
   },
   {
+    "id": "k-wereldwinkel-amersfoort",
+    "name": "Wereldwinkel Amersfoort",
+    "category": "Winkels & makers",
+    "subcategory": "Fair-trade gift shop",
+    "address": "Kamperbinnenpoort 1",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Wereldwinkel Amersfoort — fair-trade gift shop op Kamperbinnenpoort 1 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Wereldwinkel Amersfoort is gevestigd op Kamperbinnenpoort 1 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamperbinnenpoort 1, in the historic gate building - explicitly in scope per brief. Active, volunteer-run, open daily. Edge because it is on the gate boundary.",
+    "tags": [
+      "fair-trade gift shop",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.wereldwinkelamersfoort.nl/",
+    "sourceUrls": [
+      "https://www.wereldwinkelamersfoort.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 1,
+    "status": "open",
+    "schemaType": "Store",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On Kamperbinnenpoort 1, in the historic gate building - explicitly in scope per brief. Active, volunteer-run, open daily. Edge because it is on the gate boundary.",
+    "imageUrl": "https://www.wereldwinkelamersfoort.nl/wp-content/uploads/2022/04/cropped-logo.png",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
     "id": "toko-tjin",
     "name": "Toko Tjin",
     "category": "Eten & drinken",
@@ -480,6 +514,106 @@ export const businesses: Business[] = [
     "schemaType": "Restaurant",
     "updatedAt": "2026-06-14",
     "imageFit": "cover"
+  },
+  {
+    "id": "k-van-der-woerd-optiek",
+    "name": "Van der Woerd Optiek",
+    "category": "Services & praktisch",
+    "subcategory": "Optician",
+    "address": "Kamperbinnenpoort 2",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Van der Woerd Optiek — optician op Kamperbinnenpoort 2 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Van der Woerd Optiek is gevestigd op Kamperbinnenpoort 2 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamperbinnenpoort 2, the gate that the brief explicitly includes as the De Kamp entrance. Independent optician in a monument 'practically next to the Kamperbinnenpoort' (033-4631380). Active. Edge only due to the gate-boundary location.",
+    "tags": [
+      "optician",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://vanderwoerdoptiek.nl/",
+    "sourceUrls": [
+      "https://vanderwoerdoptiek.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 2,
+    "status": "open",
+    "schemaType": "Store",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On Kamperbinnenpoort 2, the gate that the brief explicitly includes as the De Kamp entrance. Independent optician in a monument 'practically next to the Kamperbinnenpoort' (033-4631380). Active. Edge only due to the gate-boundary location.",
+    "imageUrl": "https://vanderwoerdoptiek.nl/wp-content/uploads/sites/23/2020/05/MG_9737-e1589487294737.jpg",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-fashion-livy",
+    "name": "Fashion Livy",
+    "category": "Mode & sieraden",
+    "subcategory": "Women's clothing boutique",
+    "address": "Kamperbinnenpoort 3",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Fashion Livy — women's clothing boutique op Kamperbinnenpoort 3 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Fashion Livy is gevestigd op Kamperbinnenpoort 3 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamperbinnenpoort 3 - the gate that the brief explicitly includes as the De Kamp threshold. Active boutique, multiple directories and VVV confirm. Edge only because it sits on the gate boundary.",
+    "tags": [
+      "women's clothing boutique",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.fashionlivy.nl/",
+    "sourceUrls": [
+      "https://www.fashionlivy.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 3,
+    "status": "open",
+    "schemaType": "ClothingStore",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On Kamperbinnenpoort 3 - the gate that the brief explicitly includes as the De Kamp threshold. Active boutique, multiple directories and VVV confirm. Edge only because it sits on the gate boundary.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-theefeestje",
+    "name": "Theefeestje",
+    "category": "Koffie, lunch & zoet",
+    "subcategory": "Tearoom / high tea / cake-decoration shop & workshops",
+    "address": "Kamp 3",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Theefeestje — tearoom / high tea / cake-decoration shop & workshops op Kamp 3 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Theefeestje is gevestigd op Kamp 3 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 3, core De Kamp street. Active tea salon/experience shop (by reservation), own website and VVV listing confirm Kamp 3, 3811 AM. Candidates 2 and 16 are the same business, deduplicated.",
+    "tags": [
+      "tearoom",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://theefeestje.nl/",
+    "sourceUrls": [
+      "https://theefeestje.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 3,
+    "status": "open",
+    "schemaType": "CafeOrCoffeeShop",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 3, core De Kamp street. Active tea salon/experience shop (by reservation), own website and VVV listing confirm Kamp 3, 3811 AM. Candidates 2 and 16 are the same business, deduplicated.",
+    "imageUrl": "https://theefeestje.nl/content/uploads/2025/07/rozefotnieuw16-scaled.jpg",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   },
   {
     "id": "flups",
@@ -758,6 +892,40 @@ export const businesses: Business[] = [
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09116_4202787316.jpg",
     "imageFit": "cover"
+  },
+  {
+    "id": "k-livingstone-bij-de-poort",
+    "name": "Livingstone bij de Poort",
+    "category": "Koffie, lunch & zoet",
+    "subcategory": "Speciality-coffee bar / healthy & vegan lunchroom",
+    "address": "Kamperbinnenpoort 4",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Livingstone bij de Poort — speciality-coffee bar / healthy & vegan lunchroom op Kamperbinnenpoort 4 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Livingstone bij de Poort is gevestigd op Kamperbinnenpoort 4 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamperbinnenpoort 4, literally named 'bij de Poort' (by the gate) - exactly the De Kamp threshold the brief calls out. Active speciality-coffee & vegan-friendly lunchroom, second Livingstone location. Edge due to gate-boundary location.",
+    "tags": [
+      "speciality-coffee bar",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.tijdvooramersfoort.nl/en/locations/1657593467/together-at-livingstone",
+    "sourceUrls": [
+      "https://www.tijdvooramersfoort.nl/en/locations/1657593467/together-at-livingstone"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 4,
+    "status": "open",
+    "schemaType": "CafeOrCoffeeShop",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On Kamperbinnenpoort 4, literally named 'bij de Poort' (by the gate) - exactly the De Kamp threshold the brief calls out. Active speciality-coffee & vegan-friendly lunchroom, second Livingstone location. Edge due to gate-boundary location.",
+    "imageUrl": "https://assets.plaece.nl/thumb/Kdy7dwzvpbi0ct-7v-7h0_TyIxWkuKnOsvZHVXlfGjs/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwNzMxMl8xMTExMDQ1NDIyLmpwZw.jpg",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   },
   {
     "id": "wit-lof",
@@ -1054,6 +1222,70 @@ export const businesses: Business[] = [
     "updatedAt": "2026-06-14",
     "imageUrl": "https://www.deruitermakelaarshuis.nl/wp-content/uploads/2024/11/Abe-Van-Ancum-fotografie-02-e1732185759484-960x720.jpg",
     "imageFit": "cover"
+  },
+  {
+    "id": "k-jewels-forever",
+    "name": "Jewels Forever",
+    "category": "Mode & sieraden",
+    "subcategory": "Jeweller",
+    "address": "Kamperbinnenpoort 7",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Jewels Forever — jeweller op Kamperbinnenpoort 7 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Jewels Forever is gevestigd op Kamperbinnenpoort 7 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamperbinnenpoort 7, on the gate beside the already-listed Heart & Arrow Trouwringen (no. 8). Active jeweller specialising in handmade wedding rings, own workshop (KvK 73618993). Distinct De Kamp address despite a second Krommestraat outlet. Edge due to gat",
+    "tags": [
+      "jeweller",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.jewelsareforever.nl/",
+    "sourceUrls": [
+      "https://www.jewelsareforever.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 7,
+    "status": "open",
+    "schemaType": "JewelryStore",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On Kamperbinnenpoort 7, on the gate beside the already-listed Heart & Arrow Trouwringen (no. 8). Active jeweller specialising in handmade wedding rings, own workshop (KvK 73618993). Distinct De Kamp address despite a second Krommestraat outlet. Edge due to gate-boundary location.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-speelpakhuis",
+    "name": "Speelpakhuis",
+    "category": "Winkels & makers",
+    "subcategory": "Toy store",
+    "address": "Kamp 7",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Speelpakhuis — toy store op Kamp 7 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Speelpakhuis is gevestigd op Kamp 7 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 7, core De Kamp street. Recently-opened toy shop confirmed at Kamp 7 by VVV, tijdvooramersfoort and the letting agent's move-in announcement; current opening hours listed.",
+    "tags": [
+      "toy store",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://speelpakhuis.nl/",
+    "sourceUrls": [
+      "https://speelpakhuis.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 7,
+    "status": "open",
+    "schemaType": "Store",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 7, core De Kamp street. Recently-opened toy shop confirmed at Kamp 7 by VVV, tijdvooramersfoort and the letting agent's move-in announcement; current opening hours listed.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   },
   {
     "id": "de-tafelaar",
@@ -1484,6 +1716,38 @@ export const businesses: Business[] = [
     "imageFit": "cover"
   },
   {
+    "id": "k-kaldi-koffie-thee-amersfoort",
+    "name": "Kaldi Koffie & Thee Amersfoort",
+    "category": "Koffie, lunch & zoet",
+    "subcategory": "Coffee & tea shop / tasting room / takeaway",
+    "address": "Kamp 10",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Kaldi Koffie & Thee Amersfoort — coffee & tea shop / tasting room / takeaway op Kamp 10 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Kaldi Koffie & Thee Amersfoort is gevestigd op Kamp 10 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 10, the core street of De Kamp; past the Kamperbinnenpoort. Active coffee/tea shop in the historic 'D'Gekroonde Bye-Korf' building. Note: the 'recently reopened under new owner (Fred Homan)' event traces to 2017, not a recent reopening, but the bus",
+    "tags": [
+      "coffee & tea shop",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://kaldi.nl/winkelpopup/?winkel=Kaldi+Amersfoort",
+    "sourceUrls": [
+      "https://kaldi.nl/winkelpopup/?winkel=Kaldi+Amersfoort"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 10,
+    "status": "open",
+    "schemaType": "CafeOrCoffeeShop",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 10, the core street of De Kamp; past the Kamperbinnenpoort. Active coffee/tea shop in the historic 'D'Gekroonde Bye-Korf' building. Note: the 'recently reopened under new owner (Fred Homan)' event traces to 2017, not a recent reopening, but the business is currently listed and operating at Kamp 10.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
     "id": "bloembinderij-all-seasons",
     "name": "Bloembinderij All Seasons",
     "category": "Interieur & kunst",
@@ -1768,6 +2032,38 @@ export const businesses: Business[] = [
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/yfPzMj624uidYHUGe6OTpxVlJrwUF6Gxgndlfs3_irw/resizing_type:fit/width:650/height:366/gravity:sm/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTEzMl8zNjY1Mjc1Mzk2LmpwZw.jpg",
     "imageFit": "cover"
+  },
+  {
+    "id": "k-b-g-l-gold-silver",
+    "name": "B.G.L. Gold & Silver",
+    "category": "Mode & sieraden",
+    "subcategory": "Jeweller / goldsmith",
+    "address": "Kamp 13",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "B.G.L. Gold & Silver — jeweller / goldsmith op Kamp 13 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "B.G.L. Gold & Silver is gevestigd op Kamp 13 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 13, core De Kamp street. Active goldsmith/jeweller selling watches, jewellery and wedding rings plus custom work and repairs (033 4753472). Own website and tijdvooramersfoort confirm.",
+    "tags": [
+      "jeweller",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.bglgoldandsilver.nl/",
+    "sourceUrls": [
+      "https://www.bglgoldandsilver.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 13,
+    "status": "open",
+    "schemaType": "JewelryStore",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 13, core De Kamp street. Active goldsmith/jeweller selling watches, jewellery and wedding rings plus custom work and repairs (033 4753472). Own website and tijdvooramersfoort confirm.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   },
   {
     "id": "new-j-l-lijstenmakerij",
@@ -2221,6 +2517,168 @@ export const businesses: Business[] = [
     "imageFit": "cover"
   },
   {
+    "id": "k-big-bazar-amersfoort",
+    "name": "Big Bazar Amersfoort",
+    "category": "Keten / anker",
+    "subcategory": "Discount / variety store",
+    "address": "Kamp 17",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Big Bazar Amersfoort — discount / variety store op Kamp 17 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Big Bazar Amersfoort is gevestigd op Kamp 17 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp (Kamp 15-17 complex; occupies no. 17), core De Kamp street. Distinct from SPAR City on the existing list. Confirmed open with current hours. Candidates 18 and 32 are the same business, deduplicated.",
+    "tags": [
+      "discount",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.bigbazar.nl/",
+    "sourceUrls": [
+      "https://www.bigbazar.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 17,
+    "status": "open",
+    "schemaType": "Store",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp (Kamp 15-17 complex; occupies no. 17), core De Kamp street. Distinct from SPAR City on the existing list. Confirmed open with current hours. Candidates 18 and 32 are the same business, deduplicated.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-the-fat-tiger",
+    "name": "The Fat Tiger",
+    "category": "Eten & drinken",
+    "subcategory": "Takeaway / delivery",
+    "address": "Kamp 18",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "The Fat Tiger — takeaway / delivery op Kamp 18 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "The Fat Tiger is gevestigd op Kamp 18 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 18, core De Kamp street. Active Vietnamese/Asian takeaway & delivery (banh mi, bowls, bubble tea); own site shows current 7-day hours. Shares Kamp 18 with other tenants.",
+    "tags": [
+      "takeaway",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.the-fat-tiger-amersfoort.nl/",
+    "sourceUrls": [
+      "https://www.the-fat-tiger-amersfoort.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 18,
+    "status": "open",
+    "schemaType": "Restaurant",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 18, core De Kamp street. Active Vietnamese/Asian takeaway & delivery (banh mi, bowls, bubble tea); own site shows current 7-day hours. Shares Kamp 18 with other tenants.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-zitgeluk",
+    "name": "Zitgeluk",
+    "category": "Interieur & kunst",
+    "subcategory": "Interior / furniture store",
+    "address": "Kamp 18",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Zitgeluk — interior / furniture store op Kamp 18 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Zitgeluk is gevestigd op Kamp 18 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 18, core De Kamp street (some directories also tag a connected Coninckstraat unit behind the same block). Active furniture store specialising in seating, plus lighting, cabinets, tables (033 741 0150). Own website confirms. Distinct from The Fat Tiger at the same number",
+    "tags": [
+      "interior",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://zitgeluk.nl/",
+    "sourceUrls": [
+      "https://zitgeluk.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 18,
+    "status": "open",
+    "schemaType": "FurnitureStore",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 18, core De Kamp street (some directories also tag a connected Coninckstraat unit behind the same block). Active furniture store specialising in seating, plus lighting, cabinets, tables (033 741 0150). Own website confirms. Distinct from The Fat Tiger at the same number.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-arthur-willemijn-stores",
+    "name": "Arthur & Willemijn Stores",
+    "category": "Mode & sieraden",
+    "subcategory": "Women's fashion / clothing store",
+    "address": "Kamp 19",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Arthur & Willemijn Stores — women's fashion / clothing store op Kamp 19 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Arthur & Willemijn Stores is gevestigd op Kamp 19 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 19, core De Kamp street. Long-running (since 1978) womenswear store; the Kamp is the original/flagship store (033 4727291). Active. Shares the Kamp 19 complex with ReYoutiefull and Saya Boutique Hotel.",
+    "tags": [
+      "women's fashion",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.arthurenwillemijn.nl/",
+    "sourceUrls": [
+      "https://www.arthurenwillemijn.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 19,
+    "status": "open",
+    "schemaType": "ClothingStore",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 19, core De Kamp street. Long-running (since 1978) womenswear store; the Kamp is the original/flagship store (033 4727291). Active. Shares the Kamp 19 complex with ReYoutiefull and Saya Boutique Hotel.",
+    "imageUrl": "https://www.arthurenwillemijn.nl/files/logo/factif-logo.jpg",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-reyoutiefull-store",
+    "name": "ReYoutiefull Store",
+    "category": "Mode & sieraden",
+    "subcategory": "Sustainable concept / second-hand & consignment fashion store",
+    "address": "Kamp 19",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "ReYoutiefull Store — sustainable concept / second-hand & consignment fashion store op Kamp 19 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "ReYoutiefull Store is gevestigd op Kamp 19 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 19, core De Kamp street. Sustainable retail concept by Arthur & Willemijn in their original Kamp building; VVV lists it as a current location. Distinct from the Saya Boutique Hotel that also occupies the Kamp 19 complex. Candidates 15, 20 are the same store; t",
+    "tags": [
+      "sustainable concept",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.arthurenwillemijn.nl/over-ons/reyoutiefull/",
+    "sourceUrls": [
+      "https://www.arthurenwillemijn.nl/over-ons/reyoutiefull/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 19,
+    "status": "open",
+    "schemaType": "ClothingStore",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 19, core De Kamp street. Sustainable retail concept by Arthur & Willemijn in their original Kamp building; VVV lists it as a current location. Distinct from the Saya Boutique Hotel that also occupies the Kamp 19 complex. Candidates 15, 20 are the same store; the 'Be-youtie-full boutique HOTEL' part of candidate 15 is superseded by Saya (see reject).",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
     "id": "saya-boutique-hotel",
     "name": "Saya Boutique Hotel",
     "category": "Slapen",
@@ -2453,6 +2911,40 @@ export const businesses: Business[] = [
     "imageFit": "cover"
   },
   {
+    "id": "k-wibra-amersfoort",
+    "name": "Wibra Amersfoort",
+    "category": "Keten / anker",
+    "subcategory": "Discount variety / textiles & household store",
+    "address": "Kamp 20-22",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Wibra Amersfoort — discount variety / textiles & household store op Kamp 20-22 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Wibra Amersfoort is gevestigd op Kamp 20-22 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 20-22, core De Kamp street. Confirmed open with current hours (033 4767778). Distinct from Robert Harms Tweewielers (Kamp 20) on the existing list. Candidates 22 and 35 are the same business, deduplicated.",
+    "tags": [
+      "discount variety",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.wibra.nl/",
+    "sourceUrls": [
+      "https://www.wibra.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 20,
+    "status": "open",
+    "schemaType": "Store",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 20-22, core De Kamp street. Confirmed open with current hours (033 4767778). Distinct from Robert Harms Tweewielers (Kamp 20) on the existing list. Candidates 22 and 35 are the same business, deduplicated.",
+    "imageUrl": "https://www.wibra.nl/wp-content/uploads/sites/3/2022/02/logo-wibra.png",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
     "id": "new-runnersworld-aart-stigter",
     "name": "Runnersworld Aart Stigter (nu Runners4Life)",
     "category": "Winkels & makers",
@@ -2602,6 +3094,40 @@ export const businesses: Business[] = [
     "updatedAt": "2026-06-14",
     "imageUrl": "https://runners4life.nl/wp-content/uploads/2021/02/runners4life-winkel.png",
     "imageFit": "cover"
+  },
+  {
+    "id": "k-kapsalon-sepideh",
+    "name": "Kapsalon Sepideh",
+    "category": "Beauty & verzorging",
+    "subcategory": "Hair salon",
+    "address": "Kamp 26",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Kapsalon Sepideh — hair salon op Kamp 26 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Kapsalon Sepideh is gevestigd op Kamp 26 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 26, core De Kamp street. Active salon (033 8886031). Shares house number with 'Werners Optiek - Kamp 26' on the existing list; the two occupy different units/floors at the same address, so this is a distinct business. No dedicated own-domain website found; place",
+    "tags": [
+      "hair salon",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://haar.expert/kapsalons/kapsalon-sepideh-kamp-26-3811ar-amersfoort",
+    "sourceUrls": [
+      "https://haar.expert/kapsalons/kapsalon-sepideh-kamp-26-3811ar-amersfoort"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 26,
+    "status": "open",
+    "schemaType": "HairSalon",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 26, core De Kamp street. Active salon (033 8886031). Shares house number with 'Werners Optiek - Kamp 26' on the existing list; the two occupy different units/floors at the same address, so this is a distinct business. No dedicated own-domain website found; placeholder is a directory page.",
+    "imageUrl": "https://8723153915a94d8b033f-50c48ed79b54074d1364733415261e68.ssl.cf3.rackcdn.com/images/haar-expert-background.jpg",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   },
   {
     "id": "new-werners-optiek",
@@ -3043,6 +3569,40 @@ export const businesses: Business[] = [
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/odp-ubase/image/dsc09153_3159453264.jpg",
     "imageFit": "cover"
+  },
+  {
+    "id": "k-sjenkels-amersfoort",
+    "name": "Sjenkels Amersfoort",
+    "category": "Beauty & verzorging",
+    "subcategory": "Hair salon",
+    "address": "Kamp 29",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Sjenkels Amersfoort — hair salon op Kamp 29 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Sjenkels Amersfoort is gevestigd op Kamp 29 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 29, core De Kamp street. Salon opened Sept 2023; Nexxt Hairsalon team merged in Nov 2025 - confirms it is currently active. Own website confirms address.",
+    "tags": [
+      "hair salon",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://sjenkels.nl/salons/amersfoort/",
+    "sourceUrls": [
+      "https://sjenkels.nl/salons/amersfoort/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 29,
+    "status": "open",
+    "schemaType": "HairSalon",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 29, core De Kamp street. Salon opened Sept 2023; Nexxt Hairsalon team merged in Nov 2025 - confirms it is currently active. Own website confirms address.",
+    "imageUrl": "https://sjenkels.nl/wp-content/uploads/2024/03/Amersfoort-etalage.jpg",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   },
   {
     "id": "hairbeautiful",
@@ -4372,6 +4932,38 @@ export const businesses: Business[] = [
     "updatedAt": "2026-06-14",
     "imageUrl": "https://assets.plaece.nl/thumb/lU0mOndn_SlyNPR7dzRXgLv-0Fbs_G4M08PKfAdqT8A/resizing_type:fit/width:1580/height:0/gravity:sm/enlarge:0/aHR0cHM6Ly9hc3NldHMucGxhZWNlLm5sL29kcC11YmFzZS9pbWFnZS9kc2MwOTE3MV8yNDQ5MzM5MjIxLmpwZw.jpg",
     "imageFit": "cover"
+  },
+  {
+    "id": "k-le-perron-amersfoort",
+    "name": "Le Perron Amersfoort",
+    "category": "Koffie, lunch & zoet",
+    "subcategory": "Boulangerie / organic bakery / lunchroom",
+    "address": "Kamp 42",
+    "city": "Amersfoort",
+    "streetSegment": "Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Le Perron Amersfoort — boulangerie / organic bakery / lunchroom op Kamp 42 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Le Perron Amersfoort is gevestigd op Kamp 42 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Kamp 42, core De Kamp street. Active organic bakery/lunchroom; appears on the Le Perron chain site and current directories. The Kamp 42 conflict with 'Louis Blancardi Wijnen' on the existing list resolves in favour of Le Perron as the current tenant.",
+    "tags": [
+      "boulangerie",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://leperron.nl/",
+    "sourceUrls": [
+      "https://leperron.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 42,
+    "status": "open",
+    "schemaType": "CafeOrCoffeeShop",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Kamp 42, core De Kamp street. Active organic bakery/lunchroom; appears on the Le Perron chain site and current directories. The Kamp 42 conflict with 'Louis Blancardi Wijnen' on the existing list resolves in favour of Le Perron as the current tenant.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   },
   {
     "id": "louis-blancardi-wijnen",
@@ -7725,6 +8317,70 @@ export const businesses: Business[] = [
     "updatedAt": "2026-06-14"
   },
   {
+    "id": "k-step-events",
+    "name": "Step Events",
+    "category": "Winkels & makers",
+    "subcategory": "Scooter shop - sales, rental & outings",
+    "address": "Oliesteeg 10",
+    "city": "Amersfoort",
+    "streetSegment": "Achter de Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Step Events — scooter shop - sales, rental & outings op Oliesteeg 10 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Step Events is gevestigd op Oliesteeg 10 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Oliesteeg 10, an in-scope side street off the Kamp (part of official De Kamp e.o.). Active (by appointment), Yelp updated 2026. Candidates 11, 25 and 49 are the same business, deduplicated. Edge because Oliesteeg is a quiet NE side street.",
+    "tags": [
+      "scooter shop - sales, rental & outings",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://sportstep.nl/",
+    "sourceUrls": [
+      "https://sportstep.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 110,
+    "status": "open",
+    "schemaType": "Store",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On Oliesteeg 10, an in-scope side street off the Kamp (part of official De Kamp e.o.). Active (by appointment), Yelp updated 2026. Candidates 11, 25 and 49 are the same business, deduplicated. Edge because Oliesteeg is a quiet NE side street.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-hotel-de-tabaksplant",
+    "name": "Hotel de Tabaksplant",
+    "category": "Slapen",
+    "subcategory": "Hotel / B&B",
+    "address": "Coninckstraat 15",
+    "city": "Amersfoort",
+    "streetSegment": "Achter de Kamp",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Hotel de Tabaksplant — hotel / b&b op Coninckstraat 15 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Hotel de Tabaksplant is gevestigd op Coninckstraat 15 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Coninckstraat 15, explicitly in-scope side street within the Kampkwartier. 25-room hotel in an early-1600s monument; active with current bookings.",
+    "tags": [
+      "hotel",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.hoteldetabaksplant.nl/",
+    "sourceUrls": [
+      "https://www.hoteldetabaksplant.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 115,
+    "status": "open",
+    "schemaType": "Hotel",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Coninckstraat 15, explicitly in-scope side street within the Kampkwartier. 25-room hotel in an early-1600s monument; active with current bookings.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
     "id": "kapsalon-sura",
     "name": "Kapsalon Sura Amersfoort",
     "category": "Beauty & verzorging",
@@ -8826,6 +9482,38 @@ export const businesses: Business[] = [
     "imageFit": "cover"
   },
   {
+    "id": "k-wolwinkel-elitt",
+    "name": "Wolwinkel Elitt",
+    "category": "Winkels & makers",
+    "subcategory": "Yarn / wool / knitting & crochet shop with workshops",
+    "address": "Grote Sint Jansstraat 8",
+    "city": "Amersfoort",
+    "streetSegment": "Grote Sint Jansstraat",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Wolwinkel Elitt — yarn / wool / knitting & crochet shop with workshops op Grote Sint Jansstraat 8 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Wolwinkel Elitt is gevestigd op Grote Sint Jansstraat 8 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Grote Sint Jansstraat 8, a core De Kamp side street, in the 'Oude Stadsherberg'. Active yarn shop (Els & Laura), VVV and tijdvooramersfoort confirm under De Kamp. NOTE: website field is a placeholder; correct site is wolwinkelelitt.nl (info@wolwinkelel",
+    "tags": [
+      "yarn",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://dewimperfabriek.nl/",
+    "sourceUrls": [
+      "https://dewimperfabriek.nl/"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 208,
+    "status": "open",
+    "schemaType": "Store",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Grote Sint Jansstraat 8, a core De Kamp side street, in the 'Oude Stadsherberg'. Active yarn shop (Els & Laura), VVV and tijdvooramersfoort confirm under De Kamp. NOTE: website field is a placeholder; correct site is wolwinkelelitt.nl (info@wolwinkelelitt.nl) - update before publishing.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
     "id": "theehuis-something-else",
     "name": "Theehuis Something Else",
     "category": "Koffie, lunch & zoet",
@@ -8970,6 +9658,38 @@ export const businesses: Business[] = [
     "imageFit": "cover"
   },
   {
+    "id": "k-the-wax-bar-amersfoort",
+    "name": "The Wax Bar Amersfoort",
+    "category": "Beauty & verzorging",
+    "subcategory": "Waxing / beauty salon",
+    "address": "Grote Sint Jansstraat 13",
+    "city": "Amersfoort",
+    "streetSegment": "Grote Sint Jansstraat",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "The Wax Bar Amersfoort — waxing / beauty salon op Grote Sint Jansstraat 13 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "The Wax Bar Amersfoort is gevestigd op Grote Sint Jansstraat 13 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Grote Sint Jansstraat 13, core De Kamp side street. Current location of The Wax Bar chain; own site, VVV and tijdvooramersfoort confirm the address and active hours.",
+    "tags": [
+      "waxing",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.thewaxbar.nl/en/locatie/amersfoort",
+    "sourceUrls": [
+      "https://www.thewaxbar.nl/en/locatie/amersfoort"
+    ],
+    "verificationStatus": "verified_public_source",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 213,
+    "status": "open",
+    "schemaType": "HairSalon",
+    "inclusionStatus": "confirmed_core",
+    "inclusionReason": "On Grote Sint Jansstraat 13, core De Kamp side street. Current location of The Wax Bar chain; own site, VVV and tijdvooramersfoort confirm the address and active hours.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
     "id": "picture-at-home",
     "name": "Picture @ Home",
     "category": "Interieur & kunst",
@@ -9046,6 +9766,72 @@ export const businesses: Business[] = [
     "imageCandidateSource": "assets.plaece.nl (via tijdvooramersfoort.nl / Citymarketing Amersfoort)",
     "schemaType": "HomeGoodsStore",
     "updatedAt": "2026-06-14"
+  },
+  {
+    "id": "k-o-sole-mio",
+    "name": "O Sole Mio",
+    "category": "Eten & drinken",
+    "subcategory": "Italian restaurant / pizzeria",
+    "address": "Zuidsingel 57",
+    "city": "Amersfoort",
+    "streetSegment": "Zuidsingel",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "O Sole Mio — italian restaurant / pizzeria op Zuidsingel 57 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "O Sole Mio is gevestigd op Zuidsingel 57 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Zuidsingel 57, the Kamp-end singel that is part of De Kamp e.o.; contiguous with the listed Zuidsingel cluster (63-68) and La Base (66). Amersfoort's first Italian restaurant (since 1974), active. Edge because it is at the southern edge of the Kamp-end of the singel.",
+    "tags": [
+      "italian restaurant",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://osolemio-amersfoort.nl/",
+    "sourceUrls": [
+      "https://osolemio-amersfoort.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 357,
+    "status": "open",
+    "schemaType": "Restaurant",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On Zuidsingel 57, the Kamp-end singel that is part of De Kamp e.o.; contiguous with the listed Zuidsingel cluster (63-68) and La Base (66). Amersfoort's first Italian restaurant (since 1974), active. Edge because it is at the southern edge of the Kamp-end of the singel.",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-broers-fietsreparateurs",
+    "name": "Broers Fietsreparateurs",
+    "category": "Winkels & makers",
+    "subcategory": "Bicycle shop, rental & repair",
+    "address": "Zuidsingel 59",
+    "city": "Amersfoort",
+    "streetSegment": "Zuidsingel",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Broers Fietsreparateurs — bicycle shop, rental & repair op Zuidsingel 59 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Broers Fietsreparateurs is gevestigd op Zuidsingel 59 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On Zuidsingel 59, adjacent to O Sole Mio and the listed Zuidsingel cluster; on the De Kamp e.o. singel stretch and listed by VVV/tijdvooramersfoort. Active Shimano-certified bike shop/workshop/rental. Edge because it is on the lower-numbered (southern) end ",
+    "tags": [
+      "bicycle shop, rental & repair",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.broersfietsreparateurs.nl/",
+    "sourceUrls": [
+      "https://www.broersfietsreparateurs.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 359,
+    "status": "open",
+    "schemaType": "Store",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On Zuidsingel 59, adjacent to O Sole Mio and the listed Zuidsingel cluster; on the De Kamp e.o. singel stretch and listed by VVV/tijdvooramersfoort. Active Shimano-certified bike shop/workshop/rental. Edge because it is on the lower-numbered (southern) end of the singel.",
+    "imageUrl": "https://cdn.prod.website-files.com/67efae014387ed2945f5845c/67efb50bd74832b03882c1b7_64380f4b4a905443ca0030a4_pietervdkoppel_250521_13.jpg.jpeg",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   },
   {
     "id": "eigenaar8-mini-store",
@@ -9662,6 +10448,40 @@ export const businesses: Business[] = [
     "imageFit": "cover"
   },
   {
+    "id": "k-boetiek033",
+    "name": "Boetiek033",
+    "category": "Mode & sieraden",
+    "subcategory": "Fashion / gift / baby concept store",
+    "address": "Zuidsingel 70",
+    "city": "Amersfoort",
+    "streetSegment": "Zuidsingel",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Boetiek033 — fashion / gift / baby concept store op Zuidsingel 70 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Boetiek033 is gevestigd op Zuidsingel 70 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On the Kamp-end stretch of Zuidsingel (no. 70/70a), immediately past the already-listed Hairstyling Geke (68); sister shop of the listed Keizerin (same owners) and filed under De Kamp on tijdvooramersfoort. Active sustainable fashion/gift/baby concept store. Edge becaus",
+    "tags": [
+      "fashion",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.boetiek033.nl/",
+    "sourceUrls": [
+      "https://www.boetiek033.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 370,
+    "status": "open",
+    "schemaType": "ClothingStore",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On the Kamp-end stretch of Zuidsingel (no. 70/70a), immediately past the already-listed Hairstyling Geke (68); sister shop of the listed Keizerin (same owners) and filed under De Kamp on tijdvooramersfoort. Active sustainable fashion/gift/baby concept store. Edge because it is a singel address, but the storefront is reached from the Kamp-end cluster.",
+    "imageUrl": "http://www.keizerin.nl/cdn/shop/files/Keizerin_beeldmerk_dicht_goud_1200x1200.jpg?v=1764861697",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
     "id": "bij-sophie",
     "name": "Bij Sophie",
     "category": "Koffie, lunch & zoet",
@@ -9698,5 +10518,73 @@ export const businesses: Business[] = [
     "updatedAt": "2026-06-14",
     "imageUrl": "https://bijsophieamersfoort.nl/wp-content/uploads/2022/06/285887430_149459334321696_6988469667600221132_n.jpg",
     "imageFit": "cover"
+  },
+  {
+    "id": "k-atelier-mimosa",
+    "name": "Atelier MiMosa",
+    "category": "Beauty & verzorging",
+    "subcategory": "Hair salon",
+    "address": "Weverssingel 4",
+    "city": "Amersfoort",
+    "streetSegment": "Weverssingel",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Atelier MiMosa — hair salon op Weverssingel 4 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Atelier MiMosa is gevestigd op Weverssingel 4 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On the Kamp-end stretch of Weverssingel (no. 4), adjacent to the already-listed Bij Sophie (Weverssingel 2). Active. CORRECTION: it is a hair salon (run by Jill Oostveen & Enis Turgut), not a generic creative atelier/shop as the candidate described. Edge because it",
+    "tags": [
+      "hair salon",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.ateliermimosa.nl/",
+    "sourceUrls": [
+      "https://www.ateliermimosa.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 404,
+    "status": "open",
+    "schemaType": "HairSalon",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On the Kamp-end stretch of Weverssingel (no. 4), adjacent to the already-listed Bij Sophie (Weverssingel 2). Active. CORRECTION: it is a hair salon (run by Jill Oostveen & Enis Turgut), not a generic creative atelier/shop as the candidate described. Edge because it is a singel address at the Kamp-end cluster.",
+    "imageUrl": "https://www.ateliermimosa.nl/assets/images/ateliermimosa-v2.png",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
+  },
+  {
+    "id": "k-van-dijk-clinic",
+    "name": "Van Dijk Clinic",
+    "category": "Beauty & verzorging",
+    "subcategory": "Cosmetic-medical clinic",
+    "address": "Weverssingel 7",
+    "city": "Amersfoort",
+    "streetSegment": "Weverssingel",
+    "publicPersonName": null,
+    "publicPersonRole": null,
+    "shortDescription": "Van Dijk Clinic — cosmetic-medical clinic op Weverssingel 7 in winkelgebied De Kamp, Amersfoort.",
+    "longDescription": "Van Dijk Clinic is gevestigd op Weverssingel 7 in De Kamp, het onafhankelijke winkelgebied in de historische binnenstad van Amersfoort. On the Kamp-end stretch of Weverssingel (no. 7), near Bij Sophie (no. 2). Active clinic for medical-cosmetic treatments (BIG-registered physicians). Edge because it is a singel address; sits within the Kamp-end cluster.",
+    "tags": [
+      "cosmetic-medical clinic",
+      "Kamp Amersfoort"
+    ],
+    "websiteUrl": "https://www.vandijkclinic.nl/",
+    "sourceUrls": [
+      "https://www.vandijkclinic.nl/"
+    ],
+    "verificationStatus": "needs_owner_verification",
+    "permissionStatus": "placeholder_only",
+    "imageStatus": "owner_photo_needed",
+    "featured": false,
+    "sortOrder": 407,
+    "status": "open",
+    "schemaType": "BeautySalon",
+    "inclusionStatus": "confirmed_edge",
+    "inclusionReason": "On the Kamp-end stretch of Weverssingel (no. 7), near Bij Sophie (no. 2). Active clinic for medical-cosmetic treatments (BIG-registered physicians). Edge because it is a singel address; sits within the Kamp-end cluster.",
+    "imageUrl": "https://www.vandijkclinic.nl/wp-content/uploads/elementor/thumbs/ClinicAwards-2023-q8valpv5eepmnu31bazia09822d2hqn7wgp61e12zg.png",
+    "imageFit": "cover",
+    "updatedAt": "2026-06-14",
+    "lastChecked": "2026-06-14"
   }
 ];
