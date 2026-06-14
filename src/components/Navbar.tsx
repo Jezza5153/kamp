@@ -44,12 +44,15 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:flex items-center gap-10">
-            <div className="flex space-x-7">
+            <div className="flex space-x-6">
               <Link href="/#ondernemers" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
                 Ondernemers
               </Link>
               <Link href="/kaart" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
                 Kaart
+              </Link>
+              <Link href="/loop-de-kamp" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
+                Wandel
               </Link>
               <Link href="/agenda" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
                 Agenda
@@ -122,7 +125,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
             className="block text-2xl font-serif font-bold text-deep-green py-2"
           >
-            Route
+            Wandel de Kamp
           </Link>
           <Link
             href="/over-de-kamp"

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CalendarDays, Gift, ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
 import SeoIntro from "@/components/SeoIntro";
+import WandelShowcase from "@/components/WandelShowcase";
 import FeaturedHorizontal from "@/components/FeaturedHorizontal";
 import BusinessExplorer from "@/components/BusinessExplorer";
 import OwnerSubmitCta from "@/components/OwnerSubmitCta";
@@ -16,6 +17,7 @@ export default function Home() {
     <div className="flex flex-col">
       <Hero />
       <SeoIntro />
+      <WandelShowcase />
       <FeaturedHorizontal />
 
       <section id="ondernemers" className="bg-stone/10 py-20 sm:py-28">

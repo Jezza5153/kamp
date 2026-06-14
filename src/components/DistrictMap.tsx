@@ -120,15 +120,20 @@ export default function DistrictMap({ businesses, highlightIds, className = "", 
         const open = getOpenState(b.hours, now);
         const isOpen = open.status === "open" || open.status === "closing_soon";
 
+        // Wrapper button: MapLibre owns its transform (translate) — never set transform on it.
         const el = document.createElement("button");
         el.type = "button";
         el.setAttribute("aria-label", `${b.name}, ${b.category}, ${b.address}`);
-        el.style.cssText = `width:22px;height:22px;border-radius:9999px;background:${art.accent};border:2.5px solid #fff;box-shadow:0 1px 3px rgba(22,58,41,.5),0 0 0 1px rgba(22,58,41,.25);cursor:pointer;transition:transform .15s ease;padding:0;display:block`;
+        el.style.cssText = "width:22px;height:22px;padding:0;border:0;background:transparent;cursor:pointer;display:block";
+        // Inner dot: we scale THIS on hover (so the pin doesn't jump/disappear).
+        const dot = document.createElement("span");
+        dot.style.cssText = `display:block;width:22px;height:22px;border-radius:9999px;background:${art.accent};border:2.5px solid #fff;box-shadow:0 1px 3px rgba(22,58,41,.5),0 0 0 1px rgba(22,58,41,.25);transition:transform .15s ease;transform-origin:center`;
+        el.appendChild(dot);
         if (isOpen) {
-          const dot = document.createElement("span");
-          dot.style.cssText = "position:absolute;top:-3px;right:-3px;width:10px;height:10px;border-radius:9999px;background:#10b981;border:2px solid #fff";
-          el.style.position = "relative";
-          el.appendChild(dot);
+          const g = document.createElement("span");
+          g.style.cssText = "position:absolute;top:-3px;right:-3px;width:10px;height:10px;border-radius:9999px;background:#10b981;border:2px solid #fff";
+          dot.style.position = "relative";
+          dot.appendChild(g);
         }
 
         const img = b.imageUrl
@@ -139,12 +144,12 @@ export default function DistrictMap({ businesses, highlightIds, className = "", 
         const popup = new maplibregl.Popup({ offset: 16, closeButton: false, className: "kamp-popup" }).setHTML(html).setLngLat([c.lng, c.lat]);
 
         el.addEventListener("mouseenter", () => {
-          el.style.transform = "scale(1.35)";
+          dot.style.transform = "scale(1.45)";
           el.style.zIndex = "10";
           popup.addTo(map);
         });
         el.addEventListener("mouseleave", () => {
-          el.style.transform = "scale(1)";
+          dot.style.transform = "scale(1)";
           el.style.zIndex = "";
           popup.remove();
         });
