@@ -8,31 +8,63 @@ import { coordsFor, DISTRICT_CENTER } from "@/lib/geo";
 import { categoryArt } from "@/lib/placeholder";
 import { getOpenState, nowInAmsterdam, openLabel } from "@/lib/hours";
 
-/** CARTO Voyager raster basemap — free, no API key, clean labels. */
-const STYLE = {
-  version: 8 as const,
-  sources: {
-    carto: {
-      type: "raster" as const,
-      tiles: [
-        "https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-        "https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-        "https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-        "https://d.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-      ],
-      tileSize: 256,
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
-    },
-  },
-  layers: [{ id: "carto", type: "raster" as const, source: "carto" }],
+/** Free vector basemap (OpenFreeMap, no API key) — retinted to the brand on load. */
+const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
+
+/** Warm editorial palette for the retint. */
+const C = {
+  land: "#f4ecdb",
+  water: "#a9c7d4",
+  green: "#dbe3d2",
+  building: "#e8dec9",
+  road: "#fcf8ef",
+  roadCasing: "#e3d7bf",
+  ink: "#5d4a37",
+  halo: "#f6f0e2",
 };
+
+/** Retint any OpenMapTiles-schema vector style to the brand palette. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function retint(map: any) {
+  let layers: any[] = [];
+  try {
+    layers = map.getStyle().layers || [];
+  } catch {
+    return;
+  }
+  for (const l of layers) {
+    const id = l.id as string;
+    const sl = (l["source-layer"] as string) || "";
+    try {
+      if (l.type === "background") {
+        map.setPaintProperty(id, "background-color", C.land);
+      } else if (l.type === "fill") {
+        if (sl === "water" || /water|ocean|sea/.test(id)) map.setPaintProperty(id, "fill-color", C.water);
+        else if (/park|wood|forest|grass|landcover|landuse|cemetery|pitch|green/.test(sl + id)) map.setPaintProperty(id, "fill-color", C.green);
+        else if (sl === "building") {
+          map.setPaintProperty(id, "fill-color", C.building);
+          map.setPaintProperty(id, "fill-opacity", 0.8);
+        } else map.setPaintProperty(id, "fill-color", C.land);
+      } else if (l.type === "line") {
+        if (sl === "waterway") map.setPaintProperty(id, "line-color", C.water);
+        else if (sl === "transportation" || /road|bridge|tunnel|street/.test(id)) {
+          map.setPaintProperty(id, "line-color", /casing|outline/.test(id) ? C.roadCasing : C.road);
+        } else if (/boundary|admin/.test(sl + id)) map.setPaintProperty(id, "line-color", C.roadCasing);
+      } else if (l.type === "symbol") {
+        try { map.setPaintProperty(id, "text-color", C.ink); } catch {}
+        try { map.setPaintProperty(id, "text-halo-color", C.halo); } catch {}
+        try { map.setPaintProperty(id, "text-halo-width", 1.4); } catch {}
+      }
+    } catch {
+      /* layer doesn't support this property — skip */
+    }
+  }
+}
 
 interface DistrictMapProps {
   businesses: Business[];
-  /** ids to emphasise; others dim. */
   highlightIds?: Set<string>;
   className?: string;
-  /** map height (css). */
   height?: string;
 }
 
@@ -45,6 +77,16 @@ export default function DistrictMap({ businesses, highlightIds, className = "", 
     let cancelled = false;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let map: any;
+    let retinted = false;
+    const doRetint = () => {
+      if (retinted || !map) return;
+      try {
+        if (map.isStyleLoaded()) {
+          retint(map);
+          retinted = true;
+        }
+      } catch {}
+    };
 
     (async () => {
       const maplibregl = (await import("maplibre-gl")).default;
@@ -58,74 +100,66 @@ export default function DistrictMap({ businesses, highlightIds, className = "", 
 
       map = new maplibregl.Map({
         container: containerRef.current,
-        style: STYLE as never,
+        style: STYLE_URL,
         center: [DISTRICT_CENTER.lng, DISTRICT_CENTER.lat],
         zoom: 16,
         attributionControl: false,
-        preserveDrawingBuffer: true,
       });
       map.addControl(new maplibregl.AttributionControl({ compact: true }));
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+      map.on("load", doRetint);
+      map.on("styledata", doRetint);
+      map.on("idle", doRetint);
 
-      // Markers are DOM overlays — add immediately (no need to wait for style load).
-      {
-        const bounds = new maplibregl.LngLatBounds();
-        markersRef.current = [];
+      // Markers (DOM overlays — added immediately).
+      const bounds = new maplibregl.LngLatBounds();
+      markersRef.current = [];
+      for (const { b, c } of pts) {
+        bounds.extend([c.lng, c.lat]);
+        const art = categoryArt(b.category);
+        const open = getOpenState(b.hours, now);
+        const isOpen = open.status === "open" || open.status === "closing_soon";
 
-        for (const { b, c } of pts) {
-          bounds.extend([c.lng, c.lat]);
-          const art = categoryArt(b.category);
-          const open = getOpenState(b.hours, now);
-          const isOpen = open.status === "open" || open.status === "closing_soon";
-
-          const el = document.createElement("button");
-          el.type = "button";
-          el.setAttribute("aria-label", `${b.name}, ${b.category}, ${b.address}`);
-          el.style.cssText = `width:22px;height:22px;border-radius:9999px;background:${art.accent};border:2.5px solid #fff;box-shadow:0 2px 8px rgba(22,58,41,.45);cursor:pointer;transition:transform .15s ease;padding:0;display:block`;
-          if (isOpen) {
-            const dot = document.createElement("span");
-            dot.style.cssText = "position:absolute;top:-3px;right:-3px;width:10px;height:10px;border-radius:9999px;background:#10b981;border:2px solid #fff";
-            el.style.position = "relative";
-            el.appendChild(dot);
-          }
-
-          const img = b.imageUrl
-            ? `<img src="${b.imageUrl}" referrerpolicy="no-referrer" alt="" style="width:100%;height:104px;object-fit:${b.imageFit === "contain" ? "contain" : "cover"};border-radius:12px;margin-bottom:8px;background:#eee" />`
-            : "";
-          const openLine = b.hours ? `<div style="font:700 12px Inter,sans-serif;color:#1f4d38;margin-top:4px">${openLabel(getOpenState(b.hours, now))}</div>` : "";
-          const html = `<div style="width:208px;font-family:Inter,system-ui,sans-serif">${img}<div style="font:800 10px Inter;letter-spacing:.12em;text-transform:uppercase;color:#8a5a16">${b.category}</div><div style="font:800 17px/1.1 'Playfair Display',Georgia,serif;color:#163a29;margin:2px 0 3px">${b.name}</div><div style="font-size:12px;color:#7a6a58">${b.address}</div>${openLine}<div style="font:700 11px Inter;color:#b3701f;margin-top:6px">Bekijk →</div></div>`;
-          const popup = new maplibregl.Popup({ offset: 16, closeButton: false, className: "kamp-popup" }).setHTML(html).setLngLat([c.lng, c.lat]);
-
-          el.addEventListener("mouseenter", () => {
-            el.style.transform = "scale(1.35)";
-            el.style.zIndex = "10";
-            popup.addTo(map);
-          });
-          el.addEventListener("mouseleave", () => {
-            el.style.transform = "scale(1)";
-            el.style.zIndex = "";
-            popup.remove();
-          });
-          el.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            router.push(`/ondernemers/${b.id}`);
-          });
-
-          new maplibregl.Marker({ element: el }).setLngLat([c.lng, c.lat]).addTo(map);
-          markersRef.current.push({ id: b.id, el });
+        const el = document.createElement("button");
+        el.type = "button";
+        el.setAttribute("aria-label", `${b.name}, ${b.category}, ${b.address}`);
+        el.style.cssText = `width:22px;height:22px;border-radius:9999px;background:${art.accent};border:2.5px solid #fff;box-shadow:0 1px 3px rgba(22,58,41,.5),0 0 0 1px rgba(22,58,41,.25);cursor:pointer;transition:transform .15s ease;padding:0;display:block`;
+        if (isOpen) {
+          const dot = document.createElement("span");
+          dot.style.cssText = "position:absolute;top:-3px;right:-3px;width:10px;height:10px;border-radius:9999px;background:#10b981;border:2px solid #fff";
+          el.style.position = "relative";
+          el.appendChild(dot);
         }
 
-        if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: 64, maxZoom: 17, duration: 0 });
-        applyHighlight();
-      }
-    })();
+        const img = b.imageUrl
+          ? `<img src="${b.imageUrl}" referrerpolicy="no-referrer" alt="" style="width:100%;height:104px;object-fit:${b.imageFit === "contain" ? "contain" : "cover"};border-radius:12px;margin-bottom:8px;background:#eee" />`
+          : "";
+        const openLine = b.hours ? `<div style="font:700 12px Inter,sans-serif;color:#1f4d38;margin-top:4px">${openLabel(getOpenState(b.hours, now))}</div>` : "";
+        const html = `<div style="width:208px;font-family:Inter,system-ui,sans-serif">${img}<div style="font:800 10px Inter;letter-spacing:.12em;text-transform:uppercase;color:#8a5a16">${b.category}</div><div style="font:800 17px/1.1 'Playfair Display',Georgia,serif;color:#163a29;margin:2px 0 3px">${b.name}</div><div style="font-size:12px;color:#7a6a58">${b.address}</div>${openLine}<div style="font:700 11px Inter;color:#b3701f;margin-top:6px">Bekijk →</div></div>`;
+        const popup = new maplibregl.Popup({ offset: 16, closeButton: false, className: "kamp-popup" }).setHTML(html).setLngLat([c.lng, c.lat]);
 
-    function applyHighlight() {
-      for (const m of markersRef.current) {
-        m.el.style.opacity = !highlightIds || highlightIds.has(m.id) ? "1" : "0.2";
+        el.addEventListener("mouseenter", () => {
+          el.style.transform = "scale(1.35)";
+          el.style.zIndex = "10";
+          popup.addTo(map);
+        });
+        el.addEventListener("mouseleave", () => {
+          el.style.transform = "scale(1)";
+          el.style.zIndex = "";
+          popup.remove();
+        });
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          router.push(`/ondernemers/${b.id}`);
+        });
+
+        new maplibregl.Marker({ element: el }).setLngLat([c.lng, c.lat]).addTo(map);
+        markersRef.current.push({ id: b.id, el });
       }
-    }
+      if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: 64, maxZoom: 17, duration: 0 });
+      for (const m of markersRef.current) m.el.style.opacity = !highlightIds || highlightIds.has(m.id) ? "1" : "0.2";
+    })();
 
     return () => {
       cancelled = true;
@@ -134,11 +168,8 @@ export default function DistrictMap({ businesses, highlightIds, className = "", 
     };
   }, [businesses, router]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // dim non-matching markers when the filter changes
   useEffect(() => {
-    for (const m of markersRef.current) {
-      m.el.style.opacity = !highlightIds || highlightIds.has(m.id) ? "1" : "0.2";
-    }
+    for (const m of markersRef.current) m.el.style.opacity = !highlightIds || highlightIds.has(m.id) ? "1" : "0.2";
   }, [highlightIds]);
 
   return (
@@ -146,8 +177,8 @@ export default function DistrictMap({ businesses, highlightIds, className = "", 
       ref={containerRef}
       role="application"
       aria-label="Interactieve kaart van ondernemers op De Kamp in Amersfoort"
-      className={`w-full overflow-hidden rounded-[var(--radius-lg)] ring-1 ring-deep-green/20 shadow-[var(--shadow-card)] ${className}`}
-      style={{ height, backgroundColor: "#0d1712" }}
+      className={`w-full overflow-hidden rounded-[var(--radius-lg)] ring-1 ring-stone/50 shadow-[var(--shadow-card)] ${className}`}
+      style={{ height, backgroundColor: C.land }}
     />
   );
 }

@@ -1,0 +1,263 @@
+{
+  "boundaryWording": "Wat is De Kamp?\n\nDe Kamp is het zelfstandige winkel- en horecagebied in de historische binnenstad van Amersfoort. Het hart is de straat Kamp, die begint bij de middeleeuwse Kamperbinnenpoort en de stad in loopt richting de oude stadsmuur en de singels. Samen met de aangrenzende straten — Achter de Kamp, de Grote en Kleine Sint Jansstraat, de Coninckstraat, Kreupelstraat, Oliesteeg en Pothstraat, het Flintplein en de aanliggende stukken Zuidsingel en Weverssingel — vormt dit het Kampkwartier. Het is een van de tien officieel erkende deelgebieden van de Amersfoortse binnenstad, elk met een eigen ondernemersvereniging; voor De Kamp is dat de Vrienden van de Kamp (circa 150 leden).\n\nJe herkent De Kamp aan de mix: zelfstandige speciaalzaken, ateliers, mode, koffie- en theezaken, restaurants en verzorging naast een paar vertrouwde ankerwinkels — bijna allemaal in monumentale panden. De Kamperbinnenpoort markeert de grens met de Langestraat: alles vóór de poort hoort bij de Langestraat (een apart deelgebied), alles erachter bij De Kamp.\n\nLet op: De Kamp is iets heel anders dan Kamp Amersfoort, het herinneringskamp uit de Tweede Wereldoorlog in Leusden/Amersfoort-zuid. Deze gids gaat uitsluitend over het winkelgebied De Kamp in de binnenstad.\n\nHoe kom je er? De Kamp ligt op ongeveer 10 minuten lopen van station Amersfoort Centraal. Parkeren kan in de parkeergarages aan de rand van de binnenstad; meer hierover vind je op de pagina Praktisch.",
+  "mustHave": [
+    "Replace the weak /loop-de-kamp single-timeline page with a /gids guide hub + 7 themed route pages built from ONE shared RouteStop data model (route id/slug, title, lede, theme, estMinutes, ordered stops = business ids + optional non-business waypoints like the Kamperbinnenpoort/singel/Mondriaanhuis, an explicit horeca-pause flag). 301-redirect /loop-de-kamp -> /gids. This is the headline differentiator vs de9straatjes.",
+    "Build ONE route template that renders per route: serif H1 + italic lede eyebrow, a numbered vertical timeline of real businesses each showing walkMinutesFromGate (helper already exists in src/lib/geo.ts) + a live OpenBadge (src/components/OpenBadge.tsx + src/lib/hours.ts) + one built-in horeca pause, the existing SVG DistrictMap (src/components/DistrictMap.tsx) with this route's pins numbered and connected in order, and a bewaar/deel-route action. Reuse BusinessImage placeholder fallback.",
+    "Populate perfectFor[] (use-case tags) and priceLevel for ALL 71 businesses in src/data/businesses.ts (both fields currently 0 coverage). Standardise a fixed perfectFor vocabulary: Lunch met vrienden, Cadeau zoeken, Werken met laptop, Regenachtige dag, Romantisch diner, Kindvriendelijk, Koffie & gebak, Borrel. These tags become the directory chips AND the curation source for the 7 routes — routes must select from real tags, never auto-list everything by sortOrder.",
+    "Fill goodFor[] and dietaryTags[] gaps (also 0 coverage) for relevant venues so the detail page Goed voor block and the dietary filters are credible.",
+    "Create a new /praktisch page distinct from /over-de-kamp with self-contained passage-extractable H2 blocks: Waar ligt De Kamp (one GEO paragraph + the SVG DistrictMap), Parkeren (binnenstad-randgarages + on-street zones), Fiets (stallingen, fietsvriendelijkheid), OV (Amersfoort Centraal ~10 min lopen, bushaltes), Nabije bezienswaardigheden (Kamperbinnenpoort, Muurhuizen, Mondriaanhuis, singels/rondvaart), and a link to the wider binnenstad. Emit Place + FAQPage JSON-LD (helpers exist in src/lib/schema.ts).",
+    "Add JSON-LD + canonical to every guide route page: graph(itemListSchema(route title, ordered stops), breadcrumbSchema, faqSchema(2-3 route FAQs e.g. 'Hoe lang duurt deze route?', 'Waar begint de route?')). Model the 1-hour and walking routes optionally as TouristTrip with the Kamperbinnenpoort as itinerary start. Helpers itemListSchema/faqSchema/breadcrumbSchema/districtPlaceSchema already exist.",
+    "Rework navigation: add a 'De Kamp Gids' parent item (desktop AND mobile in src/components/Navbar.tsx) listing the 7 routes, add a 'Praktisch' link, and retire the standalone 'Route' link (mobile currently points to /loop-de-kamp). Fix the desktop nav which currently omits routes entirely.",
+    "Add a 'Plan je bezoek' section to the homepage (src/app/page.tsx) with route cards (icon, time budget, one-line idea) and a 'Perfect voor…' chip row positioned above the directory/BusinessExplorer.",
+    "Add a cross-link strip to the business detail page (src/components/BusinessDetailClient.tsx): 'Op welke routes kom je dit tegen' linking each business to the routes that include it, so detail pages and routes feed each other internally. The H2 blocks (Het verhaal, Specialiteiten, Goed voor, Goed om te weten, Openingstijden, Veelgestelde vragen, Ook op De Kamp) already exist — keep them.",
+    "Update the public 'Wat is De Kamp?' wording (boundaryWording) on /over-de-kamp to the finalised text, keeping the explicit Kamp-Amersfoort-WWII-camp disambiguation and the Langestraat/Kamperbinnenpoort boundary line.",
+    "Reconcile the business dataset to the confirmed boundary: tag every record with inclusionStatus (confirmed_core / confirmed_edge / needs_confirmation) and resolve the needs_confirmation entries (PIEN kunst en antiek, Galerie Kunstbroeders, Theater De Flint, Office1, Quapp Refurbished, MB ICT, Hengelsport De Vries, Alivio, etc.) before they appear in routes."
+  ],
+  "shouldHave": [
+    "Extend the directory (src/components/BusinessExplorer.tsx, which already has search + category chips + 'Nu open' + map toggle): add a 'Perfect voor…' chip row, a price-level filter, a sort control (Nu open eerst / A–Z / op straat), a list/grid/map tri-view, and a live count ('23 nu open'). Search-only and category-only currently work; round it out.",
+    "Add a 'browse by street' secondary nav to the directory (Kamp, Achter de Kamp, Grote Sint Jansstraat, Zuidsingel, Weverssingel — the five streetSegment values present in data) mirroring de9straatjes' by-street pattern.",
+    "Surface 'open vandaag' / koopzondag / koopavond context more prominently across directory, detail and route pages (the donderdag-koopavond signal already appears in some descriptions) — this is the highest-intent shopper query and underserved on competitor sites.",
+    "Add owner-facing infrastructure beyond the existing /aanmelden form: a 'claim/correct this listing' CTA on each detail page and a 'word lid van Vrienden van de Kamp' page, so data stays fresh and the association gets buy-in.",
+    "Add a Stories / ondernemersportretten section (owner interviews, nieuwe openingen) for long-tail SEO and emotional connection, gated behind owner photo/consent (use BusinessImage generative placeholder until real photos arrive).",
+    "Add curated themed editorial guides ('10x cadeauwinkels op De Kamp', 'beste koffie', gift guides) that link into the directory and routes — cheap to produce, high conversion to footfall.",
+    "Enrich the events/agenda layer (src/data/events.ts) so the agenda is never stale: koopzondagen, markt, seizoensverlichting, festivals — a recurring return-visit hook.",
+    "Populate the real Vrienden van de Kamp / guide social profiles in SITE.social (src/lib/site.ts, currently empty) so organization sameAs JSON-LD is complete."
+  ],
+  "later": [
+    "Newsletter signup capturing visitor intent (mirrors We Are Roermond).",
+    "A De Kamp privilege / loyalty card with participating outlets (mirrors Marylebone Village) to drive repeat footfall.",
+    "Proper hand-written EN (and possibly DE) localisation — a real NL/EN toggle, not machine translation — for tourists, given the binnenstad's visitor traffic.",
+    "Dedicated lightweight mobile map view of the district as a standalone orientation-first experience.",
+    "Real owner photography programme to replace generative SVG placeholders across all 71 listings, with a consent/permission workflow tied to permissionStatus + imageStatus fields already in the schema.",
+    "Verified per-business lat/lng for every record (the geo lib interpolates today) and verified hours for the ~10 businesses still missing structured hours.",
+    "User-savable / shareable custom routes ('stel je eigen route samen' from selected businesses) building on the bewaar/deel-route action.",
+    "Aggregate review surfacing via outbound links only (hasGoogleReviews flag exists) — never fabricate ratings in schema."
+  ],
+  "pagePlan": [
+    {
+      "page": "/ (Homepage)",
+      "sections": [
+        "Splash/cinematic hero (existing) with 'De Kamp leeft.' and primary CTA to the gids",
+        "'Wat is De Kamp?' one-paragraph orientation block + link to /over-de-kamp and /praktisch",
+        "'Plan je bezoek' route cards row — 7 themed routes (icon, time budget, one-line idea) linking to /gids/[route]",
+        "'Perfect voor…' chip row (Lunch, Cadeau, Werken met laptop, Regenachtige dag, Romantisch diner, Kindvriendelijk) deep-linking into the filtered directory",
+        "Featured ondernemers (existing FeaturedHorizontal, 6 featured)",
+        "Directory entry / BusinessExplorer anchor (#ondernemers) with live 'nu open' count",
+        "Agenda teaser + Cadeaukaart teaser",
+        "Owner CTA strip ('Zit jouw zaak er nog niet bij?') -> /aanmelden",
+        "Footer with NAP + binnenstad context"
+      ]
+    },
+    {
+      "page": "/#ondernemers + /kaart (Directory / Explorer)",
+      "sections": [
+        "Search box",
+        "Category chips (9 existing categories) + 'Alles'",
+        "'Perfect voor…' chip row (new)",
+        "Filters: 'Nu open' toggle (existing), price-level (new), sort: Nu open eerst / A–Z / op straat (new)",
+        "Browse-by-street secondary nav (Kamp, Achter de Kamp, Grote Sint Jansstraat, Zuidsingel, Weverssingel)",
+        "Tri-view toggle: lijst / grid / kaart (map exists; add list/grid)",
+        "Live result count ('23 nu open')",
+        "Business cards (photo/placeholder, one-line desc, address, OpenBadge, links, map pin)",
+        "ItemList JSON-LD for the full directory"
+      ]
+    },
+    {
+      "page": "/ondernemers/[id] (Business detail)",
+      "sections": [
+        "Hero: name, eyebrow category, address, live OpenBadge, BusinessImage (real photo or generative placeholder)",
+        "H2 Het verhaal (longDescription)",
+        "H2 Specialiteiten / Goed voor (specialties + goodFor + dietaryTags chips)",
+        "H2 Goed om te weten (keyFacts, payment/accessibility notes, priceLevel)",
+        "H2 Openingstijden & locatie (HoursTable + live OpenBadge + context mini-map pin + directions link)",
+        "H2 Veelgestelde vragen (faqs)",
+        "Cross-link strip 'Op welke routes kom je dit tegen' (new) -> guide routes containing this business",
+        "H2 Ook op De Kamp (related, existing)",
+        "Claim/correct-this-listing CTA (new) + owner CTA",
+        "localBusiness + breadcrumb + faq JSON-LD (helpers exist)"
+      ]
+    },
+    {
+      "page": "/categorie/[slug] (Category overview)",
+      "sections": [
+        "Category hero + lede",
+        "Filtered directory grid for the category",
+        "Related categories / cross-links",
+        "ItemList + breadcrumb JSON-LD"
+      ]
+    },
+    {
+      "page": "/gids (De Kamp Gids hub)",
+      "sections": [
+        "Hero + lede: 'Zeven manieren om De Kamp te ontdekken'",
+        "Grid of 7 route cards (icon, naam, idee, tijdsduur, aantal stops, start = Kamperbinnenpoort)",
+        "Embedded overview DistrictMap",
+        "Link to /praktisch for logistics",
+        "CollectionPage / ItemList JSON-LD of the routes"
+      ]
+    },
+    {
+      "page": "/gids/[route] (Themed route — 7 instances)",
+      "sections": [
+        "Serif H1 + italic lede eyebrow + estMinutes badge",
+        "DistrictMap with this route's pins numbered + connected in order",
+        "Numbered timeline of stops: each = business card with walkMinutesFromGate + live OpenBadge + short why-this-stop note",
+        "Built-in horeca pause stop (flagged in data)",
+        "Optional non-business waypoints (gate, singel, Mondriaanhuis)",
+        "Bewaar/deel route action",
+        "Route FAQ (2-3 Q&As)",
+        "ItemList + Place + breadcrumb + faq JSON-LD (optionally TouristTrip itinerary)"
+      ]
+    },
+    {
+      "page": "/praktisch (Practical info — NEW)",
+      "sections": [
+        "H2 Waar ligt De Kamp (one self-contained GEO paragraph + SVG DistrictMap)",
+        "H2 Parkeren (binnenstad-randgarages + on-street zones)",
+        "H2 Fiets (stallingen, fietsvriendelijkheid)",
+        "H2 OV (Amersfoort Centraal ~10 min lopen, bushaltes)",
+        "H2 Nabije bezienswaardigheden (Kamperbinnenpoort, Muurhuizen, Mondriaanhuis, singels/rondvaart)",
+        "Link to wider binnenstad / Ondernemers Binnenstad Amersfoort",
+        "Place + FAQPage JSON-LD"
+      ]
+    },
+    {
+      "page": "/over-de-kamp (About / story)",
+      "sections": [
+        "H1 Over De Kamp",
+        "H2 Wat is De Kamp? (finalised boundaryWording incl. Kamp-Amersfoort disambiguation)",
+        "H2 De Kamperbinnenpoort",
+        "H2 Van veedrift tot winkelstraat (history)",
+        "H2 Het gebied vandaag (Vrienden van de Kamp, ~150 leden)",
+        "H2 Waarom deze gids?",
+        "H2 Veelgestelde vragen",
+        "CTA to directory + /praktisch",
+        "districtPlace + breadcrumb + faq JSON-LD (already wired)"
+      ]
+    },
+    {
+      "page": "/agenda (Events)",
+      "sections": [
+        "Upcoming events list (koopzondag, markt, festivals, seizoensverlichting)",
+        "Event detail entries",
+        "Empty-state guard so the page never reads stale",
+        "Event JSON-LD"
+      ]
+    },
+    {
+      "page": "/cadeaukaart (Gift card)",
+      "sections": [
+        "What/where it works, participating ondernemers",
+        "Where to buy / how to redeem",
+        "Link to the gift route /gids/cadeauroute"
+      ]
+    },
+    {
+      "page": "/aanmelden + claim/correct (Owner CTA)",
+      "sections": [
+        "Why join (AanmeldenForm, existing)",
+        "Add / claim your shop form",
+        "Correct-a-listing entry",
+        "Word lid van Vrienden van de Kamp"
+      ]
+    }
+  ],
+  "guideRoutes": [
+    {
+      "name": "De Kamp in een uur",
+      "idea": "Het snelle hoogtepunten-rondje vanaf de Kamperbinnenpoort: poort, een speciaalzaak, een maker, een koffiestop en de singel — voor wie even een uur heeft.",
+      "stops": [
+        "Start: Kamperbinnenpoort",
+        "Atelier Misura Sartoria (Kamp 1, maatwerk tegenover de poort)",
+        "Kaldi Koffie & Thee (koffie-/theespeciaalzaak)",
+        "Wolwinkel Elitt (maker/speciaalzaak)",
+        "Horeca-pauze: Downey's Coffee & Tea",
+        "Eind: Zuidsingel / Weverssingel uitzicht"
+      ]
+    },
+    {
+      "name": "Lunchroute",
+      "idea": "Langs de beste lunch- en zoetadressen van De Kamp, met een paar etalages onderweg — perfect voor lunch met vrienden.",
+      "stops": [
+        "Start: Kamperbinnenpoort",
+        "Wit-Lof (lunch)",
+        "Theefeestje (high tea / zoet)",
+        "Anna's Smaakatelier (delicatessen/lunch)",
+        "Horeca-pauze / hoofdstop: lunchterras op de Kamp",
+        "Theehuis Something Else (afsluitende thee)"
+      ]
+    },
+    {
+      "name": "Dinerroute",
+      "idea": "Een avondwandeling die eindigt aan tafel: borrel, wijn en een romantisch diner in de monumentale binnenstad.",
+      "stops": [
+        "Start: Kamperbinnenpoort (avondsfeer)",
+        "Louis Blancardi Wijnen of Il diVino (apero/wijn)",
+        "De Aubergerie (diner)",
+        "Indian Flavour / La Base Pizza (alternatief diner)",
+        "Horeca-pauze: borrel vooraf",
+        "Eind: nachtelijke singel-wandeling"
+      ]
+    },
+    {
+      "name": "Shoppingroute",
+      "idea": "De zelfstandige winkels en makers van De Kamp op een rij — mode, interieur en speciaalzaken, met één koffiestop ingebouwd.",
+      "stops": [
+        "Start: Kamperbinnenpoort",
+        "Fashion Livy / Boetiek033 (mode)",
+        "Arthur & Willemijn Stores (lifestyle)",
+        "Livingstone bij de Poort (interieur)",
+        "Horeca-pauze: Kaldi Koffie & Thee",
+        "Wereldwinkel Amersfoort (afsluiting)"
+      ]
+    },
+    {
+      "name": "Regenachtige-dag-route",
+      "idea": "Overdekt en knus blijven: musea, ateliers, theehuizen en winkels waar je droog kunt schuilen — ideaal als het buiten plenst.",
+      "stops": [
+        "Start: onder de Kamperbinnenpoort (schuilen)",
+        "Theehuis Something Else (warme thee)",
+        "PIEN kunst en antiek (binnen snuffelen)",
+        "Galerie Kunstbroeders (kunst kijken)",
+        "Horeca-pauze: Downey's Coffee & Tea",
+        "Optioneel: Mondriaanhuis (nabij, overdekt)"
+      ]
+    },
+    {
+      "name": "Cadeauroute",
+      "idea": "Het perfecte cadeau vinden in budgettiers: van klein-en-betaalbaar tot een echt bijzonder geschenk, gecureerd uit speciaalzaken en makers.",
+      "stops": [
+        "Start: Kamperbinnenpoort",
+        "Budget: Wereldwinkel Amersfoort / Big Bazar",
+        "Mid: Wolwinkel Elitt / KoKo de verzamelwinkel",
+        "Premium: ORIUM Goudsmeden / Leith Jewels",
+        "Horeca-pauze: Theefeestje",
+        "Eind: cadeaukaart van De Kamp"
+      ]
+    },
+    {
+      "name": "Koffie- & borrelroute",
+      "idea": "Een liggend-achtje langs de koffie-, thee- en borreladressen van De Kamp — van ochtendcappuccino tot avondborrel.",
+      "stops": [
+        "Start: Kamperbinnenpoort",
+        "Kaldi Koffie & Thee (ochtendkoffie)",
+        "Downey's Coffee & Tea",
+        "Theehuis Something Else (thee)",
+        "Horeca-pauze: terras op de Kamp",
+        "Borrel: Louis Blancardi Wijnen / Il diVino"
+      ]
+    }
+  ],
+  "risks": [
+    "perfectFor / priceLevel / goodFor / categoryGroup are at 0% coverage across all 71 businesses. The directory chips, dietary filters AND the 7 routes all depend on these — they must be curated by hand from real per-business knowledge first, or the whole guide layer reads as fake auto-generated filler.",
+    "Several route stops above reference needs_confirmation businesses (PIEN kunst en antiek, Galerie Kunstbroeders, Theater De Flint). Confirm they exist and are open before publishing routes, or the live OpenBadge will show 'gesloten/unknown' and undermine the premium feel.",
+    "Boundary leakage: do NOT pull in Langestraat / Utrechtsestraat addresses (separate deelgebieden) and NEVER conflate with Kamp Amersfoort (the WWII camp). Every record needs an explicit inclusionStatus and the Kamperbinnenpoort dividing-line test applied.",
+    "10 of 71 businesses lack structured hours; routes and 'nu open' will read inconsistently for those. Either add hours or visibly mark 'openingstijden op aanvraag' so badges degrade gracefully.",
+    "Generative SVG placeholders are the right premium fallback, but if MOST listings stay on placeholders the site reads as a utilitarian directory, not 'the Marylebone of De Kamp'. Prioritise real owner photos for the ~6 featured + all route stops.",
+    "Geo coordinates are interpolated from house numbers for businesses without verified lat/lng (src/lib/geo.ts). Route map pins for edge streets (Zuidsingel/Weverssingel) may sit slightly off; spot-check the numbered pins per route.",
+    "Cheap tells to avoid (premium-bar risk): raw amber-as-text fails WCAG AA (use --amber-ink for text), dense un-curated 'list everything' pages, stocky generic imagery, and a stale/empty agenda. Motion must respect prefers-reduced-motion.",
+    "Next.js here is a modified build (per AGENTS.md — 'NOT the Next.js you know'); read node_modules/next/dist/docs before writing routing/metadata code. Don't assume standard App Router APIs for the new /gids/[route] and /praktisch routes.",
+    "SITE.social is empty, so organization sameAs JSON-LD is incomplete — populate the real Vrienden van de Kamp profiles before launch for entity/GEO strength.",
+    "Retiring /loop-de-kamp without a 301 to /gids would drop any existing inbound links and the page's indexed equity; wire the redirect when the hub ships."
+  ]
+}

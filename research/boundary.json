@@ -1,0 +1,62 @@
+{
+  "isWhat": "An officially recognised winkelgebied / deelgebied (shopping sub-area) of the Amersfoort binnenstad, built around the historic street \"Kamp\". The broader residential-commercial cluster around it is the neighbourhood \"Kampkwartier\". It is NOT a single street only, and NOT an administrative wijk/district in the municipal sense; it is one of the 10 named binnenstad sub-areas, each with its own ondernemersvereniging. Its winkeliers-/bewonersvereniging is \"Vrienden van de Kamp\" (~150 winkeliers, pandeigenaren en bewoners).",
+  "definition": "De Kamp is a winkelgebied (shopping area) and deelgebied of Amersfoort's monumental binnenstad, centred on the street \"Kamp\" running from the 13th-century Kamperbinnenpoort. It is one of ten officially recognised binnenstad sub-areas listed by Ondernemers Binnenstad Amersfoort, each with its own shopkeepers' association. The street Kamp is the spine; \"De Kamp e.o.\" (en omgeving) and the neighbourhood label \"Kampkwartier\" extend it to a set of adjacent streets. It sits in the Binnenstad / Stadskern, postcodes mainly 3811 AM / 3811 AN / 3811 AT (Kamp) and 3811 JH (Achter de Kamp). The shopkeepers'/residents' association covering it is \"Vrienden van de Kamp\" (circa 150 members). It is NOT and must be kept entirely separate from \"Kamp Amersfoort\", the WWII memorial camp in Leusden/Amersfoort-zuid.",
+  "coreStreets": [
+    "Kamp",
+    "Achter de Kamp",
+    "Grote Sint Jansstraat",
+    "Kleine Sint Jansstraat"
+  ],
+  "coreAddressRanges": [
+    "Kamp 1 to approx. 90 (Kamp 1 confirmed = Misura Sartoria, 3811 AM; numbering continues to ~90; postcodes 3811 AM / 3811 AN / 3811 AT)",
+    "Achter de Kamp (separate numbering, e.g. Achter de Kamp 90, 3811 JH)",
+    "Grote Sint Jansstraat (3811 area)",
+    "Kleine Sint Jansstraat (3811 area)"
+  ],
+  "edgeStreets": [
+    "Zuidsingel (only the stretch adjoining Kamp / reached via Grote Sint Jansstraat - partial)",
+    "Weverssingel (only the stretch adjoining the Kampkwartier - partial)",
+    "Coninckstraat",
+    "Kreupelstraat",
+    "Oliesteeg",
+    "Pothstraat",
+    "Flintplein (square, with Theater de Flint and parking garage)",
+    "Kamperbinnenpoort (the gate itself - boundary marker / entrance threshold, businesses immediately under/behind it count as De Kamp)"
+  ],
+  "exclusions": [
+    "Langestraat - this is a SEPARATE official deelgebied with its own ondernemersvereniging; the Kamperbinnenpoort is the dividing line between Langestraat (city-centre side) and Kamp. Do not count Langestraat addresses as De Kamp.",
+    "Utrechtsestraat (part of the Langestraat-Utrechtsestraat deelgebied)",
+    "Kamp Amersfoort - the WWII memorial camp (kampamersfoort.nl) in Leusden/south, completely unrelated; exclude entirely.",
+    "Other binnenstad deelgebieden: Sint Jorisplein, Keikwartier, Museumkwartier, Krommestraat, Mondriaankwartier, Lieve Vrouwekerkhof, De Hof, Appelmarkt/Groenmarkt - adjacent but not De Kamp.",
+    "Westsingel (named in the car-free campaign as an adjacent street but is not part of De Kamp/Kampkwartier proper), Grote Spui, Havik, Muurhuizen, Kortegracht - adjacent binnenstad streets, not De Kamp."
+  ],
+  "inclusionRule": "A business counts as \"De Kamp\" if its address is on the street Kamp (Kamp 1 to ~90) OR on a directly connected core/edge street of the Kampkwartier cluster on the far (non-Langestraat) side of the Kamperbinnenpoort: Achter de Kamp, Grote Sint Jansstraat, Kleine Sint Jansstraat, Coninckstraat, Kreupelstraat, Oliesteeg, Pothstraat, Flintplein, or the immediately adjoining stretches of Zuidsingel and Weverssingel. Decision test: (1) Is it past the Kamperbinnenpoort, away from Langestraat? (2) Is it on the street Kamp or a side street that branches directly off Kamp / lies inside the Kampkwartier block bounded by the Kamperbinnenpoort and the old Stadsmuur (Stier)? If yes to both, include. If the address is on Langestraat or any other named deelgebied, exclude. When in doubt for a singel address, include only if the entrance/storefront faces or is reached from the Kamp/Sint Jansstraat side.",
+  "sideStreetsToCheck": [
+    "Coninckstraat",
+    "Kreupelstraat",
+    "Oliesteeg",
+    "Pothstraat",
+    "Flintplein",
+    "Achter de Kamp",
+    "Kleine Sint Jansstraat",
+    "Grote Sint Jansstraat",
+    "Zuidsingel (Kamp-end stretch)",
+    "Weverssingel (Kamp-end stretch)",
+    "Kamperbinnenpoort (addresses on/under the gate)"
+  ],
+  "recommendedWording": "Wat is De Kamp? De Kamp is een van de sfeervolste winkelgebieden in de monumentale binnenstad van Amersfoort. Het hart is de winkelstraat Kamp, die begint bij de 13e-eeuwse Kamperbinnenpoort: loop je vanuit het centrum onder deze stadspoort door, dan stap je De Kamp binnen. Hier vind je bijzondere winkels met een eigen karakter - eigentijds design, mode, sieraden, foodwinkels en gezellige lunchrooms - in zorgvuldig gerestaureerde historische panden, naast bekende namen. Tot het gebied (de Kamp en omgeving, ook wel het Kampkwartier genoemd) horen naast de Kamp ook Achter de Kamp, de Grote en Kleine Sint Jansstraat en aangrenzende straatjes zoals de Coninckstraat, Kreupelstraat, Oliesteeg en Pothstraat, met aan de randen het Flintplein en de aangrenzende delen van de Zuidsingel en Weverssingel. De ondernemers, pandeigenaren en bewoners zijn verenigd in 'Vrienden van de Kamp'. Let op: De Kamp is een eigen gebied, los van de aangrenzende Langestraat, en heeft niets te maken met het oorlogsmonument Kamp Amersfoort.",
+  "uncertaintyNotes": "1) The exact upper house number of Kamp could not be machine-confirmed; Kamp 1 verified (Misura Sartoria) and Achter de Kamp 90 exists, supporting the ~90 figure given in the brief, but the precise highest Kamp number was not independently verified. 2) The official site of the shopkeepers' association, vriendenvandekamp.nl, was unreachable from this environment (connection refused / HTTP 000 - likely geo/network block), so its self-stated street list could not be read directly; the ~150-member figure and 'Kampkwartier' label come from Ondernemers Binnenstad Amersfoort, which cites the association. 3) Zuidsingel and Weverssingel are only PARTLY in De Kamp (the stretches adjoining the Kamp); the brief's source describes 'gedeeltelijk'. Exact cut-off points along these singels are not precisely documented and should be checked block-by-block. 4) The edge-street list (Coninckstraat, Kreupelstraat, Oliesteeg, Pothstraat, Flintplein) comes from the Ondernemers Binnenstad 'De Kamp e.o.' page; individual storefronts there may identify more with a neighbouring area, so sweep but verify. 5) 'Kampkwartier' (neighbourhood) and 'De Kamp' (winkelgebied/deelgebied) are used loosely interchangeably; the winkelgebied is the commercial core, the Kampkwartier the slightly wider residential cluster. 6) Westsingel appears only in a car-free-zone campaign context, not as part of De Kamp - treat as excluded. 7) Overpass/Nominatim house-number probes were partially rate-limited; geometry endpoints not fully exported.",
+  "sources": [
+    "https://ondernemersbinnenstadamersfoort.nl/samenwerking/de-kamp-e-o/ (Ondernemers Binnenstad Amersfoort - 'De Kamp e.o.': lists Kamp, Achter de Kamp, Grote/Kleine Sint Jansstraat, Coninckstraat, Kreupelstraat, Oliesteeg, Pothstraat, Flintplein, partial Zuidsingel/Weverssingel; 'deelgebied tussen de Kamperbinnenpoort en de oude Stadsmuur/Stier')",
+    "https://ondernemersbinnenstadamersfoort.nl/samenwerking/ (lists the 10 binnenstad deelgebieden; confirms Langestraat and De Kamp are SEPARATE sub-areas)",
+    "https://ondernemersbinnenstadamersfoort.nl/samenwerking/vrienden-van-de-kamp/ ('Vrienden van de Kamp is een groep van circa 150 winkeliers, pandeigenaren en bewoners van het Kampkwartier')",
+    "https://www.tijdvooramersfoort.nl/nl/tva/gebieden/de-kamp (VVV/Tijd voor Amersfoort - winkelgebied De Kamp, entrance via Kamperbinnenpoort)",
+    "https://www.tijdvooramersfoort.nl/nl/locaties/482221864/winkelgebied-de-kamp (Kamp + Grote St. Jansstraat + Zuidsingel route)",
+    "https://www.vvvamersfoort.nl/nl/kamp (VVV Amersfoort - Langestraat leads to the stadspoort, under it into Kamp, on to Grote St. Jansstraat and Zuidsingel)",
+    "https://www.destadamersfoort.nl/lokaal/politiek/289438/vrienden-van-de-kamp-knokken-voor-autoluw-gebied-654634 (local press - car-free campaign: Kamp, Grote Sint Jansstraat, Zuidsingel; 'net als de Langestraat' = Langestraat treated as separate/already car-free)",
+    "https://www.archiefeemland.nl/hulp-bij-onderzoek/tips/wijken-en-straten/stadskern (Archief Eemland - Kamp/Kamperbinnenpoort/Achter de Kamp; Kamp came inside the city wall in the ~1380 expansion)",
+    "https://vriendenvandekamp.nl/ and /over-ons/ (official shopkeepers'/residents' association 'Vrienden van de Kamp - Voor een leefbare Kamp' - cited, but unreachable from this environment)",
+    "OpenStreetMap / Nominatim (street 'Kamp', Binnenstad/Stadskern, postcodes 3811 AM/AN/AT; Kamp 1 = Misura Sartoria; Achter de Kamp 90 = 3811 JH - confirms adjacency and numbering)",
+    "https://www.tijdvooramersfoort.nl/nl/blogs/blogoverzicht/6-verborgen-parels-van-de-kamp (example De Kamp businesses: Keizerin boetiek 'vlak achter de Kamperbinnenpoort', Skitzo, FLUPS, Terre des Hommes, Bloembinderij All Seasons)"
+  ]
+}

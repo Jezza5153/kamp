@@ -1,82 +1,104 @@
-import { businesses } from "@/data/businesses";
 import Link from "next/link";
+import { MapPin, ArrowUpRight, Camera, Navigation } from "lucide-react";
+import { businesses } from "@/data/businesses";
+import BusinessImage from "@/components/BusinessImage";
+import OpenBadge from "@/components/OpenBadge";
+import JsonLd from "@/components/JsonLd";
+import { graph, breadcrumbSchema } from "@/lib/schema";
+import { coordsFor, streetViewUrl, directionsUrl } from "@/lib/geo";
+import { categorySlug } from "@/lib/categories";
 
 export const metadata = {
-  title: "Loop de Kamp | Wandelroute langs ondernemers in Amersfoort",
-  description: "Ontdek de route langs de ondernemers op De Kamp in Amersfoort. Een wandeling vol eten, winkels en verhalen.",
+  title: "Wandel de Kamp — straatbeeld-wandeling langs alle ondernemers",
+  description:
+    "Wandel stap voor stap over De Kamp in Amersfoort, van de Kamperbinnenpoort tot de singels. Bekijk elke zaak met foto, openingstijden en het echte straatbeeld via Street View.",
+  alternates: { canonical: "/loop-de-kamp" },
+  openGraph: { title: "Wandel de Kamp, Amersfoort", description: "Een straatbeeld-wandeling langs alle ondernemers van De Kamp.", url: "/loop-de-kamp" },
 };
 
+const stops = businesses
+  .filter((b) => b.status !== "closed")
+  .sort((a, b) => a.sortOrder - b.sortOrder);
+
 export default function RoutePage() {
-  // Walking order along the route (gate → street → singels), excluding closed.
-  const sortedByAddress = businesses
-    .filter((b) => b.status !== "closed")
-    .sort((a, b) => a.sortOrder - b.sortOrder);
-
   return (
-    <div className="bg-background min-h-screen py-16 sm:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-deep-green mb-6">
-            Loop de Kamp
+    <div className="min-h-screen bg-background py-16 sm:py-24">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-14 text-center">
+          <p className="mb-3 text-xs font-black uppercase tracking-[0.3em] text-amber-ink">Straatbeeld-wandeling</p>
+          <h1 className="font-serif text-4xl font-black text-deep-green sm:text-6xl">
+            Wandel <span className="text-amber-600">de Kamp</span>
           </h1>
-          <p className="text-xl text-warm-brown/80 font-medium leading-relaxed">
-            Ontdek de ondernemers in hartje Amersfoort. Van de Kamperbinnenpoort tot aan de Weverssingel: volg deze route en leer de gezichten van de straat kennen.
+          <p className="mx-auto mt-5 max-w-2xl text-lg font-medium leading-relaxed text-warm-brown/80">
+            Loop de straat virtueel mee, van de Kamperbinnenpoort tot aan de singels. Elke stop met foto, openingstijden
+            en het echte straatbeeld — klik op <span className="font-bold text-deep-green">Straatbeeld</span> om bij de
+            gevel rond te kijken.
           </p>
-        </div>
+        </header>
 
-        <div className="relative border-l-4 border-amber/30 ml-4 md:ml-8 pl-8 md:pl-16 space-y-16 py-8">
-          {/* Start marker */}
-          <div className="absolute -left-[14px] top-0 w-6 h-6 rounded-full bg-amber border-4 border-white shadow-md"></div>
-          
-          <div className="relative">
-            <h2 className="text-2xl font-serif font-bold text-deep-green mb-4">Start: Kamperbinnenpoort</h2>
-            <p className="text-warm-brown/70 leading-relaxed max-w-2xl">
-              Begin je ontdekkingstocht bij de historische stadspoort. Vanaf hier loopt de route diep de Amersfoortse binnenstad in.
-            </p>
-          </div>
+        <ol className="relative space-y-6 border-l-2 border-amber/25 pl-6 sm:pl-10">
+          <li className="relative">
+            <span className="absolute -left-[31px] top-1 flex h-5 w-5 items-center justify-center rounded-full bg-amber sm:-left-[47px]" />
+            <p className="font-serif text-xl font-black text-deep-green">Start · Kamperbinnenpoort</p>
+            <p className="text-sm text-warm-brown/70">De middeleeuwse stadspoort — de drempel tussen de Langestraat en De Kamp.</p>
+          </li>
 
-          {sortedByAddress.map((business, index) => (
-            <div key={business.id} className="relative group">
-              {/* Timeline marker */}
-              <div className="absolute -left-[42px] md:-left-[74px] top-4 w-4 h-4 rounded-full bg-white border-2 border-amber group-hover:bg-amber transition-colors shadow-sm"></div>
-              
-              <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 bg-white rounded-3xl border border-stone/20 shadow-sm hover:shadow-md transition-all group-hover:-translate-y-1 group-hover:border-amber/30">
-                <div className="flex-grow">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-amber block mb-1">
-                    Stop #{index + 1}
-                  </span>
-                  <h3 className="text-xl font-serif font-bold text-deep-green">
-                    {business.name}
-                  </h3>
-                  <p className="text-sm text-warm-brown/60 mb-2 font-medium">{business.address}</p>
-                  <p className="text-sm text-foreground/80 line-clamp-2">{business.shortDescription}</p>
-                </div>
-                <div>
-                  <Link 
-                    href={`/ondernemers/${business.id}`}
-                    className="inline-flex items-center px-6 py-3 bg-stone/20 text-deep-green text-sm font-bold rounded-full hover:bg-amber hover:text-white transition-all whitespace-nowrap"
-                  >
-                    Bekijk details
+          {stops.map((b, i) => {
+            const c = coordsFor({ streetSegment: b.streetSegment, address: b.address, lat: b.lat, lng: b.lng });
+            return (
+              <li key={b.id} className="group relative">
+                <span className="absolute -left-[37px] top-6 flex h-4 w-4 items-center justify-center rounded-full border-2 border-amber bg-background text-[10px] font-black text-amber-ink transition-colors group-hover:bg-amber sm:-left-[53px]" />
+                <div className="overflow-hidden rounded-[var(--radius-lg)] bg-paper shadow-[var(--shadow-card)] ring-1 ring-stone/30 sm:flex">
+                  <Link href={`/ondernemers/${b.id}`} className="relative block aspect-[16/10] overflow-hidden sm:aspect-auto sm:w-56 sm:flex-shrink-0">
+                    <BusinessImage business={b} sizes="(max-width:640px) 100vw, 224px" tag={`Stop ${i + 1}`} />
                   </Link>
+                  <div className="flex flex-grow flex-col p-6">
+                    <div className="mb-1 flex items-center gap-2">
+                      <span className="text-[10px] font-black uppercase tracking-[0.18em] text-amber-ink">Stop {i + 1}</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-warm-brown/40">· {b.category}</span>
+                    </div>
+                    <Link href={`/ondernemers/${b.id}`} className="font-serif text-2xl font-black leading-tight text-deep-green hover:text-amber-ink">
+                      {b.name}
+                    </Link>
+                    <p className="mt-0.5 flex items-center gap-1 text-sm font-medium text-warm-brown/60">
+                      <MapPin className="h-3.5 w-3.5" /> {b.address}
+                    </p>
+                    <p className="mt-2 line-clamp-2 text-sm text-warm-brown/75">{b.shortDescription}</p>
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      <OpenBadge hours={b.hours} />
+                      <a href={streetViewUrl(c)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-deep-green px-3.5 py-1.5 text-xs font-bold text-white transition hover:bg-amber hover:text-charcoal">
+                        <Camera className="h-3.5 w-3.5" /> Straatbeeld
+                      </a>
+                      <a href={directionsUrl(b.address, b.postalCode)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold text-warm-brown/70 ring-1 ring-stone/50 transition hover:ring-amber/60">
+                        <Navigation className="h-3.5 w-3.5" /> Route
+                      </a>
+                      <Link href={`/categorie/${categorySlug(b.category)}`} className="ml-auto hidden text-xs font-bold text-amber-ink hover:underline sm:inline-flex items-center gap-1">
+                        Meer zoals dit <ArrowUpRight className="h-3 w-3" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </li>
+            );
+          })}
 
-          {/* End marker */}
-          <div className="absolute -left-[14px] bottom-0 w-6 h-6 rounded-full bg-deep-green border-4 border-white shadow-md"></div>
-        </div>
+          <li className="relative">
+            <span className="absolute -left-[31px] top-1 h-5 w-5 rounded-full bg-deep-green sm:-left-[47px]" />
+            <p className="font-serif text-xl font-black text-deep-green">Einde · de singels</p>
+            <p className="text-sm text-warm-brown/70">Sluit af aan het water van de Zuid- of Weverssingel.</p>
+          </li>
+        </ol>
 
-        <div className="mt-20 text-center bg-deep-green text-white p-12 rounded-3xl shadow-xl">
-          <h2 className="text-3xl font-serif font-bold mb-6">Een compleet dagje uit</h2>
-          <p className="text-stone/80 text-lg mb-8 max-w-2xl mx-auto">
-            Combineer de beste winkels, makers en restaurants op De Kamp voor een unieke Amersfoortse ervaring.
-          </p>
-          <Link href="/" className="inline-flex items-center px-8 py-4 bg-amber text-charcoal font-bold rounded-full hover:bg-stone hover:text-deep-green transition-all shadow-lg">
-            Terug naar het overzicht
+        <div className="mt-16 rounded-[var(--radius-lg)] bg-deep-green p-10 text-center text-white">
+          <h2 className="font-serif text-2xl font-black">Liever op de kaart?</h2>
+          <p className="mx-auto mt-2 max-w-md text-stone/80">Bekijk alle {stops.length} ondernemers op de interactieve kaart van De Kamp.</p>
+          <Link href="/kaart" className="mt-5 inline-flex items-center gap-2 rounded-full bg-amber px-7 py-3.5 text-xs font-black uppercase tracking-widest text-charcoal transition hover:bg-gold">
+            Naar de kaart <MapPin className="h-4 w-4" />
           </Link>
         </div>
       </div>
+
+      <JsonLd data={graph(breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Wandel de Kamp", url: "/loop-de-kamp" }]))} />
     </div>
   );
 }

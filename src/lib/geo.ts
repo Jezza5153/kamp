@@ -142,3 +142,8 @@ export function mapsUrl(address: string, postalCode?: string): string {
   const q = encodeURIComponent(`${address}, ${postalCode ?? "3811"} Amersfoort, Netherlands`);
   return `https://www.google.com/maps/search/?api=1&query=${q}`;
 }
+
+/** No-key Google Street View deep-link to the panorama at a point. */
+export function streetViewUrl(point: LatLng): string {
+  return `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${point.lat},${point.lng}`;
+}

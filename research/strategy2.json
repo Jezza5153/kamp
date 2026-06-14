@@ -1,0 +1,470 @@
+[
+  {
+    "title": "SEO/GEO build plan for ondernemersvandekamp.nl (De Kamp, Amersfoort)",
+    "findings": [
+      "The site is already well above baseline. Existing routes: / (home), /kaart, /agenda, /cadeaukaart, /loop-de-kamp, /over-de-kamp, /aanmelden, /categorie/[slug] (9 categories), /ondernemers/[id] (71 businesses), plus /robots.ts, /sitemap.ts, /llms.txt and a root /opengraph-image.tsx. JSON-LD is centralised in src/lib/schema.ts and rendered via <JsonLd>. NAP is single-sourced in src/lib/site.ts. This is a strong foundation - recommendations below are gap-filling and amplification, not a rebuild.",
+      "JSON-LD coverage is good but uneven. Home emits Organization + WebSite(+SearchAction) + Place/TouristAttraction + ItemList. Category pages emit ItemList + BreadcrumbList + FAQPage. Business detail emits LocalBusiness subtype + BreadcrumbList + FAQPage (subtypes are correctly varied: 12 Restaurant, 17 Store, 6 each Cafe/JewelryStore, etc.). Agenda emits Event nodes (only for dated occurrences - correct) + BreadcrumbList. over-de-kamp emits Place + FAQPage + BreadcrumbList.",
+      "VERIFIED GAP - src/app/loop-de-kamp/page.tsx emits NO JSON-LD and has NO canonical/alternates in its metadata (only title+description). It is the only content route with neither. It is a curated, ordered walking route - an ideal ItemList (and arguably TouristTrip / itinerary) + BreadcrumbList + FAQPage target that is currently invisible to rich results and AI engines.",
+      "VERIFIED GAP - No FAQPage schema on the homepage and no dedicated FAQ hub route. The home page is the strongest entity page and the most likely AI-citation surface for 'what is De Kamp / where is it / is it open on Sunday' style questions, yet it carries no FAQ block. There is also no aggregated /veelgestelde-vragen route consolidating the district-level questions.",
+      "VERIFIED GAP (biggest competitive miss) - No editorial / guide / story routes exist (no /gids, /verhalen, /blog, /magazine). The research file research/strategy.json explicitly identifies editorial storytelling + curated 'best-of' round-ups (Marylebone Journal, We Are Roermond shop tours, Portland Neighborhood Guide owner stories) as the single thing separating sophisticated district sites from amateur ones, and as high-value long-tail SEO/GEO content. This is the largest content-side opportunity.",
+      "SITE config has empty social handles - src/lib/site.ts SITE.social.instagram and .facebook are '', so organizationSchema() sameAs is filtered to an empty array and there is no entity-disambiguation/sameAs signal for the publisher. The District Place node also has no sameAs to authoritative pages (Wikipedia 'Kamperbinnenpoort', the Amersfoort monumenten register, VVV Amersfoort), which is exactly the kind of corroboration AI answer engines weight.",
+      "districtPlaceSchema lists the SITE.url as the Place url and uses containsPlace: {Place, name: 'N ondernemers'} which is a non-resolvable stub. The District is the central entity for every target keyword ('De Kamp Amersfoort', 'winkelgebied De Kamp') and currently lacks: hasMap, openingHoursSpecification (district-level shopping hours incl. Sunday koopzondag), photo, containedInPlace (the binnenstad / city of Amersfoort), and real containsPlace references to the business @ids.",
+      "Business detail FAQ generation (src/lib/related.ts buildFaqs) is solid and self-contained (hours, location with walk-time from the gate, what-to-expect, website). LocalBusiness schema correctly never fabricates ratings (hasGoogleReviews is used only to link out). priceRange, servesCuisine, openingHoursSpecification, founder are all conditionally emitted. Good GEO hygiene.",
+      "robots.ts already explicitly allows AI crawlers (GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended, Applebot-Extended, Bingbot) and llms.txt is generated live from the data - both excellent GEO moves that most competitors lack. sitemap.ts includes images for business pages and sensible priorities/changeFrequency.",
+      "Metadata is consistent and Dutch-first (lang=nl, locale=nl_NL, title template, keyword arrays, OG/Twitter, canonical on most routes). Gaps: loop-de-kamp has no canonical; no route emits hreflang (fine while NL-only, but the research flags bilingual NL/EN as a competitor advantage - de9straatjes, weareroermond both bilingual); cadeaukaart/agenda lack FAQPage despite both rendering visible FAQ-style Q&A (cadeaukaart has 3 Q&As in the page body that are NOT emitted as FAQPage schema)."
+    ],
+    "recommendations": [
+      {
+        "item": "Add JSON-LD + canonical to /loop-de-kamp. In src/app/loop-de-kamp/page.tsx add alternates:{canonical:'/loop-de-kamp'} and an OG block to metadata, and render <JsonLd> with graph(itemListSchema('Wandelroute langs De Kamp', sortedByAddress), breadcrumbSchema([{Home,'/'},{Loop de Kamp,'/loop-de-kamp'}]), faqSchema([...])). The ordered route maps 1:1 onto ItemList; add 2-3 FAQs ('Hoe lang is de wandelroute over De Kamp?', 'Waar begint de route?'). Optionally model it as TouristTrip/itinerary with the gate as the start.",
+        "priority": "P0 - quick, pure win",
+        "why": "This is the only content route emitting zero structured data and no canonical. Cheap to fix, and a curated walking route is exactly the itinerary-style content AI engines like to cite for 'wat te doen op De Kamp'."
+      },
+      {
+        "item": "Add a FAQPage to the homepage covering the district-level money questions in Dutch, and emit it in the existing home graph(). Suggested Qs: 'Wat is De Kamp in Amersfoort?', 'Waar ligt De Kamp / hoe kom ik er?', 'Welke winkels en restaurants zitten op De Kamp?', 'Is De Kamp op zondag open?' (tie to koopzondag), 'Waar kan ik parkeren voor De Kamp?', 'Hoeveel ondernemers zitten er op De Kamp?'. Render the same Q&A visibly (don't ship schema-only FAQ - Google requires the content on-page) and reuse faqSchema().",
+        "priority": "P0",
+        "why": "The homepage is the top entity/citation surface for every target keyword and currently has no FAQ. Concise, self-contained Dutch Q&A is the highest-leverage format for AI Overviews / ChatGPT / Perplexity answer extraction and FAQ rich results."
+      },
+      {
+        "item": "Enrich districtPlaceSchema() in src/lib/schema.ts: add sameAs (Wikipedia 'Kamperbinnenpoort' + nl.wikipedia 'Kamp (Amersfoort)' if present, VVV Amersfoort district page, Rijksmonument register entry for the gate), containedInPlace ({@type:City,name:'Amersfoort',containedInPlace:{@type:'Country',name:'Nederland'}}), hasMap (a Google Maps link centred on the district), photo (the OG image), and replace the containsPlace stub with real references to business @ids (or a numberOfItems + an ItemList cross-link). Add district-level openingHoursSpecification reflecting typical shopping hours incl. Sunday 12:00-17:00 koopzondag.",
+        "priority": "P0",
+        "why": "'De Kamp' as a Place is the central entity behind 'De Kamp Amersfoort', 'winkelgebied De Kamp', 'Kamperbinnenpoort'. sameAs to authoritative pages is the strongest entity-disambiguation/corroboration signal for AI answer engines; containedInPlace nests it correctly under Amersfoort."
+      },
+      {
+        "item": "Create an editorial route: /gids (or /verhalen) with article pages, e.g. /gids/eten-op-de-kamp (best wereldkeukens round-up), /gids/koffie-en-lunch-de-kamp, /gids/cadeau-kopen-op-de-kamp, /gids/een-dag-op-de-kamp, and owner-story profiles /verhalen/[slug]. Each article: Article/BlogPosting JSON-LD (with author=Organization, datePublished/dateModified for freshness), BreadcrumbList, an embedded FAQPage, and dense internal links to the businesses it names. Add the hub + articles to sitemap.ts and llms.txt.",
+        "priority": "P1 - highest content ROI",
+        "why": "research/strategy.json names editorial storytelling + curated best-of round-ups as the #1 differentiator of best-in-class district sites and as unique long-tail SEO/GEO content. Round-ups ('beste koffie op De Kamp') are precisely the comparative queries AI answer engines synthesise, and they create the internal-link equity directory pages can't."
+      },
+      {
+        "item": "Fill SITE.social (Instagram + Facebook) in src/lib/site.ts once live so organizationSchema() sameAs is populated, and add the same handles to the footer. If a verified Google Business Profile / district presence exists, add its Maps URL to sameAs too.",
+        "priority": "P1",
+        "why": "Empty sameAs means the publisher Organization has no off-site corroboration. sameAs links are a primary entity-trust signal for both Knowledge Graph and AI engines; trivially cheap once accounts exist."
+      },
+      {
+        "item": "Emit FAQPage schema on /cadeaukaart and /agenda. Cadeaukaart already renders 3 visible Q&As in the page body that are NOT in schema - wrap them with faqSchema() in its existing graph(). Add 2-3 agenda Qs ('Wanneer is er markt bij De Kamp?', 'Is er elke zondag koopzondag in Amersfoort?', tying to events.ts) and emit them.",
+        "priority": "P1",
+        "why": "These pages already contain answer-shaped content; adding the schema is near-zero effort and captures FAQ rich results + AI citations for gift-card and 'when is the market / koopzondag' queries with no new content needed."
+      },
+      {
+        "item": "Add CollectionPage/AboutPage typing to non-business pages. Wrap category + kaart pages with a CollectionPage node (mainEntity = the ItemList) and over-de-kamp with an AboutPage node, each with isPartOf:{@id: website} and primaryImageOfPage. Keep the existing ItemList/Place/FAQ nodes inside the same @graph.",
+        "priority": "P2",
+        "why": "Explicit page-type nodes wired into the WebSite @graph tighten the site's entity model and help engines classify each URL's role (collection vs informational), improving how listings vs answers are surfaced."
+      },
+      {
+        "item": "Add 'open nu' / koopzondag content surfacing as a GEO play. The research flags that real-time 'open now' status (already implemented via hours.ts/OpenBadge) is an ownable edge no competitor has. Surface a server-rendered, crawlable 'Nu open op De Kamp' summary section (with the list of currently-open names in text, not just an interactive filter) and a clear Sunday-hours statement on home + over-de-kamp.",
+        "priority": "P2",
+        "why": "'Welke winkels op De Kamp zijn nu/zondag open?' is a high-intent local + AI query. The data already exists; making it crawlable text (not only a client filter) lets it be indexed and cited, turning an existing feature into an SEO/GEO asset."
+      },
+      {
+        "item": "Plan bilingual NL/EN (hreflang) as a later phase. Keep Dutch as default/primary; add an /en mirror only if you have capacity, with rel-alternate hreflang (nl, en, x-default) wired through metadata.alternates.languages. Until then, keep all hreflang absent (current state) rather than half-implementing it.",
+        "priority": "P3",
+        "why": "Both closest peers (de9straatjes, weareroermond) are bilingual and Amersfoort draws tourists, so EN content widens reach - but a partial/incorrect hreflang setup hurts more than no hreflang, so this is explicitly deferred behind the content wins above."
+      },
+      {
+        "item": "Strengthen internal linking + breadcrumb consistency. From every editorial article and category page, link down to specific business detail pages by name; from business detail, ensure links up to its category and to /loop-de-kamp/kaart. Confirm every route emits BreadcrumbList (loop-de-kamp currently does not - covered by P0).",
+        "priority": "P2",
+        "why": "Internal links distribute crawl/ranking equity to the deep business pages (the long-tail '[name] Amersfoort' queries) and give AI engines the relationship graph between the district, categories, and individual venues."
+      }
+    ],
+    "examples": [
+      {
+        "name": "Marylebone Village (London) - gold-standard district site",
+        "url": "https://www.marylebonevillage.com/",
+        "takeaway": "Fuses a clean category directory with a real editorial magazine, curated best-of round-ups, a What's On calendar and a loyalty card. The bar for De Kamp: add the /gids editorial layer (P1) on top of the directory it already has."
+      },
+      {
+        "name": "De 9 Straatjes (Amsterdam) - closest Dutch peer",
+        "url": "https://de9straatjes.nl/en",
+        "takeaway": "Browsable by category AND by street, bilingual NL/EN, strong press pull-quotes - but its route/map is weak. De Kamp already out-executes the map; borrow the bilingual + press-credibility angle (P3 + social proof on home)."
+      },
+      {
+        "name": "We Are Roermond (BIZ binnenstad) - Dutch town-centre template",
+        "url": "https://www.weareroermond.com/",
+        "takeaway": "Directory + date-filtered events agenda + shop-tour video = a 'living, current' feel that ranks. Confirms the agenda (already built) plus fresh editorial/video content as a ranking driver."
+      },
+      {
+        "name": "Stadsie / Utrecht Cadeaukaart - local gift-card model",
+        "url": "https://stadsie.nl/",
+        "takeaway": "Independent-only local gift card with each merchant getting a listing and a reason to backlink. Validates the existing /cadeaukaart as both a loyalty story and an SEO backlink engine; add FAQPage schema to it (P1)."
+      },
+      {
+        "name": "Portland Neighborhood Guide - owner-story editorial",
+        "url": "https://portlandneighborhood.com/",
+        "takeaway": "Profiles 'the people, places and independent businesses' - the template for /verhalen/[slug] owner stories that double as unique long-tail SEO/GEO content (P1)."
+      }
+    ]
+  },
+  {
+    "title": "Competitor & Inspiration Research: Shopping-Street / District Business Guides",
+    "findings": [
+      "Dutch district sites fall into roughly three tiers. Best-in-class editorial-commercial: De 9 Straatjes (de9straatjes.nl) and Marylebone Village (marylebonevillage.com) — strong photography, category browsing, press quotes, booking CTAs. Solid utility-driven: We Are Roermond (weareroermond.com) — filterable shop directory, opening hours, weekly market, parking, curated '10x' guides, newsletter. Community/blog-ish: Zeeheldenkwartier (zeeheldenkwartier.com) — category directory, events, 'Stories' business profiles, walking routes, but mid-2010s visual polish. Weakest tier: older ondernemersvereniging sites like Winkelstad Enkhuizen and many BIZ sites that read as dated noticeboards.",
+      "De 9 Straatjes (de9straatjes.nl/en) is the clearest model for a single-district guide: NL/EN toggle, interactive map of the 9 streets + 4 canals with clickable street names, separate mobile map, category browsing (Vintage, Boutiques, Food/Drinks, Shoes & Bags, Accessories, Health & Beauty, Home & Lifestyle, Art/Culture/Books, Specialties), a directory of 250+ businesses, a news section, multilingual testimonials, and prestige press quotes (National Geographic, Lonely Planet, NYT). Gaps even here: no events calendar, no gift guides, no parking/transit, no owner sign-up, no newsletter on the homepage.",
+      "We Are Roermond (weareroermond.com/winkeloverzicht-roermond) is the strongest Dutch example for practical directory UX: category filters ('Mode & accessoires', 'Delicatessen & Streekproducten', 'Drogisterij & parfum'), per-shop cards with address + short description + external website/social links + image, weekly market schedules with vendor locations, opening-hours directory, parking/transport info, curated guides ('10x dameswinkels', 'Designer Outlet'), event submission, newsletter signup, accessibility controls (contrast/text size), DE translation, and TikTok/IG/FB integration.",
+      "Owner-facing infrastructure is a real differentiator and most district sites do it poorly or not at all. Strong examples: Zeeheldenkwartier has a dedicated 'doe mee met de ondernemersvereniging' / contact-ondernemers page; BIZ Binnenstad Haarlem (bizbinnenstadhaarlem.nl) offers an online application form under an 'apply' section. We Are Roermond has 'Event aanmelden'. Marylebone Village has a clear 'prospective retailers contact the Estate' CTA. Many sites have no owner onboarding or correction path at all.",
+      "Business storytelling / interviews build emotional connection and SEO depth. Zeeheldenkwartier runs a 'Stories' / blog section with 'new entrepreneurs' profiles; On the Grid (onthegrid.city) built its whole identity on guides 'curated by local creatives' with visual-first profiles. Marylebone Village uses editorial features ('best coffee spots', 'new openings') instead of dry listings. This is largely absent from utilitarian municipal/BIZ sites.",
+      "Loyalty and gift mechanics appear at the premium end: Marylebone Village runs a 'Privilege Card' with participating-outlet discounts. We Are Roermond uses curated gift/food guides ('10x' lists). These convert browsing into footfall and are easy wins most Dutch street sites skip.",
+      "Common cheap/outdated signals observed: PDF-based or static shop lists instead of filterable directories, no interactive map (or only an embedded generic Google map with no curated pins), poor/inconsistent imagery, mid-2010s layouts, weak mobile responsiveness, Google Translate widgets instead of proper multilingual content, and dead/stale content (On the Grid stopped updating in 2019 and is now effectively a cautionary tale about unmaintained guides). General web-performance research notes 53% of mobile visitors leave if load exceeds 3 seconds — relevant since many of these are image-heavy.",
+      "International best-practice references: Marylebone Village (estate-managed, editorial + directory + privilege card + newsletter), On the Grid (local-creative curation, visual-first), and for content/editorial inspiration Lonely Planet / Monocle / The Points Guy neighbourhood guides and tools like Mapme for interactive downtown maps. The neighbourhood.guide and Dallasites101 models show curated 'hand-selected gems' framing over exhaustive listings.",
+      "Practical/local-utility info is consistently the most valuable and most often missing: open-today status, koopzondag/koopavond (Sunday/late-night) hours, parking and public-transit directions, and weekly market times. We Are Roermond does this best among the Dutch examples; De 9 Straatjes and Marylebone notably lack parking/transit and explicit open-today status."
+    ],
+    "recommendations": [
+      {
+        "item": "Lead with an interactive, curated district map with clickable streets and per-business pins (not a raw embedded Google map). Provide a dedicated lightweight mobile map version.",
+        "priority": "high",
+        "why": "De 9 Straatjes' map of the 9 streets/4 canals with clickable street names and a separate mobile map is the single feature that makes a single-district guide feel premium and orientation-first. de9straatjes.nl/en"
+      },
+      {
+        "item": "Build a filterable business directory with category cards and rich per-shop cards: photo, one-line description, address, opening hours, website + socials, and a map pin.",
+        "priority": "high",
+        "why": "We Are Roermond's category filters plus consistent per-shop cards (address + description + links + image) are the gold standard for findability and let visitors scan by intent. weareroermond.com/winkeloverzicht-roermond"
+      },
+      {
+        "item": "Add an 'open today / open now' indicator plus koopzondag and koopavond hours, surfaced prominently.",
+        "priority": "high",
+        "why": "Open-today is the highest-intent query for shoppers and is missing from even the polished De 9 Straatjes and Marylebone sites; openingstijden.nl exists precisely because this need is underserved on district sites."
+      },
+      {
+        "item": "Include practical local-utility info: parking, public transit / walking-from-station directions, and weekly market times.",
+        "priority": "high",
+        "why": "We Are Roermond combines parking, transport, and market schedules in one place; this is the most valued and most-often-missing layer, and a clear differentiator vs De 9 Straatjes and Marylebone which omit it."
+      },
+      {
+        "item": "Offer one or more curated walking routes through the district linking shops, food, and culture.",
+        "priority": "medium",
+        "why": "Zeeheldenkwartier's 'diverse walking routes' connecting shops, dining, galleries and museums turn a list into an experience and increase dwell time. zeeheldenkwartier.com"
+      },
+      {
+        "item": "Run a 'Stories' / business-portrait section with owner interviews and 'new openings' features.",
+        "priority": "medium",
+        "why": "Zeeheldenkwartier's new-entrepreneur profiles and On the Grid's local-creative curation build emotional connection and add long-tail SEO; Marylebone uses editorial features instead of dry listings. onthegrid.city, marylebonevillage.com"
+      },
+      {
+        "item": "Provide curated themed guides: gift guides, food/drink roundups, and '10x best...' lists.",
+        "priority": "medium",
+        "why": "We Are Roermond's '10x dameswinkels' and Marylebone's 'best coffee spots' convert browsing into footfall and are cheap to produce. weareroermond.com"
+      },
+      {
+        "item": "Add an events calendar (festivals, markets, late-night shopping, seasonal lights).",
+        "priority": "medium",
+        "why": "Zeeheldenkwartier (weekly bio market + seasonal festivals) and Marylebone (Summer Festival, Christmas Lights) use events as a recurring return-visit hook that a static directory cannot provide."
+      },
+      {
+        "item": "Create clear owner-facing infrastructure: an 'add/claim your shop' CTA, a business correction form, and a 'join the association/BIZ' page.",
+        "priority": "high",
+        "why": "BIZ Binnenstad Haarlem's online application form and Zeeheldenkwartier's contact-ondernemers page show this is doable; most district sites lack any onboarding or correction path, which causes stale data and weak buy-in. bizbinnenstadhaarlem.nl"
+      },
+      {
+        "item": "Engagement + loyalty layer: newsletter signup and a district privilege/loyalty card with participating outlets; multilingual (proper EN/DE, not Google Translate).",
+        "priority": "medium",
+        "why": "Marylebone Village's Privilege Card and De 9 Straatjes' real NL/EN toggle drive repeat footfall and serve tourists; We Are Roermond's newsletter captures intent. marylebonevillage.com, de9straatjes.nl"
+      },
+      {
+        "item": "Avoid the mistakes: (1) PDF/static shop lists instead of a filterable directory; (2) no interactive map or only a raw embedded Google map; (3) inconsistent/low-quality imagery; (4) dated mid-2010s layout with weak mobile responsiveness; (5) slow, image-heavy pages (>3s mobile load); (6) Google Translate widget instead of real multilingual content; (7) no open-today / no opening hours; (8) no parking/transit info; (9) no owner sign-up or correction form (leads to stale data); (10) unmaintained/stale content with dead links (the On the Grid trap).",
+        "priority": "high",
+        "why": "These are the recurring cheap/outdated signals seen across older ondernemersvereniging and BIZ sites; On the Grid (unmaintained since 2019) and generic municipal templates demonstrate each failure mode. Performance research: 53% of mobile users abandon at >3s load."
+      }
+    ],
+    "examples": [
+      {
+        "name": "De 9 Straatjes (Amsterdam) — official district guide",
+        "url": "https://de9straatjes.nl/en",
+        "takeaway": "Best single-district model: interactive clickable street map + mobile map, category browsing, 250+ business directory, news, prestige press quotes, NL/EN. Gaps: no events, gift guides, parking, owner sign-up, or open-today."
+      },
+      {
+        "name": "We Are Roermond — citymarketing shopping directory",
+        "url": "https://weareroermond.com/winkeloverzicht-roermond",
+        "takeaway": "Strongest Dutch utility UX: category filters, rich per-shop cards (address/description/links/image), opening hours, weekly market, parking/transport, curated '10x' guides, event submission, newsletter, accessibility controls."
+      },
+      {
+        "name": "Marylebone Village (London) — estate-managed district",
+        "url": "https://www.marylebonevillage.com/",
+        "takeaway": "Premium editorial + commercial: category directory, What's On/events, business feature articles, Privilege loyalty card, newsletter, owner/retailer CTA, polished WebP imagery. Weak spot: editorial-first, fewer per-shop profiles, no interactive map."
+      },
+      {
+        "name": "Zeeheldenkwartier (Den Haag) — neighbourhood association",
+        "url": "https://www.zeeheldenkwartier.com/",
+        "takeaway": "Good content model: category directory, events calendar, 'Stories' business portraits, walking routes, and an explicit 'join the association' owner CTA. Design feels mid-2010s rather than premium."
+      },
+      {
+        "name": "BIZ Binnenstad Haarlem — owner/BIZ onboarding",
+        "url": "https://bizbinnenstadhaarlem.nl/",
+        "takeaway": "Reference for owner-facing infrastructure: online application form and FAQ for joining the BIZ — the kind of 'add/claim your shop' onboarding most district sites lack."
+      },
+      {
+        "name": "On the Grid — local-creative neighbourhood guides",
+        "url": "https://onthegrid.city/",
+        "takeaway": "Inspiration for visual-first, 'curated by locals' storytelling across 534 guides. Also a cautionary tale: unmaintained since 2019, showing how stale content kills a guide's value."
+      },
+      {
+        "name": "Winkelstad Enkhuizen — ondernemersvereniging",
+        "url": "http://www.winkelstadenkhuizen.nl/",
+        "takeaway": "Typical older association site (100+ members) representing the dated tier to avoid: noticeboard feel rather than a filterable, map-led, mobile-first guide."
+      },
+      {
+        "name": "Openingstijden.nl — opening-hours utility",
+        "url": "https://www.openingstijden.nl/",
+        "takeaway": "Proof of demand for 'open today / opening hours / koopzondag' as a primary feature — the high-intent layer district sites should own rather than cede to third parties."
+      }
+    ]
+  },
+  {
+    "title": "De Kamp guide: product strategy and feature sequencing for launch and beyond",
+    "findings": [
+      "VERIFIED BUILD STATE (not the plan, the actual code): the site is far more complete than research/strategy.json assumes. 71 businesses are in src/data/businesses.ts (not 47), and pages already exist for home, /kaart, /ondernemers/[id], /categorie/[slug], /cadeaukaart, /agenda, /loop-de-kamp, /over-de-kamp, /aanmelden, plus /llms.txt, sitemap and robots. The hard technical assets (bespoke SVG DistrictMap, Europe/Amsterdam open-now engine in lib/hours.ts, generative placeholder system, a rich JSON-LD library in lib/schema.ts including Event/FAQPage/LocalBusiness subtypes) are all in place. This is a surfacing-and-trust job, not a build-from-scratch job.",
+      "THE OWNER-DATA FLYWHEEL IS BROKEN — this is the single biggest gap. The /aanmelden form (src/components/AanmeldenForm.tsx) is a mailto: handoff: on submit it opens the user's mail client with a pre-filled body and asks the owner to manually attach logo/facade/owner photos. There is NO real submission backend and NO file upload. The per-business 'Beheer deze zaak' CTA (BusinessDetailClient.tsx line 241) links to the generic /aanmelden with no ?bedrijf= deep-link and no pre-fill. Every downstream content gap (photos, owner faces, real hours, correct status, reservation/menu URLs) depends on fixing this one flow.",
+      "NO 'REPORT A CORRECTION' MECHANISM EXISTS. There is only a global disclaimer on /over-de-kamp ('informatie verzameld uit publieke bronnen'). With 71 businesses largely enriched from public sources — and the research itself showing volatile reality (Ritos bankrupt and replaced by Freddo at Kamp 16, BKK Thai closed/pand for sale at Kamp 10) — wrong hours/status/phone on a listing is a near-certainty at launch. A lightweight per-listing 'Klopt er iets niet? Meld het' link is a trust necessity, not a nicety, and it crowdsources data quality for free.",
+      "THE CADEAUKAART IS A MARKETING PAGE, NOT A PRODUCT. /cadeaukaart exists and looks finished, but every CTA is a mailto: ('Interesse Kamp Cadeaukaart'). There is no purchase flow, no issuance, no balance checker. The research correctly flags this as the highest strategic-leverage feature AND the highest-risk (payments, refunds, balance liability, possible e-money/voucher regulation). The page-first, commerce-later sequencing already chosen is right — do NOT rush real issuance; validate demand via the mailto inbox first, then integrate a proven third-party issuer rather than building issuance.",
+      "NO ANALYTICS ARE INSTALLED ANYWHERE (no @vercel/analytics, gtag, Plausible, or PostHog in src/ or package.json). Launching without analytics means flying blind on exactly the questions that should drive the post-launch roadmap: which businesses/categories get views, whether 'open nu' and the map are used, where claim/correction intent comes from, and what people search. This should be in the launch bundle — it is ~30 minutes of work and informs everything after.",
+      "FLAGSHIP DIFFERENTIATORS ARE DATA-STARVED, NOT FEATURE-STARVED. The 'open nu' edge and the interactive map are real and ownable (no Dutch peer surfaces live status; few have a true interactive map), but they degrade silently for any business missing a structured hours array. Promoting 'Open nu' as a hero feature across 71 businesses with patchy hours data will feel broken. Hours-data backfill is a prerequisite for, not a successor to, the open-now promotion.",
+      "EVENTS/AGENDA IS BUILT BUT THIN AND WILL DECAY. /agenda renders a static curated array of 8 events (src/data/events.ts) with Event JSON-LD correctly emitted only for dated occurrences. The model leans sensibly on evergreen recurrences (weekly markt, koopzondag) so it won't look empty, but festival entries are dated to 2026 and will silently go stale. A stale agenda signals 'dead site' to both users and AI engines — the opposite of the goal — so editorial ownership matters more than more features here.",
+      "TRUST/AUDIENCE LAYER IS COSMETIC. The footer 'newsletter' is a mailto: link (Footer.tsx line 79), not a real capture — so no owned audience is being built from day one, which is a compounding loss. SITE.social profiles drive the sameAs schema and appear largely unset. There are no press/review pull-quotes surfaced on-page despite the research showing de9straatjes wins instant authority from NYT/Nat Geo quotes.",
+      "SINGLE LANGUAGE ONLY: layout.tsx hardcodes lang='nl' and locale 'nl_NL'; there is no i18n routing or hreflang. For a historic-centre tourist-adjacent district this caps reach, but bilingual NL/EN doubles maintenance across 71 businesses plus editorial — correctly a later phase, not a launch blocker.",
+      "NO QR, NO PRINTABLE MAP, NO INSTAGRAM-CARD GENERATION exist anywhere in src/. These are real-world growth/acquisition levers (a QR sticker in a shop window or on a receipt is the cheapest way to convert footfall into site visits and into the data flywheel), but they only pay off once the destination pages and the claim/correction loop are solid."
+    ],
+    "recommendations": [
+      {
+        "item": "Per-listing 'Klopt er iets niet? Meld het' correction link on every business detail page (pre-filled mailto: with business id + name, or a tiny form posting to the same inbox).",
+        "priority": "MUST-HAVE FOR LAUNCH",
+        "why": "With 71 listings enriched largely from public sources and a volatile reality (Ritos→Freddo, BKK Thai closed), some data WILL be wrong at launch. A correction channel is the cheapest trust signal and a free data-quality flywheel. Trivial effort — reuse the existing mailto pattern. Without it, the first wrong phone number erodes credibility with no recovery path."
+      },
+      {
+        "item": "Make the owner claim/onboarding flow real and per-business deep-linked: change 'Beheer deze zaak' to /aanmelden?bedrijf={id}, pre-fill the form with that business's known data, and replace the mailto handoff with an actual submission endpoint plus a real photo/logo UPLOAD field (with the existing consent checkbox).",
+        "priority": "MUST-HAVE FOR LAUNCH",
+        "why": "This is the engine that fills every other gap (photos, owner faces, accurate hours/status, reservation URLs). Today it is a mailto: with 'please attach photos to the email' — high friction, no structured capture. Deep-linking + upload turns passive listings into an owner-maintained dataset. Highest-leverage fix in the whole project."
+      },
+      {
+        "item": "Backfill structured opening hours (DayHours[]) for all 71 businesses BEFORE promoting 'Open nu' as a hero feature; only then surface the 'Open nu' filter/sort and live count site-wide.",
+        "priority": "MUST-HAVE FOR LAUNCH",
+        "why": "'Open nu' is the most ownable differentiator (no competitor surfaces it) but the engine is data-starved — it degrades silently per missing record. Launching the flagship feature on patchy data makes the best feature look broken. Sequence the data, then the promotion. The engine (lib/hours.ts/OpenBadge) is already correct."
+      },
+      {
+        "item": "Install privacy-friendly analytics (Plausible or @vercel/analytics) and add basic event tracking on map use, 'open nu' toggle, claim/correction clicks, and cadeaukaart-interest clicks.",
+        "priority": "MUST-HAVE FOR LAUNCH",
+        "why": "~30 minutes of work that is the difference between a data-driven roadmap and guessing. Tells you which businesses/categories/features matter and validates (or kills) the cadeaukaart before you invest in commerce. Launching without it wastes the most informative early weeks."
+      },
+      {
+        "item": "Fix the WCAG-AA contrast failures already identified in research (amber-as-text at 2.93:1, white-on-amber buttons at 3.13:1): introduce --amber-ink for amber-coloured text/links/meaningful icons, make primary CTAs deep-green-on-white, raise muted text. Plus skip-link, aria on filters, 44px tap targets on map pins.",
+        "priority": "MUST-HAVE FOR LAUNCH",
+        "why": "A public, trust-first, partly municipally-adjacent local guide has accessibility (and in the EU, legal/EAA) exposure. The failures are site-wide and the fixes are mostly token-level find/replace. Note: src/lib/site.ts already references amber-ink in places, so finish the migration consistently."
+      },
+      {
+        "item": "Complete and validate the JSON-LD across all pages: emit correct LocalBusiness subtypes per business, fill SITE.social sameAs with real profiles, keep aggregateRating OFF unless real review data is shown, and ensure Event schema only fires for dated events (already correct). Confirm sitemap lastmod and llms.txt stay current.",
+        "priority": "MUST-HAVE FOR LAUNCH",
+        "why": "GEO/AI-visibility is a stated north star and the builders already exist in lib/schema.ts — this is coverage and correctness, not new architecture. It is what makes the site eligible to be cited by name in AI Overviews and 'open nu in de buurt' answers, which is the strategic wedge against incumbents."
+      },
+      {
+        "item": "Real newsletter capture (replace the footer mailto: with an embedded provider form — e.g. a single email field posting to a list), placed in footer and on /agenda and editorial pages.",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "Every leading district site runs one; building an owned audience from day one compounds. It is low effort but not launch-blocking. The current mailto: 'newsletter' captures almost nobody and looks unfinished."
+      },
+      {
+        "item": "Editorial 'Ondernemers van de Kamp' story strand: a /verhalen index plus an article template for named owner/maker profiles and curated best-of round-ups (e.g. 'Beste koffie op De Kamp'), reusing publicPersonName/longDescription and the owner-photo system.",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "This is the differentiator that makes Marylebone/Portland feel premium vs. a directory, it maps onto the site's literal name, and each piece is unique long-tail GEO content. Gated on real interviews and owner-photo consent — which the fixed claim flow unlocks. Sequence it just after the flywheel works."
+      },
+      {
+        "item": "Press/review pull-quote and social-proof band (curated credibility quotes from local press/indebuurt/Tijd voor Amersfoort, plus a static-or-cached Instagram strip), surfaced on home and /over-de-kamp.",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "A new site lacks inherent authority; de9straatjes leans on NYT/Nat Geo quotes for instant credibility. Low effort (content + a component), meaningful trust lift. Use static/cached IG to avoid CWV regressions."
+      },
+      {
+        "item": "Owner onboarding checklist + 'why claim' value page baked into /aanmelden (vindbaarheid, eigen verhaal + foto's, juiste openingstijden, Cadeaukaart-deelname, gratis), with a clear 'what happens next' step.",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "Conversion scaffolding for the claim flow — owners need to see the payoff to bother. Cheap to write, materially lifts claim rate, which is what feeds the whole dataset. Pair it with the deep-linked claim fix."
+      },
+      {
+        "item": "'Perfect voor' / intent recommendations (e.g. 'perfect voor een regenachtige zondag', 'cadeau onder €25', 'lunch met laptop') as curated tag-driven collections built on the existing goodFor[]/specialties[] data — but first standardise those free-text tags into a controlled vocabulary.",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "High-engagement, GEO-friendly discovery that reuses data you already have. Blocked only by tag normalisation. Lower urgency than the trust/flywheel work but a strong differentiator once tags are clean."
+      },
+      {
+        "item": "Make /agenda owner-maintainable and assign editorial ownership: let businesses submit events via the (now real) onboarding flow, and add a quiet 'volgende update' / freshness signal so stale festival dates are visible and prunable.",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "The agenda exists and is correctly modelled, but static 2026 dates will decay into a 'dead site' signal. The risk is sustainability, not features — solve it with an intake path and an owner, not more code."
+      },
+      {
+        "item": "New-business spotlight: a small 'Nieuw op De Kamp' module on the home page driven by a 'since'/added date field, auto-surfacing recent openings (Freddo, FLUPS are live examples from the research).",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "Freshness signal for both users and AI engines, gives the district a 'living' feel, and is nearly free given the data already tracks new openings. Reinforces the 'De Kamp leeft' positioning."
+      },
+      {
+        "item": "Walking routes v2 / themed loops: upgrade /loop-de-kamp to sync with the DistrictMap (scroll-spy highlighting pins), show per-stop open-now + walk-minutes (walkMinutesFromGate already exists), and offer themed loops ('Koffie & makers', 'Avondje eten') by filtering the same data, with an 'open in Google/Apple Maps' deep-link.",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "The route is a named nav item and a memorable 'experience' hook, but currently underuses the map and open-now utilities that already exist. Medium effort, distinctive payoff. Comes after the core trust/data work lands."
+      },
+      {
+        "item": "QR codes for shops + a one-click 'Instagram-ready card' generator per business (auto-composed share image from the generative placeholder/photo + name + open status).",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "Cheap, high-ROI real-world acquisition: a window/receipt QR turns footfall into site visits and claim/correction submissions. The IG card gives owners a reason to link back (SEO + reach). Both depend on the destination pages and claim loop being solid first, so they slot just after launch."
+      },
+      {
+        "item": "Parking / bike / public-transport / 'hoe kom ik er' practical-info block (link to nearest garages, P+stalling, station walk-time), surfaced on /kaart and /loop-de-kamp.",
+        "priority": "SHOULD-HAVE SOON",
+        "why": "Practical visit-planning info is table-stakes for a destination site and low effort (mostly curated links + the existing walk-distance helper). De9straatjes outsources this weakly — doing it cleanly is an easy edge."
+      },
+      {
+        "item": "Seasonal campaign system: lightweight, schedulable themed homepage takeovers (kerstinkopen, koningsdag, terras-seizoen, Sinterklaas-intocht-bij-de-SPAR) reusing the agenda/seasonal data.",
+        "priority": "LATER / FUTURE",
+        "why": "Strong for engagement and recurring relevance, but needs the editorial/agenda muscle to be established and reliable first. Build the agenda discipline before automating campaigns on top of it."
+      },
+      {
+        "item": "Kamp Cadeaukaart real commerce: integrate a proven third-party local-gift-card issuer (purchase, digital/physical issuance, balance checker, optional donate-leftover-to-charity), only after demand is validated via the existing mailto inbox + analytics.",
+        "priority": "LATER / FUTURE",
+        "why": "Highest strategic upside but highest risk (payments, refunds, balance liability, e-money/voucher regulation). The marketing page already validates demand cheaply. Premature commerce here is the most likely way to introduce legal/financial liability — gate it behind demonstrated interest and a third-party that owns compliance."
+      },
+      {
+        "item": "Short-form video tours (We-Are-Roermond style) with VideoObject schema — ship the embed slot + schema now, fill over time.",
+        "priority": "LATER / FUTURE",
+        "why": "Deepens dwell time and feeds AI multimodal selection, but it is production-bound and ongoing-cost-heavy. The slot is cheap; the content is the constraint. Reserve for after the editorial strand proves it has an owner."
+      },
+      {
+        "item": "Bilingual NL/EN with i18n routing + hreflang.",
+        "priority": "LATER / FUTURE",
+        "why": "Widens tourist reach and adds international SEO, but doubles content maintenance across 71 businesses plus all editorial. Only worth it once the Dutch content, claim flow, and editorial cadence are stable — otherwise you're maintaining two stale sites."
+      },
+      {
+        "item": "Lightweight CMS / admin for non-technical editing of businesses, events, and stories (e.g. a headless CMS or a simple admin over the existing data files).",
+        "priority": "LATER / FUTURE",
+        "why": "Genuinely useful for sustainability once content volume and a non-developer editor exist, but premature now: the data lives in typed TS files that are fine to edit by hand at this scale, and a CMS adds infra/cost before the editorial volume justifies it. Let the claim-flow + agenda intake cover the near-term editing need first."
+      },
+      {
+        "item": "DO NOT BUILD YET: real-money Cadeaukaart issuance built in-house (vs. third-party). Skip entirely — the regulatory and liability surface (e-money, balance liability, refunds, fraud) is disproportionate to a single-district pilot; only ever do this via a compliant third-party issuer.",
+        "priority": "DO-NOT-BUILD-YET",
+        "why": "This is the classic scope trap the research flags. In-house issuance imports financial-services compliance into what is fundamentally a content/discovery product. Never the right first move."
+      },
+      {
+        "item": "DO NOT BUILD YET: user accounts, logins, favourites/saved-lists, or user reviews/ratings on-site.",
+        "priority": "DO-NOT-BUILD-YET",
+        "why": "Adds auth, moderation, GDPR, and spam surface for a small district audience that almost certainly isn't asking for it. The deliberate 'no fabricated ratings, link out to Google reviews' posture is correct and should be kept — hosting your own reviews invents a moderation burden and a fake-review liability. Owner accounts, if ever needed, should come only via the claim flow, not a general user-login system."
+      },
+      {
+        "item": "DO NOT BUILD YET: a committee/approval workflow tool for publishing listings or stories.",
+        "priority": "DO-NOT-BUILD-YET",
+        "why": "At 71 businesses with one or two editors, approval is a Slack/email conversation, not software. Build approval tooling only if and when content volume and a multi-person committee actually create a bottleneck — building it now is process-theatre that slows the very content velocity the site needs."
+      }
+    ],
+    "examples": [
+      {
+        "name": "Marylebone Village (London)",
+        "url": "https://www.marylebonevillage.com/",
+        "takeaway": "The bar to clear: a clean category directory fused with a real editorial magazine, curated best-of round-ups, What's On calendar, loyalty card and newsletter. Validates sequencing the editorial 'Ondernemers van de Kamp' strand and newsletter as should-have-soon, not later."
+      },
+      {
+        "name": "Stadsie / Utrecht Cadeaukaart",
+        "url": "https://stadsie.nl/",
+        "takeaway": "Proves the local-gift-card model works at scale (100k+ cards) AND that it is run via a dedicated issuer — reinforcing 'marketing page now, third-party commerce later, never in-house issuance' for the Kamp Cadeaukaart."
+      },
+      {
+        "name": "We Are Roermond (BIZ binnenstad)",
+        "url": "https://www.weareroermond.com/",
+        "takeaway": "Directory + date-filtered agenda + shop-tour video creates the 'living' feel. Confirms agenda-freshness ownership and video-as-future are correctly sequenced; a static agenda would undercut the whole positioning."
+      },
+      {
+        "name": "De 9 Straatjes (Amsterdam)",
+        "url": "https://de9straatjes.nl/en",
+        "takeaway": "Closest Dutch peer: wins authority via press pull-quotes and offers NL/EN, but has NO real interactive map and no live 'open nu'. Validates De Kamp's wedge (map + open-now) and that press-quotes/bilingual are worthwhile but later-stage."
+      },
+      {
+        "name": "src/components/AanmeldenForm.tsx + BusinessDetailClient.tsx (line 241)",
+        "takeaway": "The broken flywheel in code: the onboarding form is a mailto: with 'attach your photos to the email', and 'Beheer deze zaak' links to a generic, non-prefilled /aanmelden. Fixing this (deep-link + real upload) is the highest-leverage launch task because it unlocks every content gap."
+      },
+      {
+        "name": "src/data/events.ts + src/app/agenda/page.tsx",
+        "takeaway": "Agenda is built and schema is correctly conditional on dated events, but it's a static 8-item array with 2026 festival dates that will decay. The gap is editorial ownership/intake, not features — hence 'make it owner-maintainable' over 'add more'."
+      },
+      {
+        "name": "src/app/cadeaukaart/page.tsx",
+        "takeaway": "A finished-looking marketing page where every CTA is a mailto: — exactly the right cheap demand-validation stage. Use the inbox + (to-be-added) analytics to decide whether real commerce is ever worth the regulatory risk."
+      }
+    ]
+  },
+  {
+    "title": "De Kamp Guide — UX/UI & guide-content strategy (homepage, directory, detail, 7 routes, practical info)",
+    "findings": [
+      "Strong technical core already exists — build ON it, don't rebuild. The repo has 71 businesses (src/data/businesses.ts), a correct Europe/Amsterdam open-now engine (src/lib/hours.ts) with 61/71 businesses carrying structured hours, a bespoke key-free SVG district map (src/components/DistrictMap.tsx), a walkMinutesFromGate() helper (src/lib/geo.ts) that is the spine for every route, a full JSON-LD library (src/lib/schema.ts), and a defined warm-editorial design system. BusinessExplorer already has search + category chips + 'Nu open' toggle + map/grid toggle.",
+      "Biggest content gap for the routes: the schema has perfectFor[] and priceLevel fields but BOTH have 0 coverage in the data, and goodFor/dietaryTags are sparse. These are exactly the fields the 'perfect for' filters and the lunch/dinner/gift routes depend on — they must be populated before routes feel curated rather than auto-generated.",
+      "The 'guide routes' barely exist: there is ONE generic page (/loop-de-kamp) that just dumps every non-closed business in sortOrder along a timeline — no themes, no time budgets, no curation. None of the seven requested routes (1-hour, lunch, dinner, shopping, rainy-day, gift, coffee/drinks) exist yet.",
+      "There is NO Practical Info page. /over-de-kamp is history/heritage only (Kamperbinnenpoort, etymology, FAQ) — it does not cover parking, bike, public transport, nearby landmarks, or a link to the binnenstad. This is a clean greenfield page to add.",
+      "Real anchorable venues are rich and multicultural: dinner — Awazé (Ethiopian/vegan), De Aubergerie (Michelin-guide French, Kamp 88), De Tafelaar (shared dining), The Far East (Chinese), Indian Flavour, La Base Pizza, Singelhuis; coffee/lunch — Freddo, The Corner House, Anna's Smaakatelier, Theehuis Something Else, Downey's Coffee & Tea, Bij Sophie, Wit-Lof; shops/makers — FLUPS (upcycle fashion), Louis Blancardi & Il diVino (wine), Jans Pakhuys (gallery/gifts), Studio Mr Bunny (tufting workshops), Belhadi Modestoffen (fabrics), DHome & Eigenaar8 (interior/design), Skitzo/ORIUM/Leith (jewellery). Landmarks: the 13th-c. Kamperbinnenpoort gate, Zuidsingel/Weverssingel canals, Mondriaanhuis (Piet Mondriaan's birthplace, short walk).",
+      "Competitive wedge (from research/strategy.json + brief.json): the gold standard is Marylebone Village (editorial magazine + clean directory); the closest Dutch peer de9straatjes.nl has NO real interactive map and underdeveloped routes. De Kamp's ownable differentiators are: a true interactive route map with numbered pins, live 'open nu' status, and the themed guide routes themselves — exactly what peers neglect.",
+      "Accessibility flag already half-fixed: codebase introduced --amber-ink (#8a5a16, AA-passing) for amber text and uses it in newer components, but the OLD route page (/loop-de-kamp) still uses raw text-amber for the 'Stop #' eyebrow (2.93:1, fails WCAG AA) and amber-on-charcoal CTAs. Any new route pages must use --amber-ink for text and deep-green-on-white for primary CTAs.",
+      "Navbar IA is inconsistent: desktop nav omits the route entirely; mobile nav links to /loop-de-kamp as 'Route'. There is no 'Gids' (Guide) hub and no 'Praktisch' (Practical) entry. IA needs a 'De Kamp Gids' parent for the seven routes and a 'Praktisch' link."
+    ],
+    "recommendations": [
+      {
+        "item": "Build a /gids route hub + 7 themed route pages from a shared RouteStop data model (route id, title, idea/lede, est. minutes, ordered stops referencing business ids, optional non-business waypoints like the gate/canal/Mondriaanhuis). Render each as: hero lede, numbered timeline of real businesses with walk-minutes (walkMinutesFromGate) + live OpenBadge per stop + a built-in horeca pause, the existing SVG map with the route's pins numbered and connected, and a 'bewaar/deel route' action. Emit ItemList + Place JSON-LD per route for AI Overviews.",
+        "priority": "P0",
+        "why": "This is the headline deliverable and the clearest differentiator vs de9straatjes (who neglect routes). The data helpers (walkMinutes, hours, map, schema) already exist, so it is mostly a thin data model + one template + curation. Replaces the weak generic /loop-de-kamp."
+      },
+      {
+        "item": "Populate perfectFor[] and priceLevel (and fill gaps in goodFor/dietaryTags) for all 71 businesses. Use them to power 'Perfect voor…' chips in the directory (Lunch met vrienden, Cadeau zoeken, Werken met laptop, Regenachtige dag, Romantisch diner, Kindvriendelijk) and as the selection criteria for the themed routes and the gift route's budget tiers.",
+        "priority": "P0",
+        "why": "Both fields have 0 coverage today. The 'perfect for' filters and the lunch/dinner/gift/rainy-day routes are only credible if curated from real per-business tags rather than auto-listing everything in sortOrder."
+      },
+      {
+        "item": "Create a /praktisch (Practical Info) page distinct from /over-de-kamp: 'Waar ligt De Kamp' (one self-contained GEO paragraph + the SVG map), Parkeren (Q-Park De Nieuwe Stad / Koppelpoort garages + on-street zones), Fiets (stallingen, the district's bike-friendliness), OV (Amersfoort Centraal ~10 min walk, bus stops), Nabije bezienswaardigheden (Kamperbinnenpoort, Muurhuizen, Mondriaanhuis, singels/boat tours), and a prominent link to the wider binnenstad. Emit Place + FAQPage JSON-LD.",
+        "priority": "P0",
+        "why": "Explicitly requested and entirely missing. It is the highest-intent 'how do I visit' content, strong for local SEO and 'parking near De Kamp' AI answers, and it offloads logistics so the editorial pages stay aspirational."
+      },
+      {
+        "item": "Add a 'De Kamp Gids' parent in the Navbar (desktop + mobile) listing the 7 routes, plus a 'Praktisch' link; retire the standalone 'Route' link to /loop-de-kamp (redirect it to /gids). Surface a 'Plan je bezoek' homepage section with route cards (icon, time budget, one-line idea) and a 'Perfect voor…' chip row above the directory.",
+        "priority": "P1",
+        "why": "IA currently hides the routes (desktop nav omits them) and has no guide hub or practical entry. The routes are the premium asset and must be discoverable from the homepage and nav."
+      },
+      {
+        "item": "Elevate the business detail page into passage-extractable H2 blocks per the strategy: Het verhaal, Specialiteiten / Goed voor, Goed om te weten, Openingstijden & locatie (HoursTable + live OpenBadge + context mini-map pin), Veelgestelde vragen, and 'Ook op De Kamp' related. Add a 'Op welke routes kom je dit tegen' cross-link strip so detail pages feed the routes and vice-versa.",
+        "priority": "P1",
+        "why": "Makes detail pages GEO-citable and creates an internal-link web between routes, categories and venues — the structure that lets the site outrank flatter directories."
+      },
+      {
+        "item": "Add the directory's list/grid/map tri-view and richer filters: keep search + category chips + 'Nu open', add 'Perfect voor…' chips, a price-level filter, a sort (Nu open eerst / A–Z / op straat), and a 'browse by street' secondary nav (Kamp, Achter de Kamp, Grote Sint Jansstraat, Zuidsingel, Weverssingel). Show the live count ('23 nu open').",
+        "priority": "P2",
+        "why": "BusinessExplorer already has search/category/open-now/map toggle; this rounds it out to best-in-class and mirrors the de9straatjes 'by street' pattern while beating them on the live map + open-now."
+      },
+      {
+        "item": "Hold the premium bar with concrete design principles: serif Playfair display headlines + italic ledes + tracked --amber-ink eyebrows; generous whitespace and editorial 'spread' layouts; real owner photography (gated by consent) with the deterministic generative SVG placeholder as the seamless fallback; restrained fade-rise motion that respects prefers-reduced-motion; the live emerald 'open nu' pulse dot as a recurring real-time signal. Avoid the cheap tells: stocky generic imagery, dense un-curated 'list everything' pages, raw amber-as-text (fails AA), and a stale/empty agenda.",
+        "priority": "P1",
+        "why": "The strategic goal is 'Marylebone Village of De Kamp' — premium comes from curation, editorial voice, real photos and motion restraint, not effects. The cheap tells are exactly what makes a district site read as a utilitarian listing."
+      }
+    ],
+    "examples": [
+      {
+        "name": "1. Eerste kennismaking met De Kamp (1-hour intro route)",
+        "takeaway": "Idea: the perfect first hour for someone who just walked through the gate. Walk-timed loop, one coffee stop, one shop, one canal view. Example stops: Kamperbinnenpoort (start) -> Freddo (coffee/matcha to-go) -> Jans Pakhuys (atelier/gallery browse) -> FLUPS (independent fashion) -> end at the Zuidsingel canal. ~1 hr, low effort, sets the tone."
+      },
+      {
+        "name": "2. Lunchroute langs De Kamp (lunch route)",
+        "takeaway": "Idea: graze the district's best daytime spots, pick one to sit down. Example stops: Wit-Lof (healthy takeaway) -> The Corner House (lunchroom) -> Anna's Smaakatelier (taart/lunch/high tea) -> Bij Sophie (sweet finish). Tag-driven from perfectFor 'Lunch'/goodFor; ~1.5 hr."
+      },
+      {
+        "name": "3. Dinerroute: de wereld op één straat (dinner route)",
+        "takeaway": "Idea: lean into De Kamp's genuinely multicultural horeca. Pick-one-cuisine itinerary: Awaze (Ethiopian/vegan), De Aubergerie (Michelin-guide French, Kamp 88), De Tafelaar (shared dining), The Far East (Chinese), Indian Flavour, La Base (pizza), Singelhuis (canal-side). Aperitief at Il diVino first; evening-length."
+      },
+      {
+        "name": "4. Shoppingroute langs de makers (shopping route)",
+        "takeaway": "Idea: the independent-retail spine, makers and concept stores, zero chains. Example stops: FLUPS (upcycle) -> Belhadi Modestoffen (fabrics) -> Skitzo/ORIUM (goudsmid/jewellery) -> DHome & Eigenaar8 (interior/vintage design) -> Louis Blancardi (wine). ~2-3 hr; supports 'browse by street'."
+      },
+      {
+        "name": "5. Regenroute: droog blijven op De Kamp (rainy-day route)",
+        "takeaway": "Idea: an indoor-only itinerary for bad weather. Example stops: Studio Mr Bunny (tufting workshop), Theehuis Something Else (high tea), a museum-with-shelter beat (Mondriaanhuis, short walk), Studio Release / Thai massage to end. Selected by goodFor 'overdekt/binnen' + acceptsReservations."
+      },
+      {
+        "name": "6. Cadeauroute per budget (gift route)",
+        "takeaway": "Idea: find the right present, organised by budget tier using priceLevel. EUR: KoKo de verzamelwinkel, a bottle from Il diVino. EUR-EUR: Jans Pakhuys gift, Studio Mr Bunny. EUR-EUR-EUR: a piece from ORIUM Goudsmeden or Leith Jewels. Ends with a hard CTA to the Kamp Cadeaukaart for 'one gift, whole street'."
+      },
+      {
+        "name": "7. Koffie & borrelroute (coffee/drinks route)",
+        "takeaway": "Idea: a slow half-day from morning coffee to evening drinks. Example stops: Downey's Coffee & Tea (start) -> Theehuis Something Else (mid) -> Il diVino (wine tasting/workshop) -> Singelhuis (canal-side borrel to close). Live 'Nu open' filtering keeps it accurate by time of day."
+      },
+      {
+        "name": "Marylebone Village (marylebonevillage.com) — gold-standard model",
+        "takeaway": "Fuses a clean 5-bucket directory with a real editorial magazine and curated best-of round-ups, plus a What's On calendar and a Privilege Card. Reads as a destination with personality, not a business listing — the bar De Kamp's routes + editorial strand should clear.",
+        "url": "https://marylebonevillage.com"
+      },
+      {
+        "name": "de9straatjes.nl — closest Dutch peer to out-execute",
+        "takeaway": "250+ businesses browsable by category AND by street, bilingual NL/EN, press pull-quotes for credibility — but its route page has no true interactive map or shop pins. Borrow the by-street browse and press quotes; beat it decisively on the interactive route map + live open-now.",
+        "url": "https://www.de9straatjes.nl"
+      }
+    ]
+  }
+]

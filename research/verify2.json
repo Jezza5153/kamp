@@ -1,0 +1,423 @@
+{
+  "keep": [
+    {
+      "name": "Kaldi Koffie & Thee Amersfoort",
+      "address": "Kamp 10",
+      "postalCode": "3811 AR",
+      "category": "Coffee & tea shop / tasting room / takeaway",
+      "website": "https://kaldi.nl/winkelpopup/?winkel=Kaldi+Amersfoort",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 10, the core street of De Kamp; past the Kamperbinnenpoort. Active coffee/tea shop in the historic 'D'Gekroonde Bye-Korf' building. Note: the 'recently reopened under new owner (Fred Homan)' event traces to 2017, not a recent reopening, but the business is currently listed and operating at Kamp 10."
+    },
+    {
+      "name": "Theefeestje",
+      "address": "Kamp 3",
+      "postalCode": "3811 AM",
+      "category": "Tearoom / high tea / cake-decoration shop & workshops",
+      "website": "https://theefeestje.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 3, core De Kamp street. Active tea salon/experience shop (by reservation), own website and VVV listing confirm Kamp 3, 3811 AM. Candidates 2 and 16 are the same business, deduplicated."
+    },
+    {
+      "name": "Wolwinkel Elitt",
+      "address": "Grote Sint Jansstraat 8",
+      "postalCode": "3811 HX",
+      "category": "Yarn / wool / knitting & crochet shop with workshops",
+      "website": "https://dewimperfabriek.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "partially_verified",
+      "reason": "On Grote Sint Jansstraat 8, a core De Kamp side street, in the 'Oude Stadsherberg'. Active yarn shop (Els & Laura), VVV and tijdvooramersfoort confirm under De Kamp. NOTE: website field is a placeholder; correct site is wolwinkelelitt.nl (info@wolwinkelelitt.nl) - update before publishing."
+    },
+    {
+      "name": "The Wax Bar Amersfoort",
+      "address": "Grote Sint Jansstraat 13",
+      "postalCode": "3811 HX",
+      "category": "Waxing / beauty salon",
+      "website": "https://www.thewaxbar.nl/en/locatie/amersfoort",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Grote Sint Jansstraat 13, core De Kamp side street. Current location of The Wax Bar chain; own site, VVV and tijdvooramersfoort confirm the address and active hours."
+    },
+    {
+      "name": "Fashion Livy",
+      "address": "Kamperbinnenpoort 3",
+      "postalCode": "3811 AL",
+      "category": "Women's clothing boutique",
+      "website": "https://www.fashionlivy.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On Kamperbinnenpoort 3 - the gate that the brief explicitly includes as the De Kamp threshold. Active boutique, multiple directories and VVV confirm. Edge only because it sits on the gate boundary."
+    },
+    {
+      "name": "Wereldwinkel Amersfoort",
+      "address": "Kamperbinnenpoort 1",
+      "postalCode": "3811 AL",
+      "category": "Fair-trade gift shop (volunteer-run)",
+      "website": "https://www.wereldwinkelamersfoort.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On Kamperbinnenpoort 1, in the historic gate building - explicitly in scope per brief. Active, volunteer-run, open daily. Edge because it is on the gate boundary."
+    },
+    {
+      "name": "Hotel de Tabaksplant",
+      "address": "Coninckstraat 15",
+      "postalCode": "3811 WD",
+      "category": "Hotel / B&B",
+      "website": "https://www.hoteldetabaksplant.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Coninckstraat 15, explicitly in-scope side street within the Kampkwartier. 25-room hotel in an early-1600s monument; active with current bookings."
+    },
+    {
+      "name": "Step Events",
+      "address": "Oliesteeg 10",
+      "postalCode": "3811 JW",
+      "category": "Scooter ('step') shop - sales, rental & outings",
+      "website": "https://sportstep.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On Oliesteeg 10, an in-scope side street off the Kamp (part of official De Kamp e.o.). Active (by appointment), Yelp updated 2026. Candidates 11, 25 and 49 are the same business, deduplicated. Edge because Oliesteeg is a quiet NE side street."
+    },
+    {
+      "name": "Le Perron Amersfoort",
+      "address": "Kamp 42",
+      "postalCode": "3811 AS",
+      "category": "Boulangerie / organic bakery / lunchroom",
+      "website": "https://leperron.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 42, core De Kamp street. Active organic bakery/lunchroom; appears on the Le Perron chain site and current directories. The Kamp 42 conflict with 'Louis Blancardi Wijnen' on the existing list resolves in favour of Le Perron as the current tenant."
+    },
+    {
+      "name": "Kapsalon Sepideh",
+      "address": "Kamp 26",
+      "postalCode": "3811 AR",
+      "category": "Hair salon",
+      "website": "https://haar.expert/kapsalons/kapsalon-sepideh-kamp-26-3811ar-amersfoort",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "partially_verified",
+      "reason": "On Kamp 26, core De Kamp street. Active salon (033 8886031). Shares house number with 'Werners Optiek - Kamp 26' on the existing list; the two occupy different units/floors at the same address, so this is a distinct business. No dedicated own-domain website found; placeholder is a directory page."
+    },
+    {
+      "name": "PIEN kunst en antiek (Antiekhandel Pien / V.O.F. Pien)",
+      "address": "Grote Sint Jansstraat 1",
+      "postalCode": "3811 HX",
+      "category": "Art & antiques dealer",
+      "website": "http://www.pienkunstantiek.nl/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "needs_update",
+      "reason": "On Grote Sint Jansstraat 1, a core De Kamp side street - clearly in scope. Single business (candidates 7, 23, 37 and 58 are all the same dealer, run by Janny & Reinold Stuurman since 1968). STATUS CONFLICT: candidate 58 claims permanent closure (owners retired, domain redirect to a Belgian buyer), but I could NOT confirm this - Yelp shows 'Updated October 2025', directory listings remain active, and the website still resolves (with a TLS cert error). Geographically a confirmed-core address; needs on-site/phone confirmation (033 4728971) of whether it is still trading before re-adding as active."
+    },
+    {
+      "name": "Speelpakhuis",
+      "address": "Kamp 7",
+      "postalCode": "3811 AM",
+      "category": "Toy store",
+      "website": "https://speelpakhuis.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 7, core De Kamp street. Recently-opened toy shop confirmed at Kamp 7 by VVV, tijdvooramersfoort and the letting agent's move-in announcement; current opening hours listed."
+    },
+    {
+      "name": "Big Bazar Amersfoort",
+      "address": "Kamp 17",
+      "postalCode": "3811 AM",
+      "category": "Discount / variety store (household, toys)",
+      "website": "https://www.bigbazar.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp (Kamp 15-17 complex; occupies no. 17), core De Kamp street. Distinct from SPAR City on the existing list. Confirmed open with current hours. Candidates 18 and 32 are the same business, deduplicated."
+    },
+    {
+      "name": "ReYoutiefull Store",
+      "address": "Kamp 19",
+      "postalCode": "3811 AM",
+      "category": "Sustainable concept / second-hand & consignment fashion store",
+      "website": "https://www.arthurenwillemijn.nl/over-ons/reyoutiefull/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 19, core De Kamp street. Sustainable retail concept by Arthur & Willemijn in their original Kamp building; VVV lists it as a current location. Distinct from the Saya Boutique Hotel that also occupies the Kamp 19 complex. Candidates 15, 20 are the same store; the 'Be-youtie-full boutique HOTEL' part of candidate 15 is superseded by Saya (see reject)."
+    },
+    {
+      "name": "Arthur & Willemijn Stores",
+      "address": "Kamp 19",
+      "postalCode": "3811 AM",
+      "category": "Women's fashion / clothing store",
+      "website": "https://www.arthurenwillemijn.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 19, core De Kamp street. Long-running (since 1978) womenswear store; the Kamp is the original/flagship store (033 4727291). Active. Shares the Kamp 19 complex with ReYoutiefull and Saya Boutique Hotel."
+    },
+    {
+      "name": "Wibra Amersfoort",
+      "address": "Kamp 20-22",
+      "postalCode": "3811 AR",
+      "category": "Discount variety / textiles & household store",
+      "website": "https://www.wibra.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 20-22, core De Kamp street. Confirmed open with current hours (033 4767778). Distinct from Robert Harms Tweewielers (Kamp 20) on the existing list. Candidates 22 and 35 are the same business, deduplicated."
+    },
+    {
+      "name": "B.G.L. Gold & Silver",
+      "address": "Kamp 13",
+      "postalCode": "3811 AM",
+      "category": "Jeweller / goldsmith (sieraden, horloges, trouwringen)",
+      "website": "https://www.bglgoldandsilver.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 13, core De Kamp street. Active goldsmith/jeweller selling watches, jewellery and wedding rings plus custom work and repairs (033 4753472). Own website and tijdvooramersfoort confirm."
+    },
+    {
+      "name": "Sjenkels Amersfoort",
+      "address": "Kamp 29",
+      "postalCode": "3811 AM",
+      "category": "Hair salon",
+      "website": "https://sjenkels.nl/salons/amersfoort/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 29, core De Kamp street. Salon opened Sept 2023; Nexxt Hairsalon team merged in Nov 2025 - confirms it is currently active. Own website confirms address."
+    },
+    {
+      "name": "The Fat Tiger",
+      "address": "Kamp 18",
+      "postalCode": "3811 AR",
+      "category": "Takeaway / delivery (Vietnamese / Asian)",
+      "website": "https://www.the-fat-tiger-amersfoort.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 18, core De Kamp street. Active Vietnamese/Asian takeaway & delivery (banh mi, bowls, bubble tea); own site shows current 7-day hours. Shares Kamp 18 with other tenants."
+    },
+    {
+      "name": "Zitgeluk",
+      "address": "Kamp 18",
+      "postalCode": "3811 AR",
+      "category": "Interior / furniture store (seating)",
+      "website": "https://zitgeluk.nl/",
+      "inclusionStatus": "confirmed_core",
+      "verificationStatus": "verified",
+      "reason": "On Kamp 18, core De Kamp street (some directories also tag a connected Coninckstraat unit behind the same block). Active furniture store specialising in seating, plus lighting, cabinets, tables (033 741 0150). Own website confirms. Distinct from The Fat Tiger at the same number."
+    },
+    {
+      "name": "Van der Woerd Optiek",
+      "address": "Kamperbinnenpoort 2",
+      "postalCode": "3811 AL",
+      "category": "Optician",
+      "website": "https://vanderwoerdoptiek.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On Kamperbinnenpoort 2, the gate that the brief explicitly includes as the De Kamp entrance. Independent optician in a monument 'practically next to the Kamperbinnenpoort' (033-4631380). Active. Edge only due to the gate-boundary location."
+    },
+    {
+      "name": "Livingstone bij de Poort",
+      "address": "Kamperbinnenpoort 4",
+      "postalCode": "3811 AL",
+      "category": "Speciality-coffee bar / healthy & vegan lunchroom",
+      "website": "https://www.tijdvooramersfoort.nl/en/locations/1657593467/together-at-livingstone",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On Kamperbinnenpoort 4, literally named 'bij de Poort' (by the gate) - exactly the De Kamp threshold the brief calls out. Active speciality-coffee & vegan-friendly lunchroom, second Livingstone location. Edge due to gate-boundary location."
+    },
+    {
+      "name": "Jewels Forever",
+      "address": "Kamperbinnenpoort 7",
+      "postalCode": "3811 AL",
+      "category": "Jeweller (handmade wedding & engagement rings)",
+      "website": "https://www.jewelsareforever.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On Kamperbinnenpoort 7, on the gate beside the already-listed Heart & Arrow Trouwringen (no. 8). Active jeweller specialising in handmade wedding rings, own workshop (KvK 73618993). Distinct De Kamp address despite a second Krommestraat outlet. Edge due to gate-boundary location."
+    },
+    {
+      "name": "Boetiek033",
+      "address": "Zuidsingel 70",
+      "postalCode": "3811 HD",
+      "category": "Fashion / gift / baby concept store",
+      "website": "https://www.boetiek033.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On the Kamp-end stretch of Zuidsingel (no. 70/70a), immediately past the already-listed Hairstyling Geke (68); sister shop of the listed Keizerin (same owners) and filed under De Kamp on tijdvooramersfoort. Active sustainable fashion/gift/baby concept store. Edge because it is a singel address, but the storefront is reached from the Kamp-end cluster."
+    },
+    {
+      "name": "Atelier MiMosa",
+      "address": "Weverssingel 4",
+      "postalCode": "3811 GJ",
+      "category": "Hair salon (cut / colour / make-up / styling)",
+      "website": "https://www.ateliermimosa.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On the Kamp-end stretch of Weverssingel (no. 4), adjacent to the already-listed Bij Sophie (Weverssingel 2). Active. CORRECTION: it is a hair salon (run by Jill Oostveen & Enis Turgut), not a generic creative atelier/shop as the candidate described. Edge because it is a singel address at the Kamp-end cluster."
+    },
+    {
+      "name": "Van Dijk Clinic",
+      "address": "Weverssingel 7",
+      "postalCode": "3811 GJ",
+      "category": "Cosmetic-medical clinic (injectables)",
+      "website": "https://www.vandijkclinic.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On the Kamp-end stretch of Weverssingel (no. 7), near Bij Sophie (no. 2). Active clinic for medical-cosmetic treatments (BIG-registered physicians). Edge because it is a singel address; sits within the Kamp-end cluster."
+    },
+    {
+      "name": "Galerie Kunstbroeders (Chinese Contemporary Art)",
+      "address": "Weverssingel 22",
+      "postalCode": "3811 GK",
+      "category": "Art gallery (contemporary Chinese art)",
+      "website": "https://kunstbroeders.com/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Weverssingel 22, within the official 'De Kamp e.o.' subgebied, and open/active. BUT no. 22 sits further NW along the singel, away from the Kamp-end cluster (Bij Sophie/MiMosa/Van Dijk at 2-7); many locals would file it under 'Weverssingel/binnenstad' rather than De Kamp. Include only if the directory uses the full official subgebied; otherwise borderline."
+    },
+    {
+      "name": "Weber beroep: kapper",
+      "address": "Weverssingel 17",
+      "postalCode": "3811 GJ",
+      "category": "Hair salon",
+      "website": "https://www.beroepkapper.nl/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Weverssingel 17, within the official De Kamp e.o. subgebied. Established, active salon (033 4722808). Edge: no. 17 is mid-singel, between the Kamp-end cluster and the residential stretch; borderline whether locals count it as De Kamp. Include only under the full official subgebied."
+    },
+    {
+      "name": "O Sole Mio",
+      "address": "Zuidsingel 57",
+      "postalCode": "3811 HD",
+      "category": "Italian restaurant / pizzeria",
+      "website": "https://osolemio-amersfoort.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On Zuidsingel 57, the Kamp-end singel that is part of De Kamp e.o.; contiguous with the listed Zuidsingel cluster (63-68) and La Base (66). Amersfoort's first Italian restaurant (since 1974), active. Edge because it is at the southern edge of the Kamp-end of the singel."
+    },
+    {
+      "name": "Broers Fietsreparateurs",
+      "address": "Zuidsingel 59",
+      "postalCode": "3811 HD",
+      "category": "Bicycle shop, rental & repair",
+      "website": "https://www.broersfietsreparateurs.nl/",
+      "inclusionStatus": "confirmed_edge",
+      "verificationStatus": "verified",
+      "reason": "On Zuidsingel 59, adjacent to O Sole Mio and the listed Zuidsingel cluster; on the De Kamp e.o. singel stretch and listed by VVV/tijdvooramersfoort. Active Shimano-certified bike shop/workshop/rental. Edge because it is on the lower-numbered (southern) end of the singel."
+    },
+    {
+      "name": "Alivio Dames-Heren Kapsalon & Kappersbenodigdheden",
+      "address": "Zuidsingel 63",
+      "postalCode": "3811 HD",
+      "category": "Hairdressing supplies shop + salon (by appointment)",
+      "website": "https://www.kappersbenodigdheden-alivio.nl/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "needs_update",
+      "reason": "On Zuidsingel 63, the De Kamp-end singel cluster, so it belongs geographically. BUT the existing list gives Zuidsingel 63 to 'Eigenaar8 MINI store' (OSM also tags 63 as Eigenaar8). Alivio is now 'winkel op afspraak open' (by appointment), suggesting it is scaling down. They likely occupy different units of no. 63, or one succeeded the other - verify which business currently trades at the storefront before inclusion."
+    },
+    {
+      "name": "Hengelsport De Vries",
+      "address": "Pothstraat 63",
+      "postalCode": "3811 JK",
+      "category": "Fishing-tackle & watersports specialist",
+      "website": "https://hengelsportdevries.nl/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Pothstraat 63 - Pothstraat is explicitly named in the official De Kamp e.o. subgebied. Active (Yelp updated Dec 2025; 033-4729586). Edge: it is a side street locals might also assign to the Coninckstraat-en-omgeving buurt rather than the boutique Kamp. Include under the official subgebied."
+    },
+    {
+      "name": "Office1 Amersfoort (kantoorartikelen)",
+      "address": "Flintplein 1",
+      "postalCode": "3811 WZ",
+      "category": "Office supplies / stationery & office furniture",
+      "website": "https://www.office1.nl/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Flintplein 1 - Flintplein is explicitly named in scope and is part of the official De Kamp e.o. subgebied. Active family office-supplies business (033 4755799). Candidates 30 and 51 are the same business. Edge caveat: Flintplein is a detached retail/parking square at the NW edge by theatre De Flint, not part of the atmospheric boutique-Kamp most locals picture - include with that caveat."
+    },
+    {
+      "name": "Quapp Refurbished",
+      "address": "Flintplein 1",
+      "postalCode": "3811 WZ",
+      "category": "Telecom / refurbished Apple products",
+      "website": "https://www.quapp-refurbished.nl/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Flintplein 1, sharing the building (and phone 033 4755799) with Office1. Flintplein is in the official De Kamp e.o. subgebied so it formally belongs, with the same NW-edge caveat as Office1. Active refurbished-Apple shop."
+    },
+    {
+      "name": "MB ICT",
+      "address": "Flintplein 1",
+      "postalCode": "3811 WZ",
+      "category": "Computer repair / ICT service",
+      "website": "https://mbict.eu/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Flintplein 1, sharing the address and phone (033 4755799) with Office1 & Quapp - a co-located/related operation in the Office1 building. Flintplein is formally in De Kamp e.o. Active. Same NW-edge caveat; verify it is a separately branded, customer-facing storefront rather than just a service line of Office1 before publishing."
+    },
+    {
+      "name": "Theater De Flint",
+      "address": "Coninckstraat 60",
+      "postalCode": "3811 WK",
+      "category": "Theatre / cultural venue",
+      "website": "https://flint.nl/",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Coninckstraat 60. The Ondernemers Binnenstad page explicitly states the Flintplein with theatre De Flint belongs to the De Kamp e.o. subgebied, so it formally belongs to the organisational subarea. Active regional theatre. Strong edge case: locals experience De Flint as its own NW-edge landmark, not a 'De Kamp' venue - include only if using the full official subgebied."
+    },
+    {
+      "name": "Erotica",
+      "address": "Coninckstraat 4",
+      "postalCode": "3811 WC",
+      "category": "Adult / erotica shop",
+      "website": "",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Coninckstraat 4, technically within the official De Kamp e.o. street list. Active (open Mon-Sat). Edge: Beestenmarkt-leaning end, not the independent-boutique character of the quarter; few locals would call it 'De Kamp'. Candidates 27 and 55 are the same shop. Co-located with Erotic Cinema (separate venue, same address)."
+    },
+    {
+      "name": "Erotic Cinema Amersfoort",
+      "address": "Coninckstraat 4",
+      "postalCode": "3811 WC",
+      "category": "Adult cinema",
+      "website": "",
+      "inclusionStatus": "needs_confirmation",
+      "verificationStatus": "verified",
+      "reason": "On Coninckstraat 4, co-located with the Erotica shop (entrance within the shop). Inside the official De Kamp e.o. street list but with the same Beestenmarkt-side caveat - likely out of scope in locals' minds. Include only if the directory wants the full official subgebied; otherwise treat as out of scope."
+    }
+  ],
+  "reject": [
+    {
+      "name": "De Wimperfabriek",
+      "reason": "Relocated out of De Kamp. The current/primary address is Arnhemsestraat 21, 3811 LG Amersfoort (confirmed via own site, Fresha, KvK 94837554, VVV) - outside the De Kamp boundary. The Grote Sint Jansstraat 7 address is a stale historical reference."
+    },
+    {
+      "name": "Double F Cosmetica",
+      "reason": "Physical store at Kamp 8 is CLOSED. The business shut its physical shops (2020/2021) and now operates online only as DoubleFOnline.nl with a warehouse in Barneveld. Directory lists Kamp 8 as 'Gesloten'; Kamp 8 is now De Tafelaar restaurant."
+    },
+    {
+      "name": "Pipoos",
+      "reason": "No longer on the Kamp. The chain's Amersfoort store relocated to Langestraat 125 (a SEPARATE deelgebied, explicitly excluded). The Kamp 18 reference is stale; exclude from the active Kamp roster."
+    },
+    {
+      "name": "Snufl",
+      "reason": "CLOSED. OSM edit history records 'Gesloten per 1-10-2025' (closed as of 1 Oct 2025); remaining listings are stale. The Kamp 63 storefront is currently occupied by Belhadi Modestoffen (active, own site, current hours) which is already on the existing De Kamp list. Drop as closed + address-now-occupied duplicate."
+    },
+    {
+      "name": "ReYoutiefull Store / Be-youtie-full Boutique Hotel (hotel concept)",
+      "reason": "The HOTEL part of this entry (Be-youtie-full Boutique Hotel at Kamp 19) is superseded by Saya Boutique Hotel, which is already on the existing list - Booking.com still serves Saya under the URL slug 'beyoutiefull-boutique', confirming it is the renamed successor. The active RETAIL at Kamp 19 (ReYoutiefull Store / Arthur & Willemijn) is kept as separate entries. Reject this combined hotel duplicate."
+    },
+    {
+      "name": "Babai & Fardin (Achter de Kamp 108)",
+      "reason": "Duplicate of the already-listed 'Babai - Kamp 49'. Babai's own site gives the showroom/store address as Kamp 49, 3811 AN, with Achter de Kamp 108 being the (free) PARKING location, not a separate storefront. Same owners, same business, same quarter - not a distinct new business."
+    },
+    {
+      "name": "Kapsalon Sepideh sibling / Kapsalon Sûra (Achter de Kamp 30)",
+      "reason": "Explicitly a DISREGARD placeholder in the brief (candidate 24). Kapsalon Sûra at Achter de Kamp 30 is ALREADY on the existing list (as 'Kapsalon Sura Amersfoort - Achter de Kamp 30'); no second distinct salon exists at this number. Not a new business. (Kapsalon Sepideh at Kamp 26 is a separate, kept entry.)"
+    },
+    {
+      "name": "Bakkerij Boersma",
+      "reason": "BELONGS geographically (Zuidsingel 60, within De Kamp e.o.) but is permanently CLOSED. The Nederlands Dagblad column ('De bakker stopt noodgedwongen') and the bakery's own Facebook confirm 4th-generation baker Sjouke Boersma had to stop in 2023 after a gluten intolerance, ending the 100+ year city bakery. The website remains online with stale hours but the bakery is no longer trading. Do not re-add as active."
+    },
+    {
+      "name": "Skanna Horeca Uitzendbureau (Zuidsingel 61)",
+      "reason": "Geographically inside the De Kamp e.o. singel stretch (Zuidsingel 61, 3811 HD - confirmed as Skanna Horeca Uitzendbureau, a nationwide hospitality staffing agency with offices in Amsterdam/Amersfoort/The Hague). But it is a back-office staffing service, not a retail/horeca/maker storefront - not the kind of customer-facing business the De Kamp directory represents. Exclude as out-of-character for the quarter."
+    }
+  ],
+  "notes": "Scope: I verified each candidate for (a) real & currently open, (b) address inside the De Kamp / Kampkwartier boundary (Kamp, Achter de Kamp, Grote/Kleine Sint Jansstraat, Coninckstraat, Kreupelstraat, Oliesteeg, Pothstraat, Flintplein, the Kamperbinnenpoort gate, and the Kamp-end stretches of Zuidsingel/Weverssingel), and (c) website.\\n\\nDEDUPLICATION of the 59 raw candidates: PIEN appears 4x (#7, #23, #37, #58) -> one business. Step Events 3x (#11, #25, #49) -> one. Theefeestje 2x (#2, #16) -> one. Big Bazar 2x (#18, #32) -> one. Wibra 2x (#22, #35) -> one. Office1 2x (#30, #51) -> one. Erotica 2x (#27, #55) -> one (plus the co-located Erotic Cinema as a separate venue). Kamp 19 cluster (#15, #20, #21): ReYoutiefull Store and Arthur & Willemijn Stores are kept as two current retail entries; the Be-youtie-full HOTEL is rejected as superseded by the already-listed Saya. Net unique businesses assessed: ~41 keeps + 9 distinct rejects.\\n\\nKEY STATUS FINDINGS: De Wimperfabriek relocated to Arnhemsestraat (out of area). Double F Cosmetica physical store closed (online-only). Pipoos relocated to Langestraat (excluded deelgebied). Snufl closed 1-10-2025; Kamp 63 now Belhadi Modestoffen (already listed). Babai 'Achter de Kamp 108' is just Babai's parking - duplicate of listed Babai Kamp 49. Bakkerij Boersma permanently closed (2023, gluten intolerance) - candidate 58's closure claim confirmed. Kapsalon Sura is an existing-list duplicate.\\n\\nCORRECTIONS: Atelier MiMosa is a HAIR SALON (Jill Oostveen & Enis Turgut), not a generic creative atelier/shop as described. Kaldi's 'recent reopening under new owner (Fred Homan)' actually dates to 2017, not recent - the shop is currently active. Wolwinkel Elitt's website should be wolwinkelelitt.nl (the candidate-provided field was a placeholder; I filled keep[].website with the closest verified link where the official domain TLS/availability was unconfirmed).\\n\\nUNRESOLVED - NEEDS ON-SITE CONFIRMATION: (1) PIEN kunst en antiek - candidate 58 claims permanent closure (owners retired, domain redirect to a Belgian buyer) but I could not confirm it; Yelp shows 'Updated October 2025' and listings remain active while the website resolves with a TLS cert error. Marked needs_confirmation/needs_update - confirm by phone (033 4728971) before treating as active or removing. (2) Alivio vs Eigenaar8 at Zuidsingel 63 - address clash with an existing listing; verify which currently trades at the storefront. (3) MB ICT at Flintplein 1 - confirm it is a separately branded customer-facing storefront vs a service line of Office1.\\n\\nEDGE-CASE POLICY: I marked clear Kamp / Sint Jansstraat / Coninckstraat / Oliesteeg / Pothstraat / Kamperbinnenpoort-gate addresses as confirmed_core or confirmed_edge (the gate and singel addresses are 'edge' but in scope per the brief). I marked the further-out official-subgebied addresses (Galerie Kunstbroeders at Weverssingel 22, Weber at Weverssingel 17, Hengelsport De Vries on Pothstraat, the three Flintplein businesses, Theater De Flint, and the Coninckstraat-4 erotica venues) as needs_confirmation because, although they fall inside the OFFICIAL 'De Kamp e.o.' subgebied, they sit at the NW/Beestenmarkt edges that most locals would not picture as the boutique Kamp. Include these only if the directory adopts the full official subgebied rather than the locals' core-Kamp definition."
+}
