@@ -3,64 +3,65 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, UserPlus } from "lucide-react";
+import { businesses } from "@/data/businesses";
 
 const OwnerSubmitCta = () => {
+  const collage = businesses
+    .filter((b) => b.status !== "closed" && b.imageUrl && b.imageFit !== "contain")
+    .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || a.sortOrder - b.sortOrder)
+    .slice(0, 4);
+
   return (
-    <section className="bg-white py-24 sm:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+    <section className="overflow-hidden bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative bg-deep-green rounded-[3rem] p-12 md:p-20 shadow-2xl overflow-hidden"
+          className="relative overflow-hidden rounded-[var(--radius-xl)] bg-deep-green p-12 shadow-2xl md:p-20"
         >
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber/10 text-amber text-xs font-black uppercase tracking-widest mb-8 border border-amber/20">
-                <UserPlus className="w-4 h-4" />
-                Community
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-amber/20 bg-amber/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-gold">
+                <UserPlus className="h-4 w-4" /> Voor ondernemers
               </div>
-              <h2 className="text-4xl md:text-6xl font-serif font-black text-white leading-[0.9] mb-8">
+              <h2 className="mb-8 font-serif text-4xl font-black leading-[0.95] text-white md:text-6xl">
                 Zie jij jouw zaak al staan?
               </h2>
-              <p className="text-stone/60 text-xl font-medium leading-relaxed mb-12 max-w-md">
-                We bouwen aan de meest complete gids van De Kamp. Jouw verhaal, logo en gezicht maken het portret van de straat compleet.
+              <p className="mb-12 max-w-md text-xl font-medium leading-relaxed text-stone/70">
+                We bouwen aan de meest complete gids van De Kamp. Jouw verhaal, foto&apos;s en openingstijden maken het
+                portret van de straat compleet — gratis.
               </p>
               <Link
                 href="/aanmelden"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-amber text-charcoal font-black uppercase tracking-widest text-xs rounded-full hover:bg-stone hover:text-deep-green transition-all shadow-xl hover:scale-105 active:scale-95"
+                className="group inline-flex items-center gap-3 rounded-full bg-amber px-8 py-4 text-xs font-black uppercase tracking-widest text-charcoal shadow-xl transition hover:bg-gold active:scale-95"
               >
                 Mijn zaak aanmelden
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
-            
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                {[...Array(4)].map((_, i) => (
-                  <motion.div 
-                    key={i}
-                    animate={{ 
-                      y: [0, -10, 0],
-                    }}
-                    transition={{ 
-                      duration: 4, 
-                      repeat: Infinity, 
-                      delay: i * 0.5,
-                      ease: "easeInOut" 
-                    }}
-                    className="aspect-square rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-4xl"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-amber/20" />
-                  </motion.div>
-                ))}
-              </div>
+
+            {/* Real photo collage */}
+            <div className="grid grid-cols-2 gap-4">
+              {collage.map((b, i) => (
+                <motion.div
+                  key={b.id}
+                  animate={{ y: [0, i % 2 ? 10 : -10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, delay: i * 0.4, ease: "easeInOut" }}
+                  className={`relative aspect-[4/5] overflow-hidden rounded-3xl ring-1 ring-white/10 ${i % 2 ? "translate-y-6" : ""}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={b.imageUrl} alt={b.name} referrerPolicy="no-referrer" loading="lazy" className="h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <span className="absolute bottom-2 left-3 font-serif text-sm font-black text-white">{b.name}</span>
+                </motion.div>
+              ))}
             </div>
           </div>
-          
-          {/* Background Text */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[30vw] font-serif font-black text-white/[0.02] select-none pointer-events-none whitespace-nowrap">
+
+          {/* Background wordmark */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap font-serif text-[30vw] font-black text-white/[0.02]">
             KAMP
           </div>
         </motion.div>

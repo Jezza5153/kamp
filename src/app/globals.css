@@ -143,6 +143,16 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* MapLibre popup — match the editorial look */
+.maplibregl-popup-content {
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 18px 44px -16px rgba(22, 58, 41, 0.5);
+  border: 1px solid var(--stone);
+}
+.maplibregl-popup-tip { display: none; }
+.maplibregl-ctrl-attrib { font-size: 10px; border-radius: 8px 0 0 0; }
+
 /* Reveal-on-scroll without layout shift */
 @keyframes fade-rise {
   from { opacity: 0; transform: translateY(16px); }
