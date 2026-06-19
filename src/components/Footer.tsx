@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Send, MapPin, Camera } from "lucide-react";
+import { Send, MapPin } from "lucide-react";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
 const Footer = () => {
@@ -16,10 +16,7 @@ const Footer = () => {
               Een levend straatportret van de meest karakteristieke ondernemersas in Amersfoort.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-12 h-12 rounded-full border border-stone/20 flex items-center justify-center hover:bg-amber hover:border-amber hover:text-white transition-all group">
-                <Camera className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a href="mailto:info@ondernemersvandekamp.nl" className="w-12 h-12 rounded-full border border-stone/20 flex items-center justify-center hover:bg-amber hover:border-amber hover:text-white transition-all group">
+              <a href="mailto:info@ondernemersvandekamp.nl" aria-label="Mail ons" className="w-12 h-12 rounded-full border border-stone/20 flex items-center justify-center hover:bg-amber hover:border-amber hover:text-white transition-all group">
                 <Send className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
