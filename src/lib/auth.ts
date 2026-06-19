@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getDB } from "@/lib/cf";
+import { rateLimit } from "@/lib/rateLimit";
 import { getAdminEmails, getConfiguredSiteUrl, getResendConfig } from "@/lib/settings";
 
 /**
@@ -47,6 +48,12 @@ export async function requestMagicLink(email: string): Promise<{ ok: boolean }> 
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(clean)) return { ok: false };
   const db = await getDB();
   if (!db) return { ok: true };
+
+  // Throttle magic-link requests per email (max 5 / 15 min) as defence in depth
+  // alongside Turnstile + the WAF. Over the limit we still report success and
+  // simply send nothing — never reveal the limit or whether the address exists.
+  const rl = await rateLimit(db, `login:email:${clean}`, 5, TOKEN_TTL_MS);
+  if (!rl.allowed) return { ok: true };
 
   const token = randomToken();
   const now = Date.now();

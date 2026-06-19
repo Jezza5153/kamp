@@ -81,3 +81,31 @@ you can lengthen/remove the `revalidate` windows.
   in Phase 1). No business data is lost if the DB is empty.
 - EU/GDPR: create the D1 + R2 resources in an EU jurisdiction and set the Worker
   placement/region accordingly.
+
+## Backend Step 1 — already wired in code
+
+These pieces of the Backend Master Plan's Step 1 are now in the repo (no Cloudflare
+account needed to build/test them):
+
+- **`migrations/0003_launch.sql`** — `rate_limit` table. Apply it with the others
+  (`npm run db:migrate` / `:local`).
+- **Rate limiting** — magic-link requests are throttled per email (5 / 15 min) in
+  `src/lib/rateLimit.ts`, wired into `requestMagicLink`. Fails open if D1 is absent.
+- **Instant invalidation** — `open-next.config.ts` now wires `d1NextTagCache` and
+  `wrangler.jsonc` has the `NEXT_TAG_CACHE_D1` binding. **Paste the real D1 id into
+  BOTH bindings.** `opennextjs-cloudflare deploy` populates the tag table; then the
+  existing `revalidatePath`/`revalidateTag` calls take effect.
+- **Deploy preflight** — `npm run deploy:cf` runs `scripts/preflight.mjs` first and
+  aborts if a `REPLACE_WITH_` placeholder or a required binding is missing.
+- **Tests + CI** — `npm test` (Vitest) covers the rate limiter, the maintenance
+  prune, and an **owner-isolation security regression**. `.github/workflows/ci.yml`
+  runs test + build on every PR (lint is non-blocking until pre-existing Next 16
+  lint debt is cleared).
+
+**Still TODO at deploy time (couldn't be verified without a `*:cf` build):**
+
+- **Cron / `scheduled()`** — the prune logic exists in `src/lib/maintenance.ts`
+  (`runMaintenance`), but the OpenNext worker needs a custom `src/worker.ts`
+  wrapper that re-exports the generated `.open-next/worker.js` `fetch` and adds a
+  `scheduled()` handler, plus `triggers.crons` in `wrangler.jsonc`. Wire this and
+  verify the generated worker's export shape on your first `npm run preview:cf`.
