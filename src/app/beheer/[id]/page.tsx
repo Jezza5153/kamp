@@ -4,7 +4,8 @@ import { canEdit, requireUser } from "@/lib/auth";
 import { allBusinessesSeed } from "@/lib/businessData";
 import { EDITABLE_FIELDS, FIELD_LABELS, pendingFieldsFor } from "@/lib/overrides";
 import { currentMediaFor } from "@/lib/media";
-import { submitEdit, uploadPhoto } from "../actions";
+import { submitEdit, uploadPhoto, submitEventAction } from "../actions";
+import { EVENT_CATEGORIES } from "@/lib/events";
 import PhotoUpload from "./PhotoUpload";
 
 const PHOTO_MSG: Record<string, string> = {
@@ -27,10 +28,10 @@ export default async function EditBusinessPage({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ saved?: string; photo?: string }>;
+  searchParams: Promise<{ saved?: string; photo?: string; event?: string }>;
 }) {
   const { id } = await params;
-  const { saved, photo } = await searchParams;
+  const { saved, photo, event } = await searchParams;
   const user = await requireUser();
   if (!(await canEdit(user, id))) redirect("/beheer");
 
@@ -47,6 +48,7 @@ export default async function EditBusinessPage({
 
   const action = submitEdit.bind(null, id);
   const photoAction = uploadPhoto.bind(null, id);
+  const eventAction = submitEventAction.bind(null, id);
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
@@ -121,6 +123,41 @@ export default async function EditBusinessPage({
           </button>
         </div>
       </form>
+
+      <section className="mt-12 border-t border-stone/20 pt-8">
+        <h2 className="text-lg font-semibold text-deep-green">Evenement aanmelden</h2>
+        <p className="mt-1 text-sm text-warm-brown">
+          Organiseer je iets? Dien het in voor de agenda — na goedkeuring verschijnt het op{" "}
+          <Link href="/agenda" className="text-amber-ink underline">
+            /agenda
+          </Link>
+          .
+        </p>
+        {event === "ingediend" ? (
+          <div className="mt-4 rounded-xl bg-sage/60 p-4 text-sm text-deep-green">Bedankt! Je evenement wacht op goedkeuring.</div>
+        ) : null}
+        {event === "fout" ? (
+          <div className="mt-4 rounded-xl bg-clay/15 p-4 text-sm text-clay">Controleer de velden (titel, wanneer, locatie, omschrijving; datum jjjj-mm-dd).</div>
+        ) : null}
+        <form action={eventAction} className="mt-4 space-y-4">
+          <input name="title" required placeholder="Titel van het evenement" className="w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green" />
+          <div className="grid gap-3 sm:grid-cols-2">
+            <select name="category" defaultValue="De Kamp" className="w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green">
+              {EVENT_CATEGORIES.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+            <input name="startDate" placeholder="Startdatum jjjj-mm-dd (optioneel)" className="w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green" />
+          </div>
+          <input name="whenText" required placeholder="Wanneer (bijv. 14 december, 12.00–18.00 uur)" className="w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green" />
+          <input name="where" required defaultValue={biz.address} placeholder="Locatie" className="w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green" />
+          <textarea name="description" required rows={3} placeholder="Korte omschrijving" className="w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green" />
+          <input name="url" type="url" placeholder="Link (optioneel, https)" className="w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green" />
+          <button type="submit" className="rounded-xl bg-deep-green px-5 py-3 font-medium text-background transition hover:opacity-90">
+            Evenement indienen
+          </button>
+        </form>
+      </section>
     </main>
   );
 }

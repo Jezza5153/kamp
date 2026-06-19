@@ -57,6 +57,9 @@ const Navbar = () => {
               <Link href="/agenda" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
                 Agenda
               </Link>
+              <Link href="/verhalen" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
+                Verhalen
+              </Link>
               <Link href="/cadeaukaart" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
                 Cadeaukaart
               </Link>
@@ -75,8 +78,11 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden">
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Menu sluiten" : "Menu openen"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
               className="p-2 text-deep-green hover:text-amber transition-colors"
             >
               {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
@@ -86,9 +92,12 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <motion.div 
+      <motion.div
+        id="mobile-menu"
         initial={false}
         animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        inert={!isOpen}
+        aria-hidden={!isOpen}
         className="md:hidden overflow-hidden bg-background border-t border-stone/10"
       >
         <div className="px-4 pt-4 pb-8 space-y-4">
@@ -112,6 +121,13 @@ const Navbar = () => {
             className="block text-2xl font-serif font-bold text-deep-green py-2"
           >
             Agenda
+          </Link>
+          <Link
+            href="/verhalen"
+            onClick={() => setIsOpen(false)}
+            className="block text-2xl font-serif font-bold text-deep-green py-2"
+          >
+            Verhalen
           </Link>
           <Link
             href="/cadeaukaart"
