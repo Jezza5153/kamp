@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getStory } from "@/lib/stories";
 import { getBusiness } from "@/lib/businessData";
 import JsonLd from "@/components/JsonLd";
+import TrackView from "@/components/TrackView";
 import { graph, breadcrumbSchema } from "@/lib/schema";
 import { SITE, abs } from "@/lib/site";
 
@@ -57,6 +58,7 @@ export default async function StoryPage({ params }: Props) {
 
   return (
     <article className="bg-background py-16 sm:py-24">
+      <TrackView type="story_view" detail={{ slug: story.slug }} />
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Link href="/verhalen" className="text-sm font-bold text-amber-ink hover:underline">
           ← Alle verhalen

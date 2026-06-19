@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { requestMagicLink } from "@/lib/auth";
+import SubmitButton from "@/components/SubmitButton";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -56,12 +57,12 @@ export default async function LoginPage({
               placeholder="jij@jouwzaak.nl"
               className="w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green"
             />
-            <button
-              type="submit"
-              className="w-full rounded-xl bg-deep-green px-4 py-3 font-medium text-background transition hover:opacity-90"
+            <SubmitButton
+              pendingLabel="Bezig…"
+              className="w-full rounded-xl bg-deep-green px-4 py-3 font-medium text-background transition hover:opacity-90 disabled:opacity-70"
             >
               Stuur inloglink
-            </button>
+            </SubmitButton>
           </form>
         )}
       </div>

@@ -87,8 +87,7 @@ const Footer = () => {
           </p>
           <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest text-stone/20">
             <Link href="/login" className="hover:text-stone transition-colors">Beheer je zaak</Link>
-            <Link href="#" className="hover:text-stone transition-colors">Privacy</Link>
-            <Link href="#" className="hover:text-stone transition-colors">Cookiestatements</Link>
+            <Link href="/privacy" className="hover:text-stone transition-colors">Privacy &amp; cookies</Link>
           </div>
         </div>
       </div>

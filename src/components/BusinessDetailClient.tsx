@@ -12,6 +12,7 @@ import HoursTable from "@/components/HoursTable";
 import DistrictMap from "@/components/DistrictMap";
 import { categorySlug } from "@/lib/categories";
 import { directionsUrl, mapsUrl, walkMinutesFromGate, coordsFor } from "@/lib/geo";
+import { track } from "@/lib/track";
 
 export interface FaqItem {
   question: string;
@@ -173,24 +174,24 @@ export default function BusinessDetailClient({ business, related, districtBusine
                 </dl>
 
                 <div className="mt-7 flex flex-col gap-3">
-                  <a href={directionsUrl(b.address, b.postalCode)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber px-6 py-3.5 text-sm font-black uppercase tracking-widest text-charcoal shadow-lg transition hover:bg-gold active:scale-95">
+                  <a href={directionsUrl(b.address, b.postalCode)} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "route" })} className="inline-flex items-center justify-center gap-2 rounded-full bg-amber px-6 py-3.5 text-sm font-black uppercase tracking-widest text-charcoal shadow-lg transition hover:bg-gold active:scale-95">
                     <Navigation className="h-4 w-4" /> Route via Google Maps
                   </a>
 
                   {(b.bookingUrl || b.orderUrl || b.menuUrl) && (
                     <div className="grid grid-cols-2 gap-2">
                       {b.bookingUrl && (
-                        <a href={b.bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
+                        <a href={b.bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "reserveren" })} className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
                           <CalendarCheck className="h-4 w-4" /> Reserveren
                         </a>
                       )}
                       {b.orderUrl && (
-                        <a href={b.orderUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
+                        <a href={b.orderUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "bestellen" })} className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
                           <ShoppingBag className="h-4 w-4" /> Bestellen
                         </a>
                       )}
                       {b.menuUrl && (
-                        <a href={b.menuUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
+                        <a href={b.menuUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "menu" })} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
                           <UtensilsCrossed className="h-4 w-4" /> Menukaart
                         </a>
                       )}
@@ -199,7 +200,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
 
                   <div className="flex gap-3">
                     {b.websiteUrl && (
-                      <a href={b.websiteUrl} target="_blank" rel="noopener noreferrer" className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
+                      <a href={b.websiteUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "website" })} className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
                         <Globe className="h-4 w-4" /> Website
                       </a>
                     )}

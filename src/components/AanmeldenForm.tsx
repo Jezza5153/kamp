@@ -1,5 +1,6 @@
 import { Send, Camera } from "lucide-react";
 import { submitLeadAction } from "@/app/aanmelden/actions";
+import SubmitButton from "@/components/SubmitButton";
 
 const field =
   "w-full rounded-2xl border border-stone/40 bg-white px-6 py-4 text-base shadow-sm outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/30";
@@ -79,9 +80,12 @@ export default function AanmeldenForm({ error }: { error?: string }) {
       </div>
 
       <div className="pt-2">
-        <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-deep-green px-12 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg transition hover:bg-amber hover:text-charcoal active:scale-[0.99] sm:w-auto">
+        <SubmitButton
+          pendingLabel="Bezig met versturen…"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-deep-green px-12 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg transition hover:bg-amber hover:text-charcoal active:scale-[0.99] disabled:opacity-70 sm:w-auto"
+        >
           <Send className="h-4 w-4" /> Meld mijn zaak aan
-        </button>
+        </SubmitButton>
       </div>
     </form>
   );

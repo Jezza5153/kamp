@@ -30,7 +30,7 @@ export default function NewsletterSignup({ variant = "light" }: { variant?: "lig
 
   if (state === "sent") {
     return (
-      <p className={`flex items-start gap-2 text-sm ${sent}`}>
+      <p role="status" aria-live="polite" className={`flex items-start gap-2 text-sm ${sent}`}>
         <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-amber" />
         Check je mailbox en bevestig je inschrijving via de link.
       </p>
@@ -61,7 +61,7 @@ export default function NewsletterSignup({ variant = "light" }: { variant?: "lig
           <Send className="h-4 w-4" />
         </button>
       </div>
-      {state === "error" && <p className="text-xs text-clay">Er ging iets mis — probeer het opnieuw.</p>}
+      {state === "error" && <p role="alert" className="text-xs text-clay">Er ging iets mis — probeer het opnieuw.</p>}
       <p className={`text-xs ${muted}`}>Dubbele opt-in. Je kunt je altijd weer uitschrijven.</p>
     </form>
   );
