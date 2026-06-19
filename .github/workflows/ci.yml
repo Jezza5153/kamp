@@ -12,9 +12,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
-      - run: npm ci
+      # npm install (not ci): the lock can't be platform-complete from a macOS dev
+      # machine — Linux pulls optional @emnapi/* deps that don't resolve on darwin.
+      - run: npm install --no-audit --no-fund
       # Hard gates — must pass.
       - run: npm test
       - run: npm run build
