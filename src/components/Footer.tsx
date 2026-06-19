@@ -33,6 +33,7 @@ const Footer = () => {
                 { href: "/#ondernemers", label: "Ondernemers" },
                 { href: "/kaart", label: "Kaart" },
                 { href: "/agenda", label: "Agenda" },
+                { href: "/verhalen", label: "Verhalen" },
                 { href: "/cadeaukaart", label: "Cadeaukaart" },
                 { href: "/loop-de-kamp", label: "Wandel de Kamp" },
                 { href: "/praktisch", label: "Praktische info" },

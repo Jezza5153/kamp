@@ -34,6 +34,8 @@ export async function purgeBusiness(
   await db.prepare("DELETE FROM business_google WHERE business_id = ?").bind(businessId).run();
   await db.prepare("DELETE FROM review_requests WHERE business_id = ?").bind(businessId).run();
   await db.prepare("DELETE FROM events WHERE business_id = ?").bind(businessId).run();
+  // Unlink the business from any stories (the story itself stays — it's editorial content).
+  await db.prepare("DELETE FROM story_business WHERE business_id = ?").bind(businessId).run();
 
   revalidatePath("/");
   revalidatePath("/kaart");

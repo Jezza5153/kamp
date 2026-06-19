@@ -11,6 +11,7 @@ import { inviteOwner } from "@/lib/invites";
 import { setLeadStatus } from "@/lib/leads";
 import { setPlaceId } from "@/lib/reviews";
 import { createEvent, moderateEvent, deleteEvent, type EventInput } from "@/lib/events";
+import { createStory, setStoryStatus, deleteStory, type StoryInput } from "@/lib/stories";
 
 export async function approve(id: string) {
   const admin = await requireAdmin();
@@ -116,6 +117,44 @@ export async function deleteEventAction(formData: FormData) {
   await deleteEvent(String(formData.get("eventId") ?? ""), admin.id);
   revalidatePath("/agenda");
   revalidatePath("/admin/agenda");
+}
+
+/** Create an editorial story (draft, or published if the box is ticked). */
+export async function createStoryAction(formData: FormData) {
+  const admin = await requireAdmin();
+  const input: StoryInput = {
+    slug: String(formData.get("slug") ?? ""),
+    title: String(formData.get("title") ?? ""),
+    dek: String(formData.get("dek") ?? ""),
+    body: String(formData.get("body") ?? ""),
+    heroUrl: String(formData.get("heroUrl") ?? ""),
+    author: String(formData.get("author") ?? ""),
+    businessIds: String(formData.get("businessIds") ?? "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean),
+  };
+  const status = formData.get("publish") ? "published" : "draft";
+  const res = await createStory(input, status, admin.id);
+  revalidatePath("/verhalen");
+  redirect(`/admin/verhalen?${res.ok ? "added=1" : "error=1"}`);
+}
+
+export async function setStoryStatusAction(formData: FormData) {
+  const admin = await requireAdmin();
+  const raw = String(formData.get("status") ?? "draft");
+  const status: "published" | "draft" | "archived" =
+    raw === "published" ? "published" : raw === "archived" ? "archived" : "draft";
+  await setStoryStatus(String(formData.get("storyId") ?? ""), status, admin.id);
+  revalidatePath("/verhalen");
+  revalidatePath("/admin/verhalen");
+}
+
+export async function deleteStoryAction(formData: FormData) {
+  const admin = await requireAdmin();
+  await deleteStory(String(formData.get("storyId") ?? ""), admin.id);
+  revalidatePath("/verhalen");
+  revalidatePath("/admin/verhalen");
 }
 
 export async function saveSettingsAction(formData: FormData) {

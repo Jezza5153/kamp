@@ -203,7 +203,15 @@ Self-hosted on Resend + D1 (no ESP vendor), GDPR double-opt-in:
 - GDPR: `purgeProfile` deletes subscribers by email; maintenance prunes unconfirmed >30d. Email sends fail-soft until Resend is configured.
 - **Deferred:** campaign/digest SENDING (issues + per-recipient delivery ledger + batching) — collect-only for now.
 
-Next backend step: Step 6 owner-story (`0008` next number).
+## Build progress — Step 6 owner-story / verhalen (done 2026-06-19, green: 46 tests)
+D1-backed editorial, admin-authored, plain-text paragraphs (XSS-safe, no markdown lib):
+- `migrations/0008_stories.sql` — `stories` + `story_business` (FK cascade).
+- `src/lib/stories.ts` — `createStory`/`setStoryStatus`/`deleteStory`/`getPublishedStories`/`getStory`/`listStories`, pure `slugify` + `validateStory` (rejects non-http(s)/non-path hero = no javascript: XSS).
+- `/verhalen` (ISR index), `/verhalen/[slug]` (Article JSON-LD + linked businesses), `/admin/verhalen` (create/publish/depublish/delete). Footer + admin nav updated.
+- `purgeBusiness` unlinks `story_business`. Build-guarded getters.
+- **Deferred:** owner photo-upload for story heroes (uses a URL field for now), rich text.
+
+Next backend steps: Step 7 cadeaukaart ledger (`0009`, Mollie stubbed — legally blocked), then 8 i18n, 9 discovery, 10 analytics, then cron worker + FULL AUDIT + flowcharts.
 
 NOTE: pre-existing Next-16 lint errors were fixed (new `src/lib/useNow.ts` hook + 4 components); CI now hard-gates lint.
 
