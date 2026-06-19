@@ -170,9 +170,17 @@ ToS-compliant slice (place_id only, never review text; OAuth/display deferred un
 - `confirmLead` made idempotent (email link-scanners); `setLeadStatus` won't clobber `converted`; `inviteOwner` verifies the business exists; `moderation_log.detail` stores the invite token, not the email (minimisation); maintenance prunes stale unconfirmed leads + expired invites; `confirm_token` indexed.
 - Skipped #8 (duplicate audit row under near-unreachable concurrent double-claim).
 
-**Deferred Step 3 (needs GBP API approval — apply ASAP):** OAuth connect/callback + encrypted token storage,
-live review display with attribution, aggregate-sync cron. **GBP API access is a multi-week external blocker.**
-Next backend step per §9: Step 4 events (`0006`).
+## Review DISPLAY via Places API (no approval needed — added 2026-06-19)
+Key insight: review **display** uses the **Places API** (just a Maps API key, instant) — only owner **replies**
+need the GBP API (OAuth + multi-week approval). So display was pulled forward:
+- `src/lib/places.ts` — Places API (New) `GET /v1/places/{id}` (X-Goog-FieldMask), `parsePlaceDetails` (≤5 reviews, tested).
+- `src/app/api/reviews/[businessId]/route.ts` — `force-dynamic` + `private, no-store` (ToS: never cache review content).
+- `src/components/GoogleReviews.tsx` — client-fetched (keeps reviews out of ISR cache), attribution + Maps link, **no AggregateRating schema** (self-serving). Wired into `/ondernemers/[id]`.
+- Key via `GOOGLE_MAPS_API_KEY` (env) or `google_maps_api_key` setting (`getGoogleMapsKey`). Set a place_id per business via `setPlaceIdAction` first.
+- **Refinements:** swap the text attribution for the official Google logo asset (strict ToS); restrict the Maps key to Places API; consider cost (1 API call per detail-page view that has a place_id).
+
+**Still needs GBP API approval (apply ASAP — multi-week):** owner review REPLIES + reading ALL reviews from
+`/beheer` (OAuth connect/callback + encrypted token storage). Next backend step per §9: Step 4 events (`0006`).
 
 NOTE: pre-existing Next-16 lint errors were fixed (new `src/lib/useNow.ts` hook + 4 components); CI now hard-gates lint.
 

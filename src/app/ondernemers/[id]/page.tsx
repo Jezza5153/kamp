@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getActiveBusinesses, getBusiness } from "@/lib/businessData";
 import BusinessDetailClient from "@/components/BusinessDetailClient";
+import GoogleReviews from "@/components/GoogleReviews";
 import JsonLd from "@/components/JsonLd";
 import { graph, localBusinessSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { relatedBusinesses, buildFaqs } from "@/lib/related";
@@ -71,6 +72,8 @@ export default async function BusinessDetailPage({ params }: Props) {
     <>
       <JsonLd data={jsonLd} />
       <BusinessDetailClient business={business} related={related} districtBusinesses={active} faqs={faqs} />
+      {/* Live Google reviews — client-fetched (never cached), shows nothing if no place_id set. */}
+      <GoogleReviews businessId={business.id} />
     </>
   );
 }

@@ -9,3 +9,7 @@ RESEND_API_KEY=""
 
 # Comma-separated emails that become admins on first login
 ADMIN_EMAILS="info@ondernemersvandekamp.nl"
+
+# Google Maps Platform key (with Places API enabled) for live review display.
+# Optional — without it the reviews block just renders nothing.
+GOOGLE_MAPS_API_KEY=""
