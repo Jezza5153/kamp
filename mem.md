@@ -183,7 +183,18 @@ need the GBP API (OAuth + multi-week approval). So display was pulled forward:
 - **Refinements:** swap the text attribution for the official Google logo asset (strict ToS); restrict the Maps key to Places API; cost = 1 API call per detail-page view that has a place_id.
 
 **Still needs GBP API approval (apply ASAP — multi-week):** owner review REPLIES + reading ALL reviews from
-`/beheer` (OAuth connect/callback + encrypted token storage). Next backend step per §9: Step 4 events (`0006`).
+`/beheer` (OAuth connect/callback + encrypted token storage).
+
+## Build progress — Step 4 events / agenda (done 2026-06-19, green: 33 tests, build+lint)
+D1 events that merge with the curated seed (`src/data/events.ts`), same `KampEvent` shape + Event JSON-LD:
+- `migrations/0006_events.sql` — `events` table (status pending|approved|rejected, optional business_id).
+- `src/lib/events.ts` — `getAgendaEvents` (seed + approved D1, seed wins on id), `createEvent`/`moderateEvent`/`deleteEvent`/`listEvents`, build-guarded `getApprovedEvents`, pure `validateEvent` (rejects non-http(s) URLs = no javascript: XSS, impossible/`end<start` dates, bad category).
+- `/agenda` now async + `revalidate=300` (prerenders from seed, merges D1 via ISR). `/admin/agenda` = add events + approve/reject/delete (all `requireAdmin`). Linked from `/admin/instellingen`.
+- `gdpr.ts` `purgeBusiness` also deletes business-linked events.
+- Adversarial review (1 agent, 7 areas): no security/authz defects; only fix taken was the date-validity hardening.
+- **Deferred:** owner self-submission of events from `/beheer` (backend supports `pending` status already); recurring-event RRULE expansion.
+
+Next backend step per §9: Step 5 newsletter (`0008`) or Step 6 owner-story (`0007`).
 
 NOTE: pre-existing Next-16 lint errors were fixed (new `src/lib/useNow.ts` hook + 4 components); CI now hard-gates lint.
 

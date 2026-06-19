@@ -33,6 +33,7 @@ export async function purgeBusiness(
   await db.prepare("DELETE FROM owner_invites WHERE business_id = ?").bind(businessId).run();
   await db.prepare("DELETE FROM business_google WHERE business_id = ?").bind(businessId).run();
   await db.prepare("DELETE FROM review_requests WHERE business_id = ?").bind(businessId).run();
+  await db.prepare("DELETE FROM events WHERE business_id = ?").bind(businessId).run();
 
   revalidatePath("/");
   revalidatePath("/kaart");

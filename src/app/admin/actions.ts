@@ -10,6 +10,7 @@ import { saveSettings } from "@/lib/settings";
 import { inviteOwner } from "@/lib/invites";
 import { setLeadStatus } from "@/lib/leads";
 import { setPlaceId } from "@/lib/reviews";
+import { createEvent, moderateEvent, deleteEvent, type EventInput } from "@/lib/events";
 
 export async function approve(id: string) {
   const admin = await requireAdmin();
@@ -75,6 +76,46 @@ export async function rejectLeadAction(formData: FormData) {
   const admin = await requireAdmin();
   await setLeadStatus(String(formData.get("leadId") ?? ""), "rejected", admin.id);
   revalidatePath("/admin");
+}
+
+/** Admin adds an event straight to the agenda (created already-approved). */
+export async function addEventAction(formData: FormData) {
+  const admin = await requireAdmin();
+  const input: EventInput = {
+    title: String(formData.get("title") ?? ""),
+    category: String(formData.get("category") ?? ""),
+    recurring: String(formData.get("recurring") ?? ""),
+    whenText: String(formData.get("whenText") ?? ""),
+    startDate: String(formData.get("startDate") ?? ""),
+    endDate: String(formData.get("endDate") ?? ""),
+    where: String(formData.get("where") ?? ""),
+    description: String(formData.get("description") ?? ""),
+    url: String(formData.get("url") ?? ""),
+  };
+  const res = await createEvent(input, "approved", admin.id);
+  revalidatePath("/agenda");
+  redirect(`/admin/agenda?${res.ok ? "added=1" : "error=1"}`);
+}
+
+export async function approveEventAction(formData: FormData) {
+  const admin = await requireAdmin();
+  await moderateEvent(String(formData.get("eventId") ?? ""), "approved", admin.id);
+  revalidatePath("/agenda");
+  revalidatePath("/admin/agenda");
+}
+
+export async function rejectEventAction(formData: FormData) {
+  const admin = await requireAdmin();
+  await moderateEvent(String(formData.get("eventId") ?? ""), "rejected", admin.id);
+  revalidatePath("/agenda");
+  revalidatePath("/admin/agenda");
+}
+
+export async function deleteEventAction(formData: FormData) {
+  const admin = await requireAdmin();
+  await deleteEvent(String(formData.get("eventId") ?? ""), admin.id);
+  revalidatePath("/agenda");
+  revalidatePath("/admin/agenda");
 }
 
 export async function saveSettingsAction(formData: FormData) {
