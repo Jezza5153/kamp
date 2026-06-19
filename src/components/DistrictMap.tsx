@@ -23,10 +23,13 @@ const C = {
   halo: "#f6f0e2",
 };
 
+/** Minimal shape we read off each vector style layer during the retint. */
+type StyleLayer = { id: string; type: string; "source-layer"?: string };
+
 /** Retint any OpenMapTiles-schema vector style to the brand palette. */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function retint(map: any) {
-  let layers: any[] = [];
+  let layers: StyleLayer[] = [];
   try {
     layers = map.getStyle().layers || [];
   } catch {
@@ -71,6 +74,11 @@ interface DistrictMapProps {
 export default function DistrictMap({ businesses, highlightIds, className = "", height = "min(68vh, 560px)" }: DistrictMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const markersRef = useRef<{ id: string; el: HTMLElement }[]>([]);
+  // Dim non-matching markers. The closure is created inside the build effect
+  // (which owns markersRef) so the highlight effect only has to invoke it —
+  // mutating markersRef directly from a second effect is what React's
+  // immutability rule forbids.
+  const applyHighlightRef = useRef<(ids?: Set<string>) => void>(() => {});
   const router = useRouter();
 
   useEffect(() => {
@@ -163,7 +171,10 @@ export default function DistrictMap({ businesses, highlightIds, className = "", 
         markersRef.current.push({ id: b.id, el });
       }
       if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: 64, maxZoom: 17, duration: 0 });
-      for (const m of markersRef.current) m.el.style.opacity = !highlightIds || highlightIds.has(m.id) ? "1" : "0.2";
+      applyHighlightRef.current = (ids) => {
+        for (const m of markersRef.current) m.el.style.opacity = !ids || ids.has(m.id) ? "1" : "0.2";
+      };
+      applyHighlightRef.current(highlightIds);
     })();
 
     return () => {
@@ -174,7 +185,7 @@ export default function DistrictMap({ businesses, highlightIds, className = "", 
   }, [businesses, router]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    for (const m of markersRef.current) m.el.style.opacity = !highlightIds || highlightIds.has(m.id) ? "1" : "0.2";
+    applyHighlightRef.current(highlightIds);
   }, [highlightIds]);
 
   return (

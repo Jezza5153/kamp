@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { Clock } from "lucide-react";
 import type { DayHours } from "@/data/businesses";
-import { getOpenState, nowInAmsterdam, openLabel, type OpenState } from "@/lib/hours";
+import { getOpenState, openLabel, type OpenState } from "@/lib/hours";
+import { useNow } from "@/lib/useNow";
 
 interface OpenBadgeProps {
   hours?: DayHours[];
@@ -27,13 +28,8 @@ const TONE: Record<OpenState["status"], string> = {
  * avoid hydration mismatch; renders nothing until then unless showUnknown.
  */
 export default function OpenBadge({ hours, variant = "pill", showUnknown = false, className = "" }: OpenBadgeProps) {
-  const [state, setState] = useState<OpenState | null>(null);
-
-  useEffect(() => {
-    setState(getOpenState(hours, nowInAmsterdam()));
-    const t = setInterval(() => setState(getOpenState(hours, nowInAmsterdam())), 60_000);
-    return () => clearInterval(t);
-  }, [hours]);
+  const now = useNow();
+  const state: OpenState | null = useMemo(() => (now ? getOpenState(hours, now) : null), [hours, now]);
 
   if (!state) {
     // SSR / pre-mount: reserve nothing (avoids layout shift) unless unknown chip wanted

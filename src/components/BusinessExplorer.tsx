@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, FilterX, Map as MapIcon, LayoutGrid, Clock } from "lucide-react";
 import type { Business } from "@/data/businesses";
 import { CATEGORIES } from "@/lib/categories";
-import { getOpenState, nowInAmsterdam, type NowAmsterdam } from "@/lib/hours";
+import { getOpenState } from "@/lib/hours";
+import { useNow } from "@/lib/useNow";
 import BusinessCard from "./BusinessCard";
 import DistrictMap from "./DistrictMap";
 
@@ -15,7 +16,7 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
   const [openNow, setOpenNow] = useState(false);
   const [useCase, setUseCase] = useState<string | null>(null);
   const [showMap, setShowMap] = useState(true);
-  const [now, setNow] = useState<NowAmsterdam | null>(null);
+  const now = useNow();
 
   // Most common "perfect voor" tags present in the data (for the quick filter).
   const useCases = useMemo(() => {
@@ -26,12 +27,6 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
       .slice(0, 8)
       .map(([k]) => k);
   }, [businesses]);
-
-  useEffect(() => {
-    setNow(nowInAmsterdam());
-    const t = setInterval(() => setNow(nowInAmsterdam()), 60_000);
-    return () => clearInterval(t);
-  }, []);
 
   const active = useMemo(() => businesses.filter((b) => b.status !== "closed"), [businesses]);
 
