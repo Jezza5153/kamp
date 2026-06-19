@@ -28,6 +28,11 @@ export async function purgeBusiness(
   await db.prepare("DELETE FROM business_media WHERE business_id = ?").bind(businessId).run();
   await db.prepare("DELETE FROM business_overrides WHERE business_id = ?").bind(businessId).run();
   await db.prepare("DELETE FROM owner_business WHERE business_id = ?").bind(businessId).run();
+  // Step 2/3 business-scoped tables (leads carry PII; the rest are business data).
+  await db.prepare("DELETE FROM leads WHERE business_id = ?").bind(businessId).run();
+  await db.prepare("DELETE FROM owner_invites WHERE business_id = ?").bind(businessId).run();
+  await db.prepare("DELETE FROM business_google WHERE business_id = ?").bind(businessId).run();
+  await db.prepare("DELETE FROM review_requests WHERE business_id = ?").bind(businessId).run();
 
   revalidatePath("/");
   revalidatePath("/kaart");
@@ -45,6 +50,13 @@ export async function purgeProfile(
   const photos = await getPhotos();
   if (!db) return { ok: false, photos: 0, businesses: [] };
 
+  // Look up the email BEFORE deleting the profile — leads/owner_invites key PII
+  // on the lowercased email, not profile_id, so they can't FK-cascade.
+  const prof = await db
+    .prepare("SELECT email FROM profiles WHERE id = ?")
+    .bind(profileId)
+    .first<{ email: string }>();
+
   const media = await db
     .prepare("SELECT r2_key, business_id FROM business_media WHERE submitted_by = ?")
     .bind(profileId)
@@ -54,6 +66,12 @@ export async function purgeProfile(
 
   // profiles cascade to sessions + owner_business (FK ON DELETE CASCADE)
   await db.prepare("DELETE FROM profiles WHERE id = ?").bind(profileId).run();
+  // Erase the person's email-keyed PII that has no FK to profiles (Art. 17).
+  if (prof?.email) {
+    const email = prof.email.trim().toLowerCase();
+    await db.prepare("DELETE FROM leads WHERE email = ?").bind(email).run();
+    await db.prepare("DELETE FROM owner_invites WHERE email = ?").bind(email).run();
+  }
 
   const businesses = [...new Set(media.results.map((r) => r.business_id))];
   for (const id of businesses) revalidatePath(`/ondernemers/${id}`);

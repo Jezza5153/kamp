@@ -1,4 +1,5 @@
 import { getDB, type D1Database } from "@/lib/cf";
+import { getBusiness } from "@/lib/businessData";
 import { moderationStmt } from "@/lib/audit";
 
 /**
@@ -26,6 +27,8 @@ export async function inviteOwner(
   if (!db) return { ok: false };
   const clean = email.trim().toLowerCase();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(clean) || !businessId) return { ok: false };
+  // Only ever mint ownership for a real business (no FK on owner_business).
+  if (!(await getBusiness(businessId))) return { ok: false };
   const token = randomToken();
   const now = Date.now();
   try {
@@ -38,7 +41,7 @@ export async function inviteOwner(
         .bind(token, clean, businessId, now + INVITE_TTL_MS, adminId, now),
       moderationStmt(
         db,
-        { actorId: adminId, action: "invite", targetType: "business", targetId: businessId, businessId, detail: { email: clean } },
+        { actorId: adminId, action: "invite", targetType: "business", targetId: businessId, businessId, detail: { token } },
         now
       ),
     ]);
@@ -81,7 +84,7 @@ export async function claimInvitesForEmail(
         .bind(clean, inv.business_id),
       moderationStmt(
         db,
-        { actorId: profileId, action: "claim", targetType: "business", targetId: inv.business_id, businessId: inv.business_id, detail: { email: clean } },
+        { actorId: profileId, action: "claim", targetType: "business", targetId: inv.business_id, businessId: inv.business_id, detail: { token: inv.token } },
         now
       ),
     ]);

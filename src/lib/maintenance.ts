@@ -14,6 +14,13 @@ export function maintenanceStatements(now: number): { sql: string; params: unkno
     { sql: "DELETE FROM sessions WHERE expires_at < ?", params: [now] },
     // Stale rate-limit windows (longest window in use is far under a day).
     { sql: "DELETE FROM rate_limit WHERE window_start < ?", params: [now - DAY_MS] },
+    // Data minimisation: never-confirmed double-opt-in leads after 30 days.
+    {
+      sql: "DELETE FROM leads WHERE confirmed_at IS NULL AND status = 'new' AND created_at < ?",
+      params: [now - 30 * DAY_MS],
+    },
+    // Expired, unclaimed owner invites.
+    { sql: "DELETE FROM owner_invites WHERE claimed_at IS NULL AND expires_at < ?", params: [now] },
   ];
 }
 

@@ -9,6 +9,7 @@ import { purgeBusiness } from "@/lib/gdpr";
 import { saveSettings } from "@/lib/settings";
 import { inviteOwner } from "@/lib/invites";
 import { setLeadStatus } from "@/lib/leads";
+import { setPlaceId } from "@/lib/reviews";
 
 export async function approve(id: string) {
   const admin = await requireAdmin();
@@ -51,7 +52,16 @@ export async function inviteOwnerAction(formData: FormData) {
   const email = String(formData.get("email") ?? "");
   const businessId = String(formData.get("businessId") ?? "");
   const res = await inviteOwner(email, businessId, admin.id);
-  if (res.ok) await requestMagicLink(email);
+  // skipThrottle: an admin invite must not be silently dropped by the shared
+  // anonymous-login rate-limit bucket (it's the owner's only way in).
+  if (res.ok) await requestMagicLink(email, { skipThrottle: true });
+  revalidatePath("/admin");
+}
+
+/** Link a business to its Google place_id (powers the review-acquisition link). */
+export async function setPlaceIdAction(formData: FormData) {
+  const admin = await requireAdmin();
+  await setPlaceId(String(formData.get("businessId") ?? ""), String(formData.get("placeId") ?? ""), admin.id);
   revalidatePath("/admin");
 }
 

@@ -97,10 +97,11 @@ export async function confirmLead(token: string): Promise<boolean> {
   if (!db || !token) return false;
   try {
     const row = await db
-      .prepare(`SELECT id FROM leads WHERE confirm_token = ? AND confirmed_at IS NULL`)
+      .prepare(`SELECT confirmed_at FROM leads WHERE confirm_token = ?`)
       .bind(token)
-      .first<{ id: string }>();
-    if (!row) return false;
+      .first<{ confirmed_at: number | null }>();
+    if (!row) return false; // unknown token
+    if (row.confirmed_at != null) return true; // already confirmed — idempotent (email scanners pre-fetch links)
     await db
       .prepare(
         `UPDATE leads SET confirmed_at = ?, status = CASE WHEN status = 'new' THEN 'confirmed' ELSE status END
@@ -135,8 +136,10 @@ export async function setLeadStatus(
 ): Promise<void> {
   const db = await getDB();
   if (!db || !id) return;
+  // Guard the transition so a terminal 'converted' (owner already claimed) lead
+  // isn't silently downgraded by a late approve/reject.
   await db
-    .prepare(`UPDATE leads SET status = ?, reviewed_by = ?, reviewed_at = ? WHERE id = ?`)
+    .prepare(`UPDATE leads SET status = ?, reviewed_by = ?, reviewed_at = ? WHERE id = ? AND status IN ('new', 'confirmed')`)
     .bind(status, adminId, Date.now(), id)
     .run();
   await logModeration({

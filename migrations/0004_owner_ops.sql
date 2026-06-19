@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS leads (
 );
 CREATE INDEX IF NOT EXISTS idx_leads_status ON leads(status, created_at);
 CREATE INDEX IF NOT EXISTS idx_leads_email  ON leads(email);
+-- Public double-opt-in confirm looks up by token; keep it indexed + unique.
+CREATE UNIQUE INDEX IF NOT EXISTS idx_leads_confirm_token ON leads(confirm_token) WHERE confirm_token IS NOT NULL;
 
 -- Single-use claim invite. Ownership binds only when this exact email logs in.
 CREATE TABLE IF NOT EXISTS owner_invites (

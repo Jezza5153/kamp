@@ -156,8 +156,25 @@ The keystone that finally gives `owner_business` a UI writer (claim-time ownersh
 - Tests: `invites.test.ts` (no-hijack email match), `leads.test.ts` (validation).
 
 **Still TODO for owner-ops:** admin UI to render the leads queue + an "invite owner" button (the server
-actions exist; wire them into `/admin`). Next backend step per §9: Step 3 Google reviews (`0005`) — submit
-GBP API access request ASAP (multi-week external blocker).
+actions exist; wire them into `/admin`).
+
+## Build progress — Step 3 Google reviews (buildable slice) + adversarial review (done 2026-06-19)
+ToS-compliant slice (place_id only, never review text; OAuth/display deferred until GBP API approval):
+- `migrations/0005_google.sql` — `business_google` (place_id + numeric aggregates), `review_requests`, `oauth_states`.
+- `src/lib/reviews.ts` — `setPlaceId`, review-request funnel, `writeReviewUrl` deep-link, `resolveReviewRequest`.
+- `src/app/r/[token]/route.ts` — counter-QR scan → Google "write a review" redirect. `setPlaceIdAction` in admin.
+
+**Adversarial review (workflow, 5 dims × verify) found 12 issues; fixed 9** (build/tests/lint all green, 23 tests):
+- GDPR Art.17 (2 high): `purgeBusiness`/`purgeProfile` now erase `leads`/`owner_invites`/`business_google`/`review_requests` (business- and email-scoped).
+- Admin invites no longer dropped by the shared login throttle (`requestMagicLink(email,{skipThrottle})`).
+- `confirmLead` made idempotent (email link-scanners); `setLeadStatus` won't clobber `converted`; `inviteOwner` verifies the business exists; `moderation_log.detail` stores the invite token, not the email (minimisation); maintenance prunes stale unconfirmed leads + expired invites; `confirm_token` indexed.
+- Skipped #8 (duplicate audit row under near-unreachable concurrent double-claim).
+
+**Deferred Step 3 (needs GBP API approval — apply ASAP):** OAuth connect/callback + encrypted token storage,
+live review display with attribution, aggregate-sync cron. **GBP API access is a multi-week external blocker.**
+Next backend step per §9: Step 4 events (`0006`).
+
+NOTE: pre-existing Next-16 lint errors were fixed (new `src/lib/useNow.ts` hook + 4 components); CI now hard-gates lint.
 
 ## Gotchas / reminders
 - Owner photos/portraits only publish with permission — `imageCandidateUrl` is stored but never shown until confirmed.

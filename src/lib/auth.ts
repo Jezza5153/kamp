@@ -44,7 +44,10 @@ async function siteUrl(): Promise<string> {
 
 /** Create a one-time token and email a login link. Always returns ok to the
  *  UI (don't leak whether an email exists); logs the link when no mailer set. */
-export async function requestMagicLink(email: string): Promise<{ ok: boolean }> {
+export async function requestMagicLink(
+  email: string,
+  opts: { skipThrottle?: boolean } = {}
+): Promise<{ ok: boolean }> {
   const clean = email.trim().toLowerCase();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(clean)) return { ok: false };
   const db = await getDB();
@@ -53,8 +56,12 @@ export async function requestMagicLink(email: string): Promise<{ ok: boolean }> 
   // Throttle magic-link requests per email (max 5 / 15 min) as defence in depth
   // alongside Turnstile + the WAF. Over the limit we still report success and
   // simply send nothing — never reveal the limit or whether the address exists.
-  const rl = await rateLimit(db, `login:email:${clean}`, 5, TOKEN_TTL_MS);
-  if (!rl.allowed) return { ok: true };
+  // Admin-issued invites skip this: the actor is an authenticated admin and the
+  // invite IS the owner's login link, so it must never hit the anonymous bucket.
+  if (!opts.skipThrottle) {
+    const rl = await rateLimit(db, `login:email:${clean}`, 5, TOKEN_TTL_MS);
+    if (!rl.allowed) return { ok: true };
+  }
 
   const token = randomToken();
   const now = Date.now();
