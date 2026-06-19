@@ -202,3 +202,10 @@ export async function deleteStory(id: string, adminId: string): Promise<void> {
   await db.prepare(`DELETE FROM stories WHERE id = ?`).bind(id).run(); // story_business cascades
   await logModeration({ actorId: adminId, action: "story_delete", targetType: "story", targetId: id });
 }
+
+/** Set a story's hero image (an /media/story/… key after upload, or any URL). */
+export async function setStoryHero(storyId: string, heroUrl: string): Promise<void> {
+  const db = await getDB();
+  if (!db || !storyId) return;
+  await db.prepare(`UPDATE stories SET hero_url = ?, date_modified = ? WHERE id = ?`).bind(heroUrl, Date.now(), storyId).run();
+}

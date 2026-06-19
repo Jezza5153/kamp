@@ -141,6 +141,29 @@ export async function uploadMedia(
   return { ok: true, mediaId, key };
 }
 
+/**
+ * Store a PUBLIC image (no moderation row) under `keyPrefix` in R2 and return its
+ * key. Used for admin-authored editorial assets (story heroes) that are public by
+ * definition. Same magic-byte validation + 5 MB cap as owner uploads.
+ */
+export async function uploadPublicImage(
+  keyPrefix: string,
+  file: File
+): Promise<{ ok: true; key: string } | { ok: false; error: "unavailable" | "empty" | "too_large" | "bad_type" }> {
+  const photos = await getPhotos();
+  if (!photos) return { ok: false, error: "unavailable" };
+  if (file.size === 0) return { ok: false, error: "empty" };
+  if (file.size > MAX_BYTES) return { ok: false, error: "too_large" };
+  const buf = await file.arrayBuffer();
+  const detected = sniff(new Uint8Array(buf.slice(0, 16)));
+  if (!detected || !(detected in MIME_EXT)) return { ok: false, error: "bad_type" };
+  const key = `${keyPrefix}/${crypto.randomUUID()}-${randomHex(4)}.${MIME_EXT[detected]}`;
+  await photos.put(key, buf, {
+    httpMetadata: { contentType: detected, cacheControl: "public, max-age=31536000, immutable" },
+  });
+  return { ok: true, key };
+}
+
 /** Latest hero photo to show in the owner form: approved first, else pending. */
 export async function currentMediaFor(businessId: string): Promise<MediaRow | null> {
   const db = await getDB();

@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireAdmin, requestMagicLink } from "@/lib/auth";
 import { moderateOverride } from "@/lib/overrides";
-import { approveMedia, rejectMedia } from "@/lib/media";
+import { approveMedia, rejectMedia, uploadPublicImage } from "@/lib/media";
 import { purgeBusiness } from "@/lib/gdpr";
 import { saveSettings, getConfiguredSiteUrl } from "@/lib/settings";
 import { createIssue, sendIssueBatch } from "@/lib/newsletter";
@@ -12,7 +12,7 @@ import { inviteOwner } from "@/lib/invites";
 import { setLeadStatus } from "@/lib/leads";
 import { setPlaceId, createReviewRequest } from "@/lib/reviews";
 import { createEvent, moderateEvent, deleteEvent, type EventInput } from "@/lib/events";
-import { createStory, setStoryStatus, deleteStory, type StoryInput } from "@/lib/stories";
+import { createStory, setStoryStatus, deleteStory, setStoryHero, type StoryInput } from "@/lib/stories";
 
 export async function approve(id: string) {
   const admin = await requireAdmin();
@@ -164,6 +164,19 @@ export async function deleteStoryAction(formData: FormData) {
   await deleteStory(String(formData.get("storyId") ?? ""), admin.id);
   revalidatePath("/verhalen");
   revalidatePath("/admin/verhalen");
+}
+
+/** Upload a story hero image to R2 (public) and point the story at it. */
+export async function uploadStoryHeroAction(formData: FormData) {
+  await requireAdmin();
+  const storyId = String(formData.get("storyId") ?? "");
+  const file = formData.get("file");
+  if (storyId && file instanceof File && file.size > 0) {
+    const res = await uploadPublicImage(`story/${storyId}`, file);
+    if (res.ok) await setStoryHero(storyId, `/media/${res.key}`);
+  }
+  revalidatePath("/verhalen");
+  redirect("/admin/verhalen");
 }
 
 /** Draft a newsletter issue. */

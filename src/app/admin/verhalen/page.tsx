@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { requireAdmin } from "@/lib/auth";
 import { listStories } from "@/lib/stories";
-import { createStoryAction, setStoryStatusAction, deleteStoryAction } from "../actions";
+import { createStoryAction, setStoryStatusAction, deleteStoryAction, uploadStoryHeroAction } from "../actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Verhalen — beheer", robots: { index: false } };
@@ -93,6 +93,17 @@ export default async function StoriesAdmin({
                     {s.status}
                   </span>
                 </div>
+                <form action={uploadStoryHeroAction} className="flex items-center gap-1">
+                  <input type="hidden" name="storyId" value={s.id} />
+                  <input
+                    type="file"
+                    name="file"
+                    accept="image/jpeg,image/png,image/webp,image/avif"
+                    aria-label={`Foto voor ${s.title}`}
+                    className="w-32 text-xs text-warm-brown file:mr-2 file:rounded file:border-0 file:bg-stone/40 file:px-2 file:py-1 file:text-xs"
+                  />
+                  <button className="rounded-lg border border-stone px-2.5 py-1.5 text-xs text-warm-brown">Foto</button>
+                </form>
                 {s.status !== "published" ? (
                   <form action={setStoryStatusAction}>
                     <input type="hidden" name="storyId" value={s.id} />
