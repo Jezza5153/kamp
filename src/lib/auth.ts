@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getDB } from "@/lib/cf";
 import { rateLimit } from "@/lib/rateLimit";
+import { claimInvitesForEmail } from "@/lib/invites";
 import { getAdminEmails, getConfiguredSiteUrl, getResendConfig } from "@/lib/settings";
 
 /**
@@ -106,6 +107,9 @@ export async function completeLogin(token: string): Promise<Role | null> {
     await db.prepare("UPDATE auth_tokens SET used = 1 WHERE token = ?").bind(token).run();
 
     const profile = await ensureProfile(row.email);
+    // Bind any pending admin invites for this exact email (claim-time ownership):
+    // logging in via the magic link proves control of the address.
+    await claimInvitesForEmail(db, profile.id, profile.email);
     const sid = crypto.randomUUID();
     const now = Date.now();
     await db

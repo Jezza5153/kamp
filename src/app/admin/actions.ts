@@ -2,11 +2,13 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { requireAdmin } from "@/lib/auth";
+import { requireAdmin, requestMagicLink } from "@/lib/auth";
 import { moderateOverride } from "@/lib/overrides";
 import { approveMedia, rejectMedia } from "@/lib/media";
 import { purgeBusiness } from "@/lib/gdpr";
 import { saveSettings } from "@/lib/settings";
+import { inviteOwner } from "@/lib/invites";
+import { setLeadStatus } from "@/lib/leads";
 
 export async function approve(id: string) {
   const admin = await requireAdmin();
@@ -39,6 +41,29 @@ export async function purgeBusinessData(formData: FormData) {
   const confirm = String(formData.get("confirm") ?? "");
   if (!businessId || confirm.trim().toUpperCase() !== "WIS") return;
   await purgeBusiness(businessId);
+  revalidatePath("/admin");
+}
+
+/** Link an email to a business and email them a login link. Ownership binds when
+ *  they log in (claimInvitesForEmail), so the magic link proves the address. */
+export async function inviteOwnerAction(formData: FormData) {
+  const admin = await requireAdmin();
+  const email = String(formData.get("email") ?? "");
+  const businessId = String(formData.get("businessId") ?? "");
+  const res = await inviteOwner(email, businessId, admin.id);
+  if (res.ok) await requestMagicLink(email);
+  revalidatePath("/admin");
+}
+
+export async function approveLeadAction(formData: FormData) {
+  const admin = await requireAdmin();
+  await setLeadStatus(String(formData.get("leadId") ?? ""), "approved", admin.id);
+  revalidatePath("/admin");
+}
+
+export async function rejectLeadAction(formData: FormData) {
+  const admin = await requireAdmin();
+  await setLeadStatus(String(formData.get("leadId") ?? ""), "rejected", admin.id);
   revalidatePath("/admin");
 }
 

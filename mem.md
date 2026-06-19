@@ -141,7 +141,23 @@ Local, verifiable slice of the launch epic is DONE and green (`npm test` 11/11, 
 **Deferred (needs a `*:cf` build to verify):** the cron `scheduled()` worker wrapper (`src/worker.ts`)
 + `triggers.crons` — see DEPLOY_CLOUDFLARE.md "Backend Step 1". **Pre-existing lint debt** (5 Next-16
 errors in OpenBadge/BusinessExplorer/DistrictMap/HoursTable/agenda) tracked separately — not mine.
-Next backend steps per BACKEND_MASTER_PLAN.md §9: Step 2 owner-ops leads/invites (`0004`).
+
+## Build progress — Step 2 owner-ops leads/invites (done 2026-06-19, green: 19/19 tests, build ok)
+The keystone that finally gives `owner_business` a UI writer (claim-time ownership):
+- `migrations/0004_owner_ops.sql` — `leads`, `owner_invites`, `moderation_log` (+ owner_business index).
+- `src/lib/invites.ts` — `inviteOwner` (admin links email→business, atomic batch) + `claimInvitesForEmail`
+  (binds owner_business ONLY when that exact email logs in — security boundary, unit-tested).
+- `src/lib/leads.ts` — lead funnel (create/confirm/list/setStatus) + pure `validateLead`.
+- `src/lib/audit.ts` (moderation_log), `src/lib/email.ts` (Resend sender, fail-soft).
+- `auth.ts` `completeLogin` now calls `claimInvitesForEmail` after `ensureProfile`.
+- Admin actions: `inviteOwnerAction` / `approveLeadAction` / `rejectLeadAction` in `admin/actions.ts`.
+- Public funnel: `/aanmelden` form now posts to `submitLeadAction` (honeypot + rate-limit + double-opt-in
+  email) instead of mailto; `/api/aanmelden/confirm` confirms. `/aanmelden` is now dynamic (reads searchParams).
+- Tests: `invites.test.ts` (no-hijack email match), `leads.test.ts` (validation).
+
+**Still TODO for owner-ops:** admin UI to render the leads queue + an "invite owner" button (the server
+actions exist; wire them into `/admin`). Next backend step per §9: Step 3 Google reviews (`0005`) — submit
+GBP API access request ASAP (multi-week external blocker).
 
 ## Gotchas / reminders
 - Owner photos/portraits only publish with permission — `imageCandidateUrl` is stored but never shown until confirmed.

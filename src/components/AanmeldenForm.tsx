@@ -1,40 +1,32 @@
-"use client";
-
-import { useState } from "react";
-import { Send, Camera, CheckCircle2 } from "lucide-react";
-import { SITE } from "@/lib/site";
+import { Send, Camera } from "lucide-react";
+import { submitLeadAction } from "@/app/aanmelden/actions";
 
 const field =
   "w-full rounded-2xl border border-stone/40 bg-white px-6 py-4 text-base shadow-sm outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/30";
 const label = "text-sm font-bold uppercase tracking-wider text-deep-green";
 
-export default function AanmeldenForm() {
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const get = (k: string) => String(f.get(k) ?? "").trim();
-    const lines = [
-      `Naam van de zaak: ${get("business")}`,
-      `Contactpersoon: ${get("contact")}`,
-      `E-mail: ${get("email")}`,
-      `Telefoon: ${get("phone")}`,
-      `Adres op De Kamp: ${get("address")}`,
-      `Instagram: ${get("instagram")}`,
-      "",
-      "Verhaal / omschrijving:",
-      get("story"),
-      "",
-      "(Vergeet niet je logo, gevel- en eigenaarsfoto's als bijlage mee te sturen.)",
-    ].join("\n");
-    const subject = `Aanmelding ondernemer: ${get("business") || "De Kamp"}`;
-    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
-    setSent(true);
-  }
-
+export default function AanmeldenForm({ error }: { error?: string }) {
   return (
-    <form onSubmit={handleSubmit} className="space-y-8 rounded-[var(--radius-lg)] border border-stone/30 bg-paper p-8 shadow-[var(--shadow-card)] sm:p-12">
+    <form
+      action={submitLeadAction}
+      className="space-y-8 rounded-[var(--radius-lg)] border border-stone/30 bg-paper p-8 shadow-[var(--shadow-card)] sm:p-12"
+    >
+      {/* Honeypot — hidden from real users; bots that fill it are silently dropped. */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
+
+      {error === "consent" && (
+        <p className="rounded-2xl bg-clay/15 px-4 py-3 text-sm font-medium text-clay">
+          Vink even de toestemming aan zodat we je aanmelding mogen verwerken.
+        </p>
+      )}
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="business" className={label}>Naam van de zaak</label>
@@ -69,9 +61,8 @@ export default function AanmeldenForm() {
           <Camera className="h-5 w-5 text-amber-ink" /> Beelden & media
         </h3>
         <p className="mb-6 text-sm font-medium leading-relaxed text-warm-brown/75">
-          We tonen voorlopig een stijlvolle tijdelijke afbeelding. Stuur je eigen logo, gevel- en eigenaarsfoto&apos;s mee
-          als bijlage in de e-mail, of deel je Instagram zodat we contact kunnen opnemen. Foto&apos;s plaatsen we pas na
-          jouw akkoord.
+          We tonen voorlopig een stijlvolle tijdelijke afbeelding. Na je aanmelding nemen we contact op om je logo,
+          gevel- en eigenaarsfoto&apos;s veilig te ontvangen. Foto&apos;s plaatsen we pas na jouw akkoord.
         </p>
         <div className="space-y-2">
           <label htmlFor="instagram" className={label}>Instagram</label>
@@ -91,11 +82,6 @@ export default function AanmeldenForm() {
         <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-deep-green px-12 py-4 text-sm font-black uppercase tracking-widest text-white shadow-lg transition hover:bg-amber hover:text-charcoal active:scale-[0.99] sm:w-auto">
           <Send className="h-4 w-4" /> Meld mijn zaak aan
         </button>
-        {sent && (
-          <p className="mt-4 flex items-center gap-2 text-sm font-bold text-emerald-700">
-            <CheckCircle2 className="h-4 w-4" /> Je e-mailprogramma opent met je aanmelding — controleer en verstuur de mail (vergeet de foto&apos;s niet).
-          </p>
-        )}
       </div>
     </form>
   );
