@@ -1,4 +1,5 @@
 import { getDB, type D1Database } from "@/lib/cf";
+import { sendEmail } from "@/lib/email";
 
 /**
  * Newsletter subscriptions (migration 0007). Self-hosted: capture → double-opt-in
@@ -157,4 +158,128 @@ export async function subscriberCounts(): Promise<Record<string, number>> {
   } catch {
     return {};
   }
+}
+
+// ---------------------------------------------------------------------------
+// Campaign sending (issues + idempotent, resumable delivery)
+// ---------------------------------------------------------------------------
+
+export interface IssueRow {
+  id: string;
+  subject: string;
+  body: string;
+  status: string;
+  created_at: number;
+  sent_at: number | null;
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+/** Plain-text body → safe HTML paragraphs + the required unsubscribe footer. Pure. */
+export function renderIssueHtml(bodyText: string, unsubUrl: string): string {
+  const paras = bodyText
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .map((p) => `<p>${escapeHtml(p).replace(/\n/g, "<br>")}</p>`)
+    .join("");
+  return `<div style="font-family:system-ui,sans-serif;max-width:600px;color:#1f2937">${paras}<hr style="border:none;border-top:1px solid #ddd;margin:24px 0"><p style="color:#888;font-size:12px">Je ontvangt deze mail omdat je bent ingeschreven voor de nieuwsbrief van Ondernemers van de Kamp. <a href="${escapeHtml(unsubUrl)}">Uitschrijven</a>.</p></div>`;
+}
+
+export async function createIssue(subject: string, body: string, adminId: string): Promise<{ ok: boolean; id?: string }> {
+  const db = await getDB();
+  if (!db) return { ok: false };
+  if (!subject.trim() || !body.trim()) return { ok: false };
+  const id = crypto.randomUUID();
+  try {
+    await db
+      .prepare(`INSERT INTO newsletter_issues (id, subject, body, status, created_by, created_at) VALUES (?, ?, ?, 'draft', ?, ?)`)
+      .bind(id, subject.trim(), body.trim(), adminId, Date.now())
+      .run();
+    return { ok: true, id };
+  } catch {
+    return { ok: false };
+  }
+}
+
+export async function listIssues(): Promise<(IssueRow & { sent: number })[]> {
+  const db = await getDB();
+  if (!db) return [];
+  try {
+    const { results } = await db.prepare(`SELECT * FROM newsletter_issues ORDER BY created_at DESC`).all<IssueRow>();
+    const out: (IssueRow & { sent: number })[] = [];
+    for (const i of results) {
+      const c = await db
+        .prepare(`SELECT COUNT(*) AS n FROM newsletter_deliveries WHERE issue_id = ? AND status = 'sent'`)
+        .bind(i.id)
+        .first<{ n: number }>();
+      out.push({ ...i, sent: c?.n ?? 0 });
+    }
+    return out;
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Send one batch of an issue to confirmed subscribers who haven't received it yet.
+ * Idempotent + resumable: re-running skips already-sent recipients, so the admin
+ * can click "send next batch" until remaining hits 0 (keeps each call under the
+ * Worker time budget). Sets List-Unsubscribe headers for one-click unsubscribe.
+ */
+export async function sendIssueBatch(
+  issueId: string,
+  baseUrl: string,
+  limit = 100
+): Promise<{ sent: number; remaining: number }> {
+  const db = await getDB();
+  if (!db) return { sent: 0, remaining: 0 };
+  const issue = await db
+    .prepare(`SELECT subject, body FROM newsletter_issues WHERE id = ?`)
+    .bind(issueId)
+    .first<{ subject: string; body: string }>();
+  if (!issue) return { sent: 0, remaining: 0 };
+
+  await db.prepare(`UPDATE newsletter_issues SET status = 'sending' WHERE id = ? AND status = 'draft'`).bind(issueId).run();
+
+  const { results: subs } = await db
+    .prepare(
+      `SELECT s.id AS id, s.email AS email, s.unsub_token AS unsub_token
+       FROM newsletter_subscribers s
+       WHERE s.status = 'confirmed'
+         AND NOT EXISTS (SELECT 1 FROM newsletter_deliveries d WHERE d.issue_id = ? AND d.subscriber_id = s.id AND d.status = 'sent')
+       LIMIT ?`
+    )
+    .bind(issueId, limit)
+    .all<{ id: string; email: string; unsub_token: string }>();
+
+  let sent = 0;
+  for (const sub of subs) {
+    const unsubUrl = `${baseUrl}/api/newsletter/unsubscribe?token=${sub.unsub_token}`;
+    await sendEmail(sub.email, issue.subject, renderIssueHtml(issue.body, unsubUrl), {
+      "List-Unsubscribe": `<${unsubUrl}>`,
+      "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+    });
+    await db
+      .prepare(`INSERT OR REPLACE INTO newsletter_deliveries (issue_id, subscriber_id, status, sent_at) VALUES (?, ?, 'sent', ?)`)
+      .bind(issueId, sub.id, Date.now())
+      .run();
+    sent++;
+  }
+
+  const rem = await db
+    .prepare(
+      `SELECT COUNT(*) AS n FROM newsletter_subscribers s
+       WHERE s.status = 'confirmed'
+         AND NOT EXISTS (SELECT 1 FROM newsletter_deliveries d WHERE d.issue_id = ? AND d.subscriber_id = s.id AND d.status = 'sent')`
+    )
+    .bind(issueId)
+    .first<{ n: number }>();
+  const remaining = rem?.n ?? 0;
+  if (remaining === 0) {
+    await db.prepare(`UPDATE newsletter_issues SET status = 'sent', sent_at = ? WHERE id = ?`).bind(Date.now(), issueId).run();
+  }
+  return { sent, remaining };
 }

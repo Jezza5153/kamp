@@ -6,7 +6,8 @@ import { requireAdmin, requestMagicLink } from "@/lib/auth";
 import { moderateOverride } from "@/lib/overrides";
 import { approveMedia, rejectMedia } from "@/lib/media";
 import { purgeBusiness } from "@/lib/gdpr";
-import { saveSettings } from "@/lib/settings";
+import { saveSettings, getConfiguredSiteUrl } from "@/lib/settings";
+import { createIssue, sendIssueBatch } from "@/lib/newsletter";
 import { inviteOwner } from "@/lib/invites";
 import { setLeadStatus } from "@/lib/leads";
 import { setPlaceId, createReviewRequest } from "@/lib/reviews";
@@ -163,6 +164,22 @@ export async function deleteStoryAction(formData: FormData) {
   await deleteStory(String(formData.get("storyId") ?? ""), admin.id);
   revalidatePath("/verhalen");
   revalidatePath("/admin/verhalen");
+}
+
+/** Draft a newsletter issue. */
+export async function createIssueAction(formData: FormData) {
+  const admin = await requireAdmin();
+  await createIssue(String(formData.get("subject") ?? ""), String(formData.get("body") ?? ""), admin.id);
+  redirect("/admin/nieuwsbrief");
+}
+
+/** Send one resumable batch of an issue to confirmed subscribers. */
+export async function sendIssueBatchAction(formData: FormData) {
+  await requireAdmin();
+  const issueId = String(formData.get("issueId") ?? "");
+  const base = (await getConfiguredSiteUrl())?.replace(/\/$/, "") ?? "https://ondernemersvandekamp.nl";
+  const res = await sendIssueBatch(issueId, base, 100);
+  redirect(`/admin/nieuwsbrief?sent=${res.sent}&remaining=${res.remaining}`);
 }
 
 export async function saveSettingsAction(formData: FormData) {

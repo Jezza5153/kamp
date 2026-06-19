@@ -35,7 +35,7 @@ vi.mock("@/lib/cf", () => ({
   }),
 }));
 
-import { subscribe, validateEmail } from "@/lib/newsletter";
+import { subscribe, validateEmail, renderIssueHtml } from "@/lib/newsletter";
 
 describe("validateEmail", () => {
   it("accepts a valid address and rejects junk", () => {
@@ -66,5 +66,24 @@ describe("subscribe", () => {
 
   it("rejects an invalid address", async () => {
     expect((await subscribe("nope", "footer", "consent")).ok).toBe(false);
+  });
+});
+
+describe("renderIssueHtml", () => {
+  const html = renderIssueHtml("Hallo <script>alert(1)</script>\n\nTweede alinea.", "https://x/unsub?token=abc");
+
+  it("escapes HTML in the body (no injection)", () => {
+    expect(html).toContain("&lt;script&gt;");
+    expect(html).not.toContain("<script>alert");
+  });
+
+  it("renders blank-line-separated paragraphs", () => {
+    expect(html).toContain("<p>Hallo");
+    expect(html).toContain("<p>Tweede alinea.</p>");
+  });
+
+  it("includes the unsubscribe link", () => {
+    expect(html).toContain('href="https://x/unsub?token=abc"');
+    expect(html.toLowerCase()).toContain("uitschrijven");
   });
 });

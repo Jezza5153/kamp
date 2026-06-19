@@ -5,7 +5,12 @@ import { getResendConfig } from "@/lib/settings";
  * is configured it logs the message so flows still work in dev/before setup —
  * mirroring the magic-link sender in auth.ts.
  */
-export async function sendEmail(to: string, subject: string, html: string): Promise<void> {
+export async function sendEmail(
+  to: string,
+  subject: string,
+  html: string,
+  headers?: Record<string, string>
+): Promise<void> {
   const { apiKey, from } = await getResendConfig();
   if (!apiKey) {
     console.log(`[email] ${to} :: ${subject}`);
@@ -14,6 +19,6 @@ export async function sendEmail(to: string, subject: string, html: string): Prom
   await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from, to: [to], subject, html }),
+    body: JSON.stringify({ from, to: [to], subject, html, ...(headers ? { headers } : {}) }),
   }).catch((e) => console.error("[email] send failed", e));
 }
