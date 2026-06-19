@@ -15,6 +15,8 @@ export interface CategoryMeta {
   blurb: string;
   /** very short label for chips */
   short: string;
+  /** English chip label (i18n) */
+  shortEn: string;
 }
 
 export const CATEGORIES: CategoryMeta[] = [
@@ -23,6 +25,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "eten-drinken",
     icon: "UtensilsCrossed",
     short: "Eten & drinken",
+    shortEn: "Food & drink",
     blurb:
       "Van Ethiopisch tot Napolitaans: De Kamp is het meest wereldse stukje horeca van Amersfoort. Restaurants, afhaal en wereldkeukens op loopafstand van de Kamperbinnenpoort.",
   },
@@ -31,6 +34,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "koffie-lunch-zoet",
     icon: "Coffee",
     short: "Koffie & lunch",
+    shortEn: "Coffee & lunch",
     blurb:
       "Verse koffie, ambachtelijk brood, taart en high tea. De adresjes waar je de dag begint of even neerstrijkt tussen het winkelen door.",
   },
@@ -39,6 +43,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "winkels-makers",
     icon: "Store",
     short: "Winkels & makers",
+    shortEn: "Shops & makers",
     blurb:
       "Onafhankelijke winkels en makers met een eigen verhaal — wijn, vintage, stoffen, ateliers en cadeauwinkels die je nergens anders vindt.",
   },
@@ -47,6 +52,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "mode-sieraden",
     icon: "Gem",
     short: "Mode & sieraden",
+    shortEn: "Fashion & jewellery",
     blurb:
       "Maatkleding, duurzame mode, goudsmeden en juweliers. Persoonlijk advies en vakmanschap in plaats van de grijze winkelketen.",
   },
@@ -55,6 +61,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "interieur-kunst",
     icon: "Frame",
     short: "Interieur & kunst",
+    shortEn: "Interior & art",
     blurb:
       "Interieurstylisten, lijstenmakers, glas-in-lood, tapijten en galerieën. De Kamp is al generaties lang het woon- en kunsthart van de binnenstad.",
   },
@@ -63,6 +70,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "beauty-verzorging",
     icon: "Scissors",
     short: "Beauty",
+    shortEn: "Beauty",
     blurb:
       "Kappers, beautysalons en verzorging met aandacht. Vertrouwde adressen waar je even helemaal bijkomt.",
   },
@@ -71,6 +79,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "services-praktisch",
     icon: "Wrench",
     short: "Services",
+    shortEn: "Services",
     blurb:
       "Opticiens, audiciens, schoenmakers, reparatie en makelaars. Het praktische vakmanschap dat een echte buurt draaiende houdt.",
   },
@@ -79,6 +88,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "slapen",
     icon: "BedDouble",
     short: "Slapen",
+    shortEn: "Stay",
     blurb:
       "Blijf slapen in hartje Amersfoort. Stijlvol overnachten op een steenworp van de historische binnenstad.",
   },
@@ -87,6 +97,7 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "keten-anker",
     icon: "Landmark",
     short: "Bekende namen",
+    shortEn: "Big names",
     blurb:
       "De vertrouwde ankerzaken en bekende namen die voor reuring en aanloop zorgen op De Kamp.",
   },

@@ -1,5 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { getDB } from "@/lib/cf";
+import { markTranslationsStale } from "@/lib/i18n";
 
 /**
  * Owner-editable fields. Deliberately a small, safe text subset — never
@@ -157,6 +158,8 @@ export async function moderateOverride(
     .run();
 
   if (decision === "approved") {
+    // The NL source changed → its EN translations are now out of date.
+    await markTranslationsStale(row.business_id);
     revalidatePath("/");
     revalidatePath("/kaart");
     revalidatePath(`/ondernemers/${row.business_id}`);

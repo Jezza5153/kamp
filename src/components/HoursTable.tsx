@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { DayHours, Weekday } from "@/data/businesses";
-import { formatWeek, nowInAmsterdam, type HoursLine } from "@/lib/hours";
+import type { DayHours } from "@/data/businesses";
+import { formatWeek, type HoursLine } from "@/lib/hours";
+import { useNow } from "@/lib/useNow";
 
 export default function HoursTable({ hours, note }: { hours?: DayHours[]; note?: string }) {
-  const [today, setToday] = useState<Weekday | undefined>(undefined);
-  useEffect(() => setToday(nowInAmsterdam().day), []);
+  const today = useNow()?.day;
 
   const lines: HoursLine[] = formatWeek(hours, today);
 

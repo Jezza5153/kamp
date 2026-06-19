@@ -10,6 +10,20 @@ export async function GET(_req: Request, ctx: { params: Promise<{ key: string[] 
   const photos = await getPhotos();
   if (!photos) return new Response("Unavailable", { status: 503 });
 
+  // Story hero images are admin-authored, public editorial content — serve them
+  // directly, no per-business moderation gate.
+  if (key.startsWith("story/")) {
+    const obj = await photos.get(key);
+    if (!obj) return new Response("Not found", { status: 404 });
+    const buf = await obj.arrayBuffer();
+    const headers = new Headers();
+    headers.set("Content-Type", obj.httpMetadata?.contentType ?? "application/octet-stream");
+    headers.set("X-Content-Type-Options", "nosniff");
+    headers.set("Content-Disposition", "inline");
+    headers.set("Cache-Control", "public, max-age=31536000, immutable");
+    return new Response(buf, { headers });
+  }
+
   const rec = await mediaByKey(key);
   if (!rec) return new Response("Not found", { status: 404 });
 

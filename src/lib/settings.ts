@@ -12,6 +12,7 @@ export const SETTING_KEYS = [
   "resend_from",
   "admin_emails",
   "site_url",
+  "google_maps_api_key",
 ] as const;
 export type SettingKey = (typeof SETTING_KEYS)[number];
 
@@ -78,4 +79,16 @@ export async function getConfiguredSiteUrl(): Promise<string | undefined> {
   const s = await getSettings();
   const env = await getEnv();
   return s.site_url || env?.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || undefined;
+}
+
+/** Google Maps Platform key (Places API) for live review display. Settings → env. */
+export async function getGoogleMapsKey(): Promise<string | undefined> {
+  const s = await getSettings();
+  const env = await getEnv();
+  return s.google_maps_api_key || env?.GOOGLE_MAPS_API_KEY || undefined;
+}
+
+/** Mollie API key (gift card). Env only — never expose via in-app settings. */
+export async function getMollieKey(): Promise<string | undefined> {
+  return (await getEnv())?.MOLLIE_API_KEY || undefined;
 }

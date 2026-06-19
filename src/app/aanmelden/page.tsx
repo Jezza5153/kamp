@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CheckCircle2, MailCheck } from "lucide-react";
 import AanmeldenForm from "@/components/AanmeldenForm";
 import JsonLd from "@/components/JsonLd";
 import { graph, breadcrumbSchema } from "@/lib/schema";
@@ -11,7 +12,14 @@ export const metadata = {
   alternates: { canonical: "/aanmelden" },
 };
 
-export default function RegisterPage() {
+export default async function RegisterPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ sent?: string; confirmed?: string; error?: string }>;
+}) {
+  const { sent, confirmed, error } = await searchParams;
+  const done = sent === "1" || confirmed === "1";
+
   return (
     <div className="min-h-screen bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -24,7 +32,30 @@ export default function RegisterPage() {
           </p>
         </div>
 
-        <AanmeldenForm />
+        {done ? (
+          <div className="rounded-[var(--radius-lg)] border border-stone/30 bg-paper p-8 text-center shadow-[var(--shadow-card)] sm:p-12">
+            {confirmed === "1" ? (
+              <>
+                <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-emerald-600" />
+                <h2 className="font-serif text-2xl font-black text-deep-green">Bevestigd — bedankt!</h2>
+                <p className="mx-auto mt-3 max-w-md text-warm-brown/80">
+                  Je aanmelding is bevestigd. We nemen contact op voor de laatste check voordat je pagina live gaat.
+                </p>
+              </>
+            ) : (
+              <>
+                <MailCheck className="mx-auto mb-4 h-12 w-12 text-amber-ink" />
+                <h2 className="font-serif text-2xl font-black text-deep-green">Check je mailbox</h2>
+                <p className="mx-auto mt-3 max-w-md text-warm-brown/80">
+                  We hebben je een e-mail gestuurd om je aanmelding te bevestigen. Klik op de link in die mail en we gaan
+                  voor je aan de slag.
+                </p>
+              </>
+            )}
+          </div>
+        ) : (
+          <AanmeldenForm error={error} />
+        )}
 
         <p className="mt-10 text-center text-sm text-warm-brown/60">
           Deze gids is een initiatief voor en door ondernemers. Andere vragen?{" "}

@@ -12,6 +12,9 @@ import HoursTable from "@/components/HoursTable";
 import DistrictMap from "@/components/DistrictMap";
 import { categorySlug } from "@/lib/categories";
 import { directionsUrl, mapsUrl, walkMinutesFromGate, coordsFor } from "@/lib/geo";
+import { track } from "@/lib/track";
+import { t } from "@/lib/dict";
+import type { Locale } from "@/lib/i18n";
 
 export interface FaqItem {
   question: string;
@@ -24,9 +27,10 @@ interface Props {
   /** all active businesses, used only to draw the context mini-map */
   districtBusinesses: Business[];
   faqs: FaqItem[];
+  locale?: Locale;
 }
 
-export default function BusinessDetailClient({ business, related, districtBusinesses, faqs }: Props) {
+export default function BusinessDetailClient({ business, related, districtBusinesses, faqs, locale = "nl" }: Props) {
   const b = business;
   const walk = walkMinutesFromGate(coordsFor({ streetSegment: b.streetSegment, address: b.address, lat: b.lat, lng: b.lng }));
   const perfectFor = b.perfectFor ?? [];
@@ -44,7 +48,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
             {b.priceRange && <span className="rounded-full bg-stone/50 px-3 py-1.5 text-sm font-bold text-warm-brown/80">{b.priceRange}</span>}
             {b.hasGoogleReviews && (
               <a href={b.googleMapsUrl || mapsUrl(b.address, b.postalCode)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-stone/50 px-3 py-1.5 text-sm font-bold text-warm-brown/80 hover:text-amber">
-                <Star className="h-3.5 w-3.5 fill-amber text-amber" /> Reviews op Google
+                <Star className="h-3.5 w-3.5 fill-amber text-amber" /> {t(locale, "detail.reviewsOnGoogle")}
               </a>
             )}
           </div>
@@ -66,7 +70,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
           {/* Left */}
           <div className="space-y-14 lg:col-span-7">
             <section>
-              <SectionLabel>Het verhaal</SectionLabel>
+              <SectionLabel>{t(locale, "detail.story")}</SectionLabel>
               <div className="font-serif text-2xl font-medium italic leading-[1.45] text-warm-brown/90">
                 <Quote className="mb-4 h-10 w-10 text-amber/25" />
                 {b.longDescription}
@@ -77,7 +81,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
               <section className="grid gap-8 sm:grid-cols-2">
                 {b.specialties && b.specialties.length > 0 && (
                   <div>
-                    <SectionLabel>Specialiteiten</SectionLabel>
+                    <SectionLabel>{t(locale, "detail.specialties")}</SectionLabel>
                     <ul className="flex flex-wrap gap-2">
                       {b.specialties.map((s) => (
                         <li key={s} className="rounded-full bg-paper px-4 py-2 text-sm font-semibold text-deep-green ring-1 ring-stone/50">{s}</li>
@@ -87,7 +91,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
                 )}
                 {perfectFor.length > 0 && (
                   <div>
-                    <SectionLabel>Perfect voor</SectionLabel>
+                    <SectionLabel>{t(locale, "detail.perfectFor")}</SectionLabel>
                     <ul className="flex flex-wrap gap-2">
                       {perfectFor.map((g) => (
                         <li key={g} className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-600/20">
@@ -102,7 +106,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
 
             {b.keyFacts && b.keyFacts.length > 0 && (
               <section>
-                <SectionLabel>Goed om te weten</SectionLabel>
+                <SectionLabel>{t(locale, "detail.goodToKnow")}</SectionLabel>
                 <dl className="grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
                   {b.keyFacts.map((f) => (
                     <div key={f.label} className="border-l-2 border-amber/40 pl-4">
@@ -116,7 +120,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
 
             {b.publicPersonName && (
               <section className="relative overflow-hidden rounded-[var(--radius-lg)] bg-paper p-10 shadow-[var(--shadow-card)]">
-                <SectionLabel>Het gezicht</SectionLabel>
+                <SectionLabel>{t(locale, "detail.theFace")}</SectionLabel>
                 <div className="flex items-center gap-6">
                   <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-deep-green text-3xl font-black text-white shadow-lg ring-8 ring-stone/20">
                     {b.publicPersonName[0]}
@@ -131,7 +135,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
 
             {faqs.length > 0 && (
               <section>
-                <SectionLabel>Veelgestelde vragen</SectionLabel>
+                <SectionLabel>{t(locale, "detail.faq")}</SectionLabel>
                 <div className="space-y-4">
                   {faqs.map((f) => (
                     <details key={f.question} className="group rounded-[var(--radius)] bg-paper p-6 shadow-[var(--shadow-card)]">
@@ -154,44 +158,44 @@ export default function BusinessDetailClient({ business, related, districtBusine
             <div className="sticky top-28 space-y-6">
               {/* contact */}
               <div className="rounded-[var(--radius-lg)] bg-deep-green p-8 text-white shadow-[var(--shadow-float)]">
-                <SectionLabel light>Locatie & contact</SectionLabel>
+                <SectionLabel light>{t(locale, "detail.locationContact")}</SectionLabel>
                 <dl className="space-y-5">
-                  <Row icon={<MapPin className="h-5 w-5" />} label="Adres">
+                  <Row icon={<MapPin className="h-5 w-5" />} label={t(locale, "detail.address")}>
                     {b.address}, {b.postalCode ?? "3811"} Amersfoort
-                    <span className="mt-1 block text-xs font-medium text-white/45">± {walk} min. lopen vanaf de Kamperbinnenpoort</span>
+                    <span className="mt-1 block text-xs font-medium text-white/45">± {walk} {t(locale, "detail.walkMin")}</span>
                   </Row>
                   {b.phone && (
-                    <Row icon={<Phone className="h-5 w-5" />} label="Telefoon">
+                    <Row icon={<Phone className="h-5 w-5" />} label={t(locale, "detail.phone")}>
                       <a href={`tel:${b.phone.replace(/\s/g, "")}`} className="hover:text-amber">{b.phone}</a>
                     </Row>
                   )}
                   {b.email && (
-                    <Row icon={<Mail className="h-5 w-5" />} label="E-mail">
+                    <Row icon={<Mail className="h-5 w-5" />} label={t(locale, "detail.email")}>
                       <a href={`mailto:${b.email}`} className="break-all hover:text-amber">{b.email}</a>
                     </Row>
                   )}
                 </dl>
 
                 <div className="mt-7 flex flex-col gap-3">
-                  <a href={directionsUrl(b.address, b.postalCode)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-amber px-6 py-3.5 text-sm font-black uppercase tracking-widest text-charcoal shadow-lg transition hover:bg-gold active:scale-95">
-                    <Navigation className="h-4 w-4" /> Route via Google Maps
+                  <a href={directionsUrl(b.address, b.postalCode)} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "route" })} className="inline-flex items-center justify-center gap-2 rounded-full bg-amber px-6 py-3.5 text-sm font-black uppercase tracking-widest text-charcoal shadow-lg transition hover:bg-gold active:scale-95">
+                    <Navigation className="h-4 w-4" /> {t(locale, "detail.route")}
                   </a>
 
                   {(b.bookingUrl || b.orderUrl || b.menuUrl) && (
                     <div className="grid grid-cols-2 gap-2">
                       {b.bookingUrl && (
-                        <a href={b.bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
-                          <CalendarCheck className="h-4 w-4" /> Reserveren
+                        <a href={b.bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "reserveren" })} className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
+                          <CalendarCheck className="h-4 w-4" /> {t(locale, "detail.reserve")}
                         </a>
                       )}
                       {b.orderUrl && (
-                        <a href={b.orderUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
-                          <ShoppingBag className="h-4 w-4" /> Bestellen
+                        <a href={b.orderUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "bestellen" })} className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-black uppercase tracking-wider text-deep-green transition hover:bg-gold">
+                          <ShoppingBag className="h-4 w-4" /> {t(locale, "detail.order")}
                         </a>
                       )}
                       {b.menuUrl && (
-                        <a href={b.menuUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
-                          <UtensilsCrossed className="h-4 w-4" /> Menukaart
+                        <a href={b.menuUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "menu" })} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
+                          <UtensilsCrossed className="h-4 w-4" /> {t(locale, "detail.menu")}
                         </a>
                       )}
                     </div>
@@ -199,8 +203,8 @@ export default function BusinessDetailClient({ business, related, districtBusine
 
                   <div className="flex gap-3">
                     {b.websiteUrl && (
-                      <a href={b.websiteUrl} target="_blank" rel="noopener noreferrer" className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
-                        <Globe className="h-4 w-4" /> Website
+                      <a href={b.websiteUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("action_click", b.id, { kind: "website" })} className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-xs font-bold uppercase tracking-wider transition hover:bg-white hover:text-deep-green">
+                        <Globe className="h-4 w-4" /> {t(locale, "detail.website")}
                       </a>
                     )}
                     {b.instagramUrl && (
@@ -220,7 +224,7 @@ export default function BusinessDetailClient({ business, related, districtBusine
               {/* hours */}
               <div className="rounded-[var(--radius-lg)] bg-charcoal p-8 text-white shadow-[var(--shadow-card)]">
                 <div className="mb-5 flex items-center justify-between gap-2">
-                  <SectionLabel light>Openingstijden</SectionLabel>
+                  <SectionLabel light>{t(locale, "detail.hours")}</SectionLabel>
                   <OpenBadge hours={b.hours} showUnknown />
                 </div>
                 <HoursTable hours={b.hours} note={b.hoursNote} />
@@ -240,11 +244,11 @@ export default function BusinessDetailClient({ business, related, districtBusine
           <section className="mt-24">
             <div className="mb-10 flex items-end justify-between">
               <div>
-                <SectionLabel>Ook op De Kamp</SectionLabel>
-                <h2 className="font-serif text-3xl font-black text-deep-green sm:text-4xl">In de buurt</h2>
+                <SectionLabel>{t(locale, "detail.alsoOnKamp")}</SectionLabel>
+                <h2 className="font-serif text-3xl font-black text-deep-green sm:text-4xl">{t(locale, "detail.nearby")}</h2>
               </div>
               <Link href="/" className="hidden text-xs font-black uppercase tracking-widest text-amber-ink hover:underline sm:block">
-                Alle ondernemers →
+                {t(locale, "detail.allBusinesses")}
               </Link>
             </div>
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -260,12 +264,14 @@ export default function BusinessDetailClient({ business, related, districtBusine
           <div className="flex items-center gap-4">
             <Sparkles className="h-8 w-8 flex-shrink-0 text-amber" />
             <div>
-              <h3 className="font-serif text-xl font-black text-deep-green">Ben jij van {b.name}?</h3>
-              <p className="text-sm text-warm-brown/70">Vul je verhaal, foto’s en openingstijden aan — gratis.</p>
+              <h3 className="font-serif text-xl font-black text-deep-green">
+                {locale === "en" ? t(locale, "detail.areYouTitle") : `Ben jij van ${b.name}?`}
+              </h3>
+              <p className="text-sm text-warm-brown/70">{t(locale, "detail.ownerCta")}</p>
             </div>
           </div>
           <Link href="/aanmelden" className="whitespace-nowrap rounded-full bg-deep-green px-7 py-3.5 text-xs font-black uppercase tracking-widest text-white shadow-lg transition hover:bg-amber active:scale-95">
-            Beheer deze zaak
+            {t(locale, "detail.manageThis")}
           </Link>
         </section>
       </div>

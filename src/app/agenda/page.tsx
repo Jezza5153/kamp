@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { CalendarDays, MapPin, ArrowUpRight, Mail } from "lucide-react";
-import { events, type KampEvent } from "@/data/events";
+import { type KampEvent } from "@/data/events";
+import { getAgendaEvents } from "@/lib/events";
 import JsonLd from "@/components/JsonLd";
 import { graph, breadcrumbSchema } from "@/lib/schema";
 import { SITE, abs } from "@/lib/site";
@@ -32,7 +33,11 @@ function eventSchema(e: KampEvent) {
   };
 }
 
-export default function AgendaPage() {
+// Approved D1 events merge with the seed; refresh within the ISR window.
+export const revalidate = 300;
+
+export default async function AgendaPage() {
+  const events = await getAgendaEvents();
   const sorted = [...events].sort((a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category));
   const eventNodes = events.map(eventSchema).filter(Boolean) as Record<string, unknown>[];
 

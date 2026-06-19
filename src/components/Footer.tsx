@@ -1,24 +1,40 @@
+"use client";
+
 import Link from "next/link";
-import { Send, MapPin, Camera } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Send, MapPin } from "lucide-react";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import { t, localizedHref } from "@/lib/dict";
 
 const Footer = () => {
+  const pathname = usePathname() || "/";
+  const locale = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "nl";
+  const home = locale === "en" ? "/en" : "/";
+
+  const navLinks = [
+    { href: `${home}#ondernemers`, key: "nav.businesses" },
+    { href: "/kaart", key: "nav.map" },
+    { href: "/agenda", key: "nav.events" },
+    { href: "/verhalen", key: "nav.stories" },
+    { href: "/cadeaukaart", key: "nav.giftcard" },
+    { href: "/loop-de-kamp", key: "nav.walk" },
+    { href: "/praktisch", key: "footer.practical" },
+    { href: "/over-de-kamp", key: "nav.about" },
+    { href: "/aanmelden", key: "nav.register" },
+  ];
+
   return (
     <footer className="bg-charcoal text-stone border-t border-stone/10 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
           {/* Brand Section */}
           <div className="md:col-span-4 space-y-8">
-            <Link href="/" className="text-3xl font-serif font-black text-background tracking-tighter">
-              De Kamp <span className="text-amber">leeft.</span>
+            <Link href={home} className="text-3xl font-serif font-black text-background tracking-tighter">
+              De Kamp <span className="text-amber">{t(locale, "brand.leeft")}</span>
             </Link>
-            <p className="text-stone/70 text-lg leading-relaxed max-w-sm">
-              Een levend straatportret van de meest karakteristieke ondernemersas in Amersfoort.
-            </p>
+            <p className="text-stone/70 text-lg leading-relaxed max-w-sm">{t(locale, "footer.tagline")}</p>
             <div className="flex gap-4">
-              <a href="#" className="w-12 h-12 rounded-full border border-stone/20 flex items-center justify-center hover:bg-amber hover:border-amber hover:text-white transition-all group">
-                <Camera className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a href="mailto:info@ondernemersvandekamp.nl" className="w-12 h-12 rounded-full border border-stone/20 flex items-center justify-center hover:bg-amber hover:border-amber hover:text-white transition-all group">
+              <a href="mailto:info@ondernemersvandekamp.nl" aria-label="Mail ons" className="w-12 h-12 rounded-full border border-stone/20 flex items-center justify-center hover:bg-amber hover:border-amber hover:text-white transition-all group">
                 <Send className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
@@ -26,22 +42,13 @@ const Footer = () => {
 
           {/* Links Section */}
           <div className="md:col-span-2 space-y-6">
-            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber">Navigatie</h3>
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber">{t(locale, "footer.nav")}</h3>
             <ul className="space-y-4">
-              {[
-                { href: "/#ondernemers", label: "Ondernemers" },
-                { href: "/kaart", label: "Kaart" },
-                { href: "/agenda", label: "Agenda" },
-                { href: "/cadeaukaart", label: "Cadeaukaart" },
-                { href: "/loop-de-kamp", label: "Wandel de Kamp" },
-                { href: "/praktisch", label: "Praktische info" },
-                { href: "/over-de-kamp", label: "Over De Kamp" },
-                { href: "/aanmelden", label: "Aanmelden" },
-              ].map((l) => (
+              {navLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-stone/60 hover:text-white transition-colors flex items-center gap-2 group">
+                  <Link href={localizedHref(locale, l.href)} className="text-stone/60 hover:text-white transition-colors flex items-center gap-2 group">
                     <span className="w-0 group-hover:w-2 h-px bg-amber transition-all" />
-                    {l.label}
+                    {t(locale, l.key)}
                   </Link>
                 </li>
               ))}
@@ -50,39 +57,22 @@ const Footer = () => {
 
           {/* Area Section */}
           <div className="md:col-span-2 space-y-6">
-            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber">Het Gebied</h3>
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber">{t(locale, "footer.area")}</h3>
             <ul className="space-y-4 text-stone/40">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 text-stone/20" />
-                <span>Kamp</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 text-stone/20" />
-                <span>Achter de Kamp</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 text-stone/20" />
-                <span>Zuidsingel</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 text-stone/20" />
-                <span>Grote Sint Jansstraat</span>
-              </li>
+              {["Kamp", "Achter de Kamp", "Zuidsingel", "Grote Sint Jansstraat"].map((a) => (
+                <li key={a} className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-0.5 text-stone/20" />
+                  <span>{a}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Newsletter Section placeholder */}
+          {/* Newsletter */}
           <div className="md:col-span-4 space-y-6">
-            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber">Blijf op de hoogte</h3>
-            <div className="space-y-4">
-              <p className="text-stone/60 text-sm">Ontvang updates over nieuwe ondernemers en events op De Kamp.</p>
-              <a
-                href="mailto:info@ondernemersvandekamp.nl?subject=Aanmelden%20nieuwsbrief%20De%20Kamp"
-                className="inline-flex items-center gap-2 rounded-full bg-amber px-6 py-3.5 text-xs font-black uppercase tracking-widest text-charcoal transition hover:bg-gold"
-              >
-                <Send className="w-4 h-4" /> Schrijf je in
-              </a>
-            </div>
+            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber">{t(locale, "footer.stayUpdated")}</h3>
+            <p className="text-stone/60 text-sm">{t(locale, "footer.newsletterText")}</p>
+            <NewsletterSignup variant="dark" />
           </div>
         </div>
 
@@ -91,9 +81,8 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Ondernemers van de Kamp Amersfoort
           </p>
           <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest text-stone/20">
-            <Link href="/login" className="hover:text-stone transition-colors">Beheer je zaak</Link>
-            <Link href="#" className="hover:text-stone transition-colors">Privacy</Link>
-            <Link href="#" className="hover:text-stone transition-colors">Cookiestatements</Link>
+            <Link href="/login" className="hover:text-stone transition-colors">{t(locale, "footer.manage")}</Link>
+            <Link href="/privacy" className="hover:text-stone transition-colors">{t(locale, "footer.privacy")}</Link>
           </div>
         </div>
       </div>

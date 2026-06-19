@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Praktische info — waar ligt De Kamp & hoe kom je er",
   description:
     "Alles voor je bezoek aan De Kamp in Amersfoort: waar het ligt, parkeren, met de trein of fiets, en wat je in de buurt vindt. In het hart van de historische binnenstad, bij de Kamperbinnenpoort.",
-  alternates: { canonical: "/praktisch" },
+  alternates: { canonical: "/praktisch", languages: { nl: "/praktisch", en: "/en/praktisch" } },
   openGraph: { title: "Bezoek De Kamp — praktische info", description: "Locatie, parkeren, OV en bezienswaardigheden rond De Kamp in Amersfoort.", url: "/praktisch" },
 };
 

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Cloudflare cron wrapper — bundled by wrangler, imports a build artifact.
+    "worker/**",
   ]),
 ]);
 

@@ -12,7 +12,7 @@ export const metadata = {
   title: "Wandel de Kamp — straatbeeld-wandeling langs alle ondernemers",
   description:
     "Wandel stap voor stap over De Kamp in Amersfoort, van de Kamperbinnenpoort tot de singels. Bekijk elke zaak met foto, openingstijden en het echte straatbeeld via Street View.",
-  alternates: { canonical: "/loop-de-kamp" },
+  alternates: { canonical: "/loop-de-kamp", languages: { nl: "/loop-de-kamp", en: "/en/loop-de-kamp" } },
   openGraph: { title: "Wandel de Kamp, Amersfoort", description: "Een straatbeeld-wandeling langs alle ondernemers van De Kamp.", url: "/loop-de-kamp" },
 };
 

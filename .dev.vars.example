@@ -9,3 +9,14 @@ RESEND_API_KEY=""
 
 # Comma-separated emails that become admins on first login
 ADMIN_EMAILS="info@ondernemersvandekamp.nl"
+
+# Google Maps Platform key (with Places API enabled) for live review display.
+# Optional — without it the reviews block just renders nothing.
+GOOGLE_MAPS_API_KEY=""
+
+# Mollie API key (gift card). Optional — without it no payments are created.
+MOLLIE_API_KEY=""
+
+# DeepL Pro key (EU) for NL→EN machine translation. Optional — without it EN
+# falls back to Dutch.
+DEEPL_API_KEY=""

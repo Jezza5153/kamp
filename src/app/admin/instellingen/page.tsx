@@ -15,14 +15,35 @@ export default async function SettingsPage({
   const { saved } = await searchParams;
   const s = await getSettings();
   const hasKey = Boolean(s.resend_api_key);
+  const hasMapsKey = Boolean(s.google_maps_api_key);
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-deep-green">Instellingen</h1>
-        <Link href="/admin" className="text-sm text-warm-brown underline">
-          ← Moderatie
-        </Link>
+        <div className="flex flex-wrap gap-4 text-sm text-warm-brown">
+          <Link href="/admin/agenda" className="underline">
+            Agenda
+          </Link>
+          <Link href="/admin/nieuwsbrief" className="underline">
+            Nieuwsbrief
+          </Link>
+          <Link href="/admin/verhalen" className="underline">
+            Verhalen
+          </Link>
+          <Link href="/admin/statistieken" className="underline">
+            Statistieken
+          </Link>
+          <Link href="/admin/vertalingen" className="underline">
+            Vertalingen
+          </Link>
+          <Link href="/admin/google" className="underline">
+            Google reviews
+          </Link>
+          <Link href="/admin" className="underline">
+            ← Moderatie
+          </Link>
+        </div>
       </div>
       <p className="mt-1 text-sm text-warm-brown">
         E-mail (Resend), beheerders en de site-URL. Wijzigingen werken direct, zonder opnieuw te
@@ -82,6 +103,36 @@ export default async function SettingsPage({
             defaultValue={s.site_url ?? ""}
             help="Basis-URL voor de inloglinks in e-mails. Vul je definitieve domein in zodra je dat hebt."
           />
+        </section>
+
+        <section className="space-y-3 rounded-2xl bg-paper p-5 shadow-[var(--shadow-card)]">
+          <h2 className="font-semibold text-deep-green">Google reviews</h2>
+          <p className="text-xs text-warm-brown">
+            Maak in Google Cloud een Maps-sleutel met <strong>Places API (New)</strong> ingeschakeld. Stel
+            daarna per zaak een{" "}
+            <Link href="/admin/google" className="text-amber-ink underline">
+              place_id
+            </Link>{" "}
+            in om de reviews te tonen.
+          </p>
+          <div>
+            <label htmlFor="google_maps_api_key" className="block text-sm font-medium text-foreground">
+              Google Maps API-sleutel{" "}
+              {hasMapsKey ? (
+                <span className="text-xs font-normal text-amber-ink">· er is een sleutel ingesteld</span>
+              ) : (
+                <span className="text-xs font-normal text-clay">· nog niet ingesteld</span>
+              )}
+            </label>
+            <input
+              id="google_maps_api_key"
+              name="google_maps_api_key"
+              type="password"
+              autoComplete="off"
+              placeholder={hasMapsKey ? "•••••••• (laat leeg om te behouden)" : "AIza..."}
+              className="mt-1 w-full rounded-xl border border-stone bg-background px-4 py-3 text-foreground outline-none focus:border-deep-green"
+            />
+          </div>
         </section>
 
         <button

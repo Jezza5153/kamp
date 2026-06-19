@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getDB } from "@/lib/cf";
+import { rateLimit } from "@/lib/rateLimit";
+import { claimInvitesForEmail } from "@/lib/invites";
 import { getAdminEmails, getConfiguredSiteUrl, getResendConfig } from "@/lib/settings";
 
 /**
@@ -42,11 +44,24 @@ async function siteUrl(): Promise<string> {
 
 /** Create a one-time token and email a login link. Always returns ok to the
  *  UI (don't leak whether an email exists); logs the link when no mailer set. */
-export async function requestMagicLink(email: string): Promise<{ ok: boolean }> {
+export async function requestMagicLink(
+  email: string,
+  opts: { skipThrottle?: boolean } = {}
+): Promise<{ ok: boolean }> {
   const clean = email.trim().toLowerCase();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(clean)) return { ok: false };
   const db = await getDB();
   if (!db) return { ok: true };
+
+  // Throttle magic-link requests per email (max 5 / 15 min) as defence in depth
+  // alongside Turnstile + the WAF. Over the limit we still report success and
+  // simply send nothing — never reveal the limit or whether the address exists.
+  // Admin-issued invites skip this: the actor is an authenticated admin and the
+  // invite IS the owner's login link, so it must never hit the anonymous bucket.
+  if (!opts.skipThrottle) {
+    const rl = await rateLimit(db, `login:email:${clean}`, 5, TOKEN_TTL_MS);
+    if (!rl.allowed) return { ok: true };
+  }
 
   const token = randomToken();
   const now = Date.now();
@@ -90,15 +105,18 @@ export async function completeLogin(token: string): Promise<Role | null> {
   const db = await getDB();
   if (!db || !token) return null;
   try {
-    const row = await db
-      .prepare("SELECT email, expires_at, used FROM auth_tokens WHERE token = ?")
-      .bind(token)
-      .first<{ email: string; expires_at: number; used: number }>();
-    if (!row || row.used || row.expires_at < Date.now()) return null;
+    // Atomic single-use claim: the conditional UPDATE…RETURNING ensures exactly one
+    // concurrent request (real click vs. email-scanner prefetch) can consume a token.
+    const claimed = await db
+      .prepare("UPDATE auth_tokens SET used = 1 WHERE token = ? AND used = 0 AND expires_at > ? RETURNING email")
+      .bind(token, Date.now())
+      .first<{ email: string }>();
+    if (!claimed) return null;
 
-    await db.prepare("UPDATE auth_tokens SET used = 1 WHERE token = ?").bind(token).run();
-
-    const profile = await ensureProfile(row.email);
+    const profile = await ensureProfile(claimed.email);
+    // Bind any pending admin invites for this exact email (claim-time ownership):
+    // logging in via the magic link proves control of the address.
+    await claimInvitesForEmail(db, profile.id, profile.email);
     const sid = crypto.randomUUID();
     const now = Date.now();
     await db
