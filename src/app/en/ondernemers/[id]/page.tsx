@@ -1,81 +1,75 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getActiveBusinesses, getBusiness } from "@/lib/businessData";
+import { getActiveBusinessesIn, getBusinessIn } from "@/lib/businessData";
 import BusinessDetailClient from "@/components/BusinessDetailClient";
 import GoogleReviews from "@/components/GoogleReviews";
 import JsonLd from "@/components/JsonLd";
-import { graph, localBusinessSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
-import { relatedBusinesses, buildFaqs } from "@/lib/related";
+import { graph, localBusinessSchema, breadcrumbSchema } from "@/lib/schema";
+import { relatedBusinesses } from "@/lib/related";
 import { categorySlug, categoryByName } from "@/lib/categories";
-import { businessUrl, abs, SITE } from "@/lib/site";
+import { abs, SITE } from "@/lib/site";
 
 interface Props {
   params: Promise<{ id: string }>;
 }
 
-// ISR — see DEPLOY_CLOUDFLARE.md (cache freshness): refresh approved D1 edits.
 export const revalidate = 300;
 
 export async function generateStaticParams() {
-  return (await getActiveBusinesses()).map((b) => ({ id: b.id }));
+  return (await getActiveBusinessesIn("en")).map((b) => ({ id: b.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const b = await getBusiness(id);
+  const b = await getBusinessIn(id, "en");
   if (!b) return {};
 
-  const title = `${b.name} — ${b.subcategory} op De Kamp, Amersfoort`;
+  const title = `${b.name} — ${b.subcategory} on De Kamp, Amersfoort`;
   const description = `${b.shortDescription} ${b.address}, Amersfoort.`;
-  // Local photo → use it; otherwise inherit the branded root opengraph-image.
   const localImage = b.imageUrl && b.imageUrl.startsWith("/") ? abs(b.imageUrl) : undefined;
 
   return {
     title,
     description,
-    keywords: [b.name, b.subcategory, b.category, "De Kamp Amersfoort", `${b.name} Amersfoort`, ...(b.specialties ?? [])],
     alternates: {
-      canonical: `/ondernemers/${b.id}`,
+      canonical: `/en/ondernemers/${b.id}`,
       languages: { nl: `/ondernemers/${b.id}`, en: `/en/ondernemers/${b.id}` },
     },
     openGraph: {
       type: "website",
       title,
       description,
-      url: businessUrl(b.id),
+      url: abs(`/en/ondernemers/${b.id}`),
       siteName: SITE.name,
-      locale: "nl_NL",
+      locale: "en_GB",
       ...(localImage ? { images: [{ url: localImage, width: 1200, height: 630, alt: b.name }] } : {}),
     },
-    twitter: { card: "summary_large_image", title, description, ...(localImage ? { images: [localImage] } : {}) },
   };
 }
 
-export default async function BusinessDetailPage({ params }: Props) {
+export default async function BusinessDetailEn({ params }: Props) {
   const { id } = await params;
-  const business = await getBusiness(id);
+  const business = await getBusinessIn(id, "en");
   if (!business || business.status === "closed") notFound();
 
-  const active = await getActiveBusinesses();
+  const active = await getActiveBusinessesIn("en");
   const related = relatedBusinesses(business, active);
-  const faqs = buildFaqs(business);
   const cat = categoryByName(business.category);
 
+  // No FAQs on EN (the generator is Dutch) — the business description itself is translated.
   const jsonLd = graph(
     localBusinessSchema(business),
     breadcrumbSchema([
-      { name: "Home", url: "/" },
+      { name: "Home", url: "/en" },
       { name: cat.name, url: `/categorie/${categorySlug(business.category)}` },
-      { name: business.name, url: `/ondernemers/${business.id}` },
+      { name: business.name, url: `/en/ondernemers/${business.id}` },
     ]),
-    ...(faqs.length ? [faqSchema(faqs)] : []),
   );
 
   return (
     <>
       <JsonLd data={jsonLd} />
-      <BusinessDetailClient business={business} related={related} districtBusinesses={active} faqs={faqs} />
-      {/* Live Google reviews — client-fetched (never cached), shows nothing if no place_id set. */}
+      <BusinessDetailClient business={business} related={related} districtBusinesses={active} faqs={[]} />
       <GoogleReviews businessId={business.id} />
     </>
   );

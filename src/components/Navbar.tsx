@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X, PlusCircle } from "lucide-react";
+import LangSwitch from "@/components/LangSwitch";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,6 +69,8 @@ const Navbar = () => {
               </Link>
             </div>
             
+            <LangSwitch />
+
             <Link href="/aanmelden" className="group relative inline-flex items-center gap-2 px-6 py-2.5 bg-deep-green text-white text-[13px] font-black uppercase tracking-widest rounded-full overflow-hidden transition-all shadow-lg hover:shadow-deep-green/20 hover:scale-105 active:scale-95">
               <span className="relative z-10 flex items-center gap-2">
                 <PlusCircle className="w-4 h-4" />
@@ -165,6 +168,9 @@ const Navbar = () => {
             <PlusCircle className="w-5 h-5" />
             Zit jouw zaak er nog niet bij?
           </Link>
+          <div className="pt-2" onClick={() => setIsOpen(false)}>
+            <LangSwitch />
+          </div>
         </div>
       </motion.div>
     </motion.nav>

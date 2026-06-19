@@ -24,6 +24,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     images: b.imageUrl && b.imageUrl.startsWith("/") ? [`${base}${b.imageUrl}`] : undefined,
   }));
 
+  // English routes (i18n) — the EN home + each translated business page.
+  const enUrls = [
+    { url: `${base}/en`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
+    ...active.map((b) => ({
+      url: `${base}/en/ondernemers/${b.id}`,
+      lastModified: b.updatedAt ? new Date(b.updatedAt) : new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    })),
+  ];
+
   const categoryUrls = ALL_CATEGORY_SLUGS.map((slug) => ({
     url: `${base}/categorie/${slug}`,
     lastModified: new Date(),
@@ -44,5 +55,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/nieuwsbrief`, priority: 0.4 },
   ].map((p) => ({ url: p.url, lastModified: new Date(), changeFrequency: "weekly" as const, priority: p.priority }));
 
-  return [...staticPages, ...categoryUrls, ...businessUrls, ...storyUrls];
+  return [...staticPages, ...categoryUrls, ...businessUrls, ...storyUrls, ...enUrls];
 }
