@@ -91,7 +91,7 @@ export default function BusinessExplorer({ businesses, locale = "nl" }: { busine
             </Chip>
             {CATEGORIES.map((c) => (
               <Chip key={c.slug} active={category === c.name} onClick={() => setCategory(c.name)}>
-                {c.short}
+                {locale === "en" ? c.shortEn : c.short}
               </Chip>
             ))}
           </div>

@@ -81,9 +81,23 @@ const D: Record<string, { nl: string; en: string }> = {
     en: "Add your story, photos and opening hours — free.",
   },
   "detail.manageThis": { nl: "Beheer deze zaak", en: "Manage this business" },
+  "badge.hoursOnRequest": { nl: "Tijden op aanvraag", en: "Hours on request" },
 };
 
 export function t(locale: Locale, key: string): string {
   const e = D[key];
   return e ? e[locale] ?? e.nl : key;
+}
+
+/** Routes that have an /en version. (Home is handled separately.) */
+const EN_ROUTES = new Set(["/kaart", "/over-de-kamp", "/praktisch", "/loop-de-kamp", "/cadeaukaart"]);
+
+export function hasEnVersion(path: string): boolean {
+  const clean = path.split("#")[0];
+  return EN_ROUTES.has(clean) || clean.startsWith("/ondernemers/");
+}
+
+/** Prefix a NL path with /en when on EN and an English version exists. */
+export function localizedHref(locale: Locale, path: string): string {
+  return locale === "en" && hasEnVersion(path) ? `/en${path}` : path;
 }

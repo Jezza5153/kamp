@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Kaart van De Kamp — alle ondernemers in beeld",
   description:
     "Bekijk alle ondernemers op De Kamp in Amersfoort op de interactieve kaart. Filter op categorie, zie wie er nu open is en plan je route langs winkels, restaurants en makers.",
-  alternates: { canonical: "/kaart" },
+  alternates: { canonical: "/kaart", languages: { nl: "/kaart", en: "/en/kaart" } },
   openGraph: { title: "Kaart van De Kamp, Amersfoort", description: "Alle ondernemers op De Kamp op één interactieve kaart.", url: "/kaart" },
 };
 

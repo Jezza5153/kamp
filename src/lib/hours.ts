@@ -153,16 +153,17 @@ function closingInfo(p: HoursPeriod, nowMin: number, closeMin: number, closeStr:
 }
 
 /** Short Dutch label for the open badge. */
-export function openLabel(state: OpenState): string {
+export function openLabel(state: OpenState, locale: "nl" | "en" = "nl"): string {
+  const en = locale === "en";
   switch (state.status) {
     case "open":
-      return state.until ? `Nu open · tot ${fmtTime(state.until)}` : "Nu open";
+      return state.until ? `${en ? "Open now · until" : "Nu open · tot"} ${fmtTime(state.until)}` : en ? "Open now" : "Nu open";
     case "closing_soon":
-      return state.until ? `Sluit binnenkort · ${fmtTime(state.until)}` : "Sluit binnenkort";
+      return state.until ? `${en ? "Closing soon ·" : "Sluit binnenkort ·"} ${fmtTime(state.until)}` : en ? "Closing soon" : "Sluit binnenkort";
     case "opens_later":
-      return state.opensAt ? `Gesloten · opent ${fmtTime(state.opensAt)}` : "Gesloten";
+      return state.opensAt ? `${en ? "Closed · opens" : "Gesloten · opent"} ${fmtTime(state.opensAt)}` : en ? "Closed" : "Gesloten";
     case "closed":
-      return "Gesloten";
+      return en ? "Closed" : "Gesloten";
     default:
       return "";
   }

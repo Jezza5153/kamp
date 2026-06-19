@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X, PlusCircle } from "lucide-react";
 import LangSwitch from "@/components/LangSwitch";
-import { t } from "@/lib/dict";
+import { t, localizedHref } from "@/lib/dict";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +61,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-10">
             <div className="flex space-x-6">
               {desktopLinks.map((l) => (
-                <Link key={l.href} href={l.href} className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
+                <Link key={l.href} href={localizedHref(locale, l.href)} className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
                   {t(locale, l.key)}
                 </Link>
               ))}
@@ -114,7 +114,7 @@ const Navbar = () => {
           ].map((l) => (
             <Link
               key={l.href}
-              href={l.href}
+              href={localizedHref(locale, l.href)}
               onClick={() => setIsOpen(false)}
               className="block text-2xl font-serif font-bold text-deep-green py-2"
             >

@@ -27,6 +27,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // English routes (i18n) — the EN home + each translated business page.
   const enUrls = [
     { url: `${base}/en`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
+    ...["/en/kaart", "/en/over-de-kamp", "/en/praktisch", "/en/loop-de-kamp", "/en/cadeaukaart"].map((p) => ({
+      url: `${base}${p}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+    })),
     ...active.map((b) => ({
       url: `${base}/en/ondernemers/${b.id}`,
       lastModified: b.updatedAt ? new Date(b.updatedAt) : new Date(),

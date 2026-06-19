@@ -7,7 +7,7 @@ export const metadata = {
   title: "Over De Kamp in Amersfoort — geschiedenis & winkelgebied",
   description:
     "De geschiedenis van De Kamp in Amersfoort: van middeleeuwse veedrift en de 13e-eeuwse Kamperbinnenpoort tot het onafhankelijke winkel- en horecagebied van vandaag.",
-  alternates: { canonical: "/over-de-kamp" },
+  alternates: { canonical: "/over-de-kamp", languages: { nl: "/over-de-kamp", en: "/en/over-de-kamp" } },
 };
 
 const faqs = [

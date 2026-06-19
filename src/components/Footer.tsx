@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Send, MapPin } from "lucide-react";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { t } from "@/lib/dict";
+import { t, localizedHref } from "@/lib/dict";
 
 const Footer = () => {
   const pathname = usePathname() || "/";
@@ -46,7 +46,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-stone/60 hover:text-white transition-colors flex items-center gap-2 group">
+                  <Link href={localizedHref(locale, l.href)} className="text-stone/60 hover:text-white transition-colors flex items-center gap-2 group">
                     <span className="w-0 group-hover:w-2 h-px bg-amber transition-all" />
                     {t(locale, l.key)}
                   </Link>

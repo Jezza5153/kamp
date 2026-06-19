@@ -1,10 +1,12 @@
 "use client";
 
 import { useMemo } from "react";
+import { usePathname } from "next/navigation";
 import { Clock } from "lucide-react";
 import type { DayHours } from "@/data/businesses";
 import { getOpenState, openLabel, type OpenState } from "@/lib/hours";
 import { useNow } from "@/lib/useNow";
+import { t } from "@/lib/dict";
 
 interface OpenBadgeProps {
   hours?: DayHours[];
@@ -29,6 +31,8 @@ const TONE: Record<OpenState["status"], string> = {
  */
 export default function OpenBadge({ hours, variant = "pill", showUnknown = false, className = "" }: OpenBadgeProps) {
   const now = useNow();
+  const pathname = usePathname() || "/";
+  const locale = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "nl";
   const state: OpenState | null = useMemo(() => (now ? getOpenState(hours, now) : null), [hours, now]);
 
   if (!state) {
@@ -36,7 +40,7 @@ export default function OpenBadge({ hours, variant = "pill", showUnknown = false
     if (showUnknown) {
       return (
         <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ring-1 ${TONE.unknown} ${className}`}>
-          <Clock className="h-3.5 w-3.5" /> Tijden op aanvraag
+          <Clock className="h-3.5 w-3.5" /> {t(locale, "badge.hoursOnRequest")}
         </span>
       );
     }
@@ -47,7 +51,7 @@ export default function OpenBadge({ hours, variant = "pill", showUnknown = false
     if (!showUnknown) return null;
     return (
       <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ring-1 ${TONE.unknown} ${className}`}>
-        <Clock className="h-3.5 w-3.5" /> Tijden op aanvraag
+        <Clock className="h-3.5 w-3.5" /> {t(locale, "badge.hoursOnRequest")}
       </span>
     );
   }
@@ -68,7 +72,7 @@ export default function OpenBadge({ hours, variant = "pill", showUnknown = false
       ) : (
         <Clock className="h-3.5 w-3.5" />
       )}
-      {openLabel(state)}
+      {openLabel(state, locale)}
     </span>
   );
 }

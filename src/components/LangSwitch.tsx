@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { hasEnVersion } from "@/lib/dict";
 
 /**
  * NL ⇄ EN switcher. EN versions exist for the home and business-detail pages;
@@ -16,7 +17,7 @@ export default function LangSwitch() {
     target = pathname === "/en" ? "/" : pathname.replace(/^\/en/, "") || "/";
   } else if (pathname === "/") {
     target = "/en";
-  } else if (pathname.startsWith("/ondernemers/")) {
+  } else if (hasEnVersion(pathname)) {
     target = `/en${pathname}`;
   } else {
     target = "/en";
