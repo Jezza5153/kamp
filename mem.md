@@ -194,7 +194,16 @@ D1 events that merge with the curated seed (`src/data/events.ts`), same `KampEve
 - Adversarial review (1 agent, 7 areas): no security/authz defects; only fix taken was the date-validity hardening.
 - **Deferred:** owner self-submission of events from `/beheer` (backend supports `pending` status already); recurring-event RRULE expansion.
 
-Next backend step per §9: Step 5 newsletter (`0008`) or Step 6 owner-story (`0007`).
+## Build progress — Step 5 newsletter (done 2026-06-19, green: 38 tests)
+Self-hosted on Resend + D1 (no ESP vendor), GDPR double-opt-in:
+- `migrations/0007_newsletter.sql` — `newsletter_subscribers` + `subscriber_events` (consent audit, FK cascade).
+- `src/lib/newsletter.ts` — `subscribe` (anti-enumeration, never resurrects bounced), `confirmSubscriber` (idempotent), `unsubscribe`, `listSubscribers`, `subscriberCounts`, pure `validateEmail`.
+- Routes: `/api/newsletter/subscribe` (POST, honeypot+rate-limit+confirm email), `/confirm`, `/unsubscribe` (GET + RFC-8058 POST).
+- `NewsletterSignup.tsx` (footer + `/nieuwsbrief` page), `/admin/nieuwsbrief` (counts + confirmed list).
+- GDPR: `purgeProfile` deletes subscribers by email; maintenance prunes unconfirmed >30d. Email sends fail-soft until Resend is configured.
+- **Deferred:** campaign/digest SENDING (issues + per-recipient delivery ledger + batching) — collect-only for now.
+
+Next backend step: Step 6 owner-story (`0008` next number).
 
 NOTE: pre-existing Next-16 lint errors were fixed (new `src/lib/useNow.ts` hook + 4 components); CI now hard-gates lint.
 

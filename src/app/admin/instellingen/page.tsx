@@ -21,9 +21,12 @@ export default async function SettingsPage({
     <main className="mx-auto max-w-2xl px-6 py-12">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-deep-green">Instellingen</h1>
-        <div className="flex gap-4 text-sm text-warm-brown">
+        <div className="flex flex-wrap gap-4 text-sm text-warm-brown">
           <Link href="/admin/agenda" className="underline">
             Agenda
+          </Link>
+          <Link href="/admin/nieuwsbrief" className="underline">
+            Nieuwsbrief
           </Link>
           <Link href="/admin/google" className="underline">
             Google reviews

@@ -12,7 +12,8 @@ describe("maintenanceStatements", () => {
     expect(sql).toContain("DELETE FROM rate_limit");
     expect(sql).toContain("DELETE FROM leads");
     expect(sql).toContain("DELETE FROM owner_invites");
-    expect(stmts).toHaveLength(5);
+    expect(sql).toContain("DELETE FROM newsletter_subscribers");
+    expect(stmts).toHaveLength(6);
   });
 
   it("expires sessions/tokens at `now` and rate-limit windows after 24h", () => {

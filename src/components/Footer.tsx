@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Send, MapPin, Camera } from "lucide-react";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const Footer = () => {
   return (
@@ -71,18 +72,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter Section placeholder */}
+          {/* Newsletter */}
           <div className="md:col-span-4 space-y-6">
             <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber">Blijf op de hoogte</h3>
-            <div className="space-y-4">
-              <p className="text-stone/60 text-sm">Ontvang updates over nieuwe ondernemers en events op De Kamp.</p>
-              <a
-                href="mailto:info@ondernemersvandekamp.nl?subject=Aanmelden%20nieuwsbrief%20De%20Kamp"
-                className="inline-flex items-center gap-2 rounded-full bg-amber px-6 py-3.5 text-xs font-black uppercase tracking-widest text-charcoal transition hover:bg-gold"
-              >
-                <Send className="w-4 h-4" /> Schrijf je in
-              </a>
-            </div>
+            <p className="text-stone/60 text-sm">Ontvang updates over nieuwe ondernemers en events op De Kamp.</p>
+            <NewsletterSignup variant="dark" />
           </div>
         </div>
 

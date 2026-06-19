@@ -21,6 +21,11 @@ export function maintenanceStatements(now: number): { sql: string; params: unkno
     },
     // Expired, unclaimed owner invites.
     { sql: "DELETE FROM owner_invites WHERE claimed_at IS NULL AND expires_at < ?", params: [now] },
+    // Data minimisation: never-confirmed newsletter sign-ups after 30 days.
+    {
+      sql: "DELETE FROM newsletter_subscribers WHERE status = 'pending' AND created_at < ?",
+      params: [now - 30 * DAY_MS],
+    },
   ];
 }
 

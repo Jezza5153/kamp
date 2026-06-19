@@ -72,6 +72,8 @@ export async function purgeProfile(
     const email = prof.email.trim().toLowerCase();
     await db.prepare("DELETE FROM leads WHERE email = ?").bind(email).run();
     await db.prepare("DELETE FROM owner_invites WHERE email = ?").bind(email).run();
+    // subscriber_events cascade via FK.
+    await db.prepare("DELETE FROM newsletter_subscribers WHERE email = ?").bind(email).run();
   }
 
   const businesses = [...new Set(media.results.map((r) => r.business_id))];
