@@ -2,11 +2,20 @@ import Link from "next/link";
 import { CheckCircle2, MailCheck, XCircle } from "lucide-react";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
-export const metadata = {
-  title: "Nieuwsbrief — Ondernemers van de Kamp",
-  description: "Schrijf je in voor updates over nieuwe ondernemers en evenementen op De Kamp in Amersfoort.",
-  alternates: { canonical: "/nieuwsbrief" },
-};
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ status?: string }>;
+}) {
+  const { status } = await searchParams;
+  return {
+    title: "Nieuwsbrief — Ondernemers van de Kamp",
+    description: "Schrijf je in voor updates over nieuwe ondernemers en evenementen op De Kamp in Amersfoort.",
+    alternates: { canonical: "/nieuwsbrief" },
+    // The transactional ?status= variants are thin/duplicate — keep them out of the index.
+    ...(status ? { robots: { index: false, follow: true } } : {}),
+  };
+}
 
 export default async function NewsletterPage({
   searchParams,

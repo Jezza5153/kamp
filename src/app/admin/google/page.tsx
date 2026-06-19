@@ -2,13 +2,19 @@ import Link from "next/link";
 import { requireAdmin } from "@/lib/auth";
 import { allBusinessesSeed } from "@/lib/businessData";
 import { listBusinessGoogle } from "@/lib/reviews";
-import { setPlaceIdAction } from "../actions";
+import { abs } from "@/lib/site";
+import { setPlaceIdAction, createReviewRequestAction } from "../actions";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Google reviews — place_id", robots: { index: false } };
 
-export default async function GoogleReviewsAdmin() {
+export default async function GoogleReviewsAdmin({
+  searchParams,
+}: {
+  searchParams: Promise<{ reviewBiz?: string; reviewToken?: string }>;
+}) {
   await requireAdmin();
+  const { reviewBiz, reviewToken } = await searchParams;
   const placeIds = await listBusinessGoogle();
   const businesses = [...allBusinessesSeed].sort((a, b) => a.name.localeCompare(b.name, "nl"));
   const linked = Object.keys(placeIds).length;
@@ -64,6 +70,24 @@ export default async function GoogleReviewsAdmin() {
                 </button>
                 {current ? <span className="text-xs text-emerald-700">✓ gekoppeld</span> : null}
               </form>
+              <div className="mt-2 flex flex-wrap items-center gap-3 text-xs">
+                <form action={createReviewRequestAction}>
+                  <input type="hidden" name="businessId" value={b.id} />
+                  <button type="submit" className="rounded-lg border border-stone px-3 py-1.5 text-warm-brown hover:border-amber">
+                    Review-QR-link
+                  </button>
+                </form>
+                {reviewBiz === b.id && reviewToken ? (
+                  <a
+                    href={`/r/${reviewToken}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="break-all font-mono text-amber-ink underline"
+                  >
+                    {abs(`/r/${reviewToken}`)}
+                  </a>
+                ) : null}
+              </div>
             </li>
           );
         })}

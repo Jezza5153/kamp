@@ -9,7 +9,7 @@ import { purgeBusiness } from "@/lib/gdpr";
 import { saveSettings } from "@/lib/settings";
 import { inviteOwner } from "@/lib/invites";
 import { setLeadStatus } from "@/lib/leads";
-import { setPlaceId } from "@/lib/reviews";
+import { setPlaceId, createReviewRequest } from "@/lib/reviews";
 import { createEvent, moderateEvent, deleteEvent, type EventInput } from "@/lib/events";
 import { createStory, setStoryStatus, deleteStory, type StoryInput } from "@/lib/stories";
 
@@ -65,6 +65,14 @@ export async function setPlaceIdAction(formData: FormData) {
   const admin = await requireAdmin();
   await setPlaceId(String(formData.get("businessId") ?? ""), String(formData.get("placeId") ?? ""), admin.id);
   revalidatePath("/admin");
+}
+
+/** Mint a review-request token for a counter QR card (the funnel's entry point). */
+export async function createReviewRequestAction(formData: FormData) {
+  await requireAdmin();
+  const businessId = String(formData.get("businessId") ?? "");
+  const token = await createReviewRequest(businessId);
+  redirect(`/admin/google?reviewBiz=${encodeURIComponent(businessId)}${token ? `&reviewToken=${token}` : ""}`);
 }
 
 export async function approveLeadAction(formData: FormData) {

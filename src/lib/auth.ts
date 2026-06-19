@@ -105,15 +105,15 @@ export async function completeLogin(token: string): Promise<Role | null> {
   const db = await getDB();
   if (!db || !token) return null;
   try {
-    const row = await db
-      .prepare("SELECT email, expires_at, used FROM auth_tokens WHERE token = ?")
-      .bind(token)
-      .first<{ email: string; expires_at: number; used: number }>();
-    if (!row || row.used || row.expires_at < Date.now()) return null;
+    // Atomic single-use claim: the conditional UPDATE…RETURNING ensures exactly one
+    // concurrent request (real click vs. email-scanner prefetch) can consume a token.
+    const claimed = await db
+      .prepare("UPDATE auth_tokens SET used = 1 WHERE token = ? AND used = 0 AND expires_at > ? RETURNING email")
+      .bind(token, Date.now())
+      .first<{ email: string }>();
+    if (!claimed) return null;
 
-    await db.prepare("UPDATE auth_tokens SET used = 1 WHERE token = ?").bind(token).run();
-
-    const profile = await ensureProfile(row.email);
+    const profile = await ensureProfile(claimed.email);
     // Bind any pending admin invites for this exact email (claim-time ownership):
     // logging in via the magic link proves control of the address.
     await claimInvitesForEmail(db, profile.id, profile.email);

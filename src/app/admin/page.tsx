@@ -22,16 +22,14 @@ export default async function AdminPage() {
     <main className="mx-auto max-w-3xl px-6 py-12">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-deep-green">Moderatie</h1>
-        <div className="flex gap-3 text-sm">
-          <Link href="/admin/instellingen" className="text-amber-ink underline">
-            Instellingen
-          </Link>
-          <Link href="/beheer" className="text-warm-brown underline">
-            Vermeldingen
-          </Link>
-          <a href="/logout" className="text-warm-brown underline">
-            Uitloggen
-          </a>
+        <div className="flex flex-wrap gap-3 text-sm">
+          <Link href="/admin/agenda" className="text-warm-brown underline">Agenda</Link>
+          <Link href="/admin/nieuwsbrief" className="text-warm-brown underline">Nieuwsbrief</Link>
+          <Link href="/admin/verhalen" className="text-warm-brown underline">Verhalen</Link>
+          <Link href="/admin/statistieken" className="text-warm-brown underline">Statistieken</Link>
+          <Link href="/admin/google" className="text-warm-brown underline">Google</Link>
+          <Link href="/admin/instellingen" className="text-amber-ink underline">Instellingen</Link>
+          <a href="/logout" className="text-warm-brown underline">Uitloggen</a>
         </div>
       </div>
       <p className="mt-1 text-sm text-warm-brown">

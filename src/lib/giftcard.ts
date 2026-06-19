@@ -101,36 +101,33 @@ export async function handleMollieWebhook(paymentId: string): Promise<void> {
   const key = await getMollieKey();
   if (!db || !key || !paymentId) return;
   try {
-    const seen = await db
-      .prepare(`SELECT payment_id FROM gift_card_webhook_events WHERE payment_id = ?`)
-      .bind(paymentId)
-      .first<{ payment_id: string }>();
-    if (seen) return; // already processed
-
+    // Mollie fires the webhook on EVERY status transition (open → paid …). Always
+    // re-fetch the authoritative status; never dedupe before the paid check or a
+    // non-paid callback would mask the real paid one (card would never issue).
     const res = await fetch(`https://api.mollie.com/v2/payments/${encodeURIComponent(paymentId)}`, {
       headers: { Authorization: `Bearer ${key}` },
     });
     if (!res.ok) return;
     const payment = (await res.json()) as { status?: string; amount?: { value?: string }; metadata?: { giftCardId?: string } };
+    if (payment.status !== "paid") return; // ignore open/expired/failed transitions
     const giftCardId = payment.metadata?.giftCardId;
     if (!giftCardId) return;
-
-    await db
-      .prepare(`INSERT OR IGNORE INTO gift_card_webhook_events (payment_id, status, processed_at) VALUES (?, ?, ?)`)
-      .bind(paymentId, payment.status ?? "unknown", Date.now())
-      .run();
-
-    if (payment.status !== "paid") return;
 
     const card = await db
       .prepare(`SELECT id, status, initial_cents FROM gift_cards WHERE id = ?`)
       .bind(giftCardId)
       .first<{ id: string; status: string; initial_cents: number }>();
-    if (!card || card.status !== "draft") return; // status-guarded: a replay issues nothing
+    if (!card || card.status !== "draft") return; // already issued (replay) or unknown
     const paidCents = Math.round(parseFloat(payment.amount?.value ?? "0") * 100);
     if (paidCents !== card.initial_cents) return; // amount mismatch
 
+    // issueGiftCard is idempotent (draft-only UPDATE + UNIQUE issue:<id> ledger key),
+    // so a replayed paid callback is a harmless no-op — no pre-dedupe needed.
     await issueGiftCard(giftCardId, card.initial_cents);
+    await db
+      .prepare(`INSERT OR IGNORE INTO gift_card_webhook_events (payment_id, status, processed_at) VALUES (?, 'paid', ?)`)
+      .bind(paymentId, Date.now())
+      .run();
   } catch {
     // swallow — Mollie retries the webhook
   }
@@ -199,29 +196,36 @@ export async function redeem(
     if (card.status !== "issued") return { ok: false, reason: "not_active" };
 
     const ledgerId = crypto.randomUUID();
-    const row = await db
-      .prepare(
-        `INSERT INTO gift_card_ledger (id, gift_card_id, amount_cents, kind, idempotency_key, merchant_business_id, created_at)
-         SELECT ?, ?, ?, 'redeem', ?, ?, ?
-         WHERE (SELECT COALESCE(SUM(amount_cents), 0) FROM gift_card_ledger WHERE gift_card_id = ?) >= ?
-           AND (SELECT status FROM gift_cards WHERE id = ?) = 'issued'
-         RETURNING id`
-      )
-      .bind(ledgerId, card.id, -amountCents, idempotencyKey, merchantBusinessId, Date.now(), card.id, amountCents, card.id)
-      .first<{ id: string }>();
+    let row: { id: string } | null;
+    try {
+      // ONE atomic conditional debit. The ledger IS the settlement source of truth
+      // (a redeem row carries merchant_business_id + amount; payout reconciliation
+      // reads `gift_card_ledger WHERE kind='redeem'`), so there's no second write to
+      // race against.
+      row = await db
+        .prepare(
+          `INSERT INTO gift_card_ledger (id, gift_card_id, amount_cents, kind, idempotency_key, merchant_business_id, created_at)
+           SELECT ?, ?, ?, 'redeem', ?, ?, ?
+           WHERE (SELECT COALESCE(SUM(amount_cents), 0) FROM gift_card_ledger WHERE gift_card_id = ?) >= ?
+             AND (SELECT status FROM gift_cards WHERE id = ?) = 'issued'
+           RETURNING id`
+        )
+        .bind(ledgerId, card.id, -amountCents, idempotencyKey, merchantBusinessId, Date.now(), card.id, amountCents, card.id)
+        .first<{ id: string }>();
+    } catch {
+      // UNIQUE(idempotency_key) violation = a retried till submit. Return the prior
+      // success so the cashier never re-keys with a fresh key and double-charges.
+      const dup = await db
+        .prepare(`SELECT id FROM gift_card_ledger WHERE idempotency_key = ? AND kind = 'redeem'`)
+        .bind(idempotencyKey)
+        .first<{ id: string }>();
+      if (dup) return { ok: true, balanceCents: await balanceCents(db, card.id) };
+      return { ok: false, reason: "error" };
+    }
     if (!row) return { ok: false, reason: "insufficient" };
-
-    await db
-      .prepare(
-        `INSERT INTO redemptions (id, gift_card_id, merchant_business_id, amount_cents, ledger_id, created_at)
-         VALUES (?, ?, ?, ?, ?, ?)`
-      )
-      .bind(crypto.randomUUID(), card.id, merchantBusinessId, amountCents, ledgerId, Date.now())
-      .run();
-
     return { ok: true, balanceCents: await balanceCents(db, card.id) };
   } catch {
-    return { ok: false, reason: "duplicate_or_error" };
+    return { ok: false, reason: "error" };
   }
 }
 

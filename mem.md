@@ -233,7 +233,17 @@ Cookieless, consent-free:
   FTS5 is over-engineering at ~67 static businesses. A text-search box is the only gap. Deferred.
 - **Cron worker** (`src/worker.ts` scheduled() wrapper) — wiring next (verify on first `*:cf` deploy).
 
-Backend Steps 1-7 + 10 BUILT. Then: cron worker, then FULL AUDIT + flowcharts (the finale).
+Backend Steps 1-7 + 10 BUILT. Cron worker wired (activation-gated).
+
+## FULL AUDIT + FLOWCHARTS (done 2026-06-19) — see [AUDIT.md](AUDIT.md) + [FLOWCHARTS.md](FLOWCHARTS.md)
+Multi-agent audit (5 dims × verify + 10 flow maps): **39 findings (1 critical, 2 high, 15 med, 21 low) + 35 wiring gaps**.
+**Fixed the launch-blockers + high-value set (build/lint/54 tests green):**
+- 🔴 CRITICAL Mollie webhook never issued paid cards (deduped on first non-paid callback) → re-fetch, ignore non-paid, idempotent issue.
+- 🟠 HIGH redeem() non-atomic dual-write → ledger is sole settlement source (dropped redemptions insert); duplicate idempotency-key now returns prior success (no double-charge).
+- 🟠 HIGH review-QR funnel had no token generator → `createReviewRequestAction` + button on /admin/google.
+- MED magic-link single-use made atomic (`UPDATE…WHERE used=0 RETURNING`); saldo oracle now rate-limits by IP; sitemap + llms.txt now include /verhalen + stories + /nieuwsbrief; /nieuwsbrief ?status noindex; /admin links all sub-pages.
+
+**Still open (in AUDIT.md, mostly deferred-by-design):** track() not fired at UI points (action_click/story_view); owner event/story submission UI; gift-card purchase + kassa/payout UI (legal-gated); i18n routing; discovery search box; a11y polish (aria-live, useFormStatus, mobile-menu aria); privacy/cookie page; footer dead links.
 
 NOTE: pre-existing Next-16 lint errors were fixed (new `src/lib/useNow.ts` hook + 4 components); CI now hard-gates lint.
 

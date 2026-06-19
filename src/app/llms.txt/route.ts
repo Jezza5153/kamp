@@ -1,4 +1,5 @@
 import { getActiveBusinesses } from "@/lib/businessData";
+import { getPublishedStories } from "@/lib/stories";
 import { CATEGORIES } from "@/lib/categories";
 import { SITE } from "@/lib/site";
 import { formatWeek } from "@/lib/hours";
@@ -11,6 +12,7 @@ export const dynamic = "force-static";
  */
 export async function GET() {
   const active = (await getActiveBusinesses()).sort((a, b) => a.sortOrder - b.sortOrder);
+  const stories = await getPublishedStories();
 
   const hoursSummary = (b: (typeof active)[number]) => {
     if (!b.hours?.length) return "openingstijden op aanvraag";
@@ -31,11 +33,13 @@ export async function GET() {
   lines.push(`- ${SITE.url}/ : overzicht van alle ondernemers + interactieve kaart`);
   lines.push(`- ${SITE.url}/kaart : kaart met alle ondernemers en "nu open"-status`);
   lines.push(`- ${SITE.url}/agenda : markten, koopzondagen en evenementen in de binnenstad`);
+  lines.push(`- ${SITE.url}/verhalen : verhalen achter de ondernemers van De Kamp`);
   lines.push(`- ${SITE.url}/cadeaukaart : de Kamp Cadeaukaart (lokaal cadeau-initiatief)`);
   lines.push(`- ${SITE.url}/loop-de-kamp : wandel de straat virtueel mee, met Street View per zaak`);
   lines.push(`- ${SITE.url}/praktisch : praktische bezoekersinfo (locatie, parkeren, OV, bezienswaardigheden)`);
   lines.push(`- ${SITE.url}/over-de-kamp : geschiedenis en achtergrond van De Kamp`);
   lines.push(`- ${SITE.url}/aanmelden : ondernemers kunnen hun zaak aanmelden of bijwerken`);
+  lines.push(`- ${SITE.url}/nieuwsbrief : schrijf je in voor de nieuwsbrief`);
   lines.push("");
   lines.push("## Categorieën");
   for (const c of CATEGORIES) {
@@ -55,6 +59,13 @@ export async function GET() {
     if (b.specialties?.length) parts.push(b.specialties.slice(0, 3).join("/"));
     parts.push(`${SITE.url}/ondernemers/${b.id}`);
     lines.push(`- ${parts.join("; ")}`);
+  }
+  if (stories.length) {
+    lines.push("");
+    lines.push("## Verhalen");
+    for (const s of stories) {
+      lines.push(`- ${s.title}${s.dek ? `: ${s.dek}` : ""}; ${SITE.url}/verhalen/${s.slug}`);
+    }
   }
   lines.push("");
   lines.push("## Over deze data");
