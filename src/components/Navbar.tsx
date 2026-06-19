@@ -2,12 +2,26 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X, PlusCircle } from "lucide-react";
 import LangSwitch from "@/components/LangSwitch";
+import { t } from "@/lib/dict";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname() || "/";
+  const locale = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "nl";
+  const home = locale === "en" ? "/en" : "/";
+  const desktopLinks = [
+    { href: `${home}#ondernemers`, key: "nav.businesses" },
+    { href: "/kaart", key: "nav.map" },
+    { href: "/loop-de-kamp", key: "nav.walk" },
+    { href: "/agenda", key: "nav.events" },
+    { href: "/verhalen", key: "nav.stories" },
+    { href: "/cadeaukaart", key: "nav.giftcard" },
+    { href: "/over-de-kamp", key: "nav.about" },
+  ];
   const { scrollY } = useScroll();
   
   const backgroundColor = useTransform(
@@ -36,37 +50,21 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 sm:h-24 items-center">
           <div className="flex-shrink-0">
-            <Link href="/" className="group flex items-center gap-2">
+            <Link href={home} className="group flex items-center gap-2">
               <span className="text-2xl sm:text-3xl font-serif font-black text-deep-green tracking-tighter leading-none">
                 De Kamp <br className="hidden" />
-                <span className="text-amber group-hover:italic transition-all">leeft.</span>
+                <span className="text-amber group-hover:italic transition-all">{t(locale, "brand.leeft")}</span>
               </span>
             </Link>
           </div>
           
           <div className="hidden md:flex items-center gap-10">
             <div className="flex space-x-6">
-              <Link href="/#ondernemers" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
-                Ondernemers
-              </Link>
-              <Link href="/kaart" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
-                Kaart
-              </Link>
-              <Link href="/loop-de-kamp" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
-                Wandel
-              </Link>
-              <Link href="/agenda" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
-                Agenda
-              </Link>
-              <Link href="/verhalen" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
-                Verhalen
-              </Link>
-              <Link href="/cadeaukaart" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
-                Cadeaukaart
-              </Link>
-              <Link href="/over-de-kamp" className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
-                Over
-              </Link>
+              {desktopLinks.map((l) => (
+                <Link key={l.href} href={l.href} className="text-[13px] uppercase tracking-widest font-black text-deep-green/60 hover:text-amber-ink transition-colors">
+                  {t(locale, l.key)}
+                </Link>
+              ))}
             </div>
             
             <LangSwitch />
@@ -74,7 +72,7 @@ const Navbar = () => {
             <Link href="/aanmelden" className="group relative inline-flex items-center gap-2 px-6 py-2.5 bg-deep-green text-white text-[13px] font-black uppercase tracking-widest rounded-full overflow-hidden transition-all shadow-lg hover:shadow-deep-green/20 hover:scale-105 active:scale-95">
               <span className="relative z-10 flex items-center gap-2">
                 <PlusCircle className="w-4 h-4" />
-                Aanmelden
+                {t(locale, "nav.register")}
               </span>
               <div className="absolute inset-0 bg-amber translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </Link>
@@ -104,69 +102,32 @@ const Navbar = () => {
         className="md:hidden overflow-hidden bg-background border-t border-stone/10"
       >
         <div className="px-4 pt-4 pb-8 space-y-4">
-          <Link
-            href="/#ondernemers"
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif font-bold text-deep-green py-2"
-          >
-            Ondernemers
-          </Link>
-          <Link
-            href="/kaart"
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif font-bold text-deep-green py-2"
-          >
-            Kaart
-          </Link>
-          <Link
-            href="/agenda"
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif font-bold text-deep-green py-2"
-          >
-            Agenda
-          </Link>
-          <Link
-            href="/verhalen"
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif font-bold text-deep-green py-2"
-          >
-            Verhalen
-          </Link>
-          <Link
-            href="/cadeaukaart"
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif font-bold text-deep-green py-2"
-          >
-            Cadeaukaart
-          </Link>
-          <Link
-            href="/loop-de-kamp"
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif font-bold text-deep-green py-2"
-          >
-            Wandel de Kamp
-          </Link>
-          <Link
-            href="/praktisch"
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif font-bold text-deep-green py-2"
-          >
-            Praktische info
-          </Link>
-          <Link
-            href="/over-de-kamp"
-            onClick={() => setIsOpen(false)}
-            className="block text-2xl font-serif font-bold text-deep-green py-2"
-          >
-            Over
-          </Link>
+          {[
+            { href: `${home}#ondernemers`, key: "nav.businesses" },
+            { href: "/kaart", key: "nav.map" },
+            { href: "/agenda", key: "nav.events" },
+            { href: "/verhalen", key: "nav.stories" },
+            { href: "/cadeaukaart", key: "nav.giftcard" },
+            { href: "/loop-de-kamp", key: "nav.walk" },
+            { href: "/praktisch", key: "footer.practical" },
+            { href: "/over-de-kamp", key: "nav.about" },
+          ].map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setIsOpen(false)}
+              className="block text-2xl font-serif font-bold text-deep-green py-2"
+            >
+              {t(locale, l.key)}
+            </Link>
+          ))}
           <Link 
             href="/aanmelden" 
             onClick={() => setIsOpen(false)}
             className="inline-flex items-center gap-2 w-full px-6 py-4 bg-deep-green text-white font-bold rounded-2xl"
           >
             <PlusCircle className="w-5 h-5" />
-            Zit jouw zaak er nog niet bij?
+            {t(locale, "nav.registerLong")}
           </Link>
           <div className="pt-2" onClick={() => setIsOpen(false)}>
             <LangSwitch />

@@ -69,7 +69,7 @@ export default async function BusinessDetailEn({ params }: Props) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <BusinessDetailClient business={business} related={related} districtBusinesses={active} faqs={[]} />
+      <BusinessDetailClient business={business} related={related} districtBusinesses={active} faqs={[]} locale="en" />
       <GoogleReviews businessId={business.id} />
     </>
   );

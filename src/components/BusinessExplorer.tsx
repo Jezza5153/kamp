@@ -9,8 +9,10 @@ import { getOpenState } from "@/lib/hours";
 import { useNow } from "@/lib/useNow";
 import BusinessCard from "./BusinessCard";
 import DistrictMap from "./DistrictMap";
+import { t } from "@/lib/dict";
+import type { Locale } from "@/lib/i18n";
 
-export default function BusinessExplorer({ businesses }: { businesses: Business[] }) {
+export default function BusinessExplorer({ businesses, locale = "nl" }: { businesses: Business[]; locale?: Locale }) {
   const [category, setCategory] = useState<string>("Alles");
   const [query, setQuery] = useState("");
   const [openNow, setOpenNow] = useState(false);
@@ -71,8 +73,8 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Zoek zaak, product of straat…"
-              aria-label="Zoek ondernemer"
+              placeholder={t(locale, "explorer.searchPlaceholder")}
+              aria-label={t(locale, "explorer.searchAria")}
               className="w-full rounded-full border border-stone/50 bg-paper py-3 pl-11 pr-10 text-sm font-medium shadow-sm outline-none transition focus:border-amber focus:ring-2 focus:ring-amber/30"
             />
             {query && (
@@ -85,7 +87,7 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
           {/* category chips */}
           <div className="-mx-1 flex flex-1 gap-2 overflow-x-auto px-1 pb-1 no-scrollbar">
             <Chip active={category === "Alles"} onClick={() => setCategory("Alles")}>
-              Alles
+              {t(locale, "explorer.all")}
             </Chip>
             {CATEGORIES.map((c) => (
               <Chip key={c.slug} active={category === c.name} onClick={() => setCategory(c.name)}>
@@ -97,7 +99,7 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
 
         {/* perfect-voor quick filter */}
         <div className="mt-3 -mx-1 flex items-center gap-2 overflow-x-auto px-1 pb-1 no-scrollbar">
-          <span className="self-center whitespace-nowrap text-[11px] font-black uppercase tracking-widest text-warm-brown/40">Perfect voor</span>
+          <span className="self-center whitespace-nowrap text-[11px] font-black uppercase tracking-widest text-warm-brown/40">{t(locale, "explorer.perfectFor")}</span>
           {useCases.map((u) => (
             <button
               key={u}
@@ -122,23 +124,23 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
                 openNow ? "bg-emerald-500/15 text-emerald-700 ring-emerald-600/30" : "bg-paper text-warm-brown/70 ring-stone/50 hover:ring-amber/50"
               }`}
             >
-              <Clock className="h-3.5 w-3.5" /> Nu open
+              <Clock className="h-3.5 w-3.5" /> {t(locale, "explorer.openNow")}
             </button>
             <button
               onClick={() => setShowMap((v) => !v)}
               className="inline-flex items-center gap-1.5 rounded-full bg-paper px-3.5 py-1.5 text-xs font-bold text-warm-brown/70 ring-1 ring-stone/50 transition hover:ring-amber/50"
             >
               {showMap ? <LayoutGrid className="h-3.5 w-3.5" /> : <MapIcon className="h-3.5 w-3.5" />}
-              {showMap ? "Verberg kaart" : "Toon kaart"}
+              {showMap ? t(locale, "explorer.hideMap") : t(locale, "explorer.showMap")}
             </button>
             {isFiltering && (
               <button onClick={reset} className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold text-amber-ink hover:underline">
-                <FilterX className="h-3.5 w-3.5" /> Wis filters
+                <FilterX className="h-3.5 w-3.5" /> {t(locale, "explorer.clear")}
               </button>
             )}
           </div>
           <p className="text-xs font-bold uppercase tracking-wider text-warm-brown/50">
-            {filtered.length} {filtered.length === 1 ? "ondernemer" : "ondernemers"}
+            {filtered.length} {filtered.length === 1 ? t(locale, "explorer.resultOne") : t(locale, "explorer.results")}
           </p>
         </div>
       </div>
@@ -155,7 +157,7 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
           >
             <DistrictMap businesses={active} highlightIds={isFiltering ? highlightIds : undefined} />
             <p className="mt-3 text-center text-xs font-medium text-warm-brown/50">
-              Elke stip is een ondernemer · beweeg eroverheen voor details · klik om de zaak te bekijken
+              {t(locale, "explorer.mapHint")}
             </p>
           </motion.div>
         )}
@@ -175,10 +177,10 @@ export default function BusinessExplorer({ businesses }: { businesses: Business[
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-stone/40 text-warm-brown/50">
                 <FilterX className="h-8 w-8" />
               </div>
-              <h3 className="mb-2 font-serif text-2xl font-black text-deep-green">Niets gevonden</h3>
-              <p className="mx-auto mb-8 max-w-sm text-warm-brown/60">Probeer een andere categorie of zoekterm — of zet “Nu open” uit.</p>
+              <h3 className="mb-2 font-serif text-2xl font-black text-deep-green">{t(locale, "explorer.nothingFound")}</h3>
+              <p className="mx-auto mb-8 max-w-sm text-warm-brown/60">{t(locale, "explorer.nothingHint")}</p>
               <button onClick={reset} className="rounded-full bg-deep-green px-8 py-3 font-bold text-white shadow-lg transition hover:bg-amber active:scale-95">
-                Alle filters wissen
+                {t(locale, "explorer.clearAll")}
               </button>
             </motion.div>
           )}

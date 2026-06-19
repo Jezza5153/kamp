@@ -35,7 +35,7 @@ export default async function HomeEn() {
               search, or see what&apos;s open right now.
             </p>
           </div>
-          <BusinessExplorer businesses={active} />
+          <BusinessExplorer businesses={active} locale="en" />
         </div>
       </section>
 
