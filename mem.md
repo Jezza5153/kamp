@@ -219,7 +219,21 @@ D1-backed editorial, admin-authored, plain-text paragraphs (XSS-safe, no markdow
 - `MOLLIE_API_KEY` env-only (financial secret, NOT in app_settings). Gift cards are **excluded from GDPR purge** (fiscal-retention legal obligation).
 - **Deferred (gated on legal track):** purchase UI wiring on `/cadeaukaart`, the `/beheer/kassa` till/redeem UI, SEPA payouts, expiry/breakage cron.
 
-Next: Step 8 i18n (`0010`), Step 9 discovery/search (`0011`), Step 10 analytics (`0012`), cron worker, then FULL AUDIT + flowcharts.
+## Build progress — Step 10 analytics (done 2026-06-19, green: 54 tests)
+Cookieless, consent-free:
+- `migrations/0010_analytics.sql` — `analytics_events` (daily-salted visitor_hash, no PII).
+- `src/lib/analytics.ts` — `dailySalt`/`visitorHash` (HMAC, rotates daily → unlinkable across days), `recordEvent`, `logServerEvent` (no-throw), `getAnalyticsSummary`. `src/lib/track.ts` (client beacon via sendBeacon).
+- `/api/collect` (POST, bot-filter + rate-limit + cookieless hash), `/admin/statistieken` (event + gift-card stats).
+- **Deferred:** firing `track()` at UI points (action clicks etc.), GSC import, daily rollup table, AI-citation tracking.
+
+## DEFERRED (documented, not built — to be surfaced in the audit/flowcharts)
+- **Step 8 i18n (NL/EN):** the translation store is cheap but useless without the full `[locale]` ROUTING REFACTOR
+  (middleware, generateStaticParams per locale, hreflang) — a large dedicated effort. Deferred whole.
+- **Step 9 discovery/search:** client-side category/open-now/perfect-voor filtering ALREADY exists in BusinessExplorer;
+  FTS5 is over-engineering at ~67 static businesses. A text-search box is the only gap. Deferred.
+- **Cron worker** (`src/worker.ts` scheduled() wrapper) — wiring next (verify on first `*:cf` deploy).
+
+Backend Steps 1-7 + 10 BUILT. Then: cron worker, then FULL AUDIT + flowcharts (the finale).
 
 NOTE: pre-existing Next-16 lint errors were fixed (new `src/lib/useNow.ts` hook + 4 components); CI now hard-gates lint.
 
