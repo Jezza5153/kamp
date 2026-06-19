@@ -84,9 +84,11 @@ export async function saveSettingsAction(formData: FormData) {
     admin_emails: String(formData.get("admin_emails") ?? ""),
     site_url: String(formData.get("site_url") ?? ""),
   };
-  // Only change the API key when a new one is typed (blank = keep the current).
+  // Only change secret-ish keys when a new value is typed (blank = keep current).
   const key = String(formData.get("resend_api_key") ?? "").trim();
   if (key) values.resend_api_key = key;
+  const mapsKey = String(formData.get("google_maps_api_key") ?? "").trim();
+  if (mapsKey) values.google_maps_api_key = mapsKey;
   await saveSettings(values);
   redirect("/admin/instellingen?saved=1");
 }

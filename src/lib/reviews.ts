@@ -52,6 +52,22 @@ export async function getBusinessGoogle(businessId: string): Promise<BusinessGoo
   }
 }
 
+/** Map of business_id → place_id for every linked business (admin overview). */
+export async function listBusinessGoogle(): Promise<Record<string, string>> {
+  const db = await getDB();
+  if (!db) return {};
+  try {
+    const { results } = await db
+      .prepare(`SELECT business_id, place_id FROM business_google WHERE place_id IS NOT NULL`)
+      .all<{ business_id: string; place_id: string }>();
+    const map: Record<string, string> = {};
+    for (const r of results) map[r.business_id] = r.place_id;
+    return map;
+  } catch {
+    return {};
+  }
+}
+
 /** Admin links a business to its Google place_id (the only persisted Google value). */
 export async function setPlaceId(businessId: string, placeId: string, adminId: string): Promise<boolean> {
   const db = await getDB();

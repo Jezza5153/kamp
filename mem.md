@@ -176,8 +176,11 @@ need the GBP API (OAuth + multi-week approval). So display was pulled forward:
 - `src/lib/places.ts` — Places API (New) `GET /v1/places/{id}` (X-Goog-FieldMask), `parsePlaceDetails` (≤5 reviews, tested).
 - `src/app/api/reviews/[businessId]/route.ts` — `force-dynamic` + `private, no-store` (ToS: never cache review content).
 - `src/components/GoogleReviews.tsx` — client-fetched (keeps reviews out of ISR cache), attribution + Maps link, **no AggregateRating schema** (self-serving). Wired into `/ondernemers/[id]`.
-- Key via `GOOGLE_MAPS_API_KEY` (env) or `google_maps_api_key` setting (`getGoogleMapsKey`). Set a place_id per business via `setPlaceIdAction` first.
-- **Refinements:** swap the text attribution for the official Google logo asset (strict ToS); restrict the Maps key to Places API; consider cost (1 API call per detail-page view that has a place_id).
+- **Fully in-app, no CLI:** set the Maps key in **/admin/instellingen** (Google reviews section) and paste each shop's
+  **place_id** in **/admin/google** (lists all businesses; uses `setPlaceIdAction` + `listBusinessGoogle`). Then reviews show.
+- **Decision (2026-06-19): display only.** Owners reply to reviews on their own Google profiles — we do NOT build the
+  GBP owner-reply feature. The `oauth_*`/cached columns in `business_google` stay unused.
+- **Refinements:** swap the text attribution for the official Google logo asset (strict ToS); restrict the Maps key to Places API; cost = 1 API call per detail-page view that has a place_id.
 
 **Still needs GBP API approval (apply ASAP — multi-week):** owner review REPLIES + reading ALL reviews from
 `/beheer` (OAuth connect/callback + encrypted token storage). Next backend step per §9: Step 4 events (`0006`).
