@@ -87,3 +87,8 @@ export async function getGoogleMapsKey(): Promise<string | undefined> {
   const env = await getEnv();
   return s.google_maps_api_key || env?.GOOGLE_MAPS_API_KEY || undefined;
 }
+
+/** Mollie API key (gift card). Env only — never expose via in-app settings. */
+export async function getMollieKey(): Promise<string | undefined> {
+  return (await getEnv())?.MOLLIE_API_KEY || undefined;
+}

@@ -57,6 +57,7 @@ export interface KampEnv {
   ADMIN_EMAILS?: string;
   NEXT_PUBLIC_SITE_URL?: string;
   GOOGLE_MAPS_API_KEY?: string;
+  MOLLIE_API_KEY?: string;
 }
 
 export async function getEnv(): Promise<KampEnv | null> {

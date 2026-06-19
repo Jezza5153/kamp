@@ -211,7 +211,15 @@ D1-backed editorial, admin-authored, plain-text paragraphs (XSS-safe, no markdow
 - `purgeBusiness` unlinks `story_business`. Build-guarded getters.
 - **Deferred:** owner photo-upload for story heroes (uses a URL field for now), rich text.
 
-Next backend steps: Step 7 cadeaukaart ledger (`0009`, Mollie stubbed — legally blocked), then 8 i18n, 9 discovery, 10 analytics, then cron worker + FULL AUDIT + flowcharts.
+## Build progress — Step 7 cadeaukaart ledger core (done 2026-06-19, green: 51 tests)
+⚠️ LEGALLY GATED (stichting/KvK + ring-fenced account + Mollie live approval + PSD2/voucher-VAT sign-off):
+- `migrations/0009_cadeaukaart.sql` — `gift_cards`, append-only `gift_card_ledger` (balance = SUM), `redemptions`, `gift_card_merchants`, `gift_card_webhook_events`.
+- `src/lib/giftcard.ts` — `validateAmount`, `generateCode` (KAMP-XXXX-XXXX), `hashCode` (SHA-256, codes hashed at rest), `createGiftCardOrder` (Mollie POST, **fail-soft: no key = no payment**), `handleMollieWebhook` (re-fetches payment, verifies paid+amount, dedupes, status-guarded issue), `issueGiftCard`, `getBalanceByCode`, **overdraw-safe `redeem`** (single conditional INSERT…SELECT…WHERE + UNIQUE idempotency_key), `isMerchant`, `giftCardStats`.
+- Routes: `/api/cadeaukaart/saldo/[code]` (rate-limited oracle guard), `/api/cadeaukaart/order`, `/api/webhooks/mollie` (never trusts body).
+- `MOLLIE_API_KEY` env-only (financial secret, NOT in app_settings). Gift cards are **excluded from GDPR purge** (fiscal-retention legal obligation).
+- **Deferred (gated on legal track):** purchase UI wiring on `/cadeaukaart`, the `/beheer/kassa` till/redeem UI, SEPA payouts, expiry/breakage cron.
+
+Next: Step 8 i18n (`0010`), Step 9 discovery/search (`0011`), Step 10 analytics (`0012`), cron worker, then FULL AUDIT + flowcharts.
 
 NOTE: pre-existing Next-16 lint errors were fixed (new `src/lib/useNow.ts` hook + 4 components); CI now hard-gates lint.
 
