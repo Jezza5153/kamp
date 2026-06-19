@@ -12,6 +12,7 @@
  */
 
 import { businesses as seed, type Business } from "@/data/businesses";
+import { applyTranslations, getBusinessTranslations, type Locale } from "@/lib/i18n";
 
 /**
  * Approved owner edits keyed by business id, read from D1.
@@ -73,3 +74,22 @@ export async function getBusiness(id: string): Promise<Business | undefined> {
 
 /** Synchronous seed access — for build-time param sets and client fallbacks only. */
 export const allBusinessesSeed: Business[] = seed;
+
+// --- Locale-aware variants (i18n) — EN merges DeepL translations on top of NL. ---
+
+export async function getBusinessesIn(locale: Locale): Promise<Business[]> {
+  const base = await getBusinesses();
+  if (locale === "nl") return base;
+  return applyTranslations(base, await getBusinessTranslations(locale));
+}
+
+export async function getActiveBusinessesIn(locale: Locale): Promise<Business[]> {
+  return (await getBusinessesIn(locale)).filter((b) => b.status !== "closed");
+}
+
+export async function getBusinessIn(id: string, locale: Locale): Promise<Business | undefined> {
+  const b = await getBusiness(id);
+  if (!b || locale === "nl") return b;
+  const tr = (await getBusinessTranslations(locale))[id];
+  return tr ? { ...b, ...tr } : b;
+}

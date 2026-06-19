@@ -8,6 +8,8 @@ import { approveMedia, rejectMedia, uploadPublicImage } from "@/lib/media";
 import { purgeBusiness } from "@/lib/gdpr";
 import { saveSettings, getConfiguredSiteUrl } from "@/lib/settings";
 import { createIssue, sendIssueBatch } from "@/lib/newsletter";
+import { getActiveBusinesses } from "@/lib/businessData";
+import { translateBusiness, getBusinessTranslations } from "@/lib/i18n";
 import { inviteOwner } from "@/lib/invites";
 import { setLeadStatus } from "@/lib/leads";
 import { setPlaceId, createReviewRequest } from "@/lib/reviews";
@@ -193,6 +195,23 @@ export async function sendIssueBatchAction(formData: FormData) {
   const base = (await getConfiguredSiteUrl())?.replace(/\/$/, "") ?? "https://ondernemersvandekamp.nl";
   const res = await sendIssueBatch(issueId, base, 100);
   redirect(`/admin/nieuwsbrief?sent=${res.sent}&remaining=${res.remaining}`);
+}
+
+/** Translate the next batch of businesses to EN (resumable; ~8 per click). */
+export async function translateBatchAction() {
+  await requireAdmin();
+  const businesses = await getActiveBusinesses();
+  const have = await getBusinessTranslations("en");
+  const todo = businesses.filter((b) => !have[b.id]);
+  const batch = todo.slice(0, 8);
+  for (const b of batch) {
+    await translateBusiness(b.id, {
+      shortDescription: b.shortDescription,
+      longDescription: b.longDescription,
+      subcategory: b.subcategory,
+    });
+  }
+  redirect(`/admin/vertalingen?done=${batch.length}&remaining=${Math.max(0, todo.length - batch.length)}`);
 }
 
 export async function saveSettingsAction(formData: FormData) {

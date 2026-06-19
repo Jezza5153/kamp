@@ -34,6 +34,9 @@ export default async function SettingsPage({
           <Link href="/admin/statistieken" className="underline">
             Statistieken
           </Link>
+          <Link href="/admin/vertalingen" className="underline">
+            Vertalingen
+          </Link>
           <Link href="/admin/google" className="underline">
             Google reviews
           </Link>
