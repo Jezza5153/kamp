@@ -78,7 +78,13 @@ export default function GoogleReviews({ businessId }: { businessId: string }) {
           {data.reviews.map((r, i) => (
             <li key={i} className="rounded-2xl border border-stone/25 bg-white p-4">
               <div className="mb-2 flex items-center justify-between gap-2">
-                <span className="truncate text-sm font-bold text-deep-green">{r.author}</span>
+                <span className="flex min-w-0 items-center gap-2">
+                  {r.photoUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={r.photoUrl} alt="" className="h-6 w-6 flex-shrink-0 rounded-full" loading="lazy" />
+                  ) : null}
+                  <span className="truncate text-sm font-bold text-deep-green">{r.author}</span>
+                </span>
                 <Stars rating={r.rating} />
               </div>
               {r.text && <p className="line-clamp-5 text-sm leading-relaxed text-warm-brown/85">{r.text}</p>}
