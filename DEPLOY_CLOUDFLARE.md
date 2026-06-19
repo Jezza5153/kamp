@@ -102,10 +102,16 @@ account needed to build/test them):
   runs test + build on every PR (lint is non-blocking until pre-existing Next 16
   lint debt is cleared).
 
-**Still TODO at deploy time (couldn't be verified without a `*:cf` build):**
+**Enable cron at deploy time (one verified flip):**
 
-- **Cron / `scheduled()`** — the prune logic exists in `src/lib/maintenance.ts`
-  (`runMaintenance`), but the OpenNext worker needs a custom `src/worker.ts`
-  wrapper that re-exports the generated `.open-next/worker.js` `fetch` and adds a
-  `scheduled()` handler, plus `triggers.crons` in `wrangler.jsonc`. Wire this and
-  verify the generated worker's export shape on your first `npm run preview:cf`.
+The cron worker is written at **`worker/index.ts`** (re-exports the OpenNext
+`fetch` handler + adds a `scheduled()` nightly-maintenance job; self-contained, no
+`@/` alias). It's **inactive by default** so the standard deploy can't break on an
+unverified wrapper. To turn it on:
+1. In `wrangler.jsonc` set `"main": "worker/index.ts"` (was `.open-next/worker.js`).
+2. In `wrangler.jsonc` add `"triggers": { "crons": ["0 3 * * *"] }`.
+3. `npm run preview:cf` — confirm the site still serves and the scheduled handler
+   fires (check `wrangler tail`). Then `npm run deploy:cf`.
+
+The nightly job prunes expired tokens/sessions/rate-limit windows, stale unconfirmed
+leads, expired invites, unconfirmed newsletter sign-ups, and analytics >35 days.
