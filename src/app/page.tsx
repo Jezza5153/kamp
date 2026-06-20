@@ -11,7 +11,7 @@ import { getActiveBusinesses } from "@/lib/businessData";
 import { graph, organizationSchema, websiteSchema, districtPlaceSchema, itemListSchema } from "@/lib/schema";
 
 export const metadata = {
-  alternates: { canonical: "/", languages: { nl: "/", en: "/en" } },
+  alternates: { canonical: "/", languages: { nl: "/", en: "/en", "x-default": "/" } },
 };
 
 // ISR: pick up approved owner edits/photos from D1 on a time window. On Workers
@@ -21,13 +21,16 @@ export const revalidate = 300;
 
 export default async function Home() {
   const active = await getActiveBusinesses();
+  // Featured subset resolved through the D1-aware seam so approved overrides +
+  // closures flow into the spotlight (it no longer reads the raw seed).
+  const featured = active.filter((b) => b.featured);
 
   return (
     <div className="flex flex-col">
-      <Hero />
+      <Hero businessCount={active.length} />
       <SeoIntro />
       <WandelShowcase />
-      <FeaturedHorizontal />
+      <FeaturedHorizontal featured={featured} />
 
       <section id="ondernemers" className="bg-stone/10 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

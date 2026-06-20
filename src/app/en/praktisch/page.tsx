@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Practical info — where De Kamp is & how to get there",
   description:
     "Everything for your visit to De Kamp in Amersfoort: where it is, parking, by train or bike, and what you'll find nearby. In the heart of the historic old town, by the Kamperbinnenpoort.",
-  alternates: { canonical: "/en/praktisch", languages: { nl: "/praktisch", en: "/en/praktisch" } },
+  alternates: { canonical: "/en/praktisch", languages: { nl: "/praktisch", en: "/en/praktisch", "x-default": "/praktisch" } },
   openGraph: { title: "Visit De Kamp — practical info", description: "Location, parking, public transport and sights around De Kamp in Amersfoort.", url: abs("/en/praktisch"), locale: "en_GB" },
 };
 

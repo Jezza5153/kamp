@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "The history of De Kamp in Amersfoort: from medieval cattle droving and the 13th-century Kamperbinnenpoort city gate to the independent shopping and dining district of today.",
   alternates: {
     canonical: "/en/over-de-kamp",
-    languages: { nl: "/over-de-kamp", en: "/en/over-de-kamp" },
+    languages: { nl: "/over-de-kamp", en: "/en/over-de-kamp", "x-default": "/over-de-kamp" },
   },
   openGraph: { url: abs("/en/over-de-kamp"), locale: "en_GB" },
 };
