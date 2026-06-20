@@ -7,7 +7,7 @@ export const metadata = {
   title: "Over De Kamp in Amersfoort — geschiedenis & winkelgebied",
   description:
     "De geschiedenis van De Kamp in Amersfoort: van middeleeuwse veedrift en de 13e-eeuwse Kamperbinnenpoort tot het onafhankelijke winkel- en horecagebied van vandaag.",
-  alternates: { canonical: "/over-de-kamp", languages: { nl: "/over-de-kamp", en: "/en/over-de-kamp" } },
+  alternates: { canonical: "/over-de-kamp", languages: { nl: "/over-de-kamp", en: "/en/over-de-kamp", "x-default": "/over-de-kamp" } },
 };
 
 const faqs = [
@@ -82,7 +82,7 @@ export default async function AboutPage() {
               Weverssingel en Achter de Kamp horen er onlosmakelijk bij. Samen vormen ze een uniek winkel- en
               horecagebied met restaurants uit de hele wereld — Frans, Indiaas, Italiaans, Ethiopisch, Chinees en meer —
               naast goudsmeden, wijnkopers, interieurzaken, ambachtslieden en vertrouwde vakzaken. De ondernemers zijn
-              verenigd in ‘Vrienden van de Kamp’. Op deze gids vind je er {active.length}.
+              verenigd in ‘<a href="https://vriendenvandekamp.nl/" target="_blank" rel="noopener noreferrer" className="font-semibold text-deep-green underline decoration-amber/40 underline-offset-2 transition hover:decoration-amber">Vrienden van de Kamp</a>’. Op deze gids vind je er {active.length}.
             </p>
           </section>
 

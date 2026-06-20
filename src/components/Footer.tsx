@@ -83,6 +83,9 @@ const Footer = () => {
           <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest text-stone/20">
             <Link href="/login" className="hover:text-stone transition-colors">{t(locale, "footer.manage")}</Link>
             <Link href="/privacy" className="hover:text-stone transition-colors">{t(locale, "footer.privacy")}</Link>
+            <a href="https://jezzacooks.com" target="_blank" rel="noopener noreferrer" className="hover:text-stone transition-colors">
+              Built by jezzacooks.com
+            </a>
           </div>
         </div>
       </div>

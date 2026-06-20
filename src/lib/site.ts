@@ -21,10 +21,19 @@ export const SITE = {
   country: "NL",
   postalArea: "3811",
   geo: DISTRICT_CENTER,
-  /** Public social profiles for the guide itself (sameAs). Fill when live. */
+  /**
+   * Square brand logo for the Organization rich result / knowledge panel.
+   * Drop a square PNG (≥112px, e.g. 512×512) at /public/images/logo.png and set
+   * this to "/images/logo.png". Left empty → no logo node is emitted.
+   */
+  logo: "",
+  /** Public phone for the guide (NAP). Fill when a public number exists. */
+  phone: "",
+  /** Public social / Google Business profiles for the guide (sameAs). Fill when live. */
   social: {
     instagram: "",
     facebook: "",
+    googleBusiness: "",
   },
 } as const;
 

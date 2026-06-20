@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "De Kamp, Amersfoort — independent shops, cafés & makers",
   description:
     "Discover every independent shop, café and maker on De Kamp, the historic shopping street in the heart of Amersfoort (NL). Opening hours, map and live ‘open now’ status.",
-  alternates: { canonical: "/en", languages: { nl: "/", en: "/en" } },
+  alternates: { canonical: "/en", languages: { nl: "/", en: "/en", "x-default": "/" } },
   openGraph: { title: "De Kamp, Amersfoort", description: "Independent shops, cafés & makers in the old town of Amersfoort.", url: abs("/en"), siteName: SITE.name, locale: "en_GB" },
 };
 

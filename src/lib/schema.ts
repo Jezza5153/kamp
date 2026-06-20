@@ -13,6 +13,19 @@ import { toOpeningHoursSpec } from "@/lib/hours";
 
 type Json = Record<string, unknown>;
 
+/**
+ * schema.org priceRange wants a compact value — a "€€" band or a numeric range —
+ * not prose. Pass clean bands/ranges through (normalising $→€ for this NL guide)
+ * and drop anything else rather than emit an invalid property.
+ */
+function normalizePriceRange(pr?: string): string | undefined {
+  if (!pr) return undefined;
+  const t = pr.trim().replace(/\$/g, "€");
+  if (/^€{1,4}(\s*[–-]\s*€{1,4})?$/.test(t)) return t; // band, e.g. "€€" or "€-€€€"
+  if (/^€?\d[\d.,]*\s*[–-]\s*€?\d[\d.,]*$/.test(t)) return t; // numeric range, e.g. "€10 - €25"
+  return undefined; // prose → omit so the LocalBusiness node stays valid
+}
+
 const ID = {
   organization: `${SITE.url}/#organization`,
   website: `${SITE.url}/#website`,
@@ -21,7 +34,9 @@ const ID = {
 
 /** Publisher/Organization for the guide. */
 export function organizationSchema(): Json {
-  return {
+  const sameAs = [SITE.social.instagram, SITE.social.facebook, SITE.social.googleBusiness].filter(Boolean);
+  const logo = SITE.logo ? abs(SITE.logo) : undefined;
+  const node: Json = {
     "@type": "Organization",
     "@id": ID.organization,
     name: SITE.name,
@@ -29,8 +44,15 @@ export function organizationSchema(): Json {
     email: SITE.email,
     description: SITE.description,
     areaServed: { "@type": "City", name: SITE.city },
-    sameAs: [SITE.social.instagram, SITE.social.facebook].filter(Boolean),
   };
+  if (logo) {
+    // logo unlocks the Organization rich result / knowledge-panel; image reuses it.
+    node.logo = logo;
+    node.image = logo;
+  }
+  if (SITE.phone) node.telephone = SITE.phone;
+  if (sameAs.length) node.sameAs = sameAs;
+  return node;
 }
 
 /** WebSite + SearchAction (sitelinks search box / query understanding). */
@@ -80,6 +102,12 @@ export function districtPlaceSchema(businessCount: number): Json {
     },
     containsPlace: { "@type": "Place", name: `${businessCount} ondernemers` },
     isAccessibleForFree: true,
+    // Bind "De Kamp" to its canonical entities so AI engines + Google resolve it
+    // to the real shopping street in Amersfoort (Wikipedia + Wikidata Q19286435).
+    sameAs: [
+      "https://nl.wikipedia.org/wiki/Kamp_(Amersfoort)",
+      "https://www.wikidata.org/wiki/Q19286435",
+    ],
   };
 }
 
@@ -160,7 +188,8 @@ export function localBusinessSchema(business: Business): Json {
   if (image) node.image = image;
   if (sameAs.length) node.sameAs = sameAs;
   if (hoursSpec) node.openingHoursSpecification = hoursSpec;
-  if (business.priceRange) node.priceRange = business.priceRange;
+  const priceRange = normalizePriceRange(business.priceRange);
+  if (priceRange) node.priceRange = priceRange;
   if (business.servesCuisine) node.servesCuisine = business.servesCuisine;
   if (typeof business.acceptsReservations === "boolean")
     node.acceptsReservations = business.acceptsReservations;

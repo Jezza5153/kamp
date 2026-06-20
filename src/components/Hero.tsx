@@ -1,23 +1,42 @@
 "use client";
 
 import Link from "next/link";
+import { preload } from "react-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, MapPin, Sparkles } from "lucide-react";
 import { useRef } from "react";
 
-const Hero = () => {
+const HERO_IMG = "/images/kamperbinnenpoort.jpg";
+
+const Hero = ({ businessCount }: { businessCount?: number }) => {
+  // Prioritise the LCP image: tell the browser to fetch it high-priority before
+  // hydration so largest-contentful-paint lands fast on mobile.
+  preload(HERO_IMG, { as: "image", fetchPriority: "high" });
+
   const targetRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: targetRef, offset: ["start start", "end start"] });
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
   const contentY = useTransform(scrollYProgress, [0, 0.6], [0, 80]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
+  const stats = [
+    { v: businessCount && businessCount > 0 ? String(businessCount) : "Alle", l: "ondernemers" },
+    { v: "5", l: "straten" },
+    { v: "13e eeuw", l: "stadspoort" },
+  ];
+
   return (
     <section ref={targetRef} className="relative flex min-h-[88vh] items-end overflow-hidden bg-charcoal">
       {/* Image */}
       <motion.div style={{ scale: imgScale }} className="absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/kamperbinnenpoort.jpg" alt="De Kamperbinnenpoort, de middeleeuwse stadspoort aan het begin van De Kamp in Amersfoort" className="h-full w-full object-cover" />
+        <img
+          src={HERO_IMG}
+          alt="De Kamperbinnenpoort, de middeleeuwse stadspoort aan het begin van De Kamp in Amersfoort"
+          className="h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+        />
         {/* Photo: Kamperbinnenpoort gezien vanaf de Zuidsingel — Wikimedia Commons, CC BY-SA 4.0 */}
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/55 to-charcoal/25" />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/70 to-transparent" />
@@ -30,11 +49,16 @@ const Hero = () => {
             <Sparkles className="h-4 w-4" /> Het kloppend hart van historisch Amersfoort
           </span>
 
-          <h1 className="font-serif text-[15vw] font-black leading-[0.82] tracking-tighter text-white sm:text-[10rem]">
-            De Kamp <span className="italic text-gold">leeft.</span>
+          <h1 className="font-serif font-black tracking-tighter text-white">
+            <span className="block text-[13vw] leading-[0.82] sm:text-[8.5rem]">
+              De Kamp <span className="italic text-gold">leeft.</span>
+            </span>
+            <span className="mt-5 block max-w-3xl text-lg font-bold leading-tight tracking-normal text-stone/90 sm:text-2xl">
+              Winkels, restaurants &amp; makers in de historische binnenstad van Amersfoort
+            </span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-xl font-medium leading-snug text-stone/90 sm:text-2xl">
+          <p className="mt-7 max-w-2xl text-base font-medium leading-snug text-stone/80 sm:text-lg">
             Een straatportret van makers, smaken en ondernemersgeest — van de middeleeuwse Kamperbinnenpoort tot aan de
             singels.
           </p>
@@ -57,11 +81,7 @@ const Hero = () => {
 
           {/* Stat strip */}
           <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/15 pt-7 text-white/80">
-            {[
-              { v: "67", l: "ondernemers" },
-              { v: "5", l: "straten" },
-              { v: "13e eeuw", l: "stadspoort" },
-            ].map((s) => (
+            {stats.map((s) => (
               <div key={s.l}>
                 <span className="font-serif text-2xl font-black text-white">{s.v}</span>
                 <span className="ml-2 text-[11px] font-bold uppercase tracking-widest text-white/50">{s.l}</span>

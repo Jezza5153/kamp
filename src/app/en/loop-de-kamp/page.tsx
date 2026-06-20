@@ -13,7 +13,7 @@ export const metadata = {
   title: "Walk De Kamp — a Street View stroll past every business",
   description:
     "Walk De Kamp in Amersfoort step by step, from the Kamperbinnenpoort to the canals. See every shop with a photo, opening hours and the real street view via Street View.",
-  alternates: { canonical: "/en/loop-de-kamp", languages: { nl: "/loop-de-kamp", en: "/en/loop-de-kamp" } },
+  alternates: { canonical: "/en/loop-de-kamp", languages: { nl: "/loop-de-kamp", en: "/en/loop-de-kamp", "x-default": "/loop-de-kamp" } },
   openGraph: { title: "Walk De Kamp, Amersfoort", description: "A Street View stroll past every business on De Kamp.", url: abs("/en/loop-de-kamp"), locale: "en_GB" },
 };
 

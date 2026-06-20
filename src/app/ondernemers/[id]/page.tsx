@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: [b.name, b.subcategory, b.category, "De Kamp Amersfoort", `${b.name} Amersfoort`, ...(b.specialties ?? [])],
     alternates: {
       canonical: `/ondernemers/${b.id}`,
-      languages: { nl: `/ondernemers/${b.id}`, en: `/en/ondernemers/${b.id}` },
+      languages: { nl: `/ondernemers/${b.id}`, en: `/en/ondernemers/${b.id}`, "x-default": `/ondernemers/${b.id}` },
     },
     openGraph: {
       type: "website",

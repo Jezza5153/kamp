@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Kamp Gift Card — one gift voucher for all of De Kamp",
   description:
     "The Kamp Gift Card: a local gift voucher you spend at the independent shops, restaurants and makers of De Kamp in Amersfoort. Keep your gift — and your money — local.",
-  alternates: { canonical: "/en/cadeaukaart", languages: { nl: "/cadeaukaart", en: "/en/cadeaukaart" } },
+  alternates: { canonical: "/en/cadeaukaart", languages: { nl: "/cadeaukaart", en: "/en/cadeaukaart", "x-default": "/cadeaukaart" } },
   openGraph: { title: "Kamp Gift Card", description: "One gift voucher for all the independent businesses of De Kamp in Amersfoort.", url: abs("/en/cadeaukaart"), siteName: SITE.name, locale: "en_GB" },
 };
 

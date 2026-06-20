@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Map of De Kamp — every business at a glance",
   description:
     "See every business on De Kamp in Amersfoort on the interactive map. Filter by category, check who's open now and plan your route past the shops, restaurants and makers.",
-  alternates: { canonical: "/en/kaart", languages: { nl: "/kaart", en: "/en/kaart" } },
+  alternates: { canonical: "/en/kaart", languages: { nl: "/kaart", en: "/en/kaart", "x-default": "/kaart" } },
   openGraph: { title: "Map of De Kamp, Amersfoort", description: "Every business on De Kamp on one interactive map.", url: abs("/en/kaart"), locale: "en_GB" },
 };
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Kamp Cadeaukaart — één cadeaubon voor heel De Kamp",
   description:
     "De Kamp Cadeaukaart: een lokale cadeaubon die je besteedt bij de zelfstandige winkels, restaurants en makers van De Kamp in Amersfoort. Houd je cadeau — en je geld — lokaal.",
-  alternates: { canonical: "/cadeaukaart", languages: { nl: "/cadeaukaart", en: "/en/cadeaukaart" } },
+  alternates: { canonical: "/cadeaukaart", languages: { nl: "/cadeaukaart", en: "/en/cadeaukaart", "x-default": "/cadeaukaart" } },
   openGraph: { title: "Kamp Cadeaukaart", description: "Eén cadeaubon voor alle zelfstandige ondernemers van De Kamp in Amersfoort.", url: "/cadeaukaart" },
 };
 
@@ -108,7 +108,7 @@ export default async function CadeaukaartPage() {
             </p>
             <p>
               Andere steden bewijzen het succes van de lokale cadeaukaart al. De Kamp heeft de perfecte ingrediënten: een
-              compact gebied, tientallen unieke zaken en een sterke ‘Vrienden van de Kamp’-gemeenschap.
+              compact gebied, tientallen unieke zaken en een sterke ‘<a href="https://vriendenvandekamp.nl/" target="_blank" rel="noopener noreferrer" className="font-semibold text-deep-green underline decoration-amber/40 underline-offset-2 transition hover:decoration-amber">Vrienden van de Kamp</a>’-gemeenschap.
             </p>
           </div>
         </div>
